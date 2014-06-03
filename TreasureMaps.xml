@@ -1,0 +1,11 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="TreasureMaps" mouseEnabled="true" movable="true">
+          
+            <OnUpdate>
+                TreasureMapOnUpdate()
+            </OnUpdate>
+
+        </TopLevelControl>
+    </Controls>
+</GuiXml>
