@@ -1,0 +1,15 @@
+## Title: Lost Treasure - By |c5555FFCrazyDutchGuy|r
+## Description: Shows treasure map locations
+## Version: 1.0
+## Author: CrazyDutchGuy
+## APIVersion: 100004
+## SavedVariables: LOST_TREASURE_SV
+## OptionalDependsOn: LibStub LibAddonMenu-1.0 CustomMapPins
+
+Libs/LibStub/LibStub.lua
+Libs/LibAddonMenu-1.0/LibAddonMenu-1.0.lua
+Libs/CustomMapPins/CustomMapPins.lua
+
+LostTreasureData.lua
+LostTreasure.lua
+LostTreasure.xml
