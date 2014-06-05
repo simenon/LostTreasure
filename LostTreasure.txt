@@ -4,11 +4,11 @@
 ## Author: CrazyDutchGuy
 ## APIVersion: 100004
 ## SavedVariables: LOST_TREASURE_SV
-## OptionalDependsOn: LibStub LibAddonMenu-1.0 CustomMapPins
+## OptionalDependsOn: LibStub LibAddonMenu-1.0 LibMapPins-1.0
 
 Libs/LibStub/LibStub.lua
 Libs/LibAddonMenu-1.0/LibAddonMenu-1.0.lua
-Libs/CustomMapPins/CustomMapPins.lua
+Libs/LibMapPins-1.0/LibMapPins-1.0.lua
 
 LostTreasureData.lua
 LostTreasure.lua

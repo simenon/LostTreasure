@@ -1,4 +1,5 @@
 local LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
+local LMP = LibStub:GetLibrary("LibMapPins-1.0")
 local LOST_TREASURE = ZO_Object:Subclass()
 
 local AddonName = "LostTreasure" 
@@ -65,22 +66,22 @@ local function pinCreator_Treasure(pinManager)
            
     for _, pinData in pairs(data) do
 	    if LT.SavedVariables.showtreasureswithoutmap == true then
-            pinManager:CreatePin( _G[AddonName.."MapPin"], pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
+            LMP:CreatePin( AddonName.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
 		else
 		    if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME]) then 		    	
-		        pinManager:CreatePin( _G[AddonName.."MapPin"], pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
+		        LMP:CreatePin( AddonName.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
             end
 		end	
     end
 end
 	
 local function ShowTreasure()	
-	if LT.SavedVariables.showTreasure == true then  		
-		LT.MapPins:CreatePinType(AddonName.."MapPin", pinLayout_Treasure, pinTooltipCreator, pinCreator_Treasure)
+	if LT.SavedVariables.showTreasure == true then  				
+		LMP:Enable(AddonName.."MapPin" )	     		 
 	else
-		LT.MapPins:enablePins(AddonName.."MapPin", disable )	     		 
+		LMP:Disable(AddonName.."MapPin" )	     		 
     end
-    LT.MapPins:RefreshPins()
+    LMP:RefreshPins(AddonName.."MapPin" )
 end
 
 local function GetTreasure()
@@ -111,9 +112,9 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
    		EVENT_MANAGER:RegisterForEvent(AddonName, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
 
-   		LT.SavedVariables = ZO_SavedVars:New("LostTreasure_SV", 1, nil, LT.defaults)
-
-		LT.MapPins = CustomMapPins:New() 
+   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 2, nil, LT.defaults)		
+   		
+   		LMP:AddPinType(AddonName.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
 
 		if GetWithoutMap() or GetTreasure() then
 			ShowTreasure()
