@@ -1,6 +1,6 @@
-## Title: Lost Treasure - By |c5555FFCrazyDutchGuy|r
+## Title: Lost Treasure 1.2 - By |c5555FFCrazyDutchGuy|r 
 ## Description: Shows treasure map locations
-## Version: 1.0
+## Version: 1.2
 ## Author: CrazyDutchGuy
 ## APIVersion: 100004
 ## SavedVariables: LOST_TREASURE_SV

@@ -2,6 +2,7 @@ LOST_TREASURE_INDEX = {
 	X = 1,
 	Y = 2,
 	MAP_NAME = 3,
+	TEXTURE = 4,
 }
 
 LOST_TREASURE_DATA = { 
@@ -23,7 +24,7 @@ LOST_TREASURE_DATA = {
 	},	
 ----Eastmarch
 	[15] = {
-	    {0.43, 0.36, "Eastmarch Treasure Map I"},
+	    {0.441, 0.374, "Eastmarch Treasure Map I"},
 	    {0.31, 0.45, "Eastmarch Treasure Map II"},
 	    {0.43, 0.58, "Eastmarch Treasure Map III"},
 	    {0.36, 0.58, "Eastmarch Treasure Map IV"},
@@ -55,7 +56,7 @@ LOST_TREASURE_DATA = {
 	    {0.71, 0.70, "Rivenspire Treasure Map IV"},
 	    {0.75, 0.30, "Rivenspire Treasure Map V"},
 	    {0.40, 0.29, "Rivenspire Treasure Map VI"},
-	    {0.75, 0.16, "Rivenspire CE Treasure Map"},
+	    {0.75, 0.16, "Rivenspire CE Treasure Map", [[treasuremap_ce_daggerfall_rivenspire_04]]},
 	},
 ----Rivenspire, North Point	
     ["northpoint"] = {	
@@ -69,7 +70,7 @@ LOST_TREASURE_DATA = {
 		{0.59, 0.21, "Alik'r Treasure Map IV"},
 		{0.82, 0.52, "Alik'r Treasure Map V"},
 		{0.74, 0.45, "Alik'r Treasure Map VI"},
-	    {0.29, 0.34, "Alik'r CE Treasure Map"},
+	    {0.29, 0.34, "Alik'r CE Treasure Map", [[treasuremap_ce_daggerfall_alikr_05]]}, -- 
 	},	
 ----Bangkorai
 	[14] = {	
@@ -79,7 +80,7 @@ LOST_TREASURE_DATA = {
 	    {0.31, 0.45, "Bangkorai Treasure Map IV"},
 	    {0.32, 0.68, "Bangkorai Treasure Map V"},
 	    {0.64, 0.69, "Bangkorai Treasure Map VI"},
-	    {0.61, 0.76, "Bangkorai CE Treasure Map"},--checked
+	    {0.61, 0.76, "Bangkorai CE Treasure Map",[[treasuremap_ce_daggerfall_bankorai_06]]},--checked
 	},
 ----Bleakrock Isle
 	[109] = {	

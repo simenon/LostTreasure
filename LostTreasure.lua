@@ -10,7 +10,7 @@ LT =
 {	
 	defaults = 
 	{
-    	showTreasure = true,	
+    	--showTreasure = true,	
 		showtreasureswithoutmap = false,
 	}
 }
@@ -39,24 +39,31 @@ local pinTooltipCreator = {
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local function hasMap(mapName)  	
+local function hasMap(mapName, mapTexture)  	
     for i=1,GetNumViewableTreasureMaps() do
-        local map, _ = GetTreasureMapInfo(i)        
-        if map == mapName then 
-            return true
+        local name, textureName  = GetTreasureMapInfo(i)  -- This will most likely return a localized name, use the texturename instead ? ...            
+        local mapTextureName = string.match(textureName, "%w+/%w+/%w+/(.+)%.dds")
+        if mapTexture then
+        	if mapTextureName == mapTexture then
+        		return true
+        	end
+        else        	
+        	if name == mapName then 
+           		return true
+        	end
         end
     end
     return false
 end
 
 local function pinCreator_Treasure(pinManager)
-    if not LT.SavedVariables.showTreasure then
-        return
-    end
+    --if not LT.SavedVariables.showTreasure then
+    --    return
+    --end
          
     local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
-    if GetMapType() == 1 then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french en german clients
-    	subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
+    if GetMapType() == 1 then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
+    	local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
     	data = LOST_TREASURE_DATA[subzone]
     end
     
@@ -68,7 +75,7 @@ local function pinCreator_Treasure(pinManager)
 	    if LT.SavedVariables.showtreasureswithoutmap == true then
             LMP:CreatePin( AddonName.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
 		else
-		    if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME]) then 		    	
+		    if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME],pinData[LOST_TREASURE_INDEX.TEXTURE]) then 		    	
 		        LMP:CreatePin( AddonName.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
             end
 		end	
@@ -76,14 +83,16 @@ local function pinCreator_Treasure(pinManager)
 end
 	
 local function ShowTreasure()	
+	--[[
 	if LT.SavedVariables.showTreasure == true then  				
 		LMP:Enable(AddonName.."MapPin" )	     		 
 	else
 		LMP:Disable(AddonName.."MapPin" )	     		 
     end
+    ]]--
     LMP:RefreshPins(AddonName.."MapPin" )
 end
-
+--[[
 local function GetTreasure()
 	return LT.SavedVariables.showTreasure
 end
@@ -92,7 +101,7 @@ local function SetTreasure()
     LT.SavedVariables.showTreasure = not LT.SavedVariables.showTreasure	
     ShowTreasure()
 end
-
+]]--
 local function GetWithoutMap()
 	return LT.SavedVariables.showtreasureswithoutmap
 end
@@ -104,6 +113,19 @@ end
 
 function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
 	ShowTreasure()
+	--
+	--  Temporary till all textures are known ...
+	--	
+	local name, textureName  = GetTreasureMapInfo(treasureMapIndex)  -- This will most likely return a localized name, use the texturename instead ? ...            
+    local mapTextureName = string.match(textureName, "%w+/%w+/%w+/(.+)%.dds")
+    for _, v in pairs(LOST_TREASURE_DATA) do
+    	for _, v in pairs(v) do    	
+    		if mapTextureName == v[LOST_TREASURE_INDEX.TEXTURE] then
+    			return
+    		end
+    	end
+    end
+    d("Unknown map (Please report): "..mapTextureName)
 end
 
 
@@ -112,18 +134,18 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
    		EVENT_MANAGER:RegisterForEvent(AddonName, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
 
-   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 2, nil, LT.defaults)		
+   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)		
    		
    		LMP:AddPinType(AddonName.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
 
-		if GetWithoutMap() or GetTreasure() then
+		if GetWithoutMap() then
 			ShowTreasure()
 		end
 	
 		local addonMenu = LAM:CreateControlPanel(AddonName.."OptionsPanel", "Lost Treasure")
 		LAM:AddHeader(addonMenu, AddonName.."OptionsHeader", "Settings")
-		LAM:AddCheckbox(addonMenu, AddonName.."showTreasure", "Show Used Treasure Map", "Show/hide Used Treasure Map.", GetTreasure, SetTreasure)
-		LAM:AddCheckbox(addonMenu, AddonName.."showtreasureswithoutmap", "Show All Treasure Maps ", "Show/hide All Treasure Map Locations.", GetWithoutMap, SetWithoutMap)
+		--LAM:AddCheckbox(addonMenu, AddonName.."showTreasure", "Show Used Treasure Map", "Show/hide Used Treasure Map.", GetTreasure, SetTreasure)
+		LAM:AddCheckbox(addonMenu, AddonName.."showallmaps", "Show All Treasure Maps ", "Show/hide All Treasure Map Locations.", GetWithoutMap, SetWithoutMap)
 		LAM:AddHeader(addonMenu, AddonName.."DescriptionHeader", "Description")
 		LAM:AddDescription(addonMenu, AddonName.."_Description", "Icons will show on map only if the treasure map is used from your inventory.")
 		LAM:AddHeader(addonMenu, AddonName.."InfoHeader", "Info")
