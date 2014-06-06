@@ -10,7 +10,6 @@ LT =
 {	
 	defaults = 
 	{
-    	--showTreasure = true,	
 		showtreasureswithoutmap = false,
 	}
 }
@@ -57,9 +56,6 @@ local function hasMap(mapName, mapTexture)
 end
 
 local function pinCreator_Treasure(pinManager)
-    --if not LT.SavedVariables.showTreasure then
-    --    return
-    --end
          
     local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
     if GetMapType() == 1 then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
@@ -83,25 +79,9 @@ local function pinCreator_Treasure(pinManager)
 end
 	
 local function ShowTreasure()	
-	--[[
-	if LT.SavedVariables.showTreasure == true then  				
-		LMP:Enable(AddonName.."MapPin" )	     		 
-	else
-		LMP:Disable(AddonName.."MapPin" )	     		 
-    end
-    ]]--
     LMP:RefreshPins(AddonName.."MapPin" )
 end
---[[
-local function GetTreasure()
-	return LT.SavedVariables.showTreasure
-end
 
-local function SetTreasure()		
-    LT.SavedVariables.showTreasure = not LT.SavedVariables.showTreasure	
-    ShowTreasure()
-end
-]]--
 local function GetWithoutMap()
 	return LT.SavedVariables.showtreasureswithoutmap
 end
@@ -125,7 +105,9 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     		end
     	end
     end
-    d("Unknown map (Please report): "..mapTextureName)
+    d("Sending update to addon author for map " .. name )
+    RequestOpenMailbox()        
+    SendMail("@CrazyDutchGuy", "Lost Treasure :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
 end
 
 
@@ -144,7 +126,6 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 	
 		local addonMenu = LAM:CreateControlPanel(AddonName.."OptionsPanel", "Lost Treasure")
 		LAM:AddHeader(addonMenu, AddonName.."OptionsHeader", "Settings")
-		--LAM:AddCheckbox(addonMenu, AddonName.."showTreasure", "Show Used Treasure Map", "Show/hide Used Treasure Map.", GetTreasure, SetTreasure)
 		LAM:AddCheckbox(addonMenu, AddonName.."showallmaps", "Show All Treasure Maps ", "Show/hide All Treasure Map Locations.", GetWithoutMap, SetWithoutMap)
 		LAM:AddHeader(addonMenu, AddonName.."DescriptionHeader", "Description")
 		LAM:AddDescription(addonMenu, AddonName.."_Description", "Icons will show on map only if the treasure map is used from your inventory.")
