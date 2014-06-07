@@ -30,8 +30,10 @@ end
 
 --Creates ToolTip from treasure info
 local pinTooltipCreator = {
-	creator = function(pin)				
-		InformationTooltip:AddLine(GetInfoFromTag(pin), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+	creator = function(pin)		
+        local _, pinTag = pin:GetPinTypeAndTag()		
+		InformationTooltip:AddLine(pinTag[LOST_TREASURE_INDEX.MAP_NAME], "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+        InformationTooltip:AddLine(string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100).."x"..string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
 	end,
 	tooltip = InformationTooltip,
 }
@@ -107,7 +109,7 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     end
     d("Sending update to addon author for map " .. name )
     RequestOpenMailbox()        
-    SendMail("@CrazyDutchGuy", "Lost Treasure :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
+    SendMail("@CrazyDutchGuy", "Lost Treasure 1.6 :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
 end
 
 
