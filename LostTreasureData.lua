@@ -20,7 +20,7 @@ LOST_TREASURE_DATA = {
 	[110] = {	
 	    {0.58, 0.71, [[Bal Foyen Treasure Map I]],  [[treasuremap_balfoyen_001]] },
 	    {0.24, 0.53, [[Bal Foyen Treasure Map II]],  [[treasuremap_balfoyen_002]] },--checked
-		{0.52, 0.42, [[Bal Foyen CE Treasure Map]] },--checked
+		{0.52, 0.42, [[Bal Foyen CE Treasure Map]], [[treasuremap_ce_ebonheart_balfoyen_01b]] },--checked
 	},	
 ----Eastmarch
 	[15] = {
@@ -50,17 +50,17 @@ LOST_TREASURE_DATA = {
 	},	
 ----Rivenspire
 	[5] = {	
-	    {0.32, 0.50, [[Rivenspire Treasure Map I]] },
-	    {0.17, 0.61, [[Rivenspire Treasure Map II]] },
-	    {0.71, 0.43, [[Rivenspire Treasure Map III]] },
-	    {0.71, 0.70, [[Rivenspire Treasure Map IV]] },
-	    {0.75, 0.30, [[Rivenspire Treasure Map V]] },
-	    {0.40, 0.29, [[Rivenspire Treasure Map VI]] },
+	    {0.32, 0.50, [[Rivenspire Treasure Map I]] , [[treasuremap_rivenspire_01]]},
+	    {0.17, 0.61, [[Rivenspire Treasure Map II]] , [[treasuremap_rivenspire_02]]},
+	    {0.71, 0.43, [[Rivenspire Treasure Map III]] , [[treasuremap_rivenspire_03]]},
+	    {0.71, 0.70, [[Rivenspire Treasure Map IV]] , [[treasuremap_rivenspire_04]]},
+	    {0.75, 0.30, [[Rivenspire Treasure Map V]] , [[treasuremap_rivenspire_05]]},
+	    {0.40, 0.29, [[Rivenspire Treasure Map VI]] , [[treasuremap_rivenspire_06]]},
 	    {0.75, 0.16, [[Rivenspire CE Treasure Map]] , [[treasuremap_ce_daggerfall_rivenspire_04]]},
 	},
 ----Rivenspire, North Point	
     ["northpoint"] = {	
-       {0.28, 0.18, [[Rivenspire CE Treasure Map]] },
+       {0.28, 0.18, [[Rivenspire CE Treasure Map]] , [[treasuremap_ce_daggerfall_rivenspire_04]] },
     },		
 ----Alik’r Desert
 	[17] = {
@@ -120,7 +120,7 @@ LOST_TREASURE_DATA = {
 	    {0.46, 0.33, [[Grahtwood Treasure Map IV]] , [[treasuremap_grahtwood_04]]},
 	    {0.35, 0.35, [[Grahtwood Treasure Map V]] , [[treasuremap_grahtwood_05]]},
 	    {0.45, 0.44, [[Grahtwood Treasure Map VI]] , [[treasuremap_grahtwood_06]] },
-		{0.31, 0.60, [[Grahtwood CE Treasure Map]] },--double checked
+		{0.31, 0.60, [[Grahtwood CE Treasure Map]] , [[treasuremap_ce_aldmeri_grahtwood_03]]},--double checked
  	},	
 ----Greenshade
 	[18] = {
@@ -130,14 +130,14 @@ LOST_TREASURE_DATA = {
 	    {0.32, 0.32, [[Greenshade Treasure Map IV]] , [[treasuremap_greenshade_04]] },
 	    {0.24, 0.14, [[Greenshade Treasure Map V]] , [[treasuremap_greenshade_05]] },
 	    {0.59, 0.37, [[Greenshade Treasure Map VI]] , [[treasuremap_greenshade_06]] },
-		{0.58, 0.80, [[Greenshade CE Treasure Map]] },
+		{0.58, 0.80, [[Greenshade CE Treasure Map]] , [[treasuremap_ce_aldmeri_greenshade_04]]},
 	},	
 ----Khenarthi's Roost
 	[294] = {
-	    {0.62, 0.75, [[Khenarthi's Roost Treasure Map I]] },
-		{0.21, 0.31, [[Khenarthi's Roost Treasure Map II]] },
-		{0.41, 0.58, [[Khenarthi's Roost Treasure Map III]] },--checked
-		{0.77, 0.33, [[Khenarthi's Roost Treasure Map IV]] },
+	    {0.62, 0.75, [[Khenarthi's Roost Treasure Map I]] , [[treasuremap_khenarthi_01]] },
+		{0.21, 0.31, [[Khenarthi's Roost Treasure Map II]] , [[treasuremap_khenarthi_02]] },
+		{0.41, 0.58, [[Khenarthi's Roost Treasure Map III]] , [[treasuremap_khenarthi_03]] },--checked
+		{0.77, 0.33, [[Khenarthi's Roost Treasure Map IV]] , [[treasuremap_khenarthi_04]] },
 		{0.62, 0.83, [[Khenarthi's Roost CE Treasure Map I]] , [[treasuremap_ce_aldmeri_khenarthi_01a]] },--checked
 	    {0.40, 0.37, [[Khenarthi's Roost CE Treasure Map II]] , [[treasuremap_ce_aldmeri_khenarthi_01b]]},--checked
 	},	
@@ -149,7 +149,7 @@ LOST_TREASURE_DATA = {
 	    {0.65, 0.70, [[Malabal Tor Treasure Map IV]], [[treasuremap_malabaltor_04]] },--checked
 	    {0.79, 0.27, [[Malabal Tor Treasure Map V]] , [[treasuremap_malabaltor_05]] },
 	    {0.66, 0.21, [[Malabal Tor Treasure Map VI]] , [[treasuremap_malabaltor_06]] },
-        {0.11, 0.51, [[Malabal Tor CE Treasure Map]] },
+        {0.11, 0.51, [[Malabal Tor CE Treasure Map]] , [[treasuremap_ce_aldmeri_malbator_05]]},
 	},	
 ----Reaper’s March
 	[179] = {
@@ -212,7 +212,7 @@ LOST_TREASURE_DATA = {
 		{0.40, 0.48, [[Cyrodiil Treasure Map I]] },
 	    {0.51, 0.82, [[Cyrodiil Treasure Map II]] },
 	    {0.28, 0.70, [[Cyrodiil Treasure Map III]] },
-	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]] },
+	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]], [[treasurempa_cyrodiil_ald_04]] },
 	    {0.48, 0.52, [[Cyrodiil Treasure Map V]] },
 	    {0.23, 0.55, [[Cyrodiil Treasure Map VI]] },
 	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]] },
