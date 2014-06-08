@@ -1,0 +1,15 @@
+## Title: |cFF2222Lost Treasure|r |c0066991.6|r - By |c00C000CrazyDutchGuy|r
+## Description: Shows treasure map locations
+## Version: 1.6
+## Author: CrazyDutchGuy
+## APIVersion: 100004
+## SavedVariables: LOST_TREASURE_SV
+## OptionalDependsOn: LibStub LibAddonMenu-1.0 LibMapPins-1.0
+
+Libs/LibStub/LibStub.lua
+Libs/LibAddonMenu-1.0/LibAddonMenu-1.0.lua
+Libs/LibMapPins-1.0/LibMapPins-1.0.lua
+
+LostTreasureData.lua
+LostTreasure.lua
+LostTreasure.xml
