@@ -62,7 +62,7 @@ LOST_TREASURE_DATA = {
     ["northpoint"] = {	
        {0.28, 0.18, [[Rivenspire CE Treasure Map]] , [[treasuremap_ce_daggerfall_rivenspire_04]] },
     },		
-----Alik’r Desert
+----Alikâ€™r Desert
 	[17] = {
 	    {0.35, 0.72, [[Alik'r Treasure Map I]] , [[treasuremap_alikr_001]] },
 	    {0.04, 0.52, [[Alik'r Treasure Map II]] , [[treasuremap_alikr_002]] },
@@ -151,7 +151,7 @@ LOST_TREASURE_DATA = {
 	    {0.66, 0.21, [[Malabal Tor Treasure Map VI]] , [[treasuremap_malabaltor_06]] },
         {0.11, 0.51, [[Malabal Tor CE Treasure Map]] , [[treasuremap_ce_aldmeri_malbator_05]]},
 	},	
-----Reaper’s March
+----Reaperâ€™s March
 	[179] = {
 	    {0.37, 0.42, [[Reaper's March Treasure Map I]], [[treasuremap_reapersmarch_01]] },
 	    {0.32, 0.12, [[Reaper's March Treasure Map II]], [[treasuremap_reapersmarch_02]] },
@@ -218,7 +218,7 @@ LOST_TREASURE_DATA = {
 	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]] },
 		{0.17, 0.37, [[Cyrodiil Treasure Map VIII]] },
 		{0.31, 0.36, [[Cyrodiil Treasure Map IX]] },
-		{0.30, 0.17, [[Cyrodiil Treasure Map X]] },
+		{0.30, 0.17, [[Cyrodiil Treasure Map X]] , [[treasuremap_cyrodiil_dag_04]]},
 		{0.37, 0.14, [[Cyrodiil Treasure Map XI]] },
 		{0.47, 0.18, [[Cyrodiil Treasure Map XII]] },
 		{0.82, 0.27, [[Cyrodiil Treasure Map XIII]] , [[treasuremap_cyrodiil_ebon_06]]},
