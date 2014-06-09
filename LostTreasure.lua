@@ -11,6 +11,7 @@ LT =
 	defaults = 
 	{
 		showtreasureswithoutmap = false,
+        pinFilter = true, -- For LMP to toggle on WorldMap
 	}
 }
 
@@ -109,7 +110,7 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     end
     d("Sending update to addon author for map " .. name )
     RequestOpenMailbox()        
-    SendMail("@CrazyDutchGuy", "Lost Treasure 1.7 :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
+    SendMail("@CrazyDutchGuy", "Lost Treasure 1.8 :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
 end
 
 
@@ -118,9 +119,10 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
    		EVENT_MANAGER:RegisterForEvent(AddonName, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
 
-   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)		
+   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 5, nil, LT.defaults)		
    		
    		LMP:AddPinType(AddonName.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
+        LMP:AddPinFilter(AddonName.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")
 
 		if GetWithoutMap() then
 			ShowTreasure()

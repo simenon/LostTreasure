@@ -34,13 +34,13 @@ LOST_TREASURE_DATA = {
 	},
 ----Betnikh
 	[293] = {
-	    {0.16, 0.30, [[Betnikh Treasure Map I]] },
-	    {0.56, 0.87, [[Betnikh Treasure Map II]] },
+	    {0.16, 0.30, [[Betnikh Treasure Map I]] , [[treasuremaps_betnikh_001]] },
+	    {0.56, 0.87, [[Betnikh Treasure Map II]] , [[treasuremaps_betnikh_002]]},
 	    {0.45, 0.43, [[Betnikh CE Treasure Map]] , [[treasuremap_ce_daggerfall_betnikh_01b]]  },
 	},	
 ----Stormhaven
 	[4] = {	
-    	{0.21, 0.51, [[Stormhaven Treasure Map I]], [[treasuremap_stormhaven_001]] },
+    	{0.2316, 0.5228, [[Stormhaven Treasure Map I]], [[treasuremap_stormhaven_001]] }, --Verified
 	    {0.24, 0.34, [[Stormhaven Treasure Map II]] , [[treasuremap_stormhaven_002]] },
 	    {0.4027, 0.4735, [[Stormhaven Treasure Map III]] , [[treasuremap_stormhaven_003]] },  --Verified
 	    {0.41, 0.58, [[Stormhaven Treasure Map IV]], [[treasuremap_stormhaven_004]] },
@@ -65,11 +65,11 @@ LOST_TREASURE_DATA = {
 ----Alik’r Desert
 	[17] = {
 	    {0.35, 0.72, [[Alik'r Treasure Map I]] , [[treasuremap_alikr_001]] },
-	    {0.04, 0.52, [[Alik'r Treasure Map II]] , [[treasuremap_alikr_02]] },
-		{0.63, 0.63, [[Alik'r Treasure Map III]] , [[treasuremap_alikr_03]] },
-		{0.59, 0.21, [[Alik'r Treasure Map IV]] , [[treasuremap_alikr_04]] },
+	    {0.04, 0.52, [[Alik'r Treasure Map II]] , [[treasuremap_alikr_002]] },
+		{0.63, 0.63, [[Alik'r Treasure Map III]] , [[treasuremap_alikr_003]] },
+		{0.59, 0.21, [[Alik'r Treasure Map IV]] , [[treasuremap_alikr_004]] },
 		{0.82, 0.52, [[Alik'r Treasure Map V]] , [[treasuremap_alikr_005]] },
-		{0.74, 0.45, [[Alik'r Treasure Map VI]] , [[treasuremap_alikr_06]] },
+		{0.74, 0.45, [[Alik'r Treasure Map VI]] , [[treasuremap_alikr_006]] },
 	    {0.29, 0.34, [[Alik'r CE Treasure Map]] , [[treasuremap_ce_daggerfall_alikr_05]]}, 
 	},	
 ----Bangkorai
@@ -143,7 +143,7 @@ LOST_TREASURE_DATA = {
 	},	
 ----Malabal Tor 
 	[11] = {
-	    {0.19, 0.49, [[Malabal Tor Treasure Map I]] , [[treasuremap_malabaltor_01]] },
+	    {0.2028, 0.4993, [[Malabal Tor Treasure Map I]] , [[treasuremap_malabaltor_01]] },  --Verified
 	    {0.04, 0.47, [[Malabal Tor Treasure Map II]] , [[treasuremap_malabaltor_02]] },
 	    {0.49, 0.67, [[Malabal Tor Treasure Map III]] , [[treasuremap_malabaltor_03]] },
 	    {0.65, 0.70, [[Malabal Tor Treasure Map IV]], [[treasuremap_malabaltor_04]] },
@@ -183,8 +183,8 @@ LOST_TREASURE_DATA = {
     },
 ----Stros M'Kai
     [292] = {
-	    {0.53, 0.63, [[Stros M'Kai Treasure Map I]] },
-	    {0.09, 0.87, [[Stros M'Kai Treasure Map II]] },
+	    {0.53, 0.63, [[Stros M'Kai Treasure Map I]] , [[treasuremap_strosmkai_001]] },
+	    {0.09, 0.87, [[Stros M'Kai Treasure Map II]] , [[treasuremap_strosmkai_002]] },
 		{0.70, 0.33, [[Stros M'Kai CE Treasure Map]] , [[treasuremap_ce_daggerfall_stros_01a]] },
 	},
 ----The Rift
