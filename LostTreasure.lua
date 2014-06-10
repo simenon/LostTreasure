@@ -110,7 +110,7 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     end
     d("Sending update to addon author for map " .. name )
     RequestOpenMailbox()        
-    SendMail("@CrazyDutchGuy", "Lost Treasure 1.8 :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
+    SendMail("@CrazyDutchGuy", "Lost Treasure 1.9 :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
 end
 
 

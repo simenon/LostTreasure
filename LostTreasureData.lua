@@ -84,8 +84,8 @@ LOST_TREASURE_DATA = {
 	},
 ----Bleakrock Isle
 	[109] = {	
-	    {0.43, 0.40, [[Bleakrock Treasure Map I]] , [[treasuremap_bleackrock_001]]},
-	    {0.42, 0.20, [[Bleakrock Treasure Map II]] , [[treasuremap_bleackrock_002]]},
+	    {0.43, 0.40, [[Bleakrock Treasure Map I]] , [[treasuremap_bleakrock_001]]},
+	    {0.42, 0.20, [[Bleakrock Treasure Map II]] , [[treasuremap_bleakrock_002]]},
 		{0.46, 0.65, [[Bleakrock CE Treasure Map]] , [[treasuremap_ce_ebonheart_bleakrock_01a]] },
 	},
 ----Bleakrock Isle, Bleackrock Village	
@@ -213,11 +213,11 @@ LOST_TREASURE_DATA = {
 	    {0.51, 0.82, [[Cyrodiil Treasure Map II]] },
 	    {0.28, 0.70, [[Cyrodiil Treasure Map III]] },
 	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]], [[treasurempa_cyrodiil_ald_04]] },
-	    {0.48, 0.52, [[Cyrodiil Treasure Map V]] },
+	    {0.48, 0.52, [[Cyrodiil Treasure Map V]], [[treasuremap_cyrodiil_ald_05]] },
 	    {0.23, 0.55, [[Cyrodiil Treasure Map VI]] },
 	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]] },
-		{0.17, 0.37, [[Cyrodiil Treasure Map VIII]] },
-		{0.31, 0.36, [[Cyrodiil Treasure Map IX]] },
+		{0.17, 0.37, [[Cyrodiil Treasure Map VIII]], [[treasuremap_cyrodiil_dag_02]] },
+		{0.31, 0.36, [[Cyrodiil Treasure Map IX]], [[treasuremap_cyrodiil_dag_03]] },
 		{0.30, 0.17, [[Cyrodiil Treasure Map X]] , [[treasuremap_cyrodiil_dag_04]]},
 		{0.37, 0.14, [[Cyrodiil Treasure Map XI]] },
 		{0.47, 0.18, [[Cyrodiil Treasure Map XII]] },
