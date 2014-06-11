@@ -13,7 +13,7 @@ LOST_TREASURE_DATA = {
 	    {0.44, 0.50, [[Auridon Treasure Map III]], [[treasuremap_auridon_03]] },
 	    {0.66, 0.41, [[Auridon Treasure Map IV]] , [[treasuremap_auridon_04]] },
 	    {0.50, 0.26, [[Auridon Treasure Map V]] , [[treasuremap_auridon_05]] },
-	    {0.32, 0.11, [[Auridon Treasure Map VI]], [[treasuremap_auridon_06]] },
+	    {0.3408, 0.1352, [[Auridon Treasure Map VI]], [[treasuremap_auridon_06]] },
 		{0.69, 0.96, [[Auridon CE Treasure Map]], [[treasuremap_ce_aldmeri_auridon_02]] },
 	},
 ----Bal Foyen
@@ -124,7 +124,7 @@ LOST_TREASURE_DATA = {
  	},	
 ----Greenshade
 	[18] = {
-	    {0.65, 0.83, [[Greenshade Treasure Map I]] , [[treasuremap_greenshade_01]] },
+	    {0.6543, 0.8344, [[Greenshade Treasure Map I]] , [[treasuremap_greenshade_01]] },
 	    {0.72, 0.73, [[Greenshade Treasure Map II]] , [[treasuremap_greenshade_02]] },
 	    {0.35, 0.49, [[Greenshade Treasure Map III]], [[treasuremap_greenshade_03]] },
 	    {0.32, 0.32, [[Greenshade Treasure Map IV]] , [[treasuremap_greenshade_04]] },
@@ -166,8 +166,8 @@ LOST_TREASURE_DATA = {
 	    {0.37, 0.15, [[Shadowfen Treasure Map I]] , [[treasuremap_shadowfen_01]] },
 	    {0.71, 0.39, [[Shadowfen Treasure Map II]] , [[treasuremap_shadowfen_02]] },
 	    {0.70, 0.69, [[Shadowfen Treasure Map III]] , [[treasuremap_shadowfen_03]] },
-	    {0.61, 0.61, [[Shadowfen Treasure Map IV]] , [[treasuremap_shadowfen_04]] },
-	    {0.40, 0.47, [[Shadowfen Treasure Map V]] , [[treasuremap_shadowfen_05]] },
+	    {0.610, 0.611, [[Shadowfen Treasure Map IV]] , [[treasuremap_shadowfen_04]] },
+	    {0.406, 0.469, [[Shadowfen Treasure Map V]] , [[treasuremap_shadowfen_05]] },
 	    {0.23, 0.55, [[Shadowfen Treasure Map VI]] , [[treasuremap_shadowfen_06]] },
 		{0.64, 0.46, [[Shadowfen CE Treasure Map]] , [[treasuremap_ce_ebonheart_shadowfen_04]]},
 	},
