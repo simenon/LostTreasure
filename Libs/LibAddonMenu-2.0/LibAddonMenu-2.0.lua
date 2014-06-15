@@ -7,7 +7,7 @@
 
 
 --Register LAM with LibStub
-local MAJOR, MINOR = "LibAddonMenu-2.0", 2
+local MAJOR, MINOR = "LibAddonMenu-2.0", 6
 local lam, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lam then return end	--the same or newer version of this lib is already loaded into memory 
 
@@ -48,8 +48,9 @@ end
 --opens to a specific addon's option panel
 --Usage:
 --	panel = userdata; the panel returned by the :RegisterOptionsPanel method
-local settings = {en = "Settings", de = "Einstellungen", fr = "Réglages"}
-local locSettings = settings[GetCVar("Language.2")]
+--local settings = {en = "Settings", de = "Einstellungen", fr = "Réglages"}
+--local locSettings = settings[GetCVar("Language.2")]
+local locSettings = GetString(SI_GAME_MENU_SETTINGS)
 function lam:OpenToPanel(panel)
 	SCENE_MANAGER:Show("gameMenuInGame")
 	zo_callLater(function()
@@ -124,6 +125,7 @@ local function CreateOptionsControls(panel)
 	end
 	
 	optionsCreated[addonID] = true
+	cm:FireCallbacks("LAM-PanelControlsCreated", panel)
 end
 
 
@@ -214,14 +216,18 @@ end
 --INTERNAL FUNCTION
 --creates LAM's Addon Settings panel
 local function CreateAddonSettingsPanel()
-	local controlPanelID = "LAM_ADDON_SETTINGS_PANEL"
-	local controlPanelName = "Addon Settings"
+	if not LAMSettingsPanelCreated then
+		local controlPanelID = "LAM_ADDON_SETTINGS_PANEL"
+		local controlPanelNames = {en = "Addon Settings", fr = "Réglages d'Extension", de = "Erweiterungseinstellungen"}
 
-	ZO_OptionsWindow_AddUserPanel(controlPanelID, controlPanelName)
+		ZO_OptionsWindow_AddUserPanel(controlPanelID, controlPanelNames[GetCVar("Language.2")])
 
-	lam.panelID = _G[controlPanelID]
-	
-	ZO_PreHook("ZO_OptionsWindow_ChangePanels", HandlePanelSwitching)
+		lam.panelID = _G[controlPanelID]
+		
+		ZO_PreHook("ZO_OptionsWindow_ChangePanels", HandlePanelSwitching)
+		
+		LAMSettingsPanelCreated = true
+	end
 end
 
 
@@ -246,15 +252,17 @@ end
 
 
 --INTERNAL FUNCTION
---creates the right-hand menu in LAM's panel
+--creates the left-hand menu in LAM's panel
 local function CreateAddonList()
-	local list = wm:CreateControlFromVirtual("LAMAddonPanelsMenu", optionsWindow, "ZO_ScrollContainer")
+	local list
+	--check if an earlier loaded copy of LAM created it already
+	list = LAMAddonPanelsMenu or wm:CreateControlFromVirtual("LAMAddonPanelsMenu", optionsWindow, "ZO_ScrollContainer")
 	list:ClearAnchors()
 	list:SetAnchor(TOPLEFT)
 	list:SetHeight(675)
 	list:SetWidth(200)
 
-	list.bg = wm:CreateControl(nil, list, CT_BACKDROP)
+	list.bg = list.bg or wm:CreateControl(nil, list, CT_BACKDROP)
 	local bg = list.bg
 	bg:SetAnchorFill()	--offsets of 8?
 	bg:SetEdgeTexture("EsoUI\\Art\\Tooltips\\UI-Border.dds", 128, 16)
@@ -262,7 +270,7 @@ local function CreateAddonList()
 
 	local generatedButtons
 	list:SetHandler("OnShow", function(self)
-			if not generatedButtons then
+			if not generatedButtons and #addonsForList > 0 then
 				--we're about to show our list for the first time - let's sort the buttons before creating them
 				table.sort(addonsForList, function(a, b)
 						return a.name < b.name

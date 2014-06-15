@@ -11,7 +11,7 @@
 }	]]
 
 
-local widgetVersion = 2
+local widgetVersion = 4
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("panel", widgetVersion) then return end
 
@@ -24,13 +24,13 @@ local function RefreshPanel(control)
 	
 	for i = 1, #panelControls do
 		local updateControl = panelControls[i]
-		if  updateControl == control then return end
-		
-		if updateControl.UpdateValue then
-			updateControl:UpdateValue()
-		end
-		if updateControl.UpdateDisabled then
-			updateControl:UpdateDisabled()
+		if  updateControl ~= control then		
+			if updateControl.UpdateValue then
+				updateControl:UpdateValue()
+			end
+			if updateControl.UpdateDisabled then
+				updateControl:UpdateDisabled()
+			end
 		end
 	end
 end
@@ -48,13 +48,15 @@ local function ForceDefaults(panel)
 	if panel.data.resetFunc then
 		panel.data.resetFunc()
 	end
+	
+	cm:FireCallbacks("LAM-RefreshPanel", panel)
 end
 ESO_Dialogs["LAM_DEFAULTS"] = {
 	title = {
-		text = "Reset To Defaults",
+		text = SI_OPTIONS_RESET_TITLE,
 	},
 	mainText = {
-		text = "Reset this addon's settings to their default values?",
+		text = SI_OPTIONS_RESET_PROMPT,
 		align = TEXT_ALIGN_CENTER,
 	},
 	buttons = {
@@ -87,15 +89,15 @@ function LAMCreateControl.panel(parent, panelData, controlName)
 	if panelData.author or panelData.version then
 		control.info = wm:CreateControl(nil, control, CT_LABEL)
 		local info = control.info
-		--info:SetFont("ZoFontGameSmall")
 		info:SetFont("$(CHAT_FONT)|14|soft-shadow-thin")
 		info:SetColor(ZO_HIGHLIGHT_TEXT:UnpackRGBA())
 		info:SetHeight(13)
 		info:SetAnchor(TOPRIGHT, control, BOTTOMRIGHT, -5, 2)
 		if panelData.author and panelData.version then
-			info:SetText("Version: "..panelData.version.."  -  Author: "..panelData.author)
+			--info:SetText("Version: "..panelData.version.."  -  "..GetString(SI_ADDON_MANAGER_AUTHOR)..": "..panelData.author)
+			info:SetText(string.format("Version: %s  -  %s: %s", panelData.version, GetString(SI_ADDON_MANAGER_AUTHOR), panelData.author))
 		elseif panelData.author then
-			info:SetText("Author: "..panelData.author)
+			info:SetText(string.format("%s: %s", GetString(SI_ADDON_MANAGER_AUTHOR), panelData.author))
 		else
 			info:SetText("Version: "..panelData.version)
 		end
@@ -114,7 +116,8 @@ function LAMCreateControl.panel(parent, panelData, controlName)
 		local defaultButton = control.defaultButton
 		defaultButton:SetFont("ZoFontDialogKeybindDescription")
 		defaultButton:SetHorizontalAlignment(TEXT_ALIGN_LEFT)
-		defaultButton:SetText("Reset To Defaults")
+		--defaultButton:SetText("Reset To Defaults")
+		defaultButton:SetText(GetString(SI_OPTIONS_RESET_TITLE))
 		defaultButton:SetDimensions(200, 30)
 		defaultButton:SetAnchor(TOPLEFT, control, BOTTOMLEFT, 0, 2)
 		defaultButton:SetHandler("OnClicked", function()

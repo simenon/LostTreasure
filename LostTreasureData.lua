@@ -34,8 +34,8 @@ LOST_TREASURE_DATA = {
 	},
 ----Betnikh
 	[293] = {
-	    {0.16, 0.30, [[Betnikh Treasure Map I]] , [[treasuremaps_betnikh_001]] },
-	    {0.56, 0.87, [[Betnikh Treasure Map II]] , [[treasuremaps_betnikh_002]]},
+	    {0.16, 0.30, [[Betnikh Treasure Map I]] , [[treasuremap_betnikh_001]] },
+	    {0.56, 0.87, [[Betnikh Treasure Map II]] , [[treasuremap_betnikh_002]]},
 	    {0.45, 0.43, [[Betnikh CE Treasure Map]] , [[treasuremap_ce_daggerfall_betnikh_01b]]  },
 	},	
 ----Stormhaven
@@ -69,7 +69,7 @@ LOST_TREASURE_DATA = {
 		{0.63, 0.63, [[Alik'r Treasure Map III]] , [[treasuremap_alikr_003]] },
 		{0.59, 0.21, [[Alik'r Treasure Map IV]] , [[treasuremap_alikr_004]] },
 		{0.82, 0.52, [[Alik'r Treasure Map V]] , [[treasuremap_alikr_005]] },
-		{0.74, 0.45, [[Alik'r Treasure Map VI]] , [[treasuremap_alikr_006]] },
+		{0.74, 0.45, [[Alik'r Treasure Map VI]] , [[treasuremap_alikr_06]] },
 	    {0.29, 0.34, [[Alik'r CE Treasure Map]] , [[treasuremap_ce_daggerfall_alikr_05]]}, 
 	},	
 ----Bangkorai
@@ -134,7 +134,7 @@ LOST_TREASURE_DATA = {
 	},	
 ----Khenarthi's Roost
 	[294] = {
-	    {0.62, 0.75, [[Khenarthi's Roost Treasure Map I]] , [[treasuremap_khenarthi_01]] },
+	    {0.6119, 0.7579, [[Khenarthi's Roost Treasure Map I]] , [[treasuremap_khenarthi_01]] },
 		{0.21, 0.31, [[Khenarthi's Roost Treasure Map II]] , [[treasuremap_khenarthi_02]] },
 		{0.41, 0.58, [[Khenarthi's Roost Treasure Map III]] , [[treasuremap_khenarthi_03]] },
 		{0.77, 0.33, [[Khenarthi's Roost Treasure Map IV]] , [[treasuremap_khenarthi_04]] },
@@ -149,8 +149,11 @@ LOST_TREASURE_DATA = {
 	    {0.65, 0.70, [[Malabal Tor Treasure Map IV]], [[treasuremap_malabaltor_04]] },
 	    {0.79, 0.27, [[Malabal Tor Treasure Map V]] , [[treasuremap_malabaltor_05]] },
 	    {0.66, 0.21, [[Malabal Tor Treasure Map VI]] , [[treasuremap_malabaltor_06]] },
-        {0.11, 0.51, [[Malabal Tor CE Treasure Map]] , [[treasuremap_ce_aldmeri_malbator_05]]},
+        {0.1238, 0.5252, [[Malabal Tor CE Treasure Map]] , [[treasuremap_ce_aldmeri_malbator_05]]},
 	},	
+	["velynharbor"] = {
+		{0.5132, 0.5649, [[Malabal Tor CE Treasure Map]], [[treasuremap_ce_aldmeri_malbator_05]]},
+	},
 ----Reaper’s March
 	[179] = {
 	    {0.37, 0.42, [[Reaper's March Treasure Map I]], [[treasuremap_reapersmarch_01]] },
@@ -183,7 +186,7 @@ LOST_TREASURE_DATA = {
     },
 ----Stros M'Kai
     [292] = {
-	    {0.53, 0.63, [[Stros M'Kai Treasure Map I]] , [[treasuremap_strosmkai_001]] },
+	    {0.5458, 0.6406, [[Stros M'Kai Treasure Map I]] , [[treasuremap_strosmkai_001]] },
 	    {0.09, 0.87, [[Stros M'Kai Treasure Map II]] , [[treasuremap_strosmkai_002]] },
 		{0.70, 0.33, [[Stros M'Kai CE Treasure Map]] , [[treasuremap_ce_daggerfall_stros_01a]] },
 	},
@@ -209,24 +212,24 @@ LOST_TREASURE_DATA = {
 	},	
 ----Cyrodiil
 	[37] = {
-		{0.40, 0.48, [[Cyrodiil Treasure Map I]] },
-	    {0.51, 0.82, [[Cyrodiil Treasure Map II]] },
-	    {0.28, 0.70, [[Cyrodiil Treasure Map III]] },
+		{0.40, 0.48, [[Cyrodiil Treasure Map I]], [[treasuremap_cyrodiil_ald_01]]},
+	    {0.51, 0.82, [[Cyrodiil Treasure Map II]], [[treasuremap_cyrodiil_ald_02]] },
+	    {0.28, 0.70, [[Cyrodiil Treasure Map III]], [[treasuremap_cyrodiil_ald_03]] },
 	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]], [[treasurempa_cyrodiil_ald_04]] },
 	    {0.48, 0.52, [[Cyrodiil Treasure Map V]], [[treasuremap_cyrodiil_ald_05]] },
-	    {0.23, 0.55, [[Cyrodiil Treasure Map VI]] },
-	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]] },
+	    {0.23, 0.55, [[Cyrodiil Treasure Map VI]], [[treasuremap_cyrodiil_ald_06]] },
+	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]], [[treasuremap_cyrodiil_dag_01]] },
 		{0.17, 0.37, [[Cyrodiil Treasure Map VIII]], [[treasuremap_cyrodiil_dag_02]] },
 		{0.31, 0.36, [[Cyrodiil Treasure Map IX]], [[treasuremap_cyrodiil_dag_03]] },
 		{0.30, 0.17, [[Cyrodiil Treasure Map X]] , [[treasuremap_cyrodiil_dag_04]]},
-		{0.37, 0.14, [[Cyrodiil Treasure Map XI]] },
-		{0.47, 0.18, [[Cyrodiil Treasure Map XII]] },
-		{0.82, 0.27, [[Cyrodiil Treasure Map XIII]] , [[treasuremap_cyrodiil_ebon_06]]},
-		{0.69, 0.51, [[Cyrodiil Treasure Map XIV]] },
+		{0.37, 0.14, [[Cyrodiil Treasure Map XI]], [[treasuremap_cyrodiil_dag_05]] },
+		{0.47, 0.18, [[Cyrodiil Treasure Map XII]], [[treasuremap_cyrodiil_dag_06]] },
+		{0.82, 0.27, [[Cyrodiil Treasure Map XIII]] , [[treasuremap_cyrodiil_ebon_01]]},
+		{0.69, 0.51, [[Cyrodiil Treasure Map XIV]], [[treasuremap_cyrodiil_ebon_02]] },
 		{0.66, 0.46, [[Cyrodiil Treasure Map XV]] , [[treasuremap_cyrodiil_ebon_03]] },
-		{0.67, 0.62, [[Cyrodiil Treasure Map XVI]] },
+		{0.67, 0.62, [[Cyrodiil Treasure Map XVI]], [[treasuremap_cyrodiil_ebon_04]] },
 		{0.76, 0.46, [[Cyrodiil Treasure Map XVII]] , [[treasuremap_cyrodiil_ebon_05]] },
-		{0.74, 0.51, [[Cyrodiil Treasure Map XVIII]] },
+		{0.74, 0.51, [[Cyrodiil Treasure Map XVIII]], [[treasuremap_cyrodiil_ebon_06]] },
 	},
 	----Craglorn
 	[352] = {	
