@@ -7,17 +7,24 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "1.10",
+    Version = "1.11",
 }
 
 LT =
 {	
 	defaults = 
-	{
-		showtreasureswithoutmap = false,
+	{		
         pinFilter = true, -- For LMP to toggle on WorldMap
         pinTexture = 1,
+        markMapMenuOption = 2,
 	},    
+}
+
+local markMapMenuOptions =
+{
+    [1] = [[Mark on use]],
+    [2] = [[Mark all in inventory]],
+    [3] = [[Mark all locations]]
 }
 
 local pinTexturesList = 
@@ -81,6 +88,21 @@ local function hasMap(mapName, mapTexture)
     return false
 end
 
+local function scanBagForMaps(data)
+    local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
+               
+    for _, pinData in pairs(data) do  
+        for bagSlot = 0, bagSlots do
+            local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
+
+            if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
+                LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)    
+            end  
+        end              
+    end        
+        
+end
+
 local function pinCreator_Treasure(pinManager)
          
     local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
@@ -92,48 +114,43 @@ local function pinCreator_Treasure(pinManager)
     if not data then
         return
     end
-           
-    for _, pinData in pairs(data) do
-	    if LT.SavedVariables.showtreasureswithoutmap == true then
-            LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
-		else
-		    if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME],pinData[LOST_TREASURE_INDEX.TEXTURE]) then 		    	
-		        LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
+    
+    if LT.SavedVariables.markMapMenuOption == 1 then
+        for _, pinData in pairs(data) do
+            if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME],pinData[LOST_TREASURE_INDEX.TEXTURE]) then              
+                LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
             end
-		end	
-    end
+        end
+    elseif LT.SavedVariables.markMapMenuOption == 2 then
+        scanBagForMaps(data)
+    elseif LT.SavedVariables.markMapMenuOption == 3 then
+        for _, pinData in pairs(data) do
+            LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
+        end
+    end    
 end
 	
 local function ShowTreasure()	
     LMP:RefreshPins(Addon.Name.."MapPin" )
 end
 
-local function GetWithoutMap()
-	return LT.SavedVariables.showtreasureswithoutmap
-end
-
-local function SetWithoutMap(value)
-    LT.SavedVariables.showtreasureswithoutmap = value
-    ShowTreasure()
-end
-
-function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
-	ShowTreasure()
+function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)	
 	--
 	--  Temporary till all textures are known ...
 	--	
 	local name, textureName  = GetTreasureMapInfo(treasureMapIndex)  -- This will most likely return a localized name, use the texturename instead ? ...            
     local mapTextureName = string.match(textureName, "%w+/%w+/%w+/(.+)%.dds")
     for _, v in pairs(LOST_TREASURE_DATA) do
-    	for _, v in pairs(v) do    	
-    		if mapTextureName == v[LOST_TREASURE_INDEX.TEXTURE] then
+    	for _, pinData in pairs(v) do    	
+    		if mapTextureName == pinData[LOST_TREASURE_INDEX.TEXTURE] then                
     			return
     		end
     	end
     end
-    d("Sending update to addon author for map " .. name )
+
+    d("Sending update to addon author for map " .. name )    
     RequestOpenMailbox()        
-    SendMail("@CrazyDutchGuy", "Lost Treasure " .. Addon.Version .. " :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName)  
+    SendMail("@CrazyDutchGuy", "Lost Treasure " .. Addon.Version .. " :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName .. "::" )  
 end
 
 local function createLAM2Panel()
@@ -152,14 +169,6 @@ local function createLAM2Panel()
     {
         [1] = 
         {
-            type = "checkbox",
-            name = "Show All Treasure Maps",
-            tooltip = "Show all known treasure locations on the map.",
-            getFunc = function() return GetWithoutMap() end,
-            setFunc = function(value) SetWithoutMap(value) end,
-        },
-        [2] = 
-        {
             type = "dropdown",
             name = "Pin Textures",
             tooltip = "Which pin texture to use.",
@@ -175,6 +184,22 @@ local function createLAM2Panel()
                 end
             end,
         },
+        [2] =
+        {            
+            type = "dropdown",
+            name = "Map Marking",
+            tooltip = "When to mark the map.",
+            choices = markMapMenuOptions,
+            getFunc = function() return markMapMenuOptions[LT.SavedVariables.markMapMenuOption] end,
+            setFunc = function(value) 
+                for i,v in pairs(markMapMenuOptions) do
+                    if v == value then
+                        LT.SavedVariables.markMapMenuOption = i
+                        ShowTreasure()
+                    end
+                end
+            end,            
+        },        
         [3] =
         {
             type = "description",
@@ -188,8 +213,8 @@ local function createLAM2Panel()
     
     local SetupLAMMapIcon = function(control)
         if not treasureMapIcon and control == myPanel then
-            treasureMapIcon = WINDOW_MANAGER:CreateControl(nil, control.controlsToRefresh[2], CT_TEXTURE)
-            treasureMapIcon:SetAnchor(RIGHT, control.controlsToRefresh[2].dropdown:GetControl(), LEFT, -10, 0)
+            treasureMapIcon = WINDOW_MANAGER:CreateControl(nil, control.controlsToRefresh[1], CT_TEXTURE)
+            treasureMapIcon:SetAnchor(RIGHT, control.controlsToRefresh[1].dropdown:GetControl(), LEFT, -10, 0)
             treasureMapIcon:SetTexture(pinTextures[LT.SavedVariables.pinTexture])
             treasureMapIcon:SetDimensions(pinLayout_Treasure.size, pinLayout_Treasure.size)
             CALLBACK_MANAGER:UnregisterCallback("LAM-PanelControlsCreated", SetupLAMMapIcon)
@@ -203,16 +228,12 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
    		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
 
-   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 1, nil, LT.defaults)		
+   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 2, nil, LT.defaults)		
 
         pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.pinTexture]
    		
    		LMP:AddPinType(Addon.Name.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
-        LMP:AddPinFilter(Addon.Name.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")
-
-		if GetWithoutMap() then
-			ShowTreasure()
-		end
+        LMP:AddPinFilter(Addon.Name.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")			
 	    		
         createLAM2Panel()
         
