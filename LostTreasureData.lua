@@ -81,7 +81,7 @@ LOST_TREASURE_DATA = {
 	    {0.31, 0.45, [[Bangkorai Treasure Map IV]] , [[treasuremap_bankorai_04]], 43622 },
 	    {0.32, 0.68, [[Bangkorai Treasure Map V]] , [[treasuremap_bankorai_05]], 43623 },
 	    {0.64, 0.69, [[Bangkorai Treasure Map VI]] , [[treasuremap_bankorai_06]], 43624 },
-	    {0.61, 0.76, [[Bangkorai CE Treasure Map]] , [[treasuremap_ce_daggerfall_bankorai_06]], 44929 },
+	    {0.7560, 0.7548, [[Bangkorai CE Treasure Map]] , [[treasuremap_ce_daggerfall_bankorai_06]], 44929 },
 	},
 ----Bleakrock Isle
 	[109] = {	
