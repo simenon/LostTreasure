@@ -1,6 +1,6 @@
-## Title: |cFF2222Lost Treasure|r |c0066991.12|r - By |c00C000CrazyDutchGuy|r
+## Title: |cFF2222Lost Treasure|r |c0066991.13|r - By |c00C000CrazyDutchGuy|r
 ## Description: Shows treasure map locations
-## Version: 1.12
+## Version: 1.13
 ## Author: CrazyDutchGuy, Stormknight/LCAmethyst
 ## APIVersion: 100004
 ## SavedVariables: LOST_TREASURE_SV

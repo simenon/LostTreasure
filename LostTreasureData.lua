@@ -95,7 +95,7 @@ LOST_TREASURE_DATA = {
     },
 ----Deshaan
     [10] = {	
-	    {0.25, 0.54, [[Deshaan Treasure Map I]] , [[treasuremap_deshaan_001]], 43661 },
+	    {0.2599, 0.5507, [[Deshaan Treasure Map I]] , [[treasuremap_deshaan_001]], 43661 },
 	    {0.17, 0.46, [[Deshaan Treasure Map II]] , [[treasuremap_deshaan_002]], 43662 },
 	    {0.45, 0.40, [[Deshaan Treasure Map III]] , [[treasuremap_deshaan_003]], 43663 },
 	    {0.75, 0.55, [[Deshaan Treasure Map IV]] , [[treasuremap_deshaan_004]], 43664 },
