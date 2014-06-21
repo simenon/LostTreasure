@@ -10,7 +10,7 @@ local Addon =
     Version = "1.15",
 }
 
-LT =
+local LT =
 {	
 	defaults = 
 	{		
@@ -116,7 +116,7 @@ local function pinCreator_Treasure(pinManager)
          
     local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
     if GetMapType() == 1 then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
-    	local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
+    	local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")        
     	data = LOST_TREASURE_DATA[subzone]
     end
     
@@ -282,7 +282,15 @@ end
 function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
    	if name == Addon.Name then 
 
-        LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)       
+        LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)  
+
+        if GetCVar("language.2") == "de" then
+            LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_DE
+        elseif GetCVar("language.2") == "fr" then
+            LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_FR
+        else
+            LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
+        end
 
         createMiniTreasureMap()
 
