@@ -216,7 +216,7 @@ LOST_TREASURE_DATA = {
 		{0.40, 0.48, [[Cyrodiil Treasure Map I]], [[treasuremap_cyrodiil_ald_01]], 43703 },
 	    {0.51, 0.82, [[Cyrodiil Treasure Map II]], [[treasuremap_cyrodiil_ald_02]], 43704 },
 	    {0.28, 0.70, [[Cyrodiil Treasure Map III]], [[treasuremap_cyrodiil_ald_03]], 43705 },
-	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]], [[treasurempa_cyrodiil_ald_04]], 43706 },
+	    {0.64, 0.75, [[Cyrodiil Treasure Map IV]], [[treasuremap_cyrodiil_ald_04]], 43706 },
 	    {0.48, 0.52, [[Cyrodiil Treasure Map V]], [[treasuremap_cyrodiil_ald_05]], 43707 },
 	    {0.23, 0.55, [[Cyrodiil Treasure Map VI]], [[treasuremap_cyrodiil_ald_06]], 43708 },
 	    {0.54, 0.13, [[Cyrodiil Treasure Map VII]], [[treasuremap_cyrodiil_dag_01]], 43709 },

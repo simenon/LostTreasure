@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "1.14",
+    Version = "1.15",
 }
 
 LT =
@@ -17,6 +17,15 @@ LT =
         pinFilter = true, -- For LMP to toggle on WorldMap
         pinTexture = 1,
         markMapMenuOption = 2,
+        showMiniTreasureMap = true,
+        miniTreasureMap = 
+        { 
+            point = TOPLEFT, 
+            relativeTo = GuiRoot, 
+            relativePoint = TOPLEFT, 
+            offsetX = 100, 
+            offsetY = 100, 
+        },
 	},    
 }
 
@@ -50,7 +59,7 @@ local pinLayout_Treasure =
 		size = 32,	
 }
 
-
+local LostTreasureTLW = nil
 
 --Handles info on TreasureMap
 local function GetInfoFromTag(pin)
@@ -134,7 +143,46 @@ local function ShowTreasure()
     LMP:RefreshPins(Addon.Name.."MapPin" )
 end
 
+local function showMiniTreasureMap(texture)
+    if LT.SavedVariables.showMiniTreasureMap then
+        LostTreasureTLW:SetHidden( false )  
+        LostTreasureTLW.map:SetTexture(texture)
+    end
+end
+
+local function createMiniTreasureMap()
+    LostTreasureTLW = WINDOW_MANAGER:CreateTopLevelWindow(nil)
+    LostTreasureTLW:SetMouseEnabled(true)      
+    LostTreasureTLW:SetMovable( true )
+    LostTreasureTLW:SetClampedToScreen(true)
+    LostTreasureTLW:SetDimensions( 400 , 400 )
+    LostTreasureTLW:SetAnchor( 
+        LT.SavedVariables.miniTreasureMap.point, 
+        LT.SavedVariables.miniTreasureMap.relativeTo,
+        LT.SavedVariables.miniTreasureMap.relativePoint, 
+        LT.SavedVariables.miniTreasureMap.offsetX, 
+        LT.SavedVariables.miniTreasureMap.offsetY )
+    LostTreasureTLW:SetHidden( true )  
+    LostTreasureTLW:SetHandler("OnMoveStop", function(self,...)                         
+            local _, point, relativeTo, relativePoint, offsetX, offsetY = self:GetAnchor()
+            LT.SavedVariables.miniTreasureMap.point = point
+            LT.SavedVariables.miniTreasureMap.relativeTo = relativeTo
+            LT.SavedVariables.miniTreasureMap.relativePoint = relativePoint
+            LT.SavedVariables.miniTreasureMap.offsetX = offsetX
+            LT.SavedVariables.miniTreasureMap.offsetY = offsetY
+        end) 
+        
+    LostTreasureTLW.map = WINDOW_MANAGER:CreateControl(nil,  LostTreasureTLW, CT_TEXTURE)
+    --LostTreasureTLW.map:SetDimensions(400,400)    
+    LostTreasureTLW.map:SetAnchorFill(LostTreasureTLW)  
+
+    LostTreasureTLW.map.close = WINDOW_MANAGER:CreateControlFromVirtual(nil, LostTreasureTLW.map, "ZO_CloseButton")
+    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) LostTreasureTLW:SetHidden(true) end)      
+end
+
 function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)	
+    local name, textureName  = GetTreasureMapInfo(treasureMapIndex)
+    showMiniTreasureMap(textureName)
 	--
 	--  Temporary till all textures are known ...
 	--	
@@ -199,8 +247,16 @@ local function createLAM2Panel()
                     end
                 end
             end,            
-        },        
+        },     
         [3] =
+        {
+            type = "checkbox",
+            name = "Show Mini Treasure Map",
+            tooltip = "Show the mini treasure map on screen when using map from inventory.",
+            getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
+            setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
+        },   
+        [4] =
         {
             type = "description",
             text = "Lost Treasure will put a marker on your map if you use the treasure map from your inventory.",
@@ -226,9 +282,12 @@ end
 function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
    	if name == Addon.Name then 
 
-   		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
+        LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)       
 
-   		LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 2, nil, LT.defaults)		
+        createMiniTreasureMap()
+
+   		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
+   		
 
         pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.pinTexture]
    		
@@ -242,5 +301,5 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 end
 
 function TreasureMap_OnInitialized()	
-	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_ADD_ON_LOADED, function(...) LOST_TREASURE:EVENT_ADD_ON_LOADED(...) end)
+	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_ADD_ON_LOADED, function(...) LOST_TREASURE:EVENT_ADD_ON_LOADED(...) end)    
 end
