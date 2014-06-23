@@ -56,15 +56,15 @@ LOST_TREASURE_DATA = {
 	[5] = {	
 	    {0.32, 0.50,     [[Rivenspire Treasure Map I]],            [[Kluftspitze Schatzkarte I]],          [[Carte Au TrÃ©sor de Fendretour I]],                [[treasuremap_rivenspire_01]],               43607 },
 	    {0.17, 0.61,     [[Rivenspire Treasure Map II]],           [[Kluftspitze Schatzkarte II]],         [[Carte Au TrÃ©sor de Fendretour II]],               [[treasuremap_rivenspire_02]],               43608 },
-	    {0.71, 0.43,     [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
+	    {0.7175, 0.4362, [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
 	    {0.71, 0.70,     [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
 	    {0.75, 0.30,     [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
 	    {0.40, 0.29,     [[Rivenspire Treasure Map VI]],           [[Kluftspitze Schatzkarte VI]],         [[Carte Au TrÃ©sor de Fendretour VI]],               [[treasuremap_rivenspire_06]],               43612 },
-	    {0.75, 0.16,     [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
+	    {0.7599, 0.1621, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
 	},
 ----Rivenspire, North Point	
     ["northpoint"] = {	
-        {0.28, 0.18,     [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
+        {0.2763, 0.1772, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
     },		
 ----Alik’r Desert
 	[17] = {
@@ -213,7 +213,7 @@ LOST_TREASURE_DATA = {
 	    {0.39, 0.56,     [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
 	    {0.59, 0.69,     [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
 	    {0.74, 0.76,     [[Coldharbour Treasure Map IV]],          [[Kalthafen Schatzkarte IV]],           [[Carte Au TrÃ©sor d'Havreglace IV]],                [[treasuremap_coldharbour_04]],              43688 },
-	    {0.42, 0.44,     [[Coldharbour Treasure Map V]],           [[Kalthafen Schatzkarte V]],            [[Carte Au TrÃ©sor d'Havreglace V]],                 [[treasuremap_coldharbour_05]],              43689 },
+	    {0.43, 0.46,     [[Coldharbour Treasure Map V]],           [[Kalthafen Schatzkarte V]],            [[Carte Au TrÃ©sor d'Havreglace V]],                 [[treasuremap_coldharbour_05]],              43689 },
 	    {0.49, 0.38,     [[Coldharbour Treasure Map VI]],          [[Kalthafen Schatzkarte VI]],           [[Carte Au TrÃ©sor d'Havreglace VI]],                [[treasuremap_coldharbour_06]],              43690 },
 	    {0.54, 0.40,     [[Coldharbour CE Treasure Map]],          [[Kalthafen CE Schatzkarte]],           [[Carte Au TrÃ©sor d'Havreglace EC]],                [[treasuremap_1_coldharbor]],                44932 },
 	},	
