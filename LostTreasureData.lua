@@ -11,7 +11,7 @@ LOST_TREASURE_INDEX = {
 
 LOST_TREASURE_DATA = { 
 ----Auridon
-	[178] = {
+	[179] = {
 	    {0.49, 0.88,     [[Auridon Treasure Map I]],               [[Auridon Schatzkarte I]],              [[Carte Au TrÃ©sor d'Auridia I]],                    [[treasuremap_auridon_01]],                  43625 },
 	    {0.48, 0.63,     [[Auridon Treasure Map II]],              [[Auridon Schatzkarte II]],             [[Carte Au TrÃ©sor d'Auridia II]],                   [[treasuremap_auridon_02]],                  43626 },
 	    {0.44, 0.50,     [[Auridon Treasure Map III]],             [[Auridon Schatzkarte III]],            [[Carte Au TrÃ©sor d'Auridia III]],                  [[treasuremap_auridon_03]],                  43627 },
@@ -21,13 +21,13 @@ LOST_TREASURE_DATA = {
 		{0.69, 0.96,     [[Auridon CE Treasure Map]],              [[Auridon CE Schatzkarte]],             [[Carte Au TrÃ©sor d'Auridia EC]],                   [[treasuremap_ce_aldmeri_auridon_02]],       44927 },
 	},
 ----Bal Foyen
-	[110] = {	
+	[111] = {	
 	    {0.58, 0.71,     [[Bal Foyen Treasure Map I]],             [[Bal Foyen Schatzkarte I]],            [[Carte Au TrÃ©sor de Bal Foyen I]],                 [[treasuremap_balfoyen_001]],                43701 },
 	    {0.24, 0.53,     [[Bal Foyen Treasure Map II]],            [[Bal Foyen Schatzkarte II]],           [[Carte Au TrÃ©sor de Bal Foyen II]],                [[treasuremap_balfoyen_002]],                43702 },
 		{0.52, 0.42,     [[Bal Foyen CE Treasure Map]],            [[Bal Foyen CE Schatzkarte]],           [[Carte Au TrÃ©sor de Bal Foyen EC]],                [[treasuremap_ce_ebonheart_balfoyen_01b]],   44928 },
 	},	
 ----Eastmarch
-	[15] = {
+	[16] = {
 	    {0.4410, 0.3740, [[Eastmarch Treasure Map I]],             [[Ostmarsch Schatzkarte I]],            [[Carte Au TrÃ©sor d'Estemarche I]],                 [[treasuremap_eastmarch_01]],                43673 },
 	    {0.31, 0.45,     [[Eastmarch Treasure Map II]],            [[Ostmarsch Schatzkarte II]],           [[Carte Au TrÃ©sor d'Estemarche II]],                [[treasuremap_eastmarch_02]],                43674 },
 	    {0.43, 0.58,     [[Eastmarch Treasure Map III]],           [[Ostmarsch Schatzkarte III]],          [[Carte Au TrÃ©sor d'Estemarche III]],               [[treasuremap_eastmarch_03]],                43675 },
@@ -37,7 +37,7 @@ LOST_TREASURE_DATA = {
 		{0.71, 0.58,     [[Eastmarch CE Treasure Map]],            [[Ostmarsch CE Schatzkarte]],           [[Carte Au TrÃ©sor d'Estemarche EC]],                [[treasuremap_ce_ebonheart_eastmarch_05]],   44935 },
 	},
 ----Betnikh
-	[293] = {
+	[294] = {
 	    {0.16, 0.30,     [[Betnikh Treasure Map I]],               [[Betnikh Schatzkarte I]],              [[Carte Au TrÃ©sor de Betnikh I]],                   [[treasuremap_betnikh_001]],                 43693 },
 	    {0.56, 0.87,     [[Betnikh Treasure Map II]],              [[Betnikh Schatzkarte II]],             [[Carte Au TrÃ©sor de Betnikh II]],                  [[treasuremap_betnikh_002]],                 43694 },
 	    {0.45, 0.43,     [[Betnikh CE Treasure Map]],              [[Betnikh CE Schatzkarte]],             [[Carte Au TrÃ©sor de Betnikh EC]],                  [[treasuremap_ce_daggerfall_betnikh_01b]],   44930 },
@@ -67,7 +67,7 @@ LOST_TREASURE_DATA = {
         {0.2763, 0.1772, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
     },		
 ----Alik’r Desert
-	[17] = {
+	[18] = {
 	    {0.35, 0.72,     [[Alik'r Treasure Map I]],                [[Alik'r Wüste Schatzkarte I]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r I]],          [[treasuremap_alikr_001]],                   43613 },
 	    {0.04, 0.52,     [[Alik'r Treasure Map II]],               [[Alik'r Wüste Schatzkarte II]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r II]],         [[treasuremap_alikr_002]],                   43614 },
 		{0.63, 0.63,     [[Alik'r Treasure Map III]],              [[Alik'r Wüste Schatzkarte III]],       [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r III]],        [[treasuremap_alikr_003]],                   43615 },
@@ -77,7 +77,7 @@ LOST_TREASURE_DATA = {
 	    {0.29, 0.34,     [[Alik'r CE Treasure Map]],               [[Alik'r Wüste CE Schatzkarte]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r EC]],         [[treasuremap_ce_daggerfall_alikr_05]],      44926 },
 	},	
 ----Bangkorai
-	[14] = {	
+	[15] = {	
     	{0.42, 0.26,     [[Bangkorai Treasure Map I]],             [[Bangkorai Schatzkarte I]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ I]],                [[treasuremap_bankorai_01]],                 43619 },
 	    {0.61, 0.20,     [[Bangkorai Treasure Map II]],            [[Bangkorai Schatzkarte II]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ II]],               [[treasuremap_bankorai_02]],                 43620 },
 	    {0.72, 0.38,     [[Bangkorai Treasure Map III]],           [[Bangkorai Schatzkarte III]],          [[Carte Au TrÃ©sor de BangkoraÃ¯ III]],              [[treasuremap_bankorai_03]],                 43621 },
@@ -87,7 +87,7 @@ LOST_TREASURE_DATA = {
 	    {0.7560, 0.7548, [[Bangkorai CE Treasure Map]],            [[Bangkorai CE Schatzkarte]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ EC]],               [[treasuremap_ce_daggerfall_bankorai_06]],   44929 },
 	},
 ----Bleakrock Isle
-	[109] = {	
+	[110] = {	
 	    {0.43, 0.40,     [[Bleakrock Treasure Map I]],             [[Ödfels Schatzkarte I]],               [[Carte Au TrÃ©sor de l'Ã®le de Morneroc I]],        [[treasuremap_bleakrock_001]],               43699 },
 	    {0.42, 0.20,     [[Bleakrock Treasure Map II]],            [[Ödfels Schatzkarte II]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc II]],       [[treasuremap_bleakrock_002]],               43700 },
 		{0.46, 0.65,     [[Bleakrock CE Treasure Map]],            [[Ödfels CE Schatzkarte]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc EC]],       [[treasuremap_ce_ebonheart_bleakrock_01a]],  44931 },
@@ -97,7 +97,7 @@ LOST_TREASURE_DATA = {
         {0.55, 0.67,     [[Bleakrock CE Treasure Map]] ,           [[Ödfels CE Schatzkarte]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc EC]],       [[treasuremap_ce_ebonheart_bleakrock_01a]],  44931 },
     },
 ----Deshaan
-    [10] = {	
+    [11] = {	
 	    {0.2599, 0.5507, [[Deshaan Treasure Map I]],               [[Deshaan Schatzkarte I]],              [[Carte Au TrÃ©sor de Deshaan I]],                   [[treasuremap_deshaan_001]],                 43661 },
 	    {0.17, 0.46,     [[Deshaan Treasure Map II]],              [[Deshaan Schatzkarte II]],             [[Carte Au TrÃ©sor de Deshaan II]],                  [[treasuremap_deshaan_002]],                 43662 },
 	    {0.45, 0.40,     [[Deshaan Treasure Map III]],             [[Deshaan Schatzkarte III]],            [[Carte Au TrÃ©sor de Deshaan III]],                 [[treasuremap_deshaan_003]],                 43663 },
@@ -117,7 +117,7 @@ LOST_TREASURE_DATA = {
 		{0.73, 0.46,     [[Glenumbra CE Treasure Map]],            [[Glenumbra CE Schatzkarte]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie EC]],           [[treasuremap_ce_daggerfall_glenumbra_02]],  44936 },
 	},
 ----Grahtwood
-	[180] = {
+	[181] = {
 	    {0.39, 0.66,     [[Grahtwood Treasure Map I]],             [[Grahtwald Schatzkarte I]],            [[Carte Au TrÃ©sor du bois de Graht I]],             [[treasuremap_grahtwood_01]],                43631 },
 	    {0.64, 0.47,     [[Grahtwood Treasure Map II]],            [[Grahtwald Schatzkarte II]],           [[Carte Au TrÃ©sor du bois de Graht II]],            [[treasuremap_grahtwood_02]],                43632 },
 		{0.63, 0.38,     [[Grahtwood Treasure Map III]],           [[Grahtwald Schatzkarte III]],          [[Carte Au TrÃ©sor du bois de Graht III]],           [[treasuremap_grahtwood_03]],                43633 },
@@ -127,7 +127,7 @@ LOST_TREASURE_DATA = {
 		{0.31, 0.60,     [[Grahtwood CE Treasure Map]],            [[Grahtwald CE Schatzkarte]],           [[Carte Au TrÃ©sor du bois de Graht EC]],            [[treasuremap_ce_aldmeri_grahtwood_03]],     44937 },
  	},	
 ----Greenshade
-	[18] = {
+	[19] = {
 	    {0.6543, 0.8344, [[Greenshade Treasure Map I]],            [[Grünschatten Schatzkarte I]],         [[Carte Au TrÃ©sor de Prasin I]],                    [[treasuremap_greenshade_01]],               43637 },
 	    {0.72, 0.73,     [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
 	    {0.35, 0.49,     [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
@@ -137,7 +137,7 @@ LOST_TREASURE_DATA = {
 		{0.58, 0.80,     [[Greenshade CE Treasure Map]],           [[Grünschatten CE Schatzkarte]],        [[Carte Au TrÃ©sor de Prasin EC]],                   [[treasuremap_ce_aldmeri_greenshade_04]],    44938 },
 	},	
 ----Khenarthi's Roost
-	[294] = {
+	[295] = {
 	    {0.6119, 0.7579, [[Khenarthi's Roost Treasure Map I]],     [[Khenarthis Rast Schatzkarte I"]],     [[Carte Au TrÃ©sor du perchoir de Khenarthi I]],     [[treasuremap_khenarthi_01]],                43695 },
 		{0.21, 0.31,     [[Khenarthi's Roost Treasure Map II]],    [[Khenarthis Rast Schatzkarte II"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi II]],    [[treasuremap_khenarthi_02]],                43696 },
 		{0.41, 0.58,     [[Khenarthi's Roost Treasure Map III]],   [[Khenarthis Rast Schatzkarte III"]],   [[Carte Au TrÃ©sor du perchoir de Khenarthi III]],   [[treasuremap_khenarthi_03]],                43697 },
@@ -146,7 +146,7 @@ LOST_TREASURE_DATA = {
 	    {0.40, 0.37,     [[Khenarthi's Roost CE Treasure Map II]], [[Khenarthis Rast CE Schatzkarte II"]], [[Carte Au TrÃ©sor du perchoir de Khenarthi EC II]], [[treasuremap_ce_aldmeri_khenarthi_01b]],    45010 },
 	},	
 ----Malabal Tor 
-	[11] = {
+	[12] = {
 	    {0.2028, 0.4993, [[Malabal Tor Treasure Map I]],           [[Malabal Tor Schatzkarte I]],          [[Carte Au TrÃ©sor de Malabal Tor I]],               [[treasuremap_malabaltor_01]],               43643 },
 	    {0.04, 0.47,     [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
 	    {0.49, 0.67,     [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
@@ -159,7 +159,7 @@ LOST_TREASURE_DATA = {
 		{0.5132, 0.5649, [[Malabal Tor CE Treasure Map]],          [[Malabal Tor CE Schatzkarte]],         [[Carte Au TrÃ©sor de Malabal Tor EC]],              [[treasuremap_ce_aldmeri_malbator_05]],      44940 },
 	},                       
 ----Reaper’s March
-	[179] = {
+	[180] = {
 	    {0.37, 0.42,     [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
 	    {0.32, 0.12,     [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
 	    {0.26, 0.64,     [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
@@ -172,7 +172,7 @@ LOST_TREASURE_DATA = {
 		{0.0751, 0.4507, [[Reaper's March CE Treasure Map]],       [[Schnittermark CE Schatzkarte]],       [[Carte Au TrÃ©sor de la marche de la Camarde EC]],  [[treasuremap_ce_aldmeri_reapersmarch_06]],  44941 },
 	}, 			
 ----Shadowfen 
-	[19] = { 
+	[20] = { 
 	    {0.37, 0.15,     [[Shadowfen Treasure Map I]],             [[Schattenfenn Schatzkarte I]],         [[Carte Au TrÃ©sor de Fangeombre I]],                [[treasuremap_shadowfen_01]],                43667 },
 	    {0.71, 0.39,     [[Shadowfen Treasure Map II]],            [[Schattenfenn Schatzkarte II]],        [[Carte Au TrÃ©sor de Fangeombre II]],               [[treasuremap_shadowfen_02]],                43668 },
 	    {0.70, 0.69,     [[Shadowfen Treasure Map III]],           [[Schattenfenn Schatzkarte III]],       [[Carte Au TrÃ©sor de Fangeombre III]],              [[treasuremap_shadowfen_03]],                43669 },
@@ -192,13 +192,13 @@ LOST_TREASURE_DATA = {
 	    {0.52, 0.61,     [[Stonefalls CE Treasure Map]],           [[Steinfälle CE Schatzkarte]],          [[Carte Au TrÃ©sor des Ã‰boulis EC]],                [[treasuremap_ce_ebonheart_stonefalls_02]],  44944 },
     },
 ----Stros M'Kai
-    [292] = {
+    [293] = {
 	    {0.5458, 0.6406, [[Stros M'Kai Treasure Map I]],           [[Stros M'Kai Schatzkarte I]],          [[Carte Au TrÃ©sor de Stros M'Kai I]],               [[treasuremap_strosmkai_001]],               43691 },
 	    {0.09, 0.87,     [[Stros M'Kai Treasure Map II]],          [[Stros M'Kai Schatzkarte II]],         [[Carte Au TrÃ©sor de Stros M'Kai II]],              [[treasuremap_strosmkai_002]],               43692 },
 		{0.70, 0.33,     [[Stros M'Kai CE Treasure Map]],          [[Stros M'Kai CE Schatzkarte]],         [[Carte Au TrÃ©sor de Stros M'Kai EC]],              [[treasuremap_ce_daggerfall_stros_01a]],     44946 },
 	},
 ----The Rift
-	[16] = {	
+	[17] = {	
 	    {0.73, 0.36,     [[The Rift Treasure Map I]],              [[Rift Schatzkarte I]],                 [[Carte Au TrÃ©sor de la BrÃ¨che I]],                [[treasuremap_therift_01]],                  43679 },
 	    {0.46, 0.43,     [[The Rift Treasure Map II]],             [[Rift Schatzkarte II]],                [[Carte Au TrÃ©sor de la BrÃ¨che II]],               [[treasuremap_therift_02]],                  43680 },
 	    {0.22, 0.35,     [[The Rift Treasure Map III]],            [[Rift Schatzkarte III]],               [[Carte Au TrÃ©sor de la BrÃ¨che III]],              [[treasuremap_therift_03]],                  43681 },
@@ -208,7 +208,7 @@ LOST_TREASURE_DATA = {
 	    {0.58, 0.61,     [[The Rift CE Treasure Map]],             [[Rift CE Schatzkarte]],                [[Carte Au TrÃ©sor de la BrÃ¨che EC]],               [[treasuremap_ce_ebonheart_rift_06]],        44947 },
 	},
 ----Coldharbour
-	[154] = {	
+	[155] = {	
 	    {0.39, 0.82,     [[Coldharbour Treasure Map I]],           [[Kalthafen Schatzkarte I]],            [[Carte Au TrÃ©sor d'Havreglace I]],                 [[treasuremap_coldharbour_01]],              43685 },
 	    {0.39, 0.56,     [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
 	    {0.59, 0.69,     [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
@@ -218,7 +218,7 @@ LOST_TREASURE_DATA = {
 	    {0.54, 0.40,     [[Coldharbour CE Treasure Map]],          [[Kalthafen CE Schatzkarte]],           [[Carte Au TrÃ©sor d'Havreglace EC]],                [[treasuremap_1_coldharbor]],                44932 },
 	},	
 ----Cyrodiil
-	[37] = {
+	[38] = {
 		{0.40, 0.48,     [[Cyrodiil Treasure Map I]],              [[Cyrodiil Schatzkarte I]],             [[Carte Au TrÃ©sor de Cyrodiil I]],                  [[treasuremap_cyrodiil_ald_01]],             43703 },
 	    {0.51, 0.82,     [[Cyrodiil Treasure Map II]],             [[Cyrodiil Schatzkarte II]],            [[Carte Au TrÃ©sor de Cyrodiil II]],                 [[treasuremap_cyrodiil_ald_02]],             43704 },
 	    {0.28, 0.70,     [[Cyrodiil Treasure Map III]],            [[Cyrodiil Schatzkarte III]],           [[Carte Au TrÃ©sor de Cyrodiil III]],                [[treasuremap_cyrodiil_ald_03]],             43705 },
@@ -239,7 +239,7 @@ LOST_TREASURE_DATA = {
 		{0.74, 0.51,     [[Cyrodiil Treasure Map XVIII]],          [[Cyrodiil Schatzkarte XVIII]],         [[Carte Au TrÃ©sor de Cyrodiil XVIII]],              [[treasuremap_cyrodiil_ebon_06]],            43720 },
 	},
 	----Craglorn
-	[352] = {	
+	[353] = {	
 	    {0.21, 0.56,     [[Craglorn Treasure Map I]],              [[Kargstein Schatzkarte I]],            [[Carte Au TrÃ©sor de Raidelorn I]],                 [[treasuremap_craglorn_01]],                 43721 },
 	    {0.37, 0.38,     [[Craglorn Treasure Map II]],             [[Kargstein Schatzkarte II]],           [[Carte Au TrÃ©sor de Raidelorn II]],                [[treasuremap_craglorn_02]],                 43722 },
 	    {0.70, 0.48,     [[Craglorn Treasure Map III]],            [[Kargstein Schatzkarte III]],          [[Carte Au TrÃ©sor de Raidelorn III]],               [[treasuremap_craglorn_03]],                 43723 },
