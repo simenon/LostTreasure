@@ -59,7 +59,7 @@ LOST_TREASURE_DATA = {
 	    {0.7175, 0.4362, [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
 	    {0.71, 0.70,     [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
 	    {0.75, 0.30,     [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
-	    {0.40, 0.29,     [[Rivenspire Treasure Map VI]],           [[Kluftspitze Schatzkarte VI]],         [[Carte Au TrÃ©sor de Fendretour VI]],               [[treasuremap_rivenspire_06]],               43612 },
+	    {0.4092, 0.2994, [[Rivenspire Treasure Map VI]],           [[Kluftspitze Schatzkarte VI]],         [[Carte Au TrÃ©sor de Fendretour VI]],               [[treasuremap_rivenspire_06]],               43612 },
 	    {0.7599, 0.1621, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
 	},
 ----Rivenspire, North Point	
@@ -74,8 +74,11 @@ LOST_TREASURE_DATA = {
 		{0.59, 0.21,     [[Alik'r Treasure Map IV]],               [[Alik'r Wüste Schatzkarte IV]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r IV]],         [[treasuremap_alikr_004]],                   43616 },
 		{0.82, 0.52,     [[Alik'r Treasure Map V]],                [[Alik'r Wüste Schatzkarte V]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r V]],          [[treasuremap_alikr_005]],                   43617 },
 		{0.74, 0.45,     [[Alik'r Treasure Map VI]],               [[Alik'r Wüste Schatzkarte VI]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r VI]],         [[treasuremap_alikr_06]],                    43618 },
-	    {0.29, 0.34,     [[Alik'r CE Treasure Map]],               [[Alik'r Wüste CE Schatzkarte]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r EC]],         [[treasuremap_ce_daggerfall_alikr_05]],      44926 },
+	    {0.2984, 0.3482, [[Alik'r CE Treasure Map]],               [[Alik'r Wüste CE Schatzkarte]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r EC]],         [[treasuremap_ce_daggerfall_alikr_05]],      44926 },
 	},	
+	["sentinel"] = {
+		{0.7745, 0.0504, [[Alik'r CE Treasure Map]],               [[Alik'r Wüste CE Schatzkarte]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r EC]],         [[treasuremap_ce_daggerfall_alikr_05]],      44926 },
+	},
 ----Bangkorai
 	[15] = {	
     	{0.42, 0.26,     [[Bangkorai Treasure Map I]],             [[Bangkorai Schatzkarte I]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ I]],                [[treasuremap_bankorai_01]],                 43619 },
@@ -84,7 +87,7 @@ LOST_TREASURE_DATA = {
 	    {0.31, 0.45,     [[Bangkorai Treasure Map IV]],            [[Bangkorai Schatzkarte IV]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ IV]],               [[treasuremap_bankorai_04]],                 43622 },
 	    {0.32, 0.68,     [[Bangkorai Treasure Map V]],             [[Bangkorai Schatzkarte V]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ V]],                [[treasuremap_bankorai_05]],                 43623 },
 	    {0.64, 0.69,     [[Bangkorai Treasure Map VI]],            [[Bangkorai Schatzkarte VI]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ VI]],               [[treasuremap_bankorai_06]],                 43624 },
-	    {0.7560, 0.7548, [[Bangkorai CE Treasure Map]],            [[Bangkorai CE Schatzkarte]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ EC]],               [[treasuremap_ce_daggerfall_bankorai_06]],   44929 },
+	    {0.6092, 0.7593, [[Bangkorai CE Treasure Map]],            [[Bangkorai CE Schatzkarte]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ EC]],               [[treasuremap_ce_daggerfall_bankorai_06]],   44929 },
 	},
 ----Bleakrock Isle
 	[110] = {	
@@ -163,7 +166,7 @@ LOST_TREASURE_DATA = {
 	    {0.37, 0.42,     [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
 	    {0.32, 0.12,     [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
 	    {0.26, 0.64,     [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
-	    {0.43, 0.67,     [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
+	    {0.4414, 0.6923, [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
 	    {0.55, 0.42,     [[Reaper's March Treasure Map V]],        [[Schnittermark Schatzkarte V]],        [[Carte Au TrÃ©sor de la marche de la Camarde V]],   [[treasuremap_reapersmarch_05]],             43653 },
 	    {0.66, 0.22,     [[Reaper's March Treasure Map VI]],       [[Schnittermark Schatzkarte VI]],       [[Carte Au TrÃ©sor de la marche de la Camarde VI]],  [[treasuremap_reapersmarch_06]],             43654 },
 		{0.4087, 0.5434, [[Reaper's March CE Treasure Map]],       [[Schnittermark CE Schatzkarte]],       [[Carte Au TrÃ©sor de la marche de la Camarde EC]],  [[treasuremap_ce_aldmeri_reapersmarch_06]],  44941 },

@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.0",
+    Version = "2.1",
 }
 
 local LT =
@@ -60,6 +60,7 @@ local pinLayout_Treasure =
 }
 
 local LostTreasureTLW = nil
+local currentTreasureMapItemID = nil
 
 --Handles info on TreasureMap
 local function GetInfoFromTag(pin)
@@ -150,6 +151,10 @@ local function showMiniTreasureMap(texture)
     end
 end
 
+local function hideMiniTreasureMap()
+    LostTreasureTLW:SetHidden(true)
+end
+
 local function createMiniTreasureMap()
     LostTreasureTLW = WINDOW_MANAGER:CreateTopLevelWindow(nil)
     LostTreasureTLW:SetMouseEnabled(true)      
@@ -177,7 +182,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW.map:SetAnchorFill(LostTreasureTLW)  
 
     LostTreasureTLW.map.close = WINDOW_MANAGER:CreateControlFromVirtual(nil, LostTreasureTLW.map, "ZO_CloseButton")
-    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) LostTreasureTLW:SetHidden(true) end)      
+    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) hideMiniTreasureMap() end)      
 end
 
 function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)	
@@ -190,7 +195,8 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     local mapTextureName = string.match(textureName, "%w+/%w+/%w+/(.+)%.dds")
     for _, v in pairs(LOST_TREASURE_DATA) do
     	for _, pinData in pairs(v) do    	
-    		if mapTextureName == pinData[LOST_TREASURE_INDEX.TEXTURE] then                
+    		if mapTextureName == pinData[LOST_TREASURE_INDEX.TEXTURE] then   
+                currentTreasureMapItemID = pinData[LOST_TREASURE_INDEX.ITEMID]              
     			return
     		end
     	end
@@ -279,6 +285,26 @@ local function createLAM2Panel()
     CALLBACK_MANAGER:RegisterCallback("LAM-PanelControlsCreated", SetupLAMMapIcon)
 end    
 
+function LOST_TREASURE:EVENT_LOOT_CLOSED(...)
+    if currentTreasureMapItemID then 
+        -- Check if we still have the map
+        local _, bagSlots = GetBagInfo(BAG_BACKPACK)                      
+        
+        for bagSlot = 0, bagSlots do
+            local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
+
+            if itemID and tonumber(itemID) == currentTreasureMapItemID then                    
+                return
+            end                          
+        end 
+        --
+        -- If we get here we lost the active map, either banked, deleted or found
+        --   
+        ShowTreasure() -- Update Map Pins
+        hideMiniTreasureMap()
+    end
+end
+
 function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
    	if name == Addon.Name then 
 
@@ -294,7 +320,8 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
         createMiniTreasureMap()
 
-   		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)	
+   		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)
+        EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_LOOT_CLOSED, function(...) LOST_TREASURE:EVENT_LOOT_CLOSED(...) end)
    		
 
         pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.pinTexture]
