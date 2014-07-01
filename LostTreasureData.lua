@@ -239,7 +239,7 @@ LOST_TREASURE_DATA = {
 		{0.66, 0.46,     [[Cyrodiil Treasure Map XV]],             [[Cyrodiil Schatzkarte XV]],            [[Carte Au TrÃ©sor de Cyrodiil XV]],                 [[treasuremap_cyrodiil_ebon_03]],            43717 },
 		{0.68, 0.63,     [[Cyrodiil Treasure Map XVI]],            [[Cyrodiil Schatzkarte XVI]],           [[Carte Au TrÃ©sor de Cyrodiil XVI]],                [[treasuremap_cyrodiil_ebon_04]],            43718 },
 		{0.76, 0.46,     [[Cyrodiil Treasure Map XVII]],           [[Cyrodiil Schatzkarte XVII]],          [[Carte Au TrÃ©sor de Cyrodiil XVII]],               [[treasuremap_cyrodiil_ebon_05]],            43719 },
-		{0.74, 0.51,     [[Cyrodiil Treasure Map XVIII]],          [[Cyrodiil Schatzkarte XVIII]],         [[Carte Au TrÃ©sor de Cyrodiil XVIII]],              [[treasuremap_cyrodiil_ebon_06]],            43720 },
+		{0.7360, 0.5147, [[Cyrodiil Treasure Map XVIII]],          [[Cyrodiil Schatzkarte XVIII]],         [[Carte Au TrÃ©sor de Cyrodiil XVIII]],              [[treasuremap_cyrodiil_ebon_06]],            43720 },
 	},
 	----Craglorn
 	[353] = {	

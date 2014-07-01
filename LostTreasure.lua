@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.1",
+    Version = "2.2",
 }
 
 local LT =
@@ -40,16 +40,16 @@ local pinTexturesList =
 {
     [1] = [[X red]],
     [2] = [[X black]],
-    [3] = [[Map black]],
-    [4] = [[Map white]],
+    -- [3] = [[Map black]],
+    -- [4] = [[Map white]],
 }
 
 local pinTextures = 
 {
     [1] = [[LostTreasure/Icons/x_red.dds]],
     [2] = [[LostTreasure/Icons/x_black.dds]],
-    [3] = [[LostTreasure/Icons/map_black.dds]],
-    [4] = [[LostTreasure/Icons/map_white.dds]],
+    -- [3] = [[LostTreasure/Icons/map_black.dds]], -- Removed due to copyright claims
+    -- [4] = [[LostTreasure/Icons/map_white.dds]], -- Removed due to copyright claims
 }
 
 local pinLayout_Treasure = 
