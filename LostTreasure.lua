@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.2",
+    Version = "2.3",
 }
 
 local LT =
@@ -26,6 +26,7 @@ local LT =
             offsetX = 100, 
             offsetY = 100, 
         },
+        pinTextureSize = 32
 	},    
 }
 
@@ -40,23 +41,23 @@ local pinTexturesList =
 {
     [1] = [[X red]],
     [2] = [[X black]],
-    -- [3] = [[Map black]],
-    -- [4] = [[Map white]],
+    [3] = [[Map black (Mitsarugi)]],
+    [4] = [[Map white (Mitsarugi)]],
 }
 
 local pinTextures = 
 {
     [1] = [[LostTreasure/Icons/x_red.dds]],
     [2] = [[LostTreasure/Icons/x_black.dds]],
-    -- [3] = [[LostTreasure/Icons/map_black.dds]], -- Removed due to copyright claims
-    -- [4] = [[LostTreasure/Icons/map_white.dds]], -- Removed due to copyright claims
+    [3] = [[LostTreasure/Icons/map_black.dds]], 
+    [4] = [[LostTreasure/Icons/map_white.dds]], 
 }
 
 local pinLayout_Treasure = 
 { 
 		level = 40,		
 		--texture = "LostTreasure/Icons/x_black.dds",
-		size = 32,	
+		--size = 32,	
 }
 
 local LostTreasureTLW = nil
@@ -220,7 +221,7 @@ local function createLAM2Panel()
     }
 
     local optionsData = 
-    {
+    {        
         [1] = 
         {
             type = "dropdown",
@@ -238,7 +239,21 @@ local function createLAM2Panel()
                 end
             end,
         },
-        [2] =
+        [2] = 
+        {
+            type = "slider",
+            name = "Pin Texture Size",
+            tooltip = "Size of the pin.",
+            min = 12, 
+            max = 48, 
+            step = 2, 
+            getFunc = function() return LT.SavedVariables.pinTextureSize end, 
+            setFunc = function(value) 
+                LT.SavedVariables.pinTextureSize = value
+                pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize 
+            end,
+        },
+        [3] =
         {            
             type = "dropdown",
             name = "Map Marking",
@@ -254,7 +269,7 @@ local function createLAM2Panel()
                 end
             end,            
         },     
-        [3] =
+        [4] =
         {
             type = "checkbox",
             name = "Show Mini Treasure Map",
@@ -262,7 +277,7 @@ local function createLAM2Panel()
             getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
             setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
         },   
-        [4] =
+        [5] =
         {
             type = "description",
             text = "Lost Treasure will put a marker on your map if you use the treasure map from your inventory.",
@@ -278,7 +293,7 @@ local function createLAM2Panel()
             treasureMapIcon = WINDOW_MANAGER:CreateControl(nil, control.controlsToRefresh[1], CT_TEXTURE)
             treasureMapIcon:SetAnchor(RIGHT, control.controlsToRefresh[1].dropdown:GetControl(), LEFT, -10, 0)
             treasureMapIcon:SetTexture(pinTextures[LT.SavedVariables.pinTexture])
-            treasureMapIcon:SetDimensions(pinLayout_Treasure.size, pinLayout_Treasure.size)
+            treasureMapIcon:SetDimensions(32, 32)
             CALLBACK_MANAGER:UnregisterCallback("LAM-PanelControlsCreated", SetupLAMMapIcon)
         end
     end
@@ -325,6 +340,7 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
    		
 
         pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.pinTexture]
+        pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize
    		
    		LMP:AddPinType(Addon.Name.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
         LMP:AddPinFilter(Addon.Name.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")			
