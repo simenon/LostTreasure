@@ -58,7 +58,7 @@ LOST_TREASURE_DATA = {
 	    {0.17, 0.61,     [[Rivenspire Treasure Map II]],           [[Kluftspitze Schatzkarte II]],         [[Carte Au TrÃ©sor de Fendretour II]],               [[treasuremap_rivenspire_02]],               43608 },
 	    {0.7175, 0.4362, [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
 	    {0.71, 0.70,     [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
-	    {0.75, 0.30,     [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
+	    {0.7584, 0.3199, [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
 	    {0.4092, 0.2994, [[Rivenspire Treasure Map VI]],           [[Kluftspitze Schatzkarte VI]],         [[Carte Au TrÃ©sor de Fendretour VI]],               [[treasuremap_rivenspire_06]],               43612 },
 	    {0.7599, 0.1621, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
 	},
@@ -197,7 +197,7 @@ LOST_TREASURE_DATA = {
 ----Stros M'Kai
     [293] = {
 	    {0.5458, 0.6406, [[Stros M'Kai Treasure Map I]],           [[Stros M'Kai Schatzkarte I]],          [[Carte Au TrÃ©sor de Stros M'Kai I]],               [[treasuremap_strosmkai_001]],               43691 },
-	    {0.09, 0.87,     [[Stros M'Kai Treasure Map II]],          [[Stros M'Kai Schatzkarte II]],         [[Carte Au TrÃ©sor de Stros M'Kai II]],              [[treasuremap_strosmkai_002]],               43692 },
+	    {0.0989, 0.6127, [[Stros M'Kai Treasure Map II]],          [[Stros M'Kai Schatzkarte II]],         [[Carte Au TrÃ©sor de Stros M'Kai II]],              [[treasuremap_strosmkai_002]],               43692 },
 		{0.70, 0.33,     [[Stros M'Kai CE Treasure Map]],          [[Stros M'Kai CE Schatzkarte]],         [[Carte Au TrÃ©sor de Stros M'Kai EC]],              [[treasuremap_ce_daggerfall_stros_01a]],     44946 },
 	},
 ----The Rift
