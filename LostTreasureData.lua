@@ -55,7 +55,7 @@ LOST_TREASURE_DATA = {
 ----Rivenspire
 	[5] = {	
 	    {0.32, 0.50,     [[Rivenspire Treasure Map I]],            [[Kluftspitze Schatzkarte I]],          [[Carte Au TrÃ©sor de Fendretour I]],                [[treasuremap_rivenspire_01]],               43607 },
-	    {0.17, 0.61,     [[Rivenspire Treasure Map II]],           [[Kluftspitze Schatzkarte II]],         [[Carte Au TrÃ©sor de Fendretour II]],               [[treasuremap_rivenspire_02]],               43608 },
+	    {0.1773, 0.6285, [[Rivenspire Treasure Map II]],           [[Kluftspitze Schatzkarte II]],         [[Carte Au TrÃ©sor de Fendretour II]],               [[treasuremap_rivenspire_02]],               43608 },
 	    {0.7175, 0.4362, [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
 	    {0.71, 0.70,     [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
 	    {0.7584, 0.3199, [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
@@ -81,9 +81,9 @@ LOST_TREASURE_DATA = {
 	},
 ----Bangkorai
 	[15] = {	
-    	{0.42, 0.26,     [[Bangkorai Treasure Map I]],             [[Bangkorai Schatzkarte I]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ I]],                [[treasuremap_bankorai_01]],                 43619 },
+    	{0.4331, 0.2704, [[Bangkorai Treasure Map I]],             [[Bangkorai Schatzkarte I]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ I]],                [[treasuremap_bankorai_01]],                 43619 },
 	    {0.61, 0.20,     [[Bangkorai Treasure Map II]],            [[Bangkorai Schatzkarte II]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ II]],               [[treasuremap_bankorai_02]],                 43620 },
-	    {0.72, 0.38,     [[Bangkorai Treasure Map III]],           [[Bangkorai Schatzkarte III]],          [[Carte Au TrÃ©sor de BangkoraÃ¯ III]],              [[treasuremap_bankorai_03]],                 43621 },
+	    {0.7183, 0.3837, [[Bangkorai Treasure Map III]],           [[Bangkorai Schatzkarte III]],          [[Carte Au TrÃ©sor de BangkoraÃ¯ III]],              [[treasuremap_bankorai_03]],                 43621 },
 	    {0.31, 0.45,     [[Bangkorai Treasure Map IV]],            [[Bangkorai Schatzkarte IV]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ IV]],               [[treasuremap_bankorai_04]],                 43622 },
 	    {0.32, 0.68,     [[Bangkorai Treasure Map V]],             [[Bangkorai Schatzkarte V]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ V]],                [[treasuremap_bankorai_05]],                 43623 },
 	    {0.64, 0.69,     [[Bangkorai Treasure Map VI]],            [[Bangkorai Schatzkarte VI]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ VI]],               [[treasuremap_bankorai_06]],                 43624 },
@@ -102,7 +102,7 @@ LOST_TREASURE_DATA = {
 ----Deshaan
     [11] = {	
 	    {0.2599, 0.5507, [[Deshaan Treasure Map I]],               [[Deshaan Schatzkarte I]],              [[Carte Au TrÃ©sor de Deshaan I]],                   [[treasuremap_deshaan_001]],                 43661 },
-	    {0.17, 0.46,     [[Deshaan Treasure Map II]],              [[Deshaan Schatzkarte II]],             [[Carte Au TrÃ©sor de Deshaan II]],                  [[treasuremap_deshaan_002]],                 43662 },
+	    {0.1840, 0.4724, [[Deshaan Treasure Map II]],              [[Deshaan Schatzkarte II]],             [[Carte Au TrÃ©sor de Deshaan II]],                  [[treasuremap_deshaan_002]],                 43662 },
 	    {0.45, 0.40,     [[Deshaan Treasure Map III]],             [[Deshaan Schatzkarte III]],            [[Carte Au TrÃ©sor de Deshaan III]],                 [[treasuremap_deshaan_003]],                 43663 },
 	    {0.75, 0.55,     [[Deshaan Treasure Map IV]],              [[Deshaan Schatzkarte IV]],             [[Carte Au TrÃ©sor de Deshaan IV]],                  [[treasuremap_deshaan_004]],                 43664 },
 	    {0.89, 0.54,     [[Deshaan Treasure Map V]],               [[Deshaan Schatzkarte V]],              [[Carte Au TrÃ©sor de Deshaan V]],                   [[treasuremap_deshaan_005]],                 43665 },
@@ -111,7 +111,7 @@ LOST_TREASURE_DATA = {
     },
 ----Glenumbra
 	[2] = {	
-	    {0.52, 0.75,     [[Glenumbra Treasure Map I]],             [[Glenumbra Schatzkarte I]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie I]],            [[treasuremap_glenumbra_001]],               43507 },
+	    {0.5265, 0.7618, [[Glenumbra Treasure Map I]],             [[Glenumbra Schatzkarte I]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie I]],            [[treasuremap_glenumbra_001]],               43507 },
 		{0.49, 0.45,     [[Glenumbra Treasure Map II]],            [[Glenumbra Schatzkarte II]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie II]],           [[treasuremap_glenumbra_002]],               43525 },
 		{0.65, 0.25,     [[Glenumbra Treasure Map III]],           [[Glenumbra Schatzkarte III]],          [[Carte Au TrÃ©sor de la GlÃ©numbrie III]],          [[treasuremap_glenumbra_003]],               43527 },
 		{0.72, 0.52,     [[Glenumbra Treasure Map IV]],            [[Glenumbra Schatzkarte IV]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie IV]],           [[treasuremap_glenumbra_004]],               43600 },
