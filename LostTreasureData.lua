@@ -145,7 +145,7 @@ LOST_TREASURE_DATA = {
 		{0.21, 0.31,     [[Khenarthi's Roost Treasure Map II]],    [[Khenarthis Rast Schatzkarte II"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi II]],    [[treasuremap_khenarthi_02]],                43696 },
 		{0.41, 0.58,     [[Khenarthi's Roost Treasure Map III]],   [[Khenarthis Rast Schatzkarte III"]],   [[Carte Au TrÃ©sor du perchoir de Khenarthi III]],   [[treasuremap_khenarthi_03]],                43697 },
 		{0.77, 0.33,     [[Khenarthi's Roost Treasure Map IV]],    [[Khenarthis Rast Schatzkarte IV"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi IV]],    [[treasuremap_khenarthi_04]],                43698 },
-		{0.62, 0.83,     [[Khenarthi's Roost CE Treasure Map I]],  [[Khenarthis Rast CE Schatzkarte I"]],  [[Carte Au TrÃ©sor du perchoir de Khenarthi EC I]],  [[treasuremap_ce_aldmeri_khenarthi_01a]],    44939 },
+		{0.6168, 0.8328, [[Khenarthi's Roost CE Treasure Map I]],  [[Khenarthis Rast CE Schatzkarte I"]],  [[Carte Au TrÃ©sor du perchoir de Khenarthi EC I]],  [[treasuremap_ce_aldmeri_khenarthi_01a]],    44939 },
 	    {0.40, 0.37,     [[Khenarthi's Roost CE Treasure Map II]], [[Khenarthis Rast CE Schatzkarte II"]], [[Carte Au TrÃ©sor du perchoir de Khenarthi EC II]], [[treasuremap_ce_aldmeri_khenarthi_01b]],    45010 },
 	},	
 ----Malabal Tor 
