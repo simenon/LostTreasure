@@ -20,6 +20,10 @@ LOST_TREASURE_DATA = {
 	    {0.3408, 0.1352, [[Auridon Treasure Map VI]],              [[Auridon Schatzkarte VI]],             [[Carte Au TrÃ©sor d'Auridia VI]],                   [[treasuremap_auridon_06]],                  43630 },
 		{0.6863, 0.9598, [[Auridon CE Treasure Map]],              [[Auridon CE Schatzkarte]],             [[Carte Au TrÃ©sor d'Auridia EC]],                   [[treasuremap_ce_aldmeri_auridon_02]],       44927 },
 	},
+----Auridon, Vulkhel Guard	
+	["vulkhelguard"] = {	
+		{0.9143, 0.7058, [[Auridon CE Treasure Map]],			   [[Auridon CE Schatzkarte]],		       [[Carte Au TrÃ©sor d'Auridia EC]],		            [[treasuremap_ce_aldmeri_auridon_02]],	     44927 },
+	},
 ----Bal Foyen
 	[111] = {	
 	    {0.58, 0.71,     [[Bal Foyen Treasure Map I]],             [[Bal Foyen Schatzkarte I]],            [[Carte Au TrÃ©sor de Bal Foyen I]],                 [[treasuremap_balfoyen_001]],                43701 },
@@ -126,7 +130,7 @@ LOST_TREASURE_DATA = {
 		{0.6290, 0.3810, [[Grahtwood Treasure Map III]],           [[Grahtwald Schatzkarte III]],          [[Carte Au TrÃ©sor du bois de Graht III]],           [[treasuremap_grahtwood_03]],                43633 },
 	    {0.46, 0.33,     [[Grahtwood Treasure Map IV]],            [[Grahtwald Schatzkarte IV]],           [[Carte Au TrÃ©sor du bois de Graht IV]],            [[treasuremap_grahtwood_04]],                43634 },
 	    {0.35, 0.35,     [[Grahtwood Treasure Map V]],             [[Grahtwald Schatzkarte V]],            [[Carte Au TrÃ©sor du bois de Graht V]],             [[treasuremap_grahtwood_05]],                43635 },
-	    {0.45, 0.44,     [[Grahtwood Treasure Map VI]],            [[Grahtwald Schatzkarte VI]],           [[Carte Au TrÃ©sor du bois de Graht VI]],            [[treasuremap_grahtwood_06]],                43636 },
+	    {0.4696, 0.4718, [[Grahtwood Treasure Map VI]],            [[Grahtwald Schatzkarte VI]],           [[Carte Au TrÃ©sor du bois de Graht VI]],            [[treasuremap_grahtwood_06]],                43636 },
 		{0.3128, 0.6006, [[Grahtwood CE Treasure Map]],            [[Grahtwald CE Schatzkarte]],           [[Carte Au TrÃ©sor du bois de Graht EC]],            [[treasuremap_ce_aldmeri_grahtwood_03]],     44937 },
  	},	
 ----Greenshade
@@ -142,11 +146,11 @@ LOST_TREASURE_DATA = {
 ----Khenarthi's Roost
 	[295] = {
 	    {0.6119, 0.7579, [[Khenarthi's Roost Treasure Map I]],     [[Khenarthis Rast Schatzkarte I"]],     [[Carte Au TrÃ©sor du perchoir de Khenarthi I]],     [[treasuremap_khenarthi_01]],                43695 },
-		{0.21, 0.31,     [[Khenarthi's Roost Treasure Map II]],    [[Khenarthis Rast Schatzkarte II"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi II]],    [[treasuremap_khenarthi_02]],                43696 },
+		{0.2254, 0.3140, [[Khenarthi's Roost Treasure Map II]],    [[Khenarthis Rast Schatzkarte II"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi II]],    [[treasuremap_khenarthi_02]],                43696 },
 		{0.4102, 0.5848, [[Khenarthi's Roost Treasure Map III]],   [[Khenarthis Rast Schatzkarte III"]],   [[Carte Au TrÃ©sor du perchoir de Khenarthi III]],   [[treasuremap_khenarthi_03]],                43697 },
 		{0.77, 0.33,     [[Khenarthi's Roost Treasure Map IV]],    [[Khenarthis Rast Schatzkarte IV"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi IV]],    [[treasuremap_khenarthi_04]],                43698 },
 		{0.6168, 0.8328, [[Khenarthi's Roost CE Treasure Map I]],  [[Khenarthis Rast CE Schatzkarte I"]],  [[Carte Au TrÃ©sor du perchoir de Khenarthi EC I]],  [[treasuremap_ce_aldmeri_khenarthi_01a]],    44939 },
-	    {0.40, 0.37,     [[Khenarthi's Roost CE Treasure Map II]], [[Khenarthis Rast CE Schatzkarte II"]], [[Carte Au TrÃ©sor du perchoir de Khenarthi EC II]], [[treasuremap_ce_aldmeri_khenarthi_01b]],    45010 },
+	    {0.3990, 0.3665, [[Khenarthi's Roost CE Treasure Map II]], [[Khenarthis Rast CE Schatzkarte II"]], [[Carte Au TrÃ©sor du perchoir de Khenarthi EC II]], [[treasuremap_ce_aldmeri_khenarthi_01b]],    45010 },
 	},	
 ----Malabal Tor 
 	[12] = {
@@ -165,7 +169,7 @@ LOST_TREASURE_DATA = {
 	[180] = {
 	    {0.37, 0.42,     [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
 	    {0.32, 0.12,     [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
-	    {0.26, 0.64,     [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
+	    {0.2705, 0.6514, [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
 	    {0.4414, 0.6923, [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
 	    {0.5510, 0.4160, [[Reaper's March Treasure Map V]],        [[Schnittermark Schatzkarte V]],        [[Carte Au TrÃ©sor de la marche de la Camarde V]],   [[treasuremap_reapersmarch_05]],             43653 },
 	    {0.66, 0.22,     [[Reaper's March Treasure Map VI]],       [[Schnittermark Schatzkarte VI]],       [[Carte Au TrÃ©sor de la marche de la Camarde VI]],  [[treasuremap_reapersmarch_06]],             43654 },
