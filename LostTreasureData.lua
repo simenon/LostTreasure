@@ -167,7 +167,7 @@ LOST_TREASURE_DATA = {
 	},                       
 ----Reaper’s March
 	[180] = {
-	    {0.37, 0.42,     [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
+	    {0.3781, 0.4313, [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
 	    {0.32, 0.12,     [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
 	    {0.2705, 0.6514, [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
 	    {0.4414, 0.6923, [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
