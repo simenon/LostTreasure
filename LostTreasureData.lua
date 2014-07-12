@@ -90,7 +90,7 @@ LOST_TREASURE_DATA = {
 	    {0.7183, 0.3837, [[Bangkorai Treasure Map III]],           [[Bangkorai Schatzkarte III]],          [[Carte Au TrÃ©sor de BangkoraÃ¯ III]],              [[treasuremap_bankorai_03]],                 43621 },
 	    {0.31, 0.45,     [[Bangkorai Treasure Map IV]],            [[Bangkorai Schatzkarte IV]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ IV]],               [[treasuremap_bankorai_04]],                 43622 },
 	    {0.32, 0.68,     [[Bangkorai Treasure Map V]],             [[Bangkorai Schatzkarte V]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ V]],                [[treasuremap_bankorai_05]],                 43623 },
-	    {0.64, 0.69,     [[Bangkorai Treasure Map VI]],            [[Bangkorai Schatzkarte VI]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ VI]],               [[treasuremap_bankorai_06]],                 43624 },
+	    {0.6447, 0.6926, [[Bangkorai Treasure Map VI]],            [[Bangkorai Schatzkarte VI]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ VI]],               [[treasuremap_bankorai_06]],                 43624 },
 	    {0.6092, 0.7593, [[Bangkorai CE Treasure Map]],            [[Bangkorai CE Schatzkarte]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ EC]],               [[treasuremap_ce_daggerfall_bankorai_06]],   44929 },
 	},
 ----Bleakrock Isle
@@ -125,10 +125,10 @@ LOST_TREASURE_DATA = {
 	},
 ----Grahtwood
 	[181] = {
-	    {0.39, 0.66,     [[Grahtwood Treasure Map I]],             [[Grahtwald Schatzkarte I]],            [[Carte Au TrÃ©sor du bois de Graht I]],             [[treasuremap_grahtwood_01]],                43631 },
+	    {0.3951, 0.6750, [[Grahtwood Treasure Map I]],             [[Grahtwald Schatzkarte I]],            [[Carte Au TrÃ©sor du bois de Graht I]],             [[treasuremap_grahtwood_01]],                43631 },
 	    {0.64, 0.47,     [[Grahtwood Treasure Map II]],            [[Grahtwald Schatzkarte II]],           [[Carte Au TrÃ©sor du bois de Graht II]],            [[treasuremap_grahtwood_02]],                43632 },
 		{0.6290, 0.3810, [[Grahtwood Treasure Map III]],           [[Grahtwald Schatzkarte III]],          [[Carte Au TrÃ©sor du bois de Graht III]],           [[treasuremap_grahtwood_03]],                43633 },
-	    {0.46, 0.33,     [[Grahtwood Treasure Map IV]],            [[Grahtwald Schatzkarte IV]],           [[Carte Au TrÃ©sor du bois de Graht IV]],            [[treasuremap_grahtwood_04]],                43634 },
+	    {0.4735, 0.3407, [[Grahtwood Treasure Map IV]],            [[Grahtwald Schatzkarte IV]],           [[Carte Au TrÃ©sor du bois de Graht IV]],            [[treasuremap_grahtwood_04]],                43634 },
 	    {0.35, 0.35,     [[Grahtwood Treasure Map V]],             [[Grahtwald Schatzkarte V]],            [[Carte Au TrÃ©sor du bois de Graht V]],             [[treasuremap_grahtwood_05]],                43635 },
 	    {0.4696, 0.4718, [[Grahtwood Treasure Map VI]],            [[Grahtwald Schatzkarte VI]],           [[Carte Au TrÃ©sor du bois de Graht VI]],            [[treasuremap_grahtwood_06]],                43636 },
 		{0.3128, 0.6006, [[Grahtwood CE Treasure Map]],            [[Grahtwald CE Schatzkarte]],           [[Carte Au TrÃ©sor du bois de Graht EC]],            [[treasuremap_ce_aldmeri_grahtwood_03]],     44937 },
@@ -148,7 +148,7 @@ LOST_TREASURE_DATA = {
 	    {0.6119, 0.7579, [[Khenarthi's Roost Treasure Map I]],     [[Khenarthis Rast Schatzkarte I"]],     [[Carte Au TrÃ©sor du perchoir de Khenarthi I]],     [[treasuremap_khenarthi_01]],                43695 },
 		{0.2254, 0.3140, [[Khenarthi's Roost Treasure Map II]],    [[Khenarthis Rast Schatzkarte II"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi II]],    [[treasuremap_khenarthi_02]],                43696 },
 		{0.4102, 0.5848, [[Khenarthi's Roost Treasure Map III]],   [[Khenarthis Rast Schatzkarte III"]],   [[Carte Au TrÃ©sor du perchoir de Khenarthi III]],   [[treasuremap_khenarthi_03]],                43697 },
-		{0.77, 0.33,     [[Khenarthi's Roost Treasure Map IV]],    [[Khenarthis Rast Schatzkarte IV"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi IV]],    [[treasuremap_khenarthi_04]],                43698 },
+		{0.7739, 0.3376, [[Khenarthi's Roost Treasure Map IV]],    [[Khenarthis Rast Schatzkarte IV"]],    [[Carte Au TrÃ©sor du perchoir de Khenarthi IV]],    [[treasuremap_khenarthi_04]],                43698 },
 		{0.6168, 0.8328, [[Khenarthi's Roost CE Treasure Map I]],  [[Khenarthis Rast CE Schatzkarte I"]],  [[Carte Au TrÃ©sor du perchoir de Khenarthi EC I]],  [[treasuremap_ce_aldmeri_khenarthi_01a]],    44939 },
 	    {0.3990, 0.3665, [[Khenarthi's Roost CE Treasure Map II]], [[Khenarthis Rast CE Schatzkarte II"]], [[Carte Au TrÃ©sor du perchoir de Khenarthi EC II]], [[treasuremap_ce_aldmeri_khenarthi_01b]],    45010 },
 	},	
