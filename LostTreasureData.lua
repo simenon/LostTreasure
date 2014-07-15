@@ -119,7 +119,7 @@ LOST_TREASURE_DATA = {
 		{0.4920, 0.4542, [[Glenumbra Treasure Map II]],            [[Glenumbra Schatzkarte II]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie II]],           [[treasuremap_glenumbra_002]],               43525 },
 		{0.65, 0.25,     [[Glenumbra Treasure Map III]],           [[Glenumbra Schatzkarte III]],          [[Carte Au TrÃ©sor de la GlÃ©numbrie III]],          [[treasuremap_glenumbra_003]],               43527 },
 		{0.72, 0.52,     [[Glenumbra Treasure Map IV]],            [[Glenumbra Schatzkarte IV]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie IV]],           [[treasuremap_glenumbra_004]],               43600 },
-		{0.27, 0.52,     [[Glenumbra Treasure Map V]],             [[Glenumbra Schatzkarte V]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie V]],            [[treasuremap_glenumbra_005]],               43509 },
+		{0.2752, 0.5285, [[Glenumbra Treasure Map V]],             [[Glenumbra Schatzkarte V]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie V]],            [[treasuremap_glenumbra_005]],               43509 },
 		{0.51, 0.24,     [[Glenumbra Treasure Map VI]],            [[Glenumbra Schatzkarte VI]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie VI]],           [[treasuremap_glenumbra_006]],               43526 },
 		{0.73, 0.46,     [[Glenumbra CE Treasure Map]],            [[Glenumbra CE Schatzkarte]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie EC]],           [[treasuremap_ce_daggerfall_glenumbra_02]],  44936 },
 	},
@@ -182,7 +182,7 @@ LOST_TREASURE_DATA = {
 	[20] = { 
 	    {0.3697, 0.1501, [[Shadowfen Treasure Map I]],             [[Schattenfenn Schatzkarte I]],         [[Carte Au TrÃ©sor de Fangeombre I]],                [[treasuremap_shadowfen_01]],                43667 },
 	    {0.7088, 0.3925, [[Shadowfen Treasure Map II]],            [[Schattenfenn Schatzkarte II]],        [[Carte Au TrÃ©sor de Fangeombre II]],               [[treasuremap_shadowfen_02]],                43668 },
-	    {0.70, 0.69,     [[Shadowfen Treasure Map III]],           [[Schattenfenn Schatzkarte III]],       [[Carte Au TrÃ©sor de Fangeombre III]],              [[treasuremap_shadowfen_03]],                43669 },
+	    {0.7040, 0.7014, [[Shadowfen Treasure Map III]],           [[Schattenfenn Schatzkarte III]],       [[Carte Au TrÃ©sor de Fangeombre III]],              [[treasuremap_shadowfen_03]],                43669 },
 	    {0.610, 0.611,   [[Shadowfen Treasure Map IV]],            [[Schattenfenn Schatzkarte IV]],        [[Carte Au TrÃ©sor de Fangeombre IV]],               [[treasuremap_shadowfen_04]],                43670 },
 	    {0.406, 0.469,   [[Shadowfen Treasure Map V]],             [[Schattenfenn Schatzkarte V]],         [[Carte Au TrÃ©sor de Fangeombre V]],                [[treasuremap_shadowfen_05]],                43671 },
 	    {0.23, 0.55,     [[Shadowfen Treasure Map VI]],            [[Schattenfenn Schatzkarte VI]],        [[Carte Au TrÃ©sor de Fangeombre VI]],               [[treasuremap_shadowfen_06]],                43672 },
@@ -206,7 +206,7 @@ LOST_TREASURE_DATA = {
 	},
 ----The Rift
 	[17] = {	
-	    {0.73, 0.36,     [[The Rift Treasure Map I]],              [[Rift Schatzkarte I]],                 [[Carte Au TrÃ©sor de la BrÃ¨che I]],                [[treasuremap_therift_01]],                  43679 },
+	    {0.7412, 0.3782, [[The Rift Treasure Map I]],              [[Rift Schatzkarte I]],                 [[Carte Au TrÃ©sor de la BrÃ¨che I]],                [[treasuremap_therift_01]],                  43679 },
 	    {0.46, 0.43,     [[The Rift Treasure Map II]],             [[Rift Schatzkarte II]],                [[Carte Au TrÃ©sor de la BrÃ¨che II]],               [[treasuremap_therift_02]],                  43680 },
 	    {0.22, 0.35,     [[The Rift Treasure Map III]],            [[Rift Schatzkarte III]],               [[Carte Au TrÃ©sor de la BrÃ¨che III]],              [[treasuremap_therift_03]],                  43681 },
 	    {0.46, 0.54,     [[The Rift Treasure Map IV]],             [[Rift Schatzkarte IV]],                [[Carte Au TrÃ©sor de la BrÃ¨che IV]],               [[treasuremap_therift_04]],                  43682 },
