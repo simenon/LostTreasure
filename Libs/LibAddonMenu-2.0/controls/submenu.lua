@@ -6,16 +6,24 @@
 	reference = "MyAddonSubmenu"	--(optional) unique global reference to control
 }	]]
 
-local widgetVersion = 2
+local widgetVersion = 5
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("submenu", widgetVersion) then return end
 
 local wm = WINDOW_MANAGER
 local am = ANIMATION_MANAGER
+local tinsert = table.insert
 
 
-local function AnimateSubmenu(label)
-	local control = label:GetParent()
+local function UpdateValue(control)
+	control.label:SetText(control.data.name)
+	if control.data.tooltip then
+		control.label.tooltipText = control.data.tooltip
+	end
+end
+
+local function AnimateSubmenu(clicked)
+	local control = clicked:GetParent()
 	control.open = not control.open
 	
 	if control.open then
@@ -28,7 +36,7 @@ end
 
 function LAMCreateControl.submenu(parent, submenuData, controlName)
 	local control = wm:CreateTopLevelWindow(controlName or submenuData.reference)
-	control:SetParent(parent.scroll)
+	control:SetParent(parent.scroll or parent)
 	control.panel = parent
 	control:SetDimensions(523, 40)
 	
@@ -49,7 +57,7 @@ function LAMCreateControl.submenu(parent, submenuData, controlName)
 	local scroll = control.scroll
 	scroll:SetParent(control)
 	scroll:SetAnchor(TOPLEFT, label, BOTTOMLEFT, 0, 10)
-	scroll:SetDimensionConstraints(525, 0, 525, 1500)
+	scroll:SetDimensionConstraints(525, 0, 525, 2500)
 
 	control.bg = wm:CreateControl(nil, label, CT_BACKDROP)
 	local bg = control.bg
@@ -90,7 +98,23 @@ function LAMCreateControl.submenu(parent, submenuData, controlName)
 			end
 		end)
 	
+	--small strip at the bottom of the submenu that you can click to close it
+	control.btmToggle = wm:CreateControl(nil, control, CT_TEXTURE)
+	local btmToggle = control.btmToggle
+	btmToggle:SetMouseEnabled(true)
+	btmToggle:SetAnchor(BOTTOMLEFT, control.scroll, BOTTOMLEFT)
+	btmToggle:SetAnchor(BOTTOMRIGHT, control.scroll, BOTTOMRIGHT)
+	btmToggle:SetHeight(15)
+	btmToggle:SetAlpha(0)
+	btmToggle:SetHandler("OnMouseUp", AnimateSubmenu)
+	
 	control.data = submenuData
+	
+	control.UpdateValue = UpdateValue
+	
+	if control.panel.data.registerForRefresh or control.panel.data.registerForDefaults then	--if our parent window wants to refresh controls, then add this to the list
+		tinsert(control.panel.controlsToRefresh, control)
+	end
 	
 	return control
 end

@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.11",
+    Version = "2.12",
 }
 
 local LT =
@@ -164,7 +164,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW:SetDimensions( 400 , 400 )
     LostTreasureTLW:SetAnchor( 
         LT.SavedVariables.miniTreasureMap.point, 
-        LT.SavedVariables.miniTreasureMap.relativeTo,
+        GetControl(LT.SavedVariables.miniTreasureMap.relativeTo),
         LT.SavedVariables.miniTreasureMap.relativePoint, 
         LT.SavedVariables.miniTreasureMap.offsetX, 
         LT.SavedVariables.miniTreasureMap.offsetY )
@@ -172,7 +172,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW:SetHandler("OnMoveStop", function(self,...)                         
             local _, point, relativeTo, relativePoint, offsetX, offsetY = self:GetAnchor()
             LT.SavedVariables.miniTreasureMap.point = point
-            LT.SavedVariables.miniTreasureMap.relativeTo = relativeTo
+            LT.SavedVariables.miniTreasureMap.relativeTo = relativeTo:GetName()
             LT.SavedVariables.miniTreasureMap.relativePoint = relativePoint
             LT.SavedVariables.miniTreasureMap.offsetX = offsetX
             LT.SavedVariables.miniTreasureMap.offsetY = offsetY

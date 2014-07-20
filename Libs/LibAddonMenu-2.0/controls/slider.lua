@@ -15,7 +15,7 @@
 }	]]
 
 
-local widgetVersion = 2
+local widgetVersion = 3
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("slider", widgetVersion) then return end
 
@@ -69,7 +69,7 @@ end
 
 function LAMCreateControl.slider(parent, sliderData, controlName)
 	local control = wm:CreateTopLevelWindow(controlName or sliderData.reference)
-	control:SetParent(parent.scroll)
+	control:SetParent(parent.scroll or parent)
 	local isHalfWidth = sliderData.width == "half"
 	if isHalfWidth then
 		control:SetDimensions(250, 55)
@@ -164,7 +164,7 @@ function LAMCreateControl.slider(parent, sliderData, controlName)
 		control.warning.tooltipText = sliderData.warning
 	end
 	
-	control.panel = parent.panel or parent	--if this is in a submenu, panel is its parent
+	control.panel = parent.panel or parent	--if this is in a submenu, panel is the submenu's parent
 	control.data = sliderData
 	
 	if sliderData.disabled then
