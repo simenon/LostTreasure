@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.12",
+    Version = "2.13",
 }
 
 local LT =
@@ -60,6 +60,12 @@ local pinLayout_Treasure =
 		--size = 32,	
 }
 
+compassPinLayout = 
+{
+	maxDistance = 0.05,
+	texture = "",
+}
+
 local LostTreasureTLW = nil
 local currentTreasureMapItemID = nil
 
@@ -99,7 +105,7 @@ local function hasMap(mapName, mapTexture)
     return false
 end
 
-local function scanBagForMaps(data)
+local function scanBagForMaps(pinManager, data)
     local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
                
     for _, pinData in pairs(data) do  
@@ -108,10 +114,46 @@ local function scanBagForMaps(data)
 
             if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
                 LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)    
+                COMPASS_PINS:CreatePin( Addon.Name.."CompassPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
             end  
         end              
     end        
         
+end
+
+local function compassPinCallback(pinManager)
+         
+    local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
+    if GetMapType() == 1 then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
+    	local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")        
+    	data = LOST_TREASURE_DATA[subzone]
+    end
+    
+    if not data then return end
+    
+    if LT.SavedVariables.markMapMenuOption == 1 then
+        for _, pinData in pairs(data) do
+            if hasMap(pinData[LOST_TREASURE_INDEX.MAP_NAME],pinData[LOST_TREASURE_INDEX.TEXTURE]) then              
+                pinManager:CreatePin( Addon.Name.."CompassPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
+            end
+        end
+    elseif LT.SavedVariables.markMapMenuOption == 2 then
+    	local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
+               
+	for _, pinData in pairs(data) do  
+            for bagSlot = 0, bagSlots do
+	        local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
+
+                if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
+	            pinManager:CreatePin( Addon.Name.."CompassPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
+	        end  
+            end              
+	end        
+    elseif LT.SavedVariables.markMapMenuOption == 3 then
+        for _, pinData in pairs(data) do
+            pinManager:CreatePin( Addon.Name.."CompassPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y])
+        end
+    end    
 end
 
 local function pinCreator_Treasure(pinManager)
@@ -122,9 +164,7 @@ local function pinCreator_Treasure(pinManager)
     	data = LOST_TREASURE_DATA[subzone]
     end
     
-    if not data then
-        return
-    end
+    if not data then return end
     
     if LT.SavedVariables.markMapMenuOption == 1 then
         for _, pinData in pairs(data) do
@@ -133,7 +173,17 @@ local function pinCreator_Treasure(pinManager)
             end
         end
     elseif LT.SavedVariables.markMapMenuOption == 2 then
-        scanBagForMaps(data)
+    	local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
+               
+	for _, pinData in pairs(data) do  
+            for bagSlot = 0, bagSlots do
+	        local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
+
+                if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
+	            LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
+	        end  
+            end              
+	end        
     elseif LT.SavedVariables.markMapMenuOption == 3 then
         for _, pinData in pairs(data) do
             LMP:CreatePin( Addon.Name.."MapPin", pinData, pinData[LOST_TREASURE_INDEX.X], pinData[LOST_TREASURE_INDEX.Y],nil)
@@ -142,7 +192,8 @@ local function pinCreator_Treasure(pinManager)
 end
 	
 local function ShowTreasure()	
-    LMP:RefreshPins(Addon.Name.."MapPin" )
+    LMP:RefreshPins(Addon.Name.."MapPin")
+    COMPASS_PINS:RefreshPins() 
 end
 
 local function showMiniTreasureMap(texture)
@@ -250,8 +301,9 @@ local function createLAM2Panel()
             getFunc = function() return LT.SavedVariables.pinTextureSize end, 
             setFunc = function(value) 
                 LT.SavedVariables.pinTextureSize = value
-                pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize 
-            end,
+                pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize
+		compassPinLayout.texture =  LT.SavedVariables.pinTextureSize
+	    end,
         },
         [3] =
         {            
@@ -321,7 +373,7 @@ function LOST_TREASURE:EVENT_LOOT_CLOSED(...)
 end
 
 function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
-   	if name == Addon.Name then 
+   	if name ~= Addon.Name then return end
 
         LT.SavedVariables = ZO_SavedVars:New("LOST_TREASURE_SV", 3, nil, LT.defaults)  
 
@@ -335,20 +387,21 @@ function LOST_TREASURE:EVENT_ADD_ON_LOADED(event, name)
 
         createMiniTreasureMap()
 
-   		EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)
+   	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(...) end)
         EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_LOOT_CLOSED, function(...) LOST_TREASURE:EVENT_LOOT_CLOSED(...) end)
-   		
 
         pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.pinTexture]
         pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize
+	compassPinLayout.texture = pinTextures[LT.SavedVariables.pinTexture]
    		
-   		LMP:AddPinType(Addon.Name.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
-        LMP:AddPinFilter(Addon.Name.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")			
+   	LMP:AddPinType(Addon.Name.."MapPin", pinCreator_Treasure, nil, pinLayout_Treasure, pinTooltipCreator)
+        LMP:AddPinFilter(Addon.Name.."MapPin", "Lost Treasure Maps", false, LT.SavedVariables, "pinFilter")
+
+	COMPASS_PINS:AddCustomPin(Addon.Name.."CompassPin", compassPinCallback , compassPinLayout)			
 	    		
         createLAM2Panel()
         
         EVENT_MANAGER:UnregisterForEvent(Addon.Name, EVENT_ADD_ON_LOADED)
-	end
 end
 
 function TreasureMap_OnInitialized()	

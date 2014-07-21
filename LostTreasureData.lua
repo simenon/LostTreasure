@@ -95,8 +95,8 @@ LOST_TREASURE_DATA = {
 	},
 ----Bleakrock Isle
 	[110] = {	
-	    {0.43, 0.40,     [[Bleakrock Treasure Map I]],             [[Ödfels Schatzkarte I]],               [[Carte Au TrÃ©sor de l'Ã®le de Morneroc I]],        [[treasuremap_bleakrock_001]],               43699 },
-	    {0.42, 0.20,     [[Bleakrock Treasure Map II]],            [[Ödfels Schatzkarte II]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc II]],       [[treasuremap_bleakrock_002]],               43700 },
+	    {0.4383, 0.4067, [[Bleakrock Treasure Map I]],             [[Ödfels Schatzkarte I]],               [[Carte Au TrÃ©sor de l'Ã®le de Morneroc I]],        [[treasuremap_bleakrock_001]],               43699 },
+	    {0.4264, 0.2201, [[Bleakrock Treasure Map II]],            [[Ödfels Schatzkarte II]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc II]],       [[treasuremap_bleakrock_002]],               43700 },
 	    {0.4630, 0.6490, [[Bleakrock CE Treasure Map]],            [[Ödfels CE Schatzkarte]],              [[Carte Au TrÃ©sor de l'Ã®le de Morneroc EC]],       [[treasuremap_ce_ebonheart_bleakrock_01a]],  44931 },
 	},
 ----Bleakrock Isle, Bleackrock Village	
@@ -193,7 +193,7 @@ LOST_TREASURE_DATA = {
 	    {0.78, 0.56,     [[Stonefalls Treasure Map I]],            [[Steinfälle Schatzkarte I]],           [[Carte Au TrÃ©sor des Ã‰boulis I]],                 [[treasuremap_stonefalls_001]],              43655 },
 	    {0.6241, 0.5102, [[Stonefalls Treasure Map II]],           [[Steinfälle Schatzkarte II]],          [[Carte Au TrÃ©sor des Ã‰boulis II]],                [[treasuremap_stonefalls_002]],              43656 },
 	    {0.47, 0.58,     [[Stonefalls Treasure Map III]],          [[Steinfälle Schatzkarte III]],         [[Carte Au TrÃ©sor des Ã‰boulis III]],               [[treasuremap_stonefalls_003]],              43657 },
-	    {0.17, 0.44,     [[Stonefalls Treasure Map IV]],           [[Steinfälle Schatzkarte IV]],          [[Carte Au TrÃ©sor des Ã‰boulis IV]],                [[treasuremap_stonefalls_004]],              43658 },
+	    {0.1779, 0.4517, [[Stonefalls Treasure Map IV]],           [[Steinfälle Schatzkarte IV]],          [[Carte Au TrÃ©sor des Ã‰boulis IV]],                [[treasuremap_stonefalls_004]],              43658 },
 	    {0.19, 0.54,     [[Stonefalls Treasure Map V]],            [[Steinfälle Schatzkarte V]],           [[Carte Au TrÃ©sor des Ã‰boulis V]],                 [[treasuremap_stonefalls_005]],              43659 },
 	    {0.36, 0.70,     [[Stonefalls Treasure Map VI]],           [[Steinfälle Schatzkarte VI]],          [[Carte Au TrÃ©sor des Ã‰boulis VI]],                [[treasuremap_stonefalls_006]],              43660 },
 	    {0.5200, 0.6129, [[Stonefalls CE Treasure Map]],           [[Steinfälle CE Schatzkarte]],          [[Carte Au TrÃ©sor des Ã‰boulis EC]],                [[treasuremap_ce_ebonheart_stonefalls_02]],  44944 },
