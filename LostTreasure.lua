@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.13",
+    Version = "2.14",
 }
 
 local LT =
@@ -193,7 +193,7 @@ end
 	
 local function ShowTreasure()	
     LMP:RefreshPins(Addon.Name.."MapPin")
-    COMPASS_PINS:RefreshPins() 
+    COMPASS_PINS:RefreshPins(Addon.Name.."CompassPin") 
 end
 
 local function showMiniTreasureMap(texture)

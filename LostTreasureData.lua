@@ -13,7 +13,7 @@ LOST_TREASURE_DATA = {
 ----Auridon
 	[179] = {
 	    {0.49, 0.88,     [[Auridon Treasure Map I]],               [[Auridon Schatzkarte I]],              [[Carte Au TrÃ©sor d'Auridia I]],                    [[treasuremap_auridon_01]],                  43625 },
-	    {0.48, 0.63,     [[Auridon Treasure Map II]],              [[Auridon Schatzkarte II]],             [[Carte Au TrÃ©sor d'Auridia II]],                   [[treasuremap_auridon_02]],                  43626 },
+	    {0.4850, 0.6411, [[Auridon Treasure Map II]],              [[Auridon Schatzkarte II]],             [[Carte Au TrÃ©sor d'Auridia II]],                   [[treasuremap_auridon_02]],                  43626 },
 	    {0.44, 0.50,     [[Auridon Treasure Map III]],             [[Auridon Schatzkarte III]],            [[Carte Au TrÃ©sor d'Auridia III]],                  [[treasuremap_auridon_03]],                  43627 },
 	    {0.66, 0.41,     [[Auridon Treasure Map IV]],              [[Auridon Schatzkarte IV]],             [[Carte Au TrÃ©sor d'Auridia IV]],                   [[treasuremap_auridon_04]],                  43628 },
 	    {0.50, 0.26,     [[Auridon Treasure Map V]],               [[Auridon Schatzkarte V]],              [[Carte Au TrÃ©sor d'Auridia V]],                    [[treasuremap_auridon_05]],                  43629 },
@@ -129,7 +129,7 @@ LOST_TREASURE_DATA = {
 	    {0.6496, 0.4778, [[Grahtwood Treasure Map II]],            [[Grahtwald Schatzkarte II]],           [[Carte Au TrÃ©sor du bois de Graht II]],            [[treasuremap_grahtwood_02]],                43632 },
 	    {0.6290, 0.3810, [[Grahtwood Treasure Map III]],           [[Grahtwald Schatzkarte III]],          [[Carte Au TrÃ©sor du bois de Graht III]],           [[treasuremap_grahtwood_03]],                43633 },
 	    {0.4735, 0.3407, [[Grahtwood Treasure Map IV]],            [[Grahtwald Schatzkarte IV]],           [[Carte Au TrÃ©sor du bois de Graht IV]],            [[treasuremap_grahtwood_04]],                43634 },
-	    {0.35, 0.35,     [[Grahtwood Treasure Map V]],             [[Grahtwald Schatzkarte V]],            [[Carte Au TrÃ©sor du bois de Graht V]],             [[treasuremap_grahtwood_05]],                43635 },
+	    {0.3550, 0.3562, [[Grahtwood Treasure Map V]],             [[Grahtwald Schatzkarte V]],            [[Carte Au TrÃ©sor du bois de Graht V]],             [[treasuremap_grahtwood_05]],                43635 },
 	    {0.4696, 0.4718, [[Grahtwood Treasure Map VI]],            [[Grahtwald Schatzkarte VI]],           [[Carte Au TrÃ©sor du bois de Graht VI]],            [[treasuremap_grahtwood_06]],                43636 },
 	    {0.3128, 0.6006, [[Grahtwood CE Treasure Map]],            [[Grahtwald CE Schatzkarte]],           [[Carte Au TrÃ©sor du bois de Graht EC]],            [[treasuremap_ce_aldmeri_grahtwood_03]],     44937 },
  	},	
@@ -211,7 +211,7 @@ LOST_TREASURE_DATA = {
 	    {0.2271, 0.3629, [[The Rift Treasure Map III]],            [[Rift Schatzkarte III]],               [[Carte Au TrÃ©sor de la BrÃ¨che III]],              [[treasuremap_therift_03]],                  43681 },
 	    {0.46, 0.54,     [[The Rift Treasure Map IV]],             [[Rift Schatzkarte IV]],                [[Carte Au TrÃ©sor de la BrÃ¨che IV]],               [[treasuremap_therift_04]],                  43682 },
 	    {0.83, 0.56,     [[The Rift Treasure Map V]],              [[Rift Schatzkarte V]],                 [[Carte Au TrÃ©sor de la BrÃ¨che V]],                [[treasuremap_therift_05]],                  43683 },
-	    {0.74, 0.63,     [[The Rift Treasure Map VI]],             [[Rift Schatzkarte VI]],                [[Carte Au TrÃ©sor de la BrÃ¨che VI]],               [[treasuremap_therift_06]],                  43684 },
+	    {0.7511, 0.6392, [[The Rift Treasure Map VI]],             [[Rift Schatzkarte VI]],                [[Carte Au TrÃ©sor de la BrÃ¨che VI]],               [[treasuremap_therift_06]],                  43684 },
 	    {0.5813, 0.6096, [[The Rift CE Treasure Map]],             [[Rift CE Schatzkarte]],                [[Carte Au TrÃ©sor de la BrÃ¨che EC]],               [[treasuremap_ce_ebonheart_rift_06]],        44947 },
 	},
         ["nimalten"] = {
@@ -222,10 +222,10 @@ LOST_TREASURE_DATA = {
 	    {0.39, 0.82,     [[Coldharbour Treasure Map I]],           [[Kalthafen Schatzkarte I]],            [[Carte Au TrÃ©sor d'Havreglace I]],                 [[treasuremap_coldharbour_01]],              43685 },
 	    {0.39, 0.56,     [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
 	    {0.59, 0.69,     [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
-	    {0.74, 0.76,     [[Coldharbour Treasure Map IV]],          [[Kalthafen Schatzkarte IV]],           [[Carte Au TrÃ©sor d'Havreglace IV]],                [[treasuremap_coldharbour_04]],              43688 },
+	    {0.7559, 0.7761, [[Coldharbour Treasure Map IV]],          [[Kalthafen Schatzkarte IV]],           [[Carte Au TrÃ©sor d'Havreglace IV]],                [[treasuremap_coldharbour_04]],              43688 },
 	    {0.43, 0.46,     [[Coldharbour Treasure Map V]],           [[Kalthafen Schatzkarte V]],            [[Carte Au TrÃ©sor d'Havreglace V]],                 [[treasuremap_coldharbour_05]],              43689 },
 	    {0.49, 0.38,     [[Coldharbour Treasure Map VI]],          [[Kalthafen Schatzkarte VI]],           [[Carte Au TrÃ©sor d'Havreglace VI]],                [[treasuremap_coldharbour_06]],              43690 },
-	    {0.54, 0.40,     [[Coldharbour CE Treasure Map]],          [[Kalthafen CE Schatzkarte]],           [[Carte Au TrÃ©sor d'Havreglace EC]],                [[treasuremap_1_coldharbor]],                44932 },
+	    {0.5521, 0.4145, [[Coldharbour CE Treasure Map]],          [[Kalthafen CE Schatzkarte]],           [[Carte Au TrÃ©sor d'Havreglace EC]],                [[treasuremap_1_coldharbor]],                44932 },
 	},	
 ----Cyrodiil
 	[38] = {
