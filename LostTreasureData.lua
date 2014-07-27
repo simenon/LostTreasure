@@ -110,7 +110,7 @@ LOST_TREASURE_DATA = {
 	    {0.45, 0.40,     [[Deshaan Treasure Map III]],             [[Deshaan Schatzkarte III]],            [[Carte Au TrÃ©sor de Deshaan III]],                 [[treasuremap_deshaan_003]],                 43663 },
 	    {0.7589, 0.5615, [[Deshaan Treasure Map IV]],              [[Deshaan Schatzkarte IV]],             [[Carte Au TrÃ©sor de Deshaan IV]],                  [[treasuremap_deshaan_004]],                 43664 },
 	    {0.89, 0.54,     [[Deshaan Treasure Map V]],               [[Deshaan Schatzkarte V]],              [[Carte Au TrÃ©sor de Deshaan V]],                   [[treasuremap_deshaan_005]],                 43665 },
-	    {0.78, 0.50,     [[Deshaan Treasure Map VI]],              [[Deshaan Schatzkarte VI]],             [[Carte Au TrÃ©sor de Deshaan VI]],                  [[treasuremap_deshaan_006]],                 43666 },
+	    {0.7929, 0.5094, [[Deshaan Treasure Map VI]],              [[Deshaan Schatzkarte VI]],             [[Carte Au TrÃ©sor de Deshaan VI]],                  [[treasuremap_deshaan_006]],                 43666 },
 	    {0.35, 0.64,     [[Deshaan CE Treasure Map]],              [[Deshaan CE Schatzkarte]],             [[Carte Au TrÃ©sor de Deshaan EC]],                  [[treasuremap_ce_ebonheart_deshaan_03]],     44934 },
         },
 ----Glenumbra
@@ -138,10 +138,10 @@ LOST_TREASURE_DATA = {
 	    {0.6543, 0.8344, [[Greenshade Treasure Map I]],            [[Grünschatten Schatzkarte I]],         [[Carte Au TrÃ©sor de Prasin I]],                    [[treasuremap_greenshade_01]],               43637 },
 	    {0.72, 0.73,     [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
 	    {0.35, 0.49,     [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
-	    {0.32, 0.32,     [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
+	    {0.34, 0.32,     [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
 	    {0.24, 0.14,     [[Greenshade Treasure Map V]],            [[Grünschatten Schatzkarte V]],         [[Carte Au TrÃ©sor de Prasin V]],                    [[treasuremap_greenshade_05]],               43641 },
 	    {0.59, 0.37,     [[Greenshade Treasure Map VI]],           [[Grünschatten Schatzkarte VI]],        [[Carte Au TrÃ©sor de Prasin VI]],                   [[treasuremap_greenshade_06]],               43642 },
-	    {0.58, 0.80,     [[Greenshade CE Treasure Map]],           [[Grünschatten CE Schatzkarte]],        [[Carte Au TrÃ©sor de Prasin EC]],                   [[treasuremap_ce_aldmeri_greenshade_04]],    44938 },
+	    {0.5931, 0.8112, [[Greenshade CE Treasure Map]],           [[Grünschatten CE Schatzkarte]],        [[Carte Au TrÃ©sor de Prasin EC]],                   [[treasuremap_ce_aldmeri_greenshade_04]],    44938 },
 	},	
 ----Khenarthi's Roost
 	[295] = {
@@ -210,7 +210,7 @@ LOST_TREASURE_DATA = {
 	    {0.46, 0.43,     [[The Rift Treasure Map II]],             [[Rift Schatzkarte II]],                [[Carte Au TrÃ©sor de la BrÃ¨che II]],               [[treasuremap_therift_02]],                  43680 },
 	    {0.2271, 0.3629, [[The Rift Treasure Map III]],            [[Rift Schatzkarte III]],               [[Carte Au TrÃ©sor de la BrÃ¨che III]],              [[treasuremap_therift_03]],                  43681 },
 	    {0.46, 0.54,     [[The Rift Treasure Map IV]],             [[Rift Schatzkarte IV]],                [[Carte Au TrÃ©sor de la BrÃ¨che IV]],               [[treasuremap_therift_04]],                  43682 },
-	    {0.83, 0.56,     [[The Rift Treasure Map V]],              [[Rift Schatzkarte V]],                 [[Carte Au TrÃ©sor de la BrÃ¨che V]],                [[treasuremap_therift_05]],                  43683 },
+	    {0.8386, 0.5718, [[The Rift Treasure Map V]],              [[Rift Schatzkarte V]],                 [[Carte Au TrÃ©sor de la BrÃ¨che V]],                [[treasuremap_therift_05]],                  43683 },
 	    {0.7511, 0.6392, [[The Rift Treasure Map VI]],             [[Rift Schatzkarte VI]],                [[Carte Au TrÃ©sor de la BrÃ¨che VI]],               [[treasuremap_therift_06]],                  43684 },
 	    {0.5813, 0.6096, [[The Rift CE Treasure Map]],             [[Rift CE Schatzkarte]],                [[Carte Au TrÃ©sor de la BrÃ¨che EC]],               [[treasuremap_ce_ebonheart_rift_06]],        44947 },
 	},
