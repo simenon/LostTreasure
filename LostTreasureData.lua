@@ -42,8 +42,8 @@ LOST_TREASURE_DATA = {
 	},
 ----Betnikh
 	[294] = {
-	    {0.16, 0.30,     [[Betnikh Treasure Map I]],               [[Betnikh Schatzkarte I]],              [[Carte Au TrÃ©sor de Betnikh I]],                   [[treasuremap_betnikh_001]],                 43693 },
-	    {0.56, 0.87,     [[Betnikh Treasure Map II]],              [[Betnikh Schatzkarte II]],             [[Carte Au TrÃ©sor de Betnikh II]],                  [[treasuremap_betnikh_002]],                 43694 },
+	    {0.1735, 0.3136, [[Betnikh Treasure Map I]],               [[Betnikh Schatzkarte I]],              [[Carte Au TrÃ©sor de Betnikh I]],                   [[treasuremap_betnikh_001]],                 43693 },
+	    {0.5680, 0.8759, [[Betnikh Treasure Map II]],              [[Betnikh Schatzkarte II]],             [[Carte Au TrÃ©sor de Betnikh II]],                  [[treasuremap_betnikh_002]],                 43694 },
 	    {0.45, 0.43,     [[Betnikh CE Treasure Map]],              [[Betnikh CE Schatzkarte]],             [[Carte Au TrÃ©sor de Betnikh EC]],                  [[treasuremap_ce_daggerfall_betnikh_01b]],   44930 },
 	},	
 ----Stormhaven
@@ -61,7 +61,7 @@ LOST_TREASURE_DATA = {
 	    {0.32, 0.50,     [[Rivenspire Treasure Map I]],            [[Kluftspitze Schatzkarte I]],          [[Carte Au TrÃ©sor de Fendretour I]],                [[treasuremap_rivenspire_01]],               43607 },
 	    {0.1773, 0.6285, [[Rivenspire Treasure Map II]],           [[Kluftspitze Schatzkarte II]],         [[Carte Au TrÃ©sor de Fendretour II]],               [[treasuremap_rivenspire_02]],               43608 },
 	    {0.7175, 0.4362, [[Rivenspire Treasure Map III]],          [[Kluftspitze Schatzkarte III]],        [[Carte Au TrÃ©sor de Fendretour III]],              [[treasuremap_rivenspire_03]],               43609 },
-	    {0.71, 0.70,     [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
+	    {0.7206, 0.7199, [[Rivenspire Treasure Map IV]],           [[Kluftspitze Schatzkarte IV]],         [[Carte Au TrÃ©sor de Fendretour IV]],               [[treasuremap_rivenspire_04]],               43610 },
 	    {0.7584, 0.3199, [[Rivenspire Treasure Map V]],            [[Kluftspitze Schatzkarte V]],          [[Carte Au TrÃ©sor de Fendretour V]],                [[treasuremap_rivenspire_05]],               43611 },
 	    {0.4092, 0.2994, [[Rivenspire Treasure Map VI]],           [[Kluftspitze Schatzkarte VI]],         [[Carte Au TrÃ©sor de Fendretour VI]],               [[treasuremap_rivenspire_06]],               43612 },
 	    {0.7599, 0.1621, [[Rivenspire CE Treasure Map]],           [[Kluftspitze CE Schatzkarte]],         [[Carte Au TrÃ©sor de Fendretour EC]],               [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
@@ -120,7 +120,7 @@ LOST_TREASURE_DATA = {
 	    {0.6595, 0.2617, [[Glenumbra Treasure Map III]],           [[Glenumbra Schatzkarte III]],          [[Carte Au TrÃ©sor de la GlÃ©numbrie III]],          [[treasuremap_glenumbra_003]],               43527 },
 	    {0.7337, 0.5285, [[Glenumbra Treasure Map IV]],            [[Glenumbra Schatzkarte IV]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie IV]],           [[treasuremap_glenumbra_004]],               43600 },
 	    {0.2752, 0.5285, [[Glenumbra Treasure Map V]],             [[Glenumbra Schatzkarte V]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie V]],            [[treasuremap_glenumbra_005]],               43509 },
-	    {0.51, 0.24,     [[Glenumbra Treasure Map VI]],            [[Glenumbra Schatzkarte VI]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie VI]],           [[treasuremap_glenumbra_006]],               43526 },
+	    {0.5157, 0.2545, [[Glenumbra Treasure Map VI]],            [[Glenumbra Schatzkarte VI]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie VI]],           [[treasuremap_glenumbra_006]],               43526 },
 	    {0.73, 0.46,     [[Glenumbra CE Treasure Map]],            [[Glenumbra CE Schatzkarte]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie EC]],           [[treasuremap_ce_daggerfall_glenumbra_02]],  44936 },
 	},
 ----Grahtwood
@@ -137,7 +137,7 @@ LOST_TREASURE_DATA = {
 	[19] = {
 	    {0.6543, 0.8344, [[Greenshade Treasure Map I]],            [[Grünschatten Schatzkarte I]],         [[Carte Au TrÃ©sor de Prasin I]],                    [[treasuremap_greenshade_01]],               43637 },
 	    {0.72, 0.73,     [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
-	    {0.35, 0.49,     [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
+	    {0.3632, 0.5050, [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
 	    {0.34, 0.32,     [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
 	    {0.24, 0.14,     [[Greenshade Treasure Map V]],            [[Grünschatten Schatzkarte V]],         [[Carte Au TrÃ©sor de Prasin V]],                    [[treasuremap_greenshade_05]],               43641 },
 	    {0.59, 0.37,     [[Greenshade Treasure Map VI]],           [[Grünschatten Schatzkarte VI]],        [[Carte Au TrÃ©sor de Prasin VI]],                   [[treasuremap_greenshade_06]],               43642 },
@@ -245,7 +245,7 @@ LOST_TREASURE_DATA = {
 	    {0.6903, 0.5109, [[Cyrodiil Treasure Map XIV]],            [[Cyrodiil Schatzkarte XIV]],           [[Carte Au TrÃ©sor de Cyrodiil XIV]],                [[treasuremap_cyrodiil_ebon_02]],            43716 },
 	    {0.66, 0.46,     [[Cyrodiil Treasure Map XV]],             [[Cyrodiil Schatzkarte XV]],            [[Carte Au TrÃ©sor de Cyrodiil XV]],                 [[treasuremap_cyrodiil_ebon_03]],            43717 },
 	    {0.68, 0.63,     [[Cyrodiil Treasure Map XVI]],            [[Cyrodiil Schatzkarte XVI]],           [[Carte Au TrÃ©sor de Cyrodiil XVI]],                [[treasuremap_cyrodiil_ebon_04]],            43718 },
-	    {0.76, 0.46,     [[Cyrodiil Treasure Map XVII]],           [[Cyrodiil Schatzkarte XVII]],          [[Carte Au TrÃ©sor de Cyrodiil XVII]],               [[treasuremap_cyrodiil_ebon_05]],            43719 },
+	    {0.7720, 0.4671, [[Cyrodiil Treasure Map XVII]],           [[Cyrodiil Schatzkarte XVII]],          [[Carte Au TrÃ©sor de Cyrodiil XVII]],               [[treasuremap_cyrodiil_ebon_05]],            43719 },
 	    {0.7360, 0.5147, [[Cyrodiil Treasure Map XVIII]],          [[Cyrodiil Schatzkarte XVIII]],         [[Carte Au TrÃ©sor de Cyrodiil XVIII]],              [[treasuremap_cyrodiil_ebon_06]],            43720 },
 	},
 	----Craglorn
