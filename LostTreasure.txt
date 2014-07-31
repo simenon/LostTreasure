@@ -1,4 +1,4 @@
-## APIVersion: 100007
+## APIVersion: 100008
 ## Title: |cFFFFB0Lost Treasure|r by |c00C000CrazyDutchGuy|r
 ## Description: Shows treasure map locations
 ## Author: CrazyDutchGuy
