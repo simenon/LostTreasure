@@ -106,10 +106,8 @@ local function hasMap(mapName, mapTexture)
 end
 
 local function scanBagForMaps(pinManager, data)
-    local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
-               
     for _, pinData in pairs(data) do  
-        for bagSlot = 0, bagSlots do
+        for bagSlot = 0, GetBagSize(BAG_BACKPACK) do
             local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
 
             if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
@@ -138,10 +136,8 @@ local function compassPinCallback(pinManager)
             end
         end
     elseif LT.SavedVariables.markMapMenuOption == 2 then
-    	local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
-               
 	for _, pinData in pairs(data) do  
-            for bagSlot = 0, bagSlots do
+            for bagSlot = 0, GetBagSize(BAG_BACKPACK) do
 	        local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
 
                 if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
@@ -173,10 +169,8 @@ local function pinCreator_Treasure(pinManager)
             end
         end
     elseif LT.SavedVariables.markMapMenuOption == 2 then
-    	local _, bagSlots = GetBagInfo(BAG_BACKPACK)    
-               
 	for _, pinData in pairs(data) do  
-            for bagSlot = 0, bagSlots do
+            for bagSlot = 0, GetBagSize(BAG_BACKPACK) do
 	        local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
 
                 if itemID and tonumber(itemID) == pinData[LOST_TREASURE_INDEX.ITEMID] then                    
@@ -355,9 +349,7 @@ end
 function LOST_TREASURE:EVENT_LOOT_CLOSED(...)
     if currentTreasureMapItemID then 
         -- Check if we still have the map
-        local _, bagSlots = GetBagInfo(BAG_BACKPACK)                      
-        
-        for bagSlot = 0, bagSlots do
+        for bagSlot = 0, GetBagSize(BAG_BACKPACK) do
             local itemID = select(4,ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, bagSlot)))
 
             if itemID and tonumber(itemID) == currentTreasureMapItemID then                    
