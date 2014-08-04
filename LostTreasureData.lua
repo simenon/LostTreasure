@@ -49,7 +49,7 @@ LOST_TREASURE_DATA = {
 ----Stormhaven
 	[4] = {	
     	    {0.2316, 0.5228, [[Stormhaven Treasure Map I]],            [[Sturmhafen Schatzkarte I]],           [[Carte Au TrÃ©sor d'Havre-tempÃªte I]],             [[treasuremap_stormhaven_001]],              43601 },
-	    {0.24, 0.34,     [[Stormhaven Treasure Map II]],           [[Sturmhafen Schatzkarte II]],          [[Carte Au TrÃ©sor d'Havre-tempÃªte II]],            [[treasuremap_stormhaven_002]],              43602 },
+	    {0.2569, 0.3466, [[Stormhaven Treasure Map II]],           [[Sturmhafen Schatzkarte II]],          [[Carte Au TrÃ©sor d'Havre-tempÃªte II]],            [[treasuremap_stormhaven_002]],              43602 },
 	    {0.4027, 0.4735, [[Stormhaven Treasure Map III]],          [[Sturmhafen Schatzkarte III]],         [[Carte Au TrÃ©sor d'Havre-tempÃªte III]],           [[treasuremap_stormhaven_003]],              43603 },
 	    {0.4194, 0.5927, [[Stormhaven Treasure Map IV]],           [[Sturmhafen Schatzkarte IV]],          [[Carte Au TrÃ©sor d'Havre-tempÃªte IV]],            [[treasuremap_stormhaven_004]],              43604 },
 	    {0.68, 0.49,     [[Stormhaven Treasure Map V]],            [[Sturmhafen Schatzkarte V]],           [[Carte Au TrÃ©sor d'Havre-tempÃªte V]],             [[treasuremap_stormhaven_005]],              43605 },
@@ -138,9 +138,9 @@ LOST_TREASURE_DATA = {
 	    {0.6543, 0.8344, [[Greenshade Treasure Map I]],            [[Grünschatten Schatzkarte I]],         [[Carte Au TrÃ©sor de Prasin I]],                    [[treasuremap_greenshade_01]],               43637 },
 	    {0.72, 0.73,     [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
 	    {0.3632, 0.5050, [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
-	    {0.34, 0.32,     [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
+	    {0.3405, 0.3237, [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
 	    {0.24, 0.14,     [[Greenshade Treasure Map V]],            [[Grünschatten Schatzkarte V]],         [[Carte Au TrÃ©sor de Prasin V]],                    [[treasuremap_greenshade_05]],               43641 },
-	    {0.59, 0.37,     [[Greenshade Treasure Map VI]],           [[Grünschatten Schatzkarte VI]],        [[Carte Au TrÃ©sor de Prasin VI]],                   [[treasuremap_greenshade_06]],               43642 },
+	    {0.5974, 0.3833, [[Greenshade Treasure Map VI]],           [[Grünschatten Schatzkarte VI]],        [[Carte Au TrÃ©sor de Prasin VI]],                   [[treasuremap_greenshade_06]],               43642 },
 	    {0.5931, 0.8112, [[Greenshade CE Treasure Map]],           [[Grünschatten CE Schatzkarte]],        [[Carte Au TrÃ©sor de Prasin EC]],                   [[treasuremap_ce_aldmeri_greenshade_04]],    44938 },
 	},	
 ----Khenarthi's Roost
@@ -155,7 +155,7 @@ LOST_TREASURE_DATA = {
 ----Malabal Tor 
 	[12] = {
 	    {0.2028, 0.4993, [[Malabal Tor Treasure Map I]],           [[Malabal Tor Schatzkarte I]],          [[Carte Au TrÃ©sor de Malabal Tor I]],               [[treasuremap_malabaltor_01]],               43643 },
-	    {0.04, 0.47,     [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
+	    {0.0549, 0.4775, [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
 	    {0.49, 0.67,     [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
 	    {0.6520, 0.7010, [[Malabal Tor Treasure Map IV]],          [[Malabal Tor Schatzkarte IV]],         [[Carte Au TrÃ©sor de Malabal Tor IV]],              [[treasuremap_malabaltor_04]],               43646 },
 	    {0.79, 0.27,     [[Malabal Tor Treasure Map V]],           [[Malabal Tor Schatzkarte V]],          [[Carte Au TrÃ©sor de Malabal Tor V]],               [[treasuremap_malabaltor_05]],               43647 },
@@ -163,6 +163,7 @@ LOST_TREASURE_DATA = {
             {0.1238, 0.5252, [[Malabal Tor CE Treasure Map]],          [[Malabal Tor CE Schatzkarte]],         [[Carte Au TrÃ©sor de Malabal Tor EC]],              [[treasuremap_ce_aldmeri_malbator_05]],      44940 },
 	},	
 	["velynharbor"] = {
+	    {0.2089, 0.3581, [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
             {0.5132, 0.5649, [[Malabal Tor CE Treasure Map]],          [[Malabal Tor CE Schatzkarte]],         [[Carte Au TrÃ©sor de Malabal Tor EC]],              [[treasuremap_ce_aldmeri_malbator_05]],      44940 },
 	},                       
 ----Reaper’s March
@@ -190,11 +191,11 @@ LOST_TREASURE_DATA = {
 	},
 --Stonefalls
 	[9] = {	
-	    {0.78, 0.56,     [[Stonefalls Treasure Map I]],            [[Steinfälle Schatzkarte I]],           [[Carte Au TrÃ©sor des Ã‰boulis I]],                 [[treasuremap_stonefalls_001]],              43655 },
+	    {0.7931, 0.5756, [[Stonefalls Treasure Map I]],            [[Steinfälle Schatzkarte I]],           [[Carte Au TrÃ©sor des Ã‰boulis I]],                 [[treasuremap_stonefalls_001]],              43655 },
 	    {0.6241, 0.5102, [[Stonefalls Treasure Map II]],           [[Steinfälle Schatzkarte II]],          [[Carte Au TrÃ©sor des Ã‰boulis II]],                [[treasuremap_stonefalls_002]],              43656 },
 	    {0.47, 0.58,     [[Stonefalls Treasure Map III]],          [[Steinfälle Schatzkarte III]],         [[Carte Au TrÃ©sor des Ã‰boulis III]],               [[treasuremap_stonefalls_003]],              43657 },
 	    {0.1779, 0.4517, [[Stonefalls Treasure Map IV]],           [[Steinfälle Schatzkarte IV]],          [[Carte Au TrÃ©sor des Ã‰boulis IV]],                [[treasuremap_stonefalls_004]],              43658 },
-	    {0.19, 0.54,     [[Stonefalls Treasure Map V]],            [[Steinfälle Schatzkarte V]],           [[Carte Au TrÃ©sor des Ã‰boulis V]],                 [[treasuremap_stonefalls_005]],              43659 },
+	    {0.1937, 0.5504, [[Stonefalls Treasure Map V]],            [[Steinfälle Schatzkarte V]],           [[Carte Au TrÃ©sor des Ã‰boulis V]],                 [[treasuremap_stonefalls_005]],              43659 },
 	    {0.36, 0.70,     [[Stonefalls Treasure Map VI]],           [[Steinfälle Schatzkarte VI]],          [[Carte Au TrÃ©sor des Ã‰boulis VI]],                [[treasuremap_stonefalls_006]],              43660 },
 	    {0.5200, 0.6129, [[Stonefalls CE Treasure Map]],           [[Steinfälle CE Schatzkarte]],          [[Carte Au TrÃ©sor des Ã‰boulis EC]],                [[treasuremap_ce_ebonheart_stonefalls_02]],  44944 },
         },
@@ -251,7 +252,7 @@ LOST_TREASURE_DATA = {
 	----Craglorn
 	[353] = {	
 	    {0.21, 0.56,     [[Craglorn Treasure Map I]],              [[Kargstein Schatzkarte I]],            [[Carte Au TrÃ©sor de Raidelorn I]],                 [[treasuremap_craglorn_01]],                 43721 },
-	    {0.37, 0.38,     [[Craglorn Treasure Map II]],             [[Kargstein Schatzkarte II]],           [[Carte Au TrÃ©sor de Raidelorn II]],                [[treasuremap_craglorn_02]],                 43722 },
+	    {0.3650, 0.3837, [[Craglorn Treasure Map II]],             [[Kargstein Schatzkarte II]],           [[Carte Au TrÃ©sor de Raidelorn II]],                [[treasuremap_craglorn_02]],                 43722 },
 	    {0.70, 0.48,     [[Craglorn Treasure Map III]],            [[Kargstein Schatzkarte III]],          [[Carte Au TrÃ©sor de Raidelorn III]],               [[treasuremap_craglorn_03]],                 43723 },
 	    {0.64, 0.61,     [[Craglorn Treasure Map IV]],             [[Kargstein Schatzkarte IV]],           [[Carte Au TrÃ©sor de Raidelorn Iv]],                [[treasuremap_craglorn_04]],                 43724 },
 	},	
