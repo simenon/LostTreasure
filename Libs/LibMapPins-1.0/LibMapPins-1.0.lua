@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 1
+local MAJOR, MINOR = "LibMapPins-1.0", 3
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -43,6 +43,7 @@ if not lib.pinManager then
    ZO_WorldMap_SetCustomPinEnabled(_G[pinType], true)
    ZO_WorldMap_RefreshCustomPinsOfType(_G[pinType])
    lib.pinManager.customPins[_G[pinType]] = nil
+   lib.pinManager.m_keyToPinMapping[_G[pinType]] = nil
    _G[pinType] = nil
 end
 
@@ -111,7 +112,7 @@ function lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallba
    if type(pinTooltipCreator) == "string" then
       local text = pinTooltipCreator
       pinTooltipCreator = { creator = function(pin) SetTooltipText(InformationTooltip, text) end, tooltip = InformationTooltip }
-   elseif pinTooltipnCreator ~= nil or type(pinTooltipCreator) ~= "table" then
+   elseif pinTooltipCreator ~= nil and type(pinTooltipCreator) ~= "table" then
       return
    end
 
@@ -603,10 +604,10 @@ end
 -------------------------------------------------------------------------------
 function lib:GetZoneAndSubzone(alternative)
    if alternative then
-      return select(4,(GetMapTileTexture()):lower():find("(maps/)([%w%-]+/[%w%-]+_[%w%-]+)"))
+      return select(3,(GetMapTileTexture()):lower():find("maps/([%w%-]+/[%w%-]+_[%w%-]+)"))
    end
 
-   return select(4,(GetMapTileTexture()):lower():find("(maps/)([%w%-]+)/([%w%-]+_[%w%-]+)"))
+   return select(3,(GetMapTileTexture()):lower():find("maps/([%w%-]+)/([%w%-]+_[%w%-]+)"))
 end
 
 
@@ -771,8 +772,8 @@ local pinTypeAddCallback = function(pinManager)
    --do not create pins on world, alliance and cosmic maps
    if (GetMapType() > MAPTYPE_ZONE) then return end
 
-   local zone, subzone = LMP:GetZoneAndSubzone()
-   local pins = pinData[zone .. "/" .. subzone]
+   local mapname = LMP:GetZoneAndSubzone(true)
+   local pins = pinData[mapname]
    --return if no data for the current map
    if not pins then return end
 
@@ -805,11 +806,11 @@ local function OnLoad(eventCode, name)
    pinTypeId2 = LMP:AddPinType(pinType2, function() d("refresh") end)
    --set click handlers
    LMP:SetClickHandlers(pinTypeId1, LMB_handler, RMB_handler)
-   --add pin filter to the world map
+   --add pin filters to the world map
    LMP:AddPinFilter(pinTypeId1, "MapPinTest's pins", false, savedVars, "filters")
    LMP:AddPinFilter(pinTypeId2, nil, nil, savedVars)
 
-   EVENT_MANAGER:UnregisterForEvent("MapPinTest_OnLoad", EVENT_ADD_ON_LOADED)
+   EVENT_MANAGER:UnregisterForEvent("MapPinTest_OnLoad", eventCode)
 end
 
 EVENT_MANAGER:RegisterForEvent("MapPinTest_OnLoad", EVENT_ADD_ON_LOADED, OnLoad)

@@ -73,7 +73,7 @@ LOST_TREASURE_DATA = {
 ----Alik’r Desert
 	[18] = {
 	    {0.35, 0.72,     [[Alik'r Treasure Map I]],                [[Alik'r Wüste Schatzkarte I]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r I]],          [[treasuremap_alikr_001]],                   43613 },
-	    {0.04, 0.52,     [[Alik'r Treasure Map II]],               [[Alik'r Wüste Schatzkarte II]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r II]],         [[treasuremap_alikr_002]],                   43614 },
+	    {0.0532, 0.5250, [[Alik'r Treasure Map II]],               [[Alik'r Wüste Schatzkarte II]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r II]],         [[treasuremap_alikr_002]],                   43614 },
             {0.63, 0.63,     [[Alik'r Treasure Map III]],              [[Alik'r Wüste Schatzkarte III]],       [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r III]],        [[treasuremap_alikr_003]],                   43615 },
 	    {0.59, 0.21,     [[Alik'r Treasure Map IV]],               [[Alik'r Wüste Schatzkarte IV]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r IV]],         [[treasuremap_alikr_004]],                   43616 },
 	    {0.82, 0.52,     [[Alik'r Treasure Map V]],                [[Alik'r Wüste Schatzkarte V]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r V]],          [[treasuremap_alikr_005]],                   43617 },
@@ -136,7 +136,7 @@ LOST_TREASURE_DATA = {
 ----Greenshade
 	[19] = {
 	    {0.6543, 0.8344, [[Greenshade Treasure Map I]],            [[Grünschatten Schatzkarte I]],         [[Carte Au TrÃ©sor de Prasin I]],                    [[treasuremap_greenshade_01]],               43637 },
-	    {0.72, 0.73,     [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
+	    {0.7222, 0.7418, [[Greenshade Treasure Map II]],           [[Grünschatten Schatzkarte II]],        [[Carte Au TrÃ©sor de Prasin II]],                   [[treasuremap_greenshade_02]],               43638 },
 	    {0.3632, 0.5050, [[Greenshade Treasure Map III]],          [[Grünschatten Schatzkarte III]],       [[Carte Au TrÃ©sor de Prasin III]],                  [[treasuremap_greenshade_03]],               43639 },
 	    {0.3405, 0.3237, [[Greenshade Treasure Map IV]],           [[Grünschatten Schatzkarte IV]],        [[Carte Au TrÃ©sor de Prasin IV]],                   [[treasuremap_greenshade_04]],               43640 },
 	    {0.24, 0.14,     [[Greenshade Treasure Map V]],            [[Grünschatten Schatzkarte V]],         [[Carte Au TrÃ©sor de Prasin V]],                    [[treasuremap_greenshade_05]],               43641 },
@@ -169,7 +169,7 @@ LOST_TREASURE_DATA = {
 ----Reaper’s March
 	[180] = {
 	    {0.3781, 0.4313, [[Reaper's March Treasure Map I]],        [[Schnittermark Schatzkarte I]],        [[Carte Au TrÃ©sor de la marche de la Camarde I]],   [[treasuremap_reapersmarch_01]],             43649 },
-	    {0.32, 0.12,     [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
+	    {0.3344, 0.1270, [[Reaper's March Treasure Map II]],       [[Schnittermark Schatzkarte II]],       [[Carte Au TrÃ©sor de la marche de la Camarde II]],  [[treasuremap_reapersmarch_02]],             43650 },
 	    {0.2705, 0.6514, [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
 	    {0.4414, 0.6923, [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
 	    {0.5510, 0.4160, [[Reaper's March Treasure Map V]],        [[Schnittermark Schatzkarte V]],        [[Carte Au TrÃ©sor de la marche de la Camarde V]],   [[treasuremap_reapersmarch_05]],             43653 },
@@ -239,7 +239,7 @@ LOST_TREASURE_DATA = {
 	    {0.54, 0.13,     [[Cyrodiil Treasure Map VII]],            [[Cyrodiil Schatzkarte VII]],           [[Carte Au TrÃ©sor de Cyrodiil VII]],                [[treasuremap_cyrodiil_dag_01]],             43709 },
 	    {0.17, 0.37,     [[Cyrodiil Treasure Map VIII]],           [[Cyrodiil Schatzkarte VIII]],          [[Carte Au TrÃ©sor de Cyrodiil VIII]],               [[treasuremap_cyrodiil_dag_02]],             43710 },
 	    {0.31, 0.36,     [[Cyrodiil Treasure Map IX]],             [[Cyrodiil Schatzkarte IX]],            [[Carte Au TrÃ©sor de Cyrodiil IX]],                 [[treasuremap_cyrodiil_dag_03]],             43711 },
-	    {0.30, 0.17,     [[Cyrodiil Treasure Map X]],              [[Cyrodiil Schatzkarte X]],             [[Carte Au TrÃ©sor de Cyrodiil X]],                  [[treasuremap_cyrodiil_dag_04]],             43712 },
+	    {0.3050, 0.1676, [[Cyrodiil Treasure Map X]],              [[Cyrodiil Schatzkarte X]],             [[Carte Au TrÃ©sor de Cyrodiil X]],                  [[treasuremap_cyrodiil_dag_04]],             43712 },
 	    {0.38, 0.15,     [[Cyrodiil Treasure Map XI]],             [[Cyrodiil Schatzkarte XI]],            [[Carte Au TrÃ©sor de Cyrodiil XI]],                 [[treasuremap_cyrodiil_dag_05]],             43713 },
 	    {0.47, 0.18,     [[Cyrodiil Treasure Map XII]],            [[Cyrodiil Schatzkarte XII]],           [[Carte Au TrÃ©sor de Cyrodiil XII]],                [[treasuremap_cyrodiil_dag_06]],             43714 },
 	    {0.8071, 0.2691, [[Cyrodiil Treasure Map XIII]],           [[Cyrodiil Schatzkarte XIII]],          [[Carte Au TrÃ©sor de Cyrodiil XIII]],               [[treasuremap_cyrodiil_ebon_01]],            43715 },
