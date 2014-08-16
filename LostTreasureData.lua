@@ -107,11 +107,11 @@ LOST_TREASURE_DATA = {
         [11] = {	
 	    {0.2599, 0.5507, [[Deshaan Treasure Map I]],               [[Deshaan Schatzkarte I]],              [[Carte Au TrÃ©sor de Deshaan I]],                   [[treasuremap_deshaan_001]],                 43661 },
 	    {0.1840, 0.4724, [[Deshaan Treasure Map II]],              [[Deshaan Schatzkarte II]],             [[Carte Au TrÃ©sor de Deshaan II]],                  [[treasuremap_deshaan_002]],                 43662 },
-	    {0.45, 0.40,     [[Deshaan Treasure Map III]],             [[Deshaan Schatzkarte III]],            [[Carte Au TrÃ©sor de Deshaan III]],                 [[treasuremap_deshaan_003]],                 43663 },
+	    {0.4631, 0.4056, [[Deshaan Treasure Map III]],             [[Deshaan Schatzkarte III]],            [[Carte Au TrÃ©sor de Deshaan III]],                 [[treasuremap_deshaan_003]],                 43663 },
 	    {0.7589, 0.5615, [[Deshaan Treasure Map IV]],              [[Deshaan Schatzkarte IV]],             [[Carte Au TrÃ©sor de Deshaan IV]],                  [[treasuremap_deshaan_004]],                 43664 },
-	    {0.89, 0.54,     [[Deshaan Treasure Map V]],               [[Deshaan Schatzkarte V]],              [[Carte Au TrÃ©sor de Deshaan V]],                   [[treasuremap_deshaan_005]],                 43665 },
+	    {0.8996, 0.5498, [[Deshaan Treasure Map V]],               [[Deshaan Schatzkarte V]],              [[Carte Au TrÃ©sor de Deshaan V]],                   [[treasuremap_deshaan_005]],                 43665 },
 	    {0.7929, 0.5094, [[Deshaan Treasure Map VI]],              [[Deshaan Schatzkarte VI]],             [[Carte Au TrÃ©sor de Deshaan VI]],                  [[treasuremap_deshaan_006]],                 43666 },
-	    {0.35, 0.64,     [[Deshaan CE Treasure Map]],              [[Deshaan CE Schatzkarte]],             [[Carte Au TrÃ©sor de Deshaan EC]],                  [[treasuremap_ce_ebonheart_deshaan_03]],     44934 },
+	    {0.3529, 0.6400, [[Deshaan CE Treasure Map]],              [[Deshaan CE Schatzkarte]],             [[Carte Au TrÃ©sor de Deshaan EC]],                  [[treasuremap_ce_ebonheart_deshaan_03]],     44934 },
         },
 ----Glenumbra
 	[2] = {	
@@ -156,7 +156,7 @@ LOST_TREASURE_DATA = {
 	[12] = {
 	    {0.2028, 0.4993, [[Malabal Tor Treasure Map I]],           [[Malabal Tor Schatzkarte I]],          [[Carte Au TrÃ©sor de Malabal Tor I]],               [[treasuremap_malabaltor_01]],               43643 },
 	    {0.0549, 0.4775, [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
-	    {0.49, 0.67,     [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
+	    {0.5015, 0.6819, [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
 	    {0.6520, 0.7010, [[Malabal Tor Treasure Map IV]],          [[Malabal Tor Schatzkarte IV]],         [[Carte Au TrÃ©sor de Malabal Tor IV]],              [[treasuremap_malabaltor_04]],               43646 },
 	    {0.79, 0.27,     [[Malabal Tor Treasure Map V]],           [[Malabal Tor Schatzkarte V]],          [[Carte Au TrÃ©sor de Malabal Tor V]],               [[treasuremap_malabaltor_05]],               43647 },
 	    {0.66, 0.21,     [[Malabal Tor Treasure Map VI]],          [[Malabal Tor Schatzkarte VI]],         [[Carte Au TrÃ©sor de Malabal Tor VI]],              [[treasuremap_malabaltor_06]],               43648 },
@@ -173,7 +173,7 @@ LOST_TREASURE_DATA = {
 	    {0.2705, 0.6514, [[Reaper's March Treasure Map III]],      [[Schnittermark Schatzkarte III]],      [[Carte Au TrÃ©sor de la marche de la Camarde III]], [[treasuremap_reapersmarch_03]],             43651 },
 	    {0.4414, 0.6923, [[Reaper's March Treasure Map IV]],       [[Schnittermark Schatzkarte IV]],       [[Carte Au TrÃ©sor de la marche de la Camarde IV]],  [[treasuremap_reapersmarch_04]],             43652 },
 	    {0.5510, 0.4160, [[Reaper's March Treasure Map V]],        [[Schnittermark Schatzkarte V]],        [[Carte Au TrÃ©sor de la marche de la Camarde V]],   [[treasuremap_reapersmarch_05]],             43653 },
-	    {0.66, 0.22,     [[Reaper's March Treasure Map VI]],       [[Schnittermark Schatzkarte VI]],       [[Carte Au TrÃ©sor de la marche de la Camarde VI]],  [[treasuremap_reapersmarch_06]],             43654 },
+	    {0.6687, 0.2401, [[Reaper's March Treasure Map VI]],       [[Schnittermark Schatzkarte VI]],       [[Carte Au TrÃ©sor de la marche de la Camarde VI]],  [[treasuremap_reapersmarch_06]],             43654 },
 	    {0.4087, 0.5434, [[Reaper's March CE Treasure Map]],       [[Schnittermark CE Schatzkarte]],       [[Carte Au TrÃ©sor de la marche de la Camarde EC]],  [[treasuremap_ce_aldmeri_reapersmarch_06]],  44941 },
 	},	
 	["rawlkha"] = {
@@ -186,7 +186,7 @@ LOST_TREASURE_DATA = {
 	    {0.7040, 0.7014, [[Shadowfen Treasure Map III]],           [[Schattenfenn Schatzkarte III]],       [[Carte Au TrÃ©sor de Fangeombre III]],              [[treasuremap_shadowfen_03]],                43669 },
 	    {0.610, 0.611,   [[Shadowfen Treasure Map IV]],            [[Schattenfenn Schatzkarte IV]],        [[Carte Au TrÃ©sor de Fangeombre IV]],               [[treasuremap_shadowfen_04]],                43670 },
 	    {0.406, 0.469,   [[Shadowfen Treasure Map V]],             [[Schattenfenn Schatzkarte V]],         [[Carte Au TrÃ©sor de Fangeombre V]],                [[treasuremap_shadowfen_05]],                43671 },
-	    {0.23, 0.55,     [[Shadowfen Treasure Map VI]],            [[Schattenfenn Schatzkarte VI]],        [[Carte Au TrÃ©sor de Fangeombre VI]],               [[treasuremap_shadowfen_06]],                43672 },
+	    {0.2367, 0.5538, [[Shadowfen Treasure Map VI]],            [[Schattenfenn Schatzkarte VI]],        [[Carte Au TrÃ©sor de Fangeombre VI]],               [[treasuremap_shadowfen_06]],                43672 },
 	    {0.6426, 0.4554, [[Shadowfen CE Treasure Map]],            [[Schattenfenn CE Schatzkarte]],        [[Carte Au TrÃ©sor de Fangeombre EC]],               [[treasuremap_ce_ebonheart_shadowfen_04]],   44943 },
 	},
 --Stonefalls
@@ -220,8 +220,8 @@ LOST_TREASURE_DATA = {
         },
 ----Coldharbour
 	[155] = {	
-	    {0.39, 0.82,     [[Coldharbour Treasure Map I]],           [[Kalthafen Schatzkarte I]],            [[Carte Au TrÃ©sor d'Havreglace I]],                 [[treasuremap_coldharbour_01]],              43685 },
-	    {0.39, 0.56,     [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
+	    {0.4069, 0.8320, [[Coldharbour Treasure Map I]],           [[Kalthafen Schatzkarte I]],            [[Carte Au TrÃ©sor d'Havreglace I]],                 [[treasuremap_coldharbour_01]],              43685 },
+	    {0.4097, 0.5680, [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
 	    {0.59, 0.69,     [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
 	    {0.7559, 0.7761, [[Coldharbour Treasure Map IV]],          [[Kalthafen Schatzkarte IV]],           [[Carte Au TrÃ©sor d'Havreglace IV]],                [[treasuremap_coldharbour_04]],              43688 },
 	    {0.43, 0.46,     [[Coldharbour Treasure Map V]],           [[Kalthafen Schatzkarte V]],            [[Carte Au TrÃ©sor d'Havreglace V]],                 [[treasuremap_coldharbour_05]],              43689 },
