@@ -26,7 +26,7 @@ LOST_TREASURE_DATA = {
 	},
 ----Bal Foyen
 	[111] = {	
-	    {0.58, 0.71,     [[Bal Foyen Treasure Map I]],             [[Bal Foyen Schatzkarte I]],            [[Carte Au TrÃ©sor de Bal Foyen I]],                 [[treasuremap_balfoyen_001]],                43701 },
+	    {0.6007, 0.7090, [[Bal Foyen Treasure Map I]],             [[Bal Foyen Schatzkarte I]],            [[Carte Au TrÃ©sor de Bal Foyen I]],                 [[treasuremap_balfoyen_001]],                43701 },
 	    {0.24, 0.53,     [[Bal Foyen Treasure Map II]],            [[Bal Foyen Schatzkarte II]],           [[Carte Au TrÃ©sor de Bal Foyen II]],                [[treasuremap_balfoyen_002]],                43702 },
 	    {0.52, 0.42,     [[Bal Foyen CE Treasure Map]],            [[Bal Foyen CE Schatzkarte]],           [[Carte Au TrÃ©sor de Bal Foyen EC]],                [[treasuremap_ce_ebonheart_balfoyen_01b]],   44928 },
 	},	
@@ -72,7 +72,7 @@ LOST_TREASURE_DATA = {
         },		
 ----Alik’r Desert
 	[18] = {
-	    {0.35, 0.72,     [[Alik'r Treasure Map I]],                [[Alik'r Wüste Schatzkarte I]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r I]],          [[treasuremap_alikr_001]],                   43613 },
+	    {0.3622, 0.7291, [[Alik'r Treasure Map I]],                [[Alik'r Wüste Schatzkarte I]],         [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r I]],          [[treasuremap_alikr_001]],                   43613 },
 	    {0.0532, 0.5250, [[Alik'r Treasure Map II]],               [[Alik'r Wüste Schatzkarte II]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r II]],         [[treasuremap_alikr_002]],                   43614 },
             {0.63, 0.63,     [[Alik'r Treasure Map III]],              [[Alik'r Wüste Schatzkarte III]],       [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r III]],        [[treasuremap_alikr_003]],                   43615 },
 	    {0.59, 0.21,     [[Alik'r Treasure Map IV]],               [[Alik'r Wüste Schatzkarte IV]],        [[Carte Au TrÃ©sor du dÃ©sert d'Alik'r IV]],         [[treasuremap_alikr_004]],                   43616 },
@@ -89,7 +89,7 @@ LOST_TREASURE_DATA = {
 	    {0.61, 0.20,     [[Bangkorai Treasure Map II]],            [[Bangkorai Schatzkarte II]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ II]],               [[treasuremap_bankorai_02]],                 43620 },
 	    {0.7183, 0.3837, [[Bangkorai Treasure Map III]],           [[Bangkorai Schatzkarte III]],          [[Carte Au TrÃ©sor de BangkoraÃ¯ III]],              [[treasuremap_bankorai_03]],                 43621 },
 	    {0.31, 0.45,     [[Bangkorai Treasure Map IV]],            [[Bangkorai Schatzkarte IV]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ IV]],               [[treasuremap_bankorai_04]],                 43622 },
-	    {0.32, 0.68,     [[Bangkorai Treasure Map V]],             [[Bangkorai Schatzkarte V]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ V]],                [[treasuremap_bankorai_05]],                 43623 },
+	    {0.33, 0.69,     [[Bangkorai Treasure Map V]],             [[Bangkorai Schatzkarte V]],            [[Carte Au TrÃ©sor de BangkoraÃ¯ V]],                [[treasuremap_bankorai_05]],                 43623 },
 	    {0.6447, 0.6926, [[Bangkorai Treasure Map VI]],            [[Bangkorai Schatzkarte VI]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ VI]],               [[treasuremap_bankorai_06]],                 43624 },
 	    {0.6092, 0.7593, [[Bangkorai CE Treasure Map]],            [[Bangkorai CE Schatzkarte]],           [[Carte Au TrÃ©sor de BangkoraÃ¯ EC]],               [[treasuremap_ce_daggerfall_bankorai_06]],   44929 },
 	},
@@ -159,7 +159,7 @@ LOST_TREASURE_DATA = {
 	    {0.5015, 0.6819, [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
 	    {0.6520, 0.7010, [[Malabal Tor Treasure Map IV]],          [[Malabal Tor Schatzkarte IV]],         [[Carte Au TrÃ©sor de Malabal Tor IV]],              [[treasuremap_malabaltor_04]],               43646 },
 	    {0.79, 0.27,     [[Malabal Tor Treasure Map V]],           [[Malabal Tor Schatzkarte V]],          [[Carte Au TrÃ©sor de Malabal Tor V]],               [[treasuremap_malabaltor_05]],               43647 },
-	    {0.66, 0.21,     [[Malabal Tor Treasure Map VI]],          [[Malabal Tor Schatzkarte VI]],         [[Carte Au TrÃ©sor de Malabal Tor VI]],              [[treasuremap_malabaltor_06]],               43648 },
+	    {0.6627, 0.2306, [[Malabal Tor Treasure Map VI]],          [[Malabal Tor Schatzkarte VI]],         [[Carte Au TrÃ©sor de Malabal Tor VI]],              [[treasuremap_malabaltor_06]],               43648 },
             {0.1238, 0.5252, [[Malabal Tor CE Treasure Map]],          [[Malabal Tor CE Schatzkarte]],         [[Carte Au TrÃ©sor de Malabal Tor EC]],              [[treasuremap_ce_aldmeri_malbator_05]],      44940 },
 	},	
 	["velynharbor"] = {
@@ -193,7 +193,7 @@ LOST_TREASURE_DATA = {
 	[9] = {	
 	    {0.7931, 0.5756, [[Stonefalls Treasure Map I]],            [[Steinfälle Schatzkarte I]],           [[Carte Au TrÃ©sor des Ã‰boulis I]],                 [[treasuremap_stonefalls_001]],              43655 },
 	    {0.6241, 0.5102, [[Stonefalls Treasure Map II]],           [[Steinfälle Schatzkarte II]],          [[Carte Au TrÃ©sor des Ã‰boulis II]],                [[treasuremap_stonefalls_002]],              43656 },
-	    {0.47, 0.58,     [[Stonefalls Treasure Map III]],          [[Steinfälle Schatzkarte III]],         [[Carte Au TrÃ©sor des Ã‰boulis III]],               [[treasuremap_stonefalls_003]],              43657 },
+	    {0.4697, 0.5920, [[Stonefalls Treasure Map III]],          [[Steinfälle Schatzkarte III]],         [[Carte Au TrÃ©sor des Ã‰boulis III]],               [[treasuremap_stonefalls_003]],              43657 },
 	    {0.1779, 0.4517, [[Stonefalls Treasure Map IV]],           [[Steinfälle Schatzkarte IV]],          [[Carte Au TrÃ©sor des Ã‰boulis IV]],                [[treasuremap_stonefalls_004]],              43658 },
 	    {0.1937, 0.5504, [[Stonefalls Treasure Map V]],            [[Steinfälle Schatzkarte V]],           [[Carte Au TrÃ©sor des Ã‰boulis V]],                 [[treasuremap_stonefalls_005]],              43659 },
 	    {0.36, 0.70,     [[Stonefalls Treasure Map VI]],           [[Steinfälle Schatzkarte VI]],          [[Carte Au TrÃ©sor des Ã‰boulis VI]],                [[treasuremap_stonefalls_006]],              43660 },
@@ -222,7 +222,7 @@ LOST_TREASURE_DATA = {
 	[155] = {	
 	    {0.4069, 0.8320, [[Coldharbour Treasure Map I]],           [[Kalthafen Schatzkarte I]],            [[Carte Au TrÃ©sor d'Havreglace I]],                 [[treasuremap_coldharbour_01]],              43685 },
 	    {0.4097, 0.5680, [[Coldharbour Treasure Map II]],          [[Kalthafen Schatzkarte II]],           [[Carte Au TrÃ©sor d'Havreglace II]],                [[treasuremap_coldharbour_02]],              43686 },
-	    {0.59, 0.69,     [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
+	    {0.6036, 0.6927, [[Coldharbour Treasure Map III]],         [[Kalthafen Schatzkarte III]],          [[Carte Au TrÃ©sor d'Havreglace III]],               [[treasuremap_coldharbour_03]],              43687 },
 	    {0.7559, 0.7761, [[Coldharbour Treasure Map IV]],          [[Kalthafen Schatzkarte IV]],           [[Carte Au TrÃ©sor d'Havreglace IV]],                [[treasuremap_coldharbour_04]],              43688 },
 	    {0.43, 0.46,     [[Coldharbour Treasure Map V]],           [[Kalthafen Schatzkarte V]],            [[Carte Au TrÃ©sor d'Havreglace V]],                 [[treasuremap_coldharbour_05]],              43689 },
 	    {0.49, 0.38,     [[Coldharbour Treasure Map VI]],          [[Kalthafen Schatzkarte VI]],           [[Carte Au TrÃ©sor d'Havreglace VI]],                [[treasuremap_coldharbour_06]],              43690 },
