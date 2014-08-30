@@ -12,11 +12,11 @@ LOST_TREASURE_INDEX = {
 LOST_TREASURE_DATA = { 
 ----Auridon
 	[179] = {
-	    {0.49, 0.88,     [[Auridon Treasure Map I]],               [[Auridon Schatzkarte I]],              [[Carte Au TrÃ©sor d'Auridia I]],                    [[treasuremap_auridon_01]],                  43625 },
+	    {0.4963, 0.8861, [[Auridon Treasure Map I]],               [[Auridon Schatzkarte I]],              [[Carte Au TrÃ©sor d'Auridia I]],                    [[treasuremap_auridon_01]],                  43625 },
 	    {0.4850, 0.6411, [[Auridon Treasure Map II]],              [[Auridon Schatzkarte II]],             [[Carte Au TrÃ©sor d'Auridia II]],                   [[treasuremap_auridon_02]],                  43626 },
 	    {0.44, 0.50,     [[Auridon Treasure Map III]],             [[Auridon Schatzkarte III]],            [[Carte Au TrÃ©sor d'Auridia III]],                  [[treasuremap_auridon_03]],                  43627 },
 	    {0.66, 0.41,     [[Auridon Treasure Map IV]],              [[Auridon Schatzkarte IV]],             [[Carte Au TrÃ©sor d'Auridia IV]],                   [[treasuremap_auridon_04]],                  43628 },
-	    {0.50, 0.26,     [[Auridon Treasure Map V]],               [[Auridon Schatzkarte V]],              [[Carte Au TrÃ©sor d'Auridia V]],                    [[treasuremap_auridon_05]],                  43629 },
+	    {0.5033, 0.2588, [[Auridon Treasure Map V]],               [[Auridon Schatzkarte V]],              [[Carte Au TrÃ©sor d'Auridia V]],                    [[treasuremap_auridon_05]],                  43629 },
 	    {0.3408, 0.1352, [[Auridon Treasure Map VI]],              [[Auridon Schatzkarte VI]],             [[Carte Au TrÃ©sor d'Auridia VI]],                   [[treasuremap_auridon_06]],                  43630 },
             {0.6863, 0.9598, [[Auridon CE Treasure Map]],              [[Auridon CE Schatzkarte]],             [[Carte Au TrÃ©sor d'Auridia EC]],                   [[treasuremap_ce_aldmeri_auridon_02]],       44927 },
 	},
@@ -158,7 +158,7 @@ LOST_TREASURE_DATA = {
 	    {0.0549, 0.4775, [[Malabal Tor Treasure Map II]],          [[Malabal Tor Schatzkarte II]],         [[Carte Au TrÃ©sor de Malabal Tor II]],              [[treasuremap_malabaltor_02]],               43644 },
 	    {0.5015, 0.6819, [[Malabal Tor Treasure Map III]],         [[Malabal Tor Schatzkarte III]],        [[Carte Au TrÃ©sor de Malabal Tor III]],             [[treasuremap_malabaltor_03]],               43645 },
 	    {0.6520, 0.7010, [[Malabal Tor Treasure Map IV]],          [[Malabal Tor Schatzkarte IV]],         [[Carte Au TrÃ©sor de Malabal Tor IV]],              [[treasuremap_malabaltor_04]],               43646 },
-	    {0.79, 0.27,     [[Malabal Tor Treasure Map V]],           [[Malabal Tor Schatzkarte V]],          [[Carte Au TrÃ©sor de Malabal Tor V]],               [[treasuremap_malabaltor_05]],               43647 },
+	    {0.800,  0.286,  [[Malabal Tor Treasure Map V]],           [[Malabal Tor Schatzkarte V]],          [[Carte Au TrÃ©sor de Malabal Tor V]],               [[treasuremap_malabaltor_05]],               43647 },
 	    {0.6627, 0.2306, [[Malabal Tor Treasure Map VI]],          [[Malabal Tor Schatzkarte VI]],         [[Carte Au TrÃ©sor de Malabal Tor VI]],              [[treasuremap_malabaltor_06]],               43648 },
             {0.1238, 0.5252, [[Malabal Tor CE Treasure Map]],          [[Malabal Tor CE Schatzkarte]],         [[Carte Au TrÃ©sor de Malabal Tor EC]],              [[treasuremap_ce_aldmeri_malbator_05]],      44940 },
 	},	
