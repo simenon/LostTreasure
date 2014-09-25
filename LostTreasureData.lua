@@ -121,7 +121,7 @@ LOST_TREASURE_DATA = {
 	    {0.7337, 0.5285, [[Glenumbra Treasure Map IV]],            [[Glenumbra Schatzkarte IV]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie IV]],           [[treasuremap_glenumbra_004]],               43600 },
 	    {0.2752, 0.5285, [[Glenumbra Treasure Map V]],             [[Glenumbra Schatzkarte V]],            [[Carte Au TrÃ©sor de la GlÃ©numbrie V]],            [[treasuremap_glenumbra_005]],               43509 },
 	    {0.5157, 0.2545, [[Glenumbra Treasure Map VI]],            [[Glenumbra Schatzkarte VI]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie VI]],           [[treasuremap_glenumbra_006]],               43526 },
-	    {0.73, 0.46,     [[Glenumbra CE Treasure Map]],            [[Glenumbra CE Schatzkarte]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie EC]],           [[treasuremap_ce_daggerfall_glenumbra_02]],  44936 },
+	    {0.7030, 0.4668, [[Glenumbra CE Treasure Map]],            [[Glenumbra CE Schatzkarte]],           [[Carte Au TrÃ©sor de la GlÃ©numbrie EC]],           [[treasuremap_ce_daggerfall_glenumbra_02]],  44936 },
 	},
 ----Grahtwood
 	[181] = {
@@ -184,7 +184,7 @@ LOST_TREASURE_DATA = {
 	    {0.3697, 0.1501, [[Shadowfen Treasure Map I]],             [[Schattenfenn Schatzkarte I]],         [[Carte Au TrÃ©sor de Fangeombre I]],                [[treasuremap_shadowfen_01]],                43667 },
 	    {0.7088, 0.3925, [[Shadowfen Treasure Map II]],            [[Schattenfenn Schatzkarte II]],        [[Carte Au TrÃ©sor de Fangeombre II]],               [[treasuremap_shadowfen_02]],                43668 },
 	    {0.7040, 0.7014, [[Shadowfen Treasure Map III]],           [[Schattenfenn Schatzkarte III]],       [[Carte Au TrÃ©sor de Fangeombre III]],              [[treasuremap_shadowfen_03]],                43669 },
-	    {0.610, 0.611,   [[Shadowfen Treasure Map IV]],            [[Schattenfenn Schatzkarte IV]],        [[Carte Au TrÃ©sor de Fangeombre IV]],               [[treasuremap_shadowfen_04]],                43670 },
+	    {0.6093, 0.6119, [[Shadowfen Treasure Map IV]],            [[Schattenfenn Schatzkarte IV]],        [[Carte Au TrÃ©sor de Fangeombre IV]],               [[treasuremap_shadowfen_04]],                43670 },
 	    {0.406, 0.469,   [[Shadowfen Treasure Map V]],             [[Schattenfenn Schatzkarte V]],         [[Carte Au TrÃ©sor de Fangeombre V]],                [[treasuremap_shadowfen_05]],                43671 },
 	    {0.2367, 0.5538, [[Shadowfen Treasure Map VI]],            [[Schattenfenn Schatzkarte VI]],        [[Carte Au TrÃ©sor de Fangeombre VI]],               [[treasuremap_shadowfen_06]],                43672 },
 	    {0.6426, 0.4554, [[Shadowfen CE Treasure Map]],            [[Schattenfenn CE Schatzkarte]],        [[Carte Au TrÃ©sor de Fangeombre EC]],               [[treasuremap_ce_ebonheart_shadowfen_04]],   44943 },
@@ -251,9 +251,11 @@ LOST_TREASURE_DATA = {
 	},
 	----Craglorn
 	[353] = {	
-	    {0.21, 0.56,     [[Craglorn Treasure Map I]],              [[Kargstein Schatzkarte I]],            [[Carte Au TrÃ©sor de Raidelorn I]],                 [[treasuremap_craglorn_01]],                 43721 },
-	    {0.3650, 0.3837, [[Craglorn Treasure Map II]],             [[Kargstein Schatzkarte II]],           [[Carte Au TrÃ©sor de Raidelorn II]],                [[treasuremap_craglorn_02]],                 43722 },
-	    {0.70, 0.48,     [[Craglorn Treasure Map III]],            [[Kargstein Schatzkarte III]],          [[Carte Au TrÃ©sor de Raidelorn III]],               [[treasuremap_craglorn_03]],                 43723 },
-	    {0.64, 0.61,     [[Craglorn Treasure Map IV]],             [[Kargstein Schatzkarte IV]],           [[Carte Au TrÃ©sor de Raidelorn Iv]],                [[treasuremap_craglorn_04]],                 43724 },
+	    {0.2816, 0.6162, [[Craglorn Treasure Map I]],              [[Kargstein Schatzkarte I]],            [[Carte Au TrÃ©sor de Raidelorn I]],                 [[treasuremap_craglorn_01]],                 43721 },
+	    {0.4138, 0.4700, [[Craglorn Treasure Map II]],             [[Kargstein Schatzkarte II]],           [[Carte Au TrÃ©sor de Raidelorn II]],                [[treasuremap_craglorn_02]],                 43722 },
+	    {0.7004, 0.5541, [[Craglorn Treasure Map III]],            [[Kargstein Schatzkarte III]],          [[Carte Au TrÃ©sor de Raidelorn III]],               [[treasuremap_craglorn_03]],                 43723 },
+	    {0.6505, 0.6662, [[Craglorn Treasure Map IV]],             [[Kargstein Schatzkarte IV]],           [[Carte Au TrÃ©sor de Raidelorn IV]],                [[treasuremap_craglorn_04]],                 43724 },
+	    {0.59,   0.36,   [[Craglorn Treasure Map V]],              [[Kargstein Schatzkarte V]] ,           [[Carte Au TrÃ©sor de Raidelorn V]],                 [[treasuremap_craglorn_05]],                 43725 },
+	    {0.3557, 0.4433, [[Craglorn Treasure Map VI]],             [[Kargstein Schatzkarte VI]] ,          [[Carte Au TrÃ©sor de Raidelorn VI]],                [[treasuremap_craglorn_06]],                 43726 },
 	},	
 }

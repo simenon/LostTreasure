@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.21",
+    Version = "2.22",
 }
 
 local LT =
