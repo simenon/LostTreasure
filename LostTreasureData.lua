@@ -256,6 +256,6 @@ LOST_TREASURE_DATA = {
 	    {0.7004, 0.5541, [[Craglorn Treasure Map III]],            [[Kargstein Schatzkarte III]],          [[Carte Au TrÃ©sor de Raidelorn III]],               [[treasuremap_craglorn_03]],                 43723 },
 	    {0.6505, 0.6662, [[Craglorn Treasure Map IV]],             [[Kargstein Schatzkarte IV]],           [[Carte Au TrÃ©sor de Raidelorn IV]],                [[treasuremap_craglorn_04]],                 43724 },
 	    {0.59,   0.36,   [[Craglorn Treasure Map V]],              [[Kargstein Schatzkarte V]] ,           [[Carte Au TrÃ©sor de Raidelorn V]],                 [[treasuremap_craglorn_05]],                 43725 },
-	    {0.3557, 0.4433, [[Craglorn Treasure Map VI]],             [[Kargstein Schatzkarte VI]] ,          [[Carte Au TrÃ©sor de Raidelorn VI]],                [[treasuremap_craglorn_06]],                 43726 },
+	    {0.3555, 0.4436, [[Craglorn Treasure Map VI]],             [[Kargstein Schatzkarte VI]] ,          [[Carte Au TrÃ©sor de Raidelorn VI]],                [[treasuremap_craglorn_06]],                 43726 },
 	},	
 }

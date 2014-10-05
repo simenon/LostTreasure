@@ -7,7 +7,7 @@ local Addon =
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy",
-    Version = "2.22",
+    Version = "2.23",
 }
 
 local LT =
@@ -248,9 +248,9 @@ function LOST_TREASURE:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
     	end
     end
 
-    d("Sending update to addon author for map " .. name )    
-    RequestOpenMailbox()        
-    SendMail("@CrazyDutchGuy", "Lost Treasure " .. Addon.Version .. " :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName .. "::" )  
+--    d("Sending update to addon author for map " .. name )    
+--    RequestOpenMailbox()        
+--    SendMail("@YourAccountName", "Lost Treasure " .. Addon.Version .. " :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName .. "::" )  
 end
 
 local function createLAM2Panel()
