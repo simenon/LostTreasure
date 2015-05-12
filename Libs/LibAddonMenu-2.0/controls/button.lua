@@ -11,7 +11,7 @@
 }	]]
 
 
-local widgetVersion = 3
+local widgetVersion = 6
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("button", widgetVersion) then return end
 
@@ -33,13 +33,12 @@ end
 
 --controlName is optional
 function LAMCreateControl.button(parent, buttonData, controlName)
-	local control = wm:CreateTopLevelWindow(controlName or buttonData.reference)
-	control:SetParent(parent.scroll or parent)
-	
+	local control = wm:CreateControl(controlName or buttonData.reference, parent.scroll or parent, CT_CONTROL)
+
 	local isHalfWidth = buttonData.width == "half"
 	control:SetDimensions(isHalfWidth and 250 or 510, isHalfWidth and 55 or 28)
 	control:SetMouseEnabled(true)
-	
+
 	if buttonData.icon then
 		control.button = wm:CreateControl(nil, control, CT_BUTTON)
 		control.button:SetDimensions(26, 26)
@@ -54,7 +53,8 @@ function LAMCreateControl.button(parent, buttonData, controlName)
 	local button = control.button
 	button:SetAnchor(isHalfWidth and CENTER or RIGHT)
 	button:SetClickSound("Click")
-	button.tooltipText = buttonData.tooltip
+	--button.tooltipText = buttonData.tooltip
+	button.data = {tooltipText = buttonData.tooltip}
 	button:SetHandler("OnMouseEnter", ZO_Options_OnMouseEnter)
 	button:SetHandler("OnMouseExit", ZO_Options_OnMouseExit)
 	button:SetHandler("OnClicked", function(self, ...)
@@ -63,25 +63,26 @@ function LAMCreateControl.button(parent, buttonData, controlName)
 				cm:FireCallbacks("LAM-RefreshPanel", control)
 			end
 		end)
-	
+
 	if buttonData.warning then
 		control.warning = wm:CreateControlFromVirtual(nil, control, "ZO_Options_WarningIcon")
 		control.warning:SetAnchor(RIGHT, button, LEFT, -5, 0)
-		control.warning.tooltipText = buttonData.warning
+		--control.warning.tooltipText = buttonData.warning
+		control.warning.data = {tooltipText = buttonData.warning}
 	end
-	
+
 	control.panel = parent.panel or parent	--if this is in a submenu, panel is its parent
 	control.data = buttonData
-	
+
 	if buttonData.disabled then
 		control.UpdateDisabled = UpdateDisabled
 		control:UpdateDisabled()
-		
+
 		--this is here because buttons don't have an UpdateValue method
 		if control.panel.data.registerForRefresh then	--if our parent window wants to refresh controls, then add this to the list
 			tinsert(control.panel.controlsToRefresh, control)
 		end
 	end
-	
+
 	return control
 end

@@ -2,7 +2,7 @@
 -- LibMapPins-1.0
 -------------------------------------------------------------------------------
 --
--- Copyright (c) 2014 Ales Machat (Garkin)
+-- Copyright (c) 2014, 2015 Ales Machat (Garkin)
 --
 -- Permission is hereby granted, free of charge, to any person
 -- obtaining a copy of this software and associated documentation
@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 3
+local MAJOR, MINOR = "LibMapPins-1.0", 9
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -47,6 +47,67 @@ if not lib.pinManager then
    _G[pinType] = nil
 end
 
+--AUI support
+lib.AUI = lib.AUI or { mapping = {}, tasks = {} }
+
+function lib.AUI.DoesMinimapExist()
+   if AUI and AUI.Minimap and AUI.Minimap.Pin then
+      return true
+   end
+
+   return false
+end
+
+function lib.AUI.IsMinimapEnabled()
+   if lib.AUI.DoesMinimapExist() then
+      return AUI.Minimap.IsEnabled()
+   end
+
+   return false
+end
+
+function lib.AUI.IsMinimapLoaded()
+   if lib.AUI.DoesMinimapExist() then
+      return AUI.Minimap.IsLoaded()
+   end
+
+   return false
+end
+
+function lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
+   local pinTypeId = _G[pinTypeString]
+   local pinData = lib.pinManager.customPins[pinTypeId]
+
+   if lib.pinManager.customPins[pinTypeId] then
+      lib.pinManager.customPins[pinTypeId].layoutCallback = function() end
+   end
+
+   local AUI_pinTypeId = AUI.Minimap.Pin.AddCustomPinType(pinLayoutData, pinTypeAddCallback, pinTooltipCreator)
+   lib.AUI.mapping[pinTypeId] = AUI_pinTypeId
+end
+
+function lib.AUI.UpdateQueuedCustomPinTypes()
+   if lib.AUI.IsMinimapEnabled() == false or lib.AUI.IsMinimapLoaded() then
+      EVENT_MANAGER:UnregisterForUpdate("AUI_OnInit")
+   end
+
+   if AUI.Minimap.IsLoaded() then
+      for id, funcArgs in ipairs(lib.AUI.tasks) do
+         lib.AUI.AddCustomPinType(unpack(funcArgs))
+         lib.AUI.tasks[id] = nil
+      end
+      lib.AUI.queued = false
+   end
+end
+
+function lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
+   table.insert(lib.AUI.tasks, {pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator})
+   if not lib.AUI.queued then
+      EVENT_MANAGER:RegisterForUpdate("AUI_OnInit", 0, lib.AUI.UpdateQueuedCustomPinTypes)
+      lib.AUI.queued = true
+   end	
+end
+
 -------------------------------------------------------------------------------
 -- Library Functions ----------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -65,8 +126,8 @@ end
 --    texture =   string of function(pin). Function can return just one texture
 --                or overlay, pulse and glow textures.
 --    size =      texture will be resized to size*size, if not specified size is 20.
---    color =     table {r,g,b,a} or function(pin). If defined, color of background
---                texture is set to this color.
+--    tint  =     ZO_ColorDef object or function(pin) which returns this object.
+--                If defined, color of background texture is set to this color. 
 --    grayscale = true/false, could be function(pin). If defined and not false,
 --                background texure will be converted to grayscale (http://en.wikipedia.org/wiki/Colorfulness)
 --    insetX =    size of transparent texture border, used to handle mouse clicks
@@ -89,18 +150,40 @@ end
 -- pinTypeOnResizeCallback: (nilable) function(pinManager, mapWidth, mapHeight),
 --                is called when map is resized (zoomed).
 -- pinLayoutData:  (nilable) table, details above
--- pinTooltipCreator: (nilable) table with the following keys:
+-- pinTooltipCreator: (nilable) etiher string to display or table with the
+--                following keys:
 --    creator =   function(pin) that creates tooltip - or I should say function
 --                that will be called when mouse is over the pin, it does not
 --                need to create tooltip.
---    tooltip =   (nilable) tooltip control you want to use.
+--    tooltip =   (nilable) tooltip mode,  number between 1 and 4. It is
+--                defined in WorldMap.lua as follows:
+--                local TOOLTIP_MODE = {
+--                   INFORMATION = 1,
+--                   KEEP = 2,
+--                   MAP_LOCATION = 3,
+--                   IMPERIAL_CITY = 4,
+--                }
 --    hasTooltip = (optional), function(pin) which returns true/false to
 --                enable/disable tooltip.
+--    gamepadCategory = (nilable) string
+--    gamepadCategoryId = (nilable) number, right now it uses one of:
+--                local GAMEPAD_PIN_ORDERS = {
+--                   DESTINATIONS = 10,
+--                   AVA_KEEP = 20,
+--                   AVA_OUTPOST = 21,
+--                   AVA_RESOURCE = 22,
+--                   AVA_GATE = 23,
+--                   AVA_ARTIFACT = 24,
+--                   AVA_IMPERIAL_CITY = 25,
+--                   AVA_FORWARD_CAMP = 26,
+--                   CRAFTING = 30,
+--                   QUESTS = 40,
+--                   PLAYERS = 50,
+--                }
+--    gamepadCategoryIcon = (nilable) texture path
+--    gamepadEntryName = (nilable) string
+--    gamepadSpacing = (nilable) boolean
 --
---If used tooltip is InformationTooltip, ZO_KeepTooltip or ZO_MapLocationTooltip,
---it will be properly initialized before creator is called and after that will be
---tooltip anchored to the pinControl. If you use any other tooltip, you have to
---handle initialization and anchoring in creator or hasTooltip functions.
 -------------------------------------------------------------------------------
 function lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
    if type(pinTypeString) ~= "string" or _G[pinTypeString] ~= nil or type(pinTypeAddCallback) ~= "function" then return end
@@ -111,15 +194,33 @@ function lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallba
 
    if type(pinTooltipCreator) == "string" then
       local text = pinTooltipCreator
-      pinTooltipCreator = { creator = function(pin) SetTooltipText(InformationTooltip, text) end, tooltip = InformationTooltip }
-   elseif pinTooltipCreator ~= nil and type(pinTooltipCreator) ~= "table" then
+      pinTooltipCreator = { creator = function(pin) SetTooltipText(InformationTooltip, text) end, tooltip = 1 }
+   elseif type(pinTooltipCreator) == "table" then
+      if type(pinTooltipCreator.tooltip) ~= "number" then
+         pinTooltipCreator.tooltip = 1 --InformationTooltip
+      end
+   elseif pinTooltipCreator ~= nil then
       return
+   end
+   
+   if type(pinLayoutData.color) == "table" then
+      if pinLayoutData.tint == nil or pinLayoutData.tint.UnpackRGBA == nil then
+         pinLayoutData.tint = ZO_ColorDef:New(unpack(pinLayoutData.color))
+      end
    end
 
    self.pinManager:AddCustomPin(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-   local pinTypeId = _G[pinTypeString]
+   local pinTypeId = _G[pinTypeString]   
    self.pinManager:SetCustomPinEnabled(pinTypeId, true)
-   self.pinManager:RefreshCustomPins(pinTypeId)
+   self.pinManager:RefreshCustomPins(pinTypeId)  
+   
+   if lib.AUI.DoesMinimapExist() then
+      if lib.AUI.IsMinimapLoaded() then
+         lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
+      else
+         lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
+      end
+   end
 
    return pinTypeId
 end
@@ -139,17 +240,37 @@ end
 -- areaRadius:    (nilable)
 -------------------------------------------------------------------------------
 function lib:CreatePin(pinType, pinTag, locX, locY, areaRadius)
+
    if pinTag == nil or type(locX) ~= "number" or type(locY) ~= "number" then return end
 
-   local pinTypeId
+   local pinTypeId, pinTypeString
    if type(pinType) == "string" then
       pinTypeId = _G[pinType]
+      pinTypeString = pinType
    elseif type(pinType) == "number" then
       pinTypeId = pinType
    end
 
    if pinTypeId ~= nil then
-      self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)
+      if self.AUI.IsMinimapLoaded() then
+         local isEnabled = self:IsEnabled(pinTypeId)
+         if isEnabled then
+            if not pinTypeString then
+               local pinData = self.pinManager.customPins[pinTypeId]
+               if not pinData then return end
+               pinTypeString = pinData.pinTypeString
+            end
+            local mapIndex = AUI.Minimap.Map.GetCurrentMapIndex()
+            local pinName = pinTypeString .. AUI.Minimap.Pin.GetCustomPinCount() + 1
+            AUI.Minimap.Pin.CreateCustomPin(pinName, self.AUI.mapping[pinTypeId], pinTag, mapIndex, locX, locY, areaRadius)
+
+            if WORLD_MAP_SCENE:IsShowing() then
+               self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)
+            end
+         end
+      else
+         self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)
+      end
    end
 end
 
@@ -224,6 +345,14 @@ function lib:SetLayoutData(pinType, pinLayoutData)
       for k,v in pairs(pinLayoutData) do
          ZO_MapPin.PIN_DATA[pinTypeId][k] = v
       end
+
+      if AUI_MINIMAP_PIN_DATA then
+         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
+         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] = {}
+         for k,v in pairs(pinLayoutData) do
+            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][k] = v
+         end
+      end
    end
 end
 
@@ -248,6 +377,13 @@ function lib:SetLayoutKey(pinType, key, data)
 
    if pinTypeId ~= nil then
       ZO_MapPin.PIN_DATA[pinTypeId][key] = data
+
+      if AUI_MINIMAP_PIN_DATA then
+         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
+         if AUI_pinTypeId and AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] then
+            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][key] = data
+         end
+      end
    end
 end
 
@@ -272,6 +408,7 @@ end
 --                What happens when mouse lick hits more than one pin. If true,
 --                pins are considered to be duplicates and just one callback
 --                function is called.
+--       gamepadName = the same as name, but for gamepad
 --    },
 -- }
 -- One handler can have defined more actions, with different conditions in show
@@ -315,7 +452,20 @@ function lib:RefreshPins(pinType)
       pinTypeId = pinType
    end
 
-   if pinTypeId ~= nil then
+   if self.AUI.IsMinimapLoaded() then
+      if pinTypeId ~= nil then
+         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
+         local pinTypeString = self.pinManager.customPins[pinTypeId].pinTypeString
+         self.pinManager:RemovePins(pinTypeString)
+         AUI.Minimap.Pin.RefreshCustomPinsByType(AUI_pinTypeId)
+      else
+         for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
+            local pinTypeString = self.pinManager.customPins[pinTypeId].pinTypeString
+            self.pinManager:RemovePins(pinTypeString)
+            AUI.Minimap.Pin.RefreshCustomPinsByType(AUI_pinTypeId)
+         end
+      end
+   else
       self.pinManager:RefreshCustomPins(pinTypeId)
    end
 end
@@ -342,7 +492,18 @@ function lib:RemoveCustomPin(pinType, pinTag)
 
    if pinTypeId ~= nil then
       self.pinManager:RemovePins(pinTypeString, pinTypeId, pinTag)
-   end
+
+      if self.AUI.IsMinimapLoaded() then
+         if pinTypeId ~= nil then
+            local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
+            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
+         else
+            for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
+               AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
+            end
+         end
+      end
+    end
 end
 
 -------------------------------------------------------------------------------
@@ -391,7 +552,12 @@ function lib:SetAddCallback(pinType, pinTypeAddCallback)
    end
 
    if pinTypeId ~= nil then
-      self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
+      if AUI_MINIMAP_PIN_DATA then
+         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
+         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId].callback = pinTypeAddCallback
+      else
+         self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
+      end
    end
 end
 
@@ -475,7 +641,7 @@ function lib:SetEnabled(pinType, state)
    self.pinManager:SetCustomPinEnabled(pinTypeId, enabled)
 
    if needsRefresh then
-      self.pinManager:RefreshCustomPins(pinTypeId)
+      self:RefreshPins(pinType)
    end
 end
 
@@ -642,43 +808,99 @@ end
 -- be disabled. It's not possible to use backup of the original function as it
 -- can break other addons
 -------------------------------------------------------------------------------
---support for "color" and "grayscale" in pinLayoutData
-if lib.hookVersions.ZO_MapPin_SetData < 1 then
+--support "grayscale" in pinLayoutData
+if lib.hookVersions.ZO_MapPin_SetData < 3 then
    ZO_PreHook(ZO_MapPin, "SetData",
       function(self, pinTypeId)
          --check hook version
-         if lib.hookVersions.ZO_MapPin_SetData ~= 1 then return end
+         if lib.hookVersions.ZO_MapPin_SetData ~= 3 then return end
          local control = GetControl(self:GetControl(), "Background")
-         local color = ZO_MapPin.PIN_DATA[pinTypeId].color
-         local grayscale = ZO_MapPin.PIN_DATA[pinTypeId].grayscale
-         if color ~= nil then
-            if type(color) == "table" then
-               control:SetColor(unpack(color))
-            elseif type(color) == "function" then
-               control:SetColor(color(self))
-            end
-         end
+         local grayscale = ZO_MapPin.PIN_DATA[pinTypeId].grayscale  
          if grayscale ~= nil then
             control:SetDesaturation((type(grayscale) == "function" and grayscale(self) or grayscale) and 1 or 0)
          end
       end)
 
    --set hook version
-   lib.hookVersions.ZO_MapPin_SetData = 1
+   lib.hookVersions.ZO_MapPin_SetData = 2
 end
-if lib.hookVersions.ZO_MapPin_ClearData < 1 then
+if lib.hookVersions.ZO_MapPin_ClearData < 2 then
    ZO_PreHook(ZO_MapPin, "ClearData",
       function(self, ...)
          --check hook version
-         if lib.hookVersions.ZO_MapPin_ClearData ~= 1 then return end
+         if lib.hookVersions.ZO_MapPin_ClearData ~= 2 then return end
          local control = GetControl(self:GetControl(), "Background")
-         control:SetColor(1, 1, 1, 1)
          control:SetDesaturation(0)
       end)
 
    --set hook version
-   lib.hookVersions.ZO_MapPin_ClearData = 1
+   lib.hookVersions.ZO_MapPin_ClearData = 2
 end
+
+-------------------------------------------------------------------------------
+-- Scrollbox for map filters
+-------------------------------------------------------------------------------
+local function OnLoad(code, addon)
+   if addon:find("^ZO") then return end
+   EVENT_MANAGER:UnregisterForEvent("LibMapPins", EVENT_ADD_ON_LOADED)
+   
+   if WORLD_MAP_FILTERS.pvePanel.checkBoxPool then
+      WORLD_MAP_FILTERS.pvePanel.checkBoxPool.parent = ZO_WorldMapFiltersPvEContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvEContainer", ZO_WorldMapFiltersPvE, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.pvePanel.checkBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.pvePanel.checkBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersPvECheckBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersPvECheckBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.pvePanel.control then
+            ZO_WorldMapFiltersPvECheckBox1:SetAnchor(point, ZO_WorldMapFiltersPvEContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if WORLD_MAP_FILTERS.pvePanel.comboBoxPool then
+      WORLD_MAP_FILTERS.pvePanel.comboBoxPool.parent = ZO_WorldMapFiltersPvEContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvEContainer", ZO_WorldMapFiltersPvE, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.pvePanel.comboBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.pvePanel.comboBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersPvEComboBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersPvEComboBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.pvePanel.control then
+            ZO_WorldMapFiltersPvEComboBox1:SetAnchor(point, ZO_WorldMapFiltersPvEContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if ZO_WorldMapFiltersPvEContainer then
+      ZO_WorldMapFiltersPvEContainer:SetAnchorFill()
+   end
+   
+   if WORLD_MAP_FILTERS.pvpPanel.checkBoxPool then
+      WORLD_MAP_FILTERS.pvpPanel.checkBoxPool.parent = ZO_WorldMapFiltersPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvPContainer", ZO_WorldMapFiltersPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.pvpPanel.checkBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.pvpPanel.checkBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersPvPCheckBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersPvPCheckBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.pvpPanel.control then
+            ZO_WorldMapFiltersPvPCheckBox1:SetAnchor(point, ZO_WorldMapFiltersPvPContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if WORLD_MAP_FILTERS.pvpPanel.comboBoxPool then
+      WORLD_MAP_FILTERS.pvpPanel.comboBoxPool.parent = ZO_WorldMapFiltersPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvPContainer", ZO_WorldMapFiltersPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.pvpPanel.comboBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.pvpPanel.comboBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersPvPComboBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersPvPComboBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.pvpPanel.control then
+            ZO_WorldMapFiltersPvPComboBox1:SetAnchor(point, ZO_WorldMapFiltersPvPContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if ZO_WorldMapFiltersPvPContainer then
+      ZO_WorldMapFiltersPvPContainer:SetAnchorFill()
+   end
+end
+EVENT_MANAGER:RegisterForEvent("LibMapPins", EVENT_ADD_ON_LOADED, OnLoad)
 
 -------------------------------------------------------------------------------
 -- Useful methods for pins:
@@ -702,7 +924,7 @@ end
 -- MapPinTest/MapPintest.txt
 -------------------------------------------------------------------------------
 ## Title: MapPinTest
-## APIVersion: 100004
+## APIVersion: 100011
 ## SavedVariables: MapPinTest_SavedVariables
 
 Libs/LibStub/LibStub.lua
@@ -742,7 +964,7 @@ local pinTooltipCreator = {
       local locX, locY = pin:GetNormalizedPosition()
       InformationTooltip:AddLine(zo_strformat("Position of my pin is: <<1>>•<<2>>", ("%05.02f"):format(locX*100), ("%05.02f"):format(locY*100)))
    end,
-   tooltip = InformationTooltip,
+   tooltip = 1,
 }
 
 --click handlers

@@ -1,8 +1,8 @@
-## APIVersion: 100009
-## Title: |cFFFFB0Lost Treasure|r by |c00C000CrazyDutchGuy|r
+## APIVersion: 100011
+## Title: |cFFFFBELost Treasure|r
 ## Description: Shows treasure map locations
-## Version: 2.23
-## Author: CrazyDutchGuy
+## Version: 3.0.7
+## Author:  |c00C000CrazyDutchGuy & katkat42|r
 ## SavedVariables: LOST_TREASURE_SV
 ## OptionalDependsOn: LibStub LibMapPins-1.0 LibAddonMenu-2.0 CustomCompassPins
 
@@ -26,6 +26,6 @@ Libs/LibAddonMenu-2.0/controls/texture.lua
 
 Libs/CustomCompassPins/CustomCompassPins.lua
 
+LostTreasureStrings.lua
 LostTreasureData.lua
 LostTreasure.lua
-LostTreasure.xml

@@ -1,0 +1,77 @@
+LOST_TREASURE_STRINGS = {
+	["en"] = {
+		TREASURE_ON_MAP = "Show Treasure on Map",
+		TREASURE_ON_MAP_TOOLTIP = "Show treasure map locations on player map?",
+		TREASURE_ON_COMPASS = "Show Treasure on Compass",
+		TREASURE_ON_COMPASS_TOOLTIP = "Show treasure map locations on compass bar?",
+		TREASURE_ICON = "Treasure Pin Texture",
+		TREASURE_ICON_TOOLTIP = "Which pin texture to use for treasure map locations",
+		TREASURE_MARK_WHICH = "Treasure Map Marking",
+		TREASURE_MARK_WHICH_TOOLTIP = "When to mark treasure locations on the player map",
+		
+		SURVEYS_ON_MAP = "Show Crafting Surveys on Map",
+		SURVEYS_ON_MAP_TOOLTIP = "Show crafting survey locations on player map?",
+		SURVEYS_ON_COMPASS = "Show Crafting Surveys on Compass",
+		SURVEYS_ON_COMPASS_TOOLTIP = "Show crafting survey locations on compass bar?",
+		SURVEYS_ICON = "Survey Pin Texture",
+		SURVEYS_ICON_TOOLTIP = "Which pin texture to use for crafting survey locations",
+		SURVEYS_MARK_WHICH = "Survey Map Marking",
+		SURVEYS_MARK_WHICH_TOOLTIP = "When to mark survey locations on the player map",
+		
+		PIN_SIZE = "Pin Texture Size",
+		PIN_SIZE_TOOLTIP = "Size of the pin",
+		
+		SHOW_MINIMAP = "Show Mini Treasure Map",
+		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+	},
+	["fr"] = {
+		TREASURE_ON_MAP = "Show Treasure on Map",
+		TREASURE_ON_MAP_TOOLTIP = "Show treasure map locations on player map?",
+		TREASURE_ON_COMPASS = "Show Treasure on Compass",
+		TREASURE_ON_COMPASS_TOOLTIP = "Show treasure map locations on compass bar?",
+		TREASURE_ICON = "Treasure Pin Texture",
+		TREASURE_ICON_TOOLTIP = "Which pin texture to use for treasure map locations",
+		TREASURE_MARK_WHICH = "Treasure Map Marking",
+		TREASURE_MARK_WHICH_TOOLTIP = "When to mark treasure locations on the player map",
+		
+		SURVEYS_ON_MAP = "Show Crafting Surveys on Map",
+		SURVEYS_ON_MAP_TOOLTIP = "Show crafting survey locations on player map?",
+		SURVEYS_ON_COMPASS = "Show Crafting Surveys on Compass",
+		SURVEYS_ON_COMPASS_TOOLTIP = "Show crafting survey locations on compass bar?",
+		SURVEYS_ICON = "Survey Pin Texture",
+		SURVEYS_ICON_TOOLTIP = "Which pin texture to use for crafting survey locations",
+		SURVEYS_MARK_WHICH = "Survey Map Marking",
+		SURVEYS_MARK_WHICH_TOOLTIP = "When to mark survey locations on the player map",
+		
+		PIN_SIZE = "Pin Texture Size",
+		PIN_SIZE_TOOLTIP = "Size of the pin",
+		
+		SHOW_MINIMAP = "Show Mini Treasure Map",
+		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+	},
+	["de"] = {
+		TREASURE_ON_MAP = "Show Treasure on Map",
+		TREASURE_ON_MAP_TOOLTIP = "Show treasure map locations on player map?",
+		TREASURE_ON_COMPASS = "Show Treasure on Compass",
+		TREASURE_ON_COMPASS_TOOLTIP = "Show treasure map locations on compass bar?",
+		TREASURE_ICON = "Treasure Pin Texture",
+		TREASURE_ICON_TOOLTIP = "Which pin texture to use for treasure map locations",
+		TREASURE_MARK_WHICH = "Treasure Map Marking",
+		TREASURE_MARK_WHICH_TOOLTIP = "When to mark treasure locations on the player map",
+		
+		SURVEYS_ON_MAP = "Show Crafting Surveys on Map",
+		SURVEYS_ON_MAP_TOOLTIP = "Show crafting survey locations on player map?",
+		SURVEYS_ON_COMPASS = "Show Crafting Surveys on Compass",
+		SURVEYS_ON_COMPASS_TOOLTIP = "Show crafting survey locations on compass bar?",
+		SURVEYS_ICON = "Survey Pin Texture",
+		SURVEYS_ICON_TOOLTIP = "Which pin texture to use for crafting survey locations",
+		SURVEYS_MARK_WHICH = "Survey Map Marking",
+		SURVEYS_MARK_WHICH_TOOLTIP = "When to mark survey locations on the player map",
+		
+		PIN_SIZE = "Pin Texture Size",
+		PIN_SIZE_TOOLTIP = "Size of the pin",
+		
+		SHOW_MINIMAP = "Show Mini Treasure Map",
+		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+	},
+}
