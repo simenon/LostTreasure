@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy & katkat42",
-    Version = "3.0.7",
+    Version = "3.0.8",
 }
 
 LT = ZO_Object:Subclass()
@@ -88,11 +88,13 @@ local TREASURE_TEXT = {
 	en = "treasure map",
 	de = "schatzkarte",
 	fr = "carte au trésor",
+	ru = "êapòa coêpoáèû", 
 }
 local SURVEYS_TEXT = {
 	en = "survey:",
 	de = "gutachten",
 	fr = "repérages",
+	ru = "èccìeäoáaîèe",
 }
 LT.dirtyPins = {}
 LT.isUpdating = false
@@ -408,13 +410,13 @@ local function createLAM2Panel()
                     if v == value then
                         LT.SavedVariables.treasureMarkMapMenuOption = i
                         LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-						COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-					else
-						if LT.dirtyPins[i] then LT.dirtyPins[i].treasure = nil end
+			COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
+		    else
+			if LT.dirtyPins[i] then LT.dirtyPins[i].treasure = nil end
                     end
                 end
             end,
-			disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
+            disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
         },
 
 		[5] = {

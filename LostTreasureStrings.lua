@@ -74,4 +74,29 @@ LOST_TREASURE_STRINGS = {
 		SHOW_MINIMAP = "Show Mini Treasure Map",
 		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
 	},
+	["ru"] = {
+		TREASURE_ON_MAP = "Coêpoáèûa îa êapòe",
+		TREASURE_ON_MAP_TOOLTIP = "Ïoêaçÿáaòö ïoìoæeîèe coêpoáèû îa êapòe äìü èíeôûèxcü êapò coêpoáèû?",
+		TREASURE_ON_COMPASS = "Coêpoáèûa îa êoíïace",
+		TREASURE_ON_COMPASS_TOOLTIP = "Ïoêaçÿáaòö ïoìoæeîèe coêpoáèû îa êoíïace äìü èíeôûèxcü êapò coêpoáèû?",
+		TREASURE_ICON = "Èêoîêa",
+		TREASURE_ICON_TOOLTIP = "Áÿàepèòe èêoîêó coêpoáèû äìü oòoàpaæeîèü îa êapòe",
+		TREASURE_MARK_WHICH = "Oòíeùaòö",
+		TREASURE_MARK_WHICH_TOOLTIP = "Êoâäa oòíeùaòö êapòÿ coêpoáèû îa êapòe",
+		
+		SURVEYS_ON_MAP = "Peíecìeîîÿe êapòÿ",
+		SURVEYS_ON_MAP_TOOLTIP = "Ïoêaçÿáaòö ïoìoæeîèe peíecìeîîÿx êapò îa êapòe äìü èíeôûèxcü peíecìeîîÿx êapò?",
+		SURVEYS_ON_COMPASS = "Peíecìeîîÿe êapòÿ îa êoíïace",
+		SURVEYS_ON_COMPASS_TOOLTIP = "Ïoêaçÿáaòö ïoìoæeîèe peíecìeîîÿx êapò îa êoíïace äìü èíeôûèxcü peíecìeîîÿx êapò?",
+		SURVEYS_ICON = "Èêoîêa",
+		SURVEYS_ICON_TOOLTIP = "Áÿàepèòe èêoîêó peíecìeîîÿx êapò äìü oòoàpaæeîèü îa êapòe",
+		SURVEYS_MARK_WHICH = "Oòíeùaòö",
+		SURVEYS_MARK_WHICH_TOOLTIP = "Êoâäa oòíeùaòö peíecìeîîÿe êapòÿ îa êapòe",
+		
+		PIN_SIZE = "Paçíep èêoîêè",
+		PIN_SIZE_TOOLTIP = "Çaäaeò paçíep èêoîêè coêpoáèû",
+		
+		SHOW_MINIMAP = "Íèîè-êapòa coêpoáèû",
+		SHOW_MINIMAP_TOOLTIP = "Ïoêaçaòö íaìeîöêó êoïèô êapòÿ coêpoáèû îa ëêpaîe, êoâäa ècïoìöçóeòe êapòó á èîáeîòape?",
+	},
 }
