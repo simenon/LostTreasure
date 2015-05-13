@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy & katkat42",
-    Version = "3.0.8",
+    Version = "3.0.9",
 }
 
 LT = ZO_Object:Subclass()
@@ -184,7 +184,7 @@ local function CreatePins()
 		end
 	end
 
-	dirtyPins = {}
+	LT.dirtyPins = {}
 	LT.isUpdating = false
 end
 
@@ -346,7 +346,7 @@ end
 
 local function createLAM2Panel()
     local treasureMapIcon
-	local strings = LOST_TREASURE_STRINGS[lang]
+    local strings = LOST_TREASURE_STRINGS[lang]
     local panelData = {
         type = "panel",
         name = Addon.NameSpaced,
@@ -357,26 +357,30 @@ local function createLAM2Panel()
     }
 
     local optionsData = {
-		[1] = {
-			type = "checkbox",
-			name = strings.TREASURE_ON_MAP,
-			tooltip = strings.TREASURE_ON_MAP_TOOLTIP,
-			getFunc = function() return LT.SavedVariables.showTreasure end,
-			setFunc = function(value) 
-				LT.SavedVariables.showTreasure = value 
-				LMP:SetEnabled(MAP_PIN_TYPES.treasure, value)
-			end,
-		},
-		[2] = {
-			type = "checkbox",
-			name = strings.TREASURE_ON_COMPASS,
-			tooltip = strings.TREASURE_ON_COMPASS_TOOLTIP,
-			getFunc = function() return LT.SavedVariables.showTreasureCompass end,
-			setFunc = function(value) 
-				LT.SavedVariables.showTreasureCompass = value 
-				COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-			end,
-		},
+      [1] = {
+        type = "checkbox",
+        name = strings.TREASURE_ON_MAP,
+        tooltip = strings.TREASURE_ON_MAP_TOOLTIP,
+        getFunc = function() 
+          return LT.SavedVariables.showTreasure 
+        end,
+        setFunc = function(value) 
+          LT.SavedVariables.showTreasure = value 
+          LMP:SetEnabled(MAP_PIN_TYPES.treasure, value)
+        end,
+      },
+      [2] = {
+        type = "checkbox",
+        name = strings.TREASURE_ON_COMPASS,
+        tooltip = strings.TREASURE_ON_COMPASS_TOOLTIP,
+        getFunc = function() 
+          return LT.SavedVariables.showTreasureCompass 
+        end,
+        setFunc = function(value) 
+          LT.SavedVariables.showTreasureCompass = value 
+          COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
+        end,
+      },
         [3] = {
             type = "dropdown",
             name = strings.TREASURE_ICON,
@@ -539,7 +543,9 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_DE
 	elseif lang == "fr" then
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_FR
-	else
+	elseif lang == "ru" then
+		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
+        else
 		lang = "en"
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
 	end
