@@ -4,8 +4,8 @@ local LMP = LibStub:GetLibrary("LibMapPins-1.0")
 local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
-    Author = "CrazyDutchGuy & katkat42",
-    Version = "3.0.9",
+    Author = "CrazyDutchGuy ",
+    Version = "4.2",
 }
 
 LT = ZO_Object:Subclass()
@@ -292,9 +292,6 @@ function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
 	if myLink and #myLink > 0 then
 		local itemID = select(4,ZO_LinkHandler_ParseLink(myLink))
 		d("Unknown treasure map: "..name..", "..mapTextureName..", "..itemID)
-		-- d("Sending update to addon author for map " .. name )
-		-- RequestOpenMailbox()
-		-- SendMail("@YourAccountName", "Lost Treasure " .. Addon.Version .. " :  ".. name,  name .. "::" .. textureName .."::" .. mapTextureName .. "::"..itemID)
 	end
 end
 
@@ -381,47 +378,49 @@ local function createLAM2Panel()
           COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
         end,
       },
-        [3] = {
-            type = "dropdown",
-            name = strings.TREASURE_ICON,
-            tooltip = strings.TREASURE_ICON_TOOLTIP,
-            choices = pinTexturesList,
-            getFunc = function() return pinTexturesList[LT.SavedVariables.treasurePinTexture] end,
-            setFunc = function(value) 
-                for i,v in pairs(pinTexturesList) do
-                    if v == value then
-                        LT.SavedVariables.treasurePinTexture = i
-                        treasureMapIcon:SetTexture(pinTextures[i])
-                        LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "texture", pinTextures[i])
-						LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-						COMPASS_PINS.pinLayouts[COMPASS_PIN_TYPES.treasure].texture = pinTextures[i]
-						COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-						break
-                    end
+      [3] = {
+        type = "dropdown",
+        name = strings.TREASURE_ICON,
+        tooltip = strings.TREASURE_ICON_TOOLTIP,
+        choices = pinTexturesList,
+        getFunc = function() return pinTexturesList[LT.SavedVariables.treasurePinTexture] end,
+        setFunc = function(value) 
+            for i,v in pairs(pinTexturesList) do
+                if v == value then
+                    LT.SavedVariables.treasurePinTexture = i
+                    treasureMapIcon:SetTexture(pinTextures[i])
+                    LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "texture", pinTextures[i])
+            				LMP:RefreshPins(MAP_PIN_TYPES.treasure)
+            				COMPASS_PINS.pinLayouts[COMPASS_PIN_TYPES.treasure].texture = pinTextures[i]
+            				COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
+            				break
                 end
-            end,
-			reference = "LT_TreasureMapOption",
-			disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
-        },
-        [4] = {
-            type = "dropdown",
-            name = strings.TREASURE_MARK_WHICH,
-            tooltip = strings.TREASURE_MARK_WHICH_TOOLTIP,
-            choices = markMapMenuOptions,
-            getFunc = function() return markMapMenuOptions[LT.SavedVariables.treasureMarkMapMenuOption] end,
-            setFunc = function(value) 
-                for i,v in pairs(markMapMenuOptions) do
-                    if v == value then
-                        LT.SavedVariables.treasureMarkMapMenuOption = i
-                        LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-			COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-		    else
-			if LT.dirtyPins[i] then LT.dirtyPins[i].treasure = nil end
-                    end
-                end
-            end,
-            disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
-        },
+            end
+        end,
+       	reference = "LT_TreasureMapOption",
+       	disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
+      },
+      [4] = {
+        type = "dropdown",
+        name = strings.TREASURE_MARK_WHICH,
+        tooltip = strings.TREASURE_MARK_WHICH_TOOLTIP,
+        choices = markMapMenuOptions,
+        getFunc = function() 
+	  return markMapMenuOptions[LT.SavedVariables.treasureMarkMapMenuOption] 
+	end,
+        setFunc = function(value) 
+          for i,v in pairs(markMapMenuOptions) do
+            if v == value then
+              LT.SavedVariables.treasureMarkMapMenuOption = i
+              LMP:RefreshPins(MAP_PIN_TYPES.treasure)
+              COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
+            else
+              if LT.dirtyPins[i] then LT.dirtyPins[i].treasure = nil end
+            end
+          end
+        end,
+        disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
+      },
 
 		[5] = {
 			type = "checkbox",
