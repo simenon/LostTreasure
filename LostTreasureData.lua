@@ -342,20 +342,20 @@ LOST_TREASURE_DATA = {
 ----Alik’r Desert
   [17] = {
     ["treasure"] = {
-      {0.3622,  0.7291,  [[Alik'r Treasure Map I]],   [[Alik'r Wüste Schatzkarte I]],   [[Carte Au Trésor du désert d'Alik'r I]],   [[treasuremap_alikr_001]],              43613 },
-      {0.0532,  0.5250,  [[Alik'r Treasure Map II]],  [[Alik'r Wüste Schatzkarte II]],  [[Carte Au Trésor du désert d'Alik'r II]],  [[treasuremap_alikr_002]],              43614 },
-      {0.6449,  0.6501,  [[Alik'r Treasure Map III]], [[Alik'r Wüste Schatzkarte III]], [[Carte Au Trésor du désert d'Alik'r III]], [[treasuremap_alikr_003]],              43615 },
-      {0.5964,  0.2197,  [[Alik'r Treasure Map IV]],  [[Alik'r Wüste Schatzkarte IV]],  [[Carte Au Trésor du désert d'Alik'r IV]],  [[treasuremap_alikr_004]],              43616 },
-      {0.82,    0.52,    [[Alik'r Treasure Map V]],   [[Alik'r Wüste Schatzkarte V]],   [[Carte Au Trésor du désert d'Alik'r V]],   [[treasuremap_alikr_005]],              43617 },
-      {0.7501,  0.4646,  [[Alik'r Treasure Map VI]],  [[Alik'r Wüste Schatzkarte VI]],  [[Carte Au Trésor du désert d'Alik'r VI]],  [[treasuremap_alikr_06]],               43618 },
-      {0.2984,  0.3482,  [[Alik'r CE Treasure Map]],  [[Alik'r Wüste CE Schatzkarte]],  [[Carte Au Trésor du désert d'Alik'r EC]],  [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
+      {0.3801,	0.6993,  [[Alik'r Treasure Map I]],   [[Alik'r Wüste Schatzkarte I]],   [[Carte Au Trésor du désert d'Alik'r I]],   [[treasuremap_alikr_001]],              43613 },
+      {0.1113,	0.5218,  [[Alik'r Treasure Map II]],  [[Alik'r Wüste Schatzkarte II]],  [[Carte Au Trésor du désert d'Alik'r II]],  [[treasuremap_alikr_002]],              43614 },
+      {0.6261,	0.6306,  [[Alik'r Treasure Map III]], [[Alik'r Wüste Schatzkarte III]], [[Carte Au Trésor du désert d'Alik'r III]], [[treasuremap_alikr_003]],              43615 },
+      {0.5839,	0.2561,  [[Alik'r Treasure Map IV]],  [[Alik'r Wüste Schatzkarte IV]],  [[Carte Au Trésor du désert d'Alik'r IV]],  [[treasuremap_alikr_004]],              43616 },
+      {0.7784,	0.5174,  [[Alik'r Treasure Map V]],   [[Alik'r Wüste Schatzkarte V]],   [[Carte Au Trésor du désert d'Alik'r V]],   [[treasuremap_alikr_005]],              43617 },
+      {0.7176,	0.4692,  [[Alik'r Treasure Map VI]],  [[Alik'r Wüste Schatzkarte VI]],  [[Carte Au Trésor du désert d'Alik'r VI]],  [[treasuremap_alikr_06]],               43618 },
+      {0.3246,  0.3679,  [[Alik'r CE Treasure Map]],  [[Alik'r Wüste CE Schatzkarte]],  [[Carte Au Trésor du désert d'Alik'r EC]],  [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
     },
     ["surveys"] = {
-      {0.6303,  0.6265,  [[Clothier Survey: Alik'r]],   [[Schneidergutachten: Alik'r-Wüste]],   [[Repérages de Tailleur : Alik'r]],            [[alikr_survey_clothier]],   57762 },
-      {0.4033,  0.6523,  [[Alchemist Survey: Alik'r]],  [[Alchemistengutachten: Alik'r-Wüste]], [[Repérages d'Alchemiste : Alik'r]],           [[alikr_survey_alchemist]],  57779 },
-      {0.0980,  0.4795,  [[Blacksmith Survey: Alik'r]], [[Schmiedegutachten: Alik'r-Wüste]],    [[Repérages de Forgeron : Alik'r]],            [[alikr_survey_blacksmith]], 57792 },
-      {0.8242,  0.3415,  [[Enchanter Survey: Alik'r]],  [[Verzauberergutachten: Alik'r-Wüste]], [[Repérages d'Enchanteur : Alik'r]],           [[alikr_survey_enchanter]],  57806 },
-      {0.6000,  0.3609,  [[Woodworker Survey: Alik'r]], [[Schreinergutachten: Alik'r-Wüste]],   [[Repérages de Travailleur du Bois : Alik'r]], [[alikr_survey_woodworker]], 57824 },
+      {0.6134,	0.6101,  [[Clothier Survey: Alik'r]],   [[Schneidergutachten: Alik'r-Wüste]],   [[Repérages de Tailleur : Alik'r]],            [[alikr_survey_clothier]],   57762 },
+      {0.4159,	0.6325,  [[Alchemist Survey: Alik'r]],  [[Alchemistengutachten: Alik'r-Wüste]], [[Repérages d'Alchemiste : Alik'r]],           [[alikr_survey_alchemist]],  57779 },
+      {0.1503,	0.4822,  [[Blacksmith Survey: Alik'r]], [[Schmiedegutachten: Alik'r-Wüste]],    [[Repérages de Forgeron : Alik'r]],            [[alikr_survey_blacksmith]], 57792 },
+      {0.7821,	0.3621,  [[Enchanter Survey: Alik'r]],  [[Verzauberergutachten: Alik'r-Wüste]], [[Repérages d'Enchanteur : Alik'r]],           [[alikr_survey_enchanter]],  57806 },
+      {0.5870,	0.3790,  [[Woodworker Survey: Alik'r]], [[Schreinergutachten: Alik'r-Wüste]],   [[Repérages de Travailleur du Bois : Alik'r]], [[alikr_survey_woodworker]], 57824 },
     },
   },
   ["sentinel"] = {
