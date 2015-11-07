@@ -1,4 +1,4 @@
-LOST_TREASURE_INDEX = {
+﻿LOST_TREASURE_INDEX = {
   X = 1,
   Y = 2,
   MAP_NAME = 3,
@@ -460,6 +460,34 @@ LOST_TREASURE_DATA = {
       {0.5820,  0.5243,  [[Enchanter Survey: Craglorn I]],    [[Verzauberergutachten I: Kargstein]],   [[Repérages d'Enchanteur : Raidelorn I]],             [[craglorn1_survey_enchanter]],  57813 },
       {0.1693,  0.3774,  [[Enchanter Survey: Craglorn II]],   [[Verzauberergutachten II: Kargstein]],  [[Repérages d'Enchanteur : Raidelorn II]],            [[craglorn2_survey_enchanter]],  57814 },
       {0.6766,  0.4291,  [[Enchanter Survey: Craglorn III]],  [[Verzauberergutachten III: Kargstein]], [[Repérages d'Enchanteur : Raidelorn III]],           [[craglorn3_survey_enchanter]],  57815 },
+    },
+  },
+  ----Wrothgar
+  [395] = {
+    ["treasure"] = {
+      {0.4798,  0.7865,  [[Orsinium Treasure Map I]],   [[Schatzkarte: Orsinium I]],   [[Carte Au Trésor D'Orsinium I]],   [[treasuremap_orsinium_01]], 43727 },
+      {0.7647,  0.5651,  [[Orsinium Treasure Map II]],  [[Schatzkarte: Orsinium II]],  [[Carte Au Trésor D'Orsinium II]],  [[treasuremap_orsinium_02]], 43728 },
+      {0.2724,  0.6782,  [[Orsinium Treasure Map III]], [[Schatzkarte: Orsinium III]], [[Carte Au Trésor D'Orsinium III]], [[treasuremap_orsinium_03]], 43729 },
+      {0.4441,  0.4851,  [[Orsinium Treasure Map IV]],  [[Schatzkarte: Orsinium IV]],  [[Carte Au Trésor D'Orsinium IV]],  [[treasuremap_orsinium_04]], 43730 },
+      {0.7303,  0.3188,  [[Orsinium Treasure Map V]],   [[Schatzkarte: Orsinium V]] ,  [[Carte Au Trésor D'Orsinium V]],   [[treasuremap_orsinium_05]], 43731 },
+      {0.1850,  0.7600,  [[Orsinium Treasure Map VI]],  [[Schatzkarte: Orsinium VI]],  [[Carte Au Trésor D'Orsinium VI]],  [[treasuremap_orsinium_06]], 43732 },
+    },
+    ["surveys"] = {
+      {0.4616,  0.5894,  [[Blacksmith Survey: Wrothgar I]],   [[Schmiedegutachten I: Wrothgar]],      [[Repérages de Forgeron : Wrothgar I]],              [[wrothgar1_survey_blacksmith]], 71065 },
+      {0.5060,  0.6489,  [[Blacksmith Survey: Wrothgar II]],  [[Schmiedegutachten II: Wrothgar]],     [[Repérages de Forgeron : Wrothgar II]],             [[wrothgar2_survey_blacksmith]], 71066 },
+      {0.6244,  0.2637,  [[Blacksmith Survey: Wrothgar III]], [[Schmiedegutachten: Wrothgar]],        [[Repérages de Forgeron : Wrothgar III]],            [[wrothgar3_survey_blacksmith]], 71067 },
+      {0.1339,  0.7582,  [[Clothier Survey: Wrothgar I]],     [[Schneidergutachten I: Wrothgar]],     [[Repérages de Tailleur : Wrothgar I]],              [[wrothgar1_survey_clothier]],   71068 },
+      {0.4787,  0.5528,  [[Clothier Survey: Wrothgar II]],    [[Schneidergutachten II: Wrothgar]],    [[Repérages de Tailleur : Wrothgar II]],             [[wrothgar2_survey_clothier]],   71069 },
+      {0.8085,  0.3959,  [[Clothier Survey: Wrothgar III]],   [[Schneidergutachten III: Wrothgar]],   [[Repérages de Tailleur : Wrothgar III]],            [[wrothgar3_survey_clothier]],   71070 },
+      {0.6066,  0.3258,  [[Woodworker Survey: Wrothgar I]],   [[Schreinergutachten I: Wrothgar]],     [[Repérages de Travailleur du Bois : Wrothgar I]],   [[wrothgar1_survey_woodworker]], 71080 },
+      {0.5454,  0.5208,  [[Woodworker Survey: Wrothgar II]],  [[Schreinergutachten II: Wrothgar]],    [[Repérages de Travailleur du Bois : Wrothgar II]],  [[wrothgar2_survey_woodworker]], 71081 },
+      {0.8207,  0.3089,  [[Woodworker Survey: Wrothgar III]], [[Schreinergutachten III: Wrothgar]],   [[Repérages de Travailleur du Bois : Wrothgar III]], [[wrothgar3_survey_woodworker]], 71082 },
+      {0.2357,  0.7067,  [[Alchemist Survey: Wrothgar I]],    [[Alchemistengutachten I: Wrothgar]],   [[Repérages d'Alchemiste : Wrothgar I]],             [[wrothgar1_survey_alchemist]],  71083 },
+      {0.7871,  0.2733,  [[Alchemist Survey: Wrothgar II]],   [[Alchemistengutachten II: Wrothgar]],  [[Repérages d'Alchemiste : Wrothgar II]],            [[wrothgar2_survey_alchemist]],  71084 },
+      {0.1884,  0.8059,  [[Alchemist Survey: Wrothgar III]],  [[Alchemistengutachten III: Wrothgar]], [[Repérages d'Alchemiste : Wrothgar III]],           [[wrothgar3_survey_alchemist]],  71085 },
+      {0.2051,  0.8190,  [[Enchanter Survey: Wrothgar I]],    [[Verzauberergutachten I: Wrothgar]],   [[Repérages d'Enchanteur : Wrothgar I]],             [[wrothgar1_survey_enchanter]],  71086 },
+      {0.4377,  0.6688,  [[Enchanter Survey: Wrothgar II]],   [[Verzauberergutachten II: Wrothgar]],  [[Repérages d'Enchanteur : Wrothgar II]],            [[wrothgar2_survey_enchanter]],  71087 },
+      {0.6893,  0.4434,  [[Enchanter Survey: Wrothgar III]],  [[Verzauberergutachten III: Wrothgar]], [[Repérages d'Enchanteur : Wrothgar III]],           [[wrothgar3_survey_enchanter]],  71088 },
     },
   },
 }

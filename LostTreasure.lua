@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.3",
+    Version = "4.4",
 }
 
 LT = ZO_Object:Subclass()
@@ -348,7 +348,7 @@ local function createLAM2Panel()
         type = "panel",
         name = Addon.NameSpaced,
         displayName = ZO_HIGHLIGHT_TEXT:Colorize(Addon.NameSpaced),
-        author = Addon.Author,
+        author = "|cFFA500"..Addon.Author.."|r",
         version = Addon.Version,
         registerForRefresh = true,
     }
