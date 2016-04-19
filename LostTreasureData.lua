@@ -30,7 +30,7 @@ LOST_TREASURE_DATA = {
       {0.6699,  0.4154,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[treasuremap_auridon_04]],            43628 },
       {0.5033,  0.2588,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[treasuremap_auridon_05]],            43629 },
       {0.3408,  0.1352,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[treasuremap_auridon_06]],            43630 },
-      {0.6863,  0.9598,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
+      {0.6881,  0.9678,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
     },
     ["surveys"] = {
       {0.5459,  0.3020,  [[Alchemist Survey: Auridon]],  [[Alchemistengutachten: Auridon]], [[Repérages d'Alchemiste : Auridia]],           [[auridon_survey_alchemist]],  57744 },
@@ -273,7 +273,7 @@ LOST_TREASURE_DATA = {
     ["treasure"] = {
       {0.1735,  0.3136,  [[Betnikh Treasure Map I]],  [[Betnikh Schatzkarte I]],  [[Carte Au Trésor de Betnikh I]],  [[treasuremap_betnikh_001]],               43693 },
       {0.5680,  0.8759,  [[Betnikh Treasure Map II]], [[Betnikh Schatzkarte II]], [[Carte Au Trésor de Betnikh II]], [[treasuremap_betnikh_002]],               43694 },
-      {0.45,    0.43,    [[Betnikh CE Treasure Map]], [[Betnikh CE Schatzkarte]], [[Carte Au Trésor de Betnikh EC]], [[treasuremap_ce_daggerfall_betnikh_01b]], 44930 },
+      {0.4551,  0.4360,  [[Betnikh CE Treasure Map]], [[Betnikh CE Schatzkarte]], [[Carte Au Trésor de Betnikh EC]], [[treasuremap_ce_daggerfall_betnikh_01b]], 44930 },
     },
   },  
   ----Glenumbra

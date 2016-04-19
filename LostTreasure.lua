@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.10",
+    Version = "4.11",
 }
 
 LT = ZO_Object:Subclass()
