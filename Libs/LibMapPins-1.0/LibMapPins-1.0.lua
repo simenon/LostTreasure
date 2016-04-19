@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 10
+local MAJOR, MINOR = "LibMapPins-1.0", 14
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -78,11 +78,7 @@ function lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallba
    local pinTypeId = _G[pinTypeString]
    local pinData = lib.pinManager.customPins[pinTypeId]
 
-   if lib.pinManager.customPins[pinTypeId] then
-      lib.pinManager.customPins[pinTypeId].layoutCallback = function() end
-   end
-
-   local AUI_pinTypeId = AUI.Minimap.Pin.AddCustomPinType(pinLayoutData, pinTypeAddCallback, pinTooltipCreator)
+   local AUI_pinTypeId = AUI.Minimap.Pin.AddCustomPinType(pinLayoutData, function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end, pinTooltipCreator)
    lib.AUI.mapping[pinTypeId] = AUI_pinTypeId
 end
 
@@ -240,37 +236,35 @@ end
 -- areaRadius:    (nilable)
 -------------------------------------------------------------------------------
 function lib:CreatePin(pinType, pinTag, locX, locY, areaRadius)
-
    if pinTag == nil or type(locX) ~= "number" or type(locY) ~= "number" then return end
 
-   local pinTypeId, pinTypeString
+   local pinTypeId
    if type(pinType) == "string" then
       pinTypeId = _G[pinType]
-      pinTypeString = pinType
    elseif type(pinType) == "number" then
       pinTypeId = pinType
    end
 
-   if pinTypeId ~= nil then
-      if self.AUI.IsMinimapLoaded() then
+   if pinTypeId then
+      local pinData = self.pinManager.customPins[pinTypeId]
+	  if pinData then	 
          local isEnabled = self:IsEnabled(pinTypeId)
          if isEnabled then
-            if not pinTypeString then
-               local pinData = self.pinManager.customPins[pinTypeId]
-               if not pinData then return end
-               pinTypeString = pinData.pinTypeString
-            end
-            local mapIndex = AUI.Minimap.Map.GetCurrentMapIndex()
-            local pinName = pinTypeString .. AUI.Minimap.Pin.GetCustomPinCount() + 1
-            AUI.Minimap.Pin.CreateCustomPin(pinName, self.AUI.mapping[pinTypeId], pinTag, mapIndex, locX, locY, areaRadius)
-
-            if WORLD_MAP_SCENE:IsShowing() then
-               self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)
-            end
-         end
-      else
-         self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)
-      end
+			if self.AUI.IsMinimapLoaded() then
+			   if AUI.Minimap.GetVersion then
+			      if AUI.Minimap.GetVersion() >= 1.2 then
+			         AUI.Minimap.Pin.CreateCustomPin(self.AUI.mapping[pinTypeId], pinTag, locX, locY, areaRadius)
+			      end
+		       else
+			      local mapIndex = AUI.Minimap.Map.GetCurrentMapIndex()
+			      local pinName = pinData.pinTypeString .. AUI.Minimap.Pin.GetCustomPinCount() + 1
+				
+			      AUI.Minimap.Pin.CreateCustomPin(pinName, self.AUI.mapping[pinTypeId], pinTag, mapIndex, locX, locY, areaRadius)			 
+		       end
+			end
+			self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)			 
+        end
+	  end
    end
 end
 
@@ -455,19 +449,15 @@ function lib:RefreshPins(pinType)
    if self.AUI.IsMinimapLoaded() then
       if pinTypeId ~= nil then
          local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         local pinTypeString = self.pinManager.customPins[pinTypeId].pinTypeString
-         self.pinManager:RemovePins(pinTypeString)
-         AUI.Minimap.Pin.RefreshCustomPinsByType(AUI_pinTypeId)
+         AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
       else
          for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
-            local pinTypeString = self.pinManager.customPins[pinTypeId].pinTypeString
-            self.pinManager:RemovePins(pinTypeString)
-            AUI.Minimap.Pin.RefreshCustomPinsByType(AUI_pinTypeId)
+            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
          end
       end
-   else
-      self.pinManager:RefreshCustomPins(pinTypeId)
    end
+   
+   self.pinManager:RefreshCustomPins(pinTypeId)
 end
 
 -------------------------------------------------------------------------------
@@ -554,10 +544,10 @@ function lib:SetAddCallback(pinType, pinTypeAddCallback)
    if pinTypeId ~= nil then
       if AUI_MINIMAP_PIN_DATA then
          local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId].callback = pinTypeAddCallback
-      else
-         self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
+         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId].callback = function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end
       end
+	  
+	  self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
    end
 end
 
@@ -675,7 +665,7 @@ function lib:Disable(pinType)
 end
 
 -------------------------------------------------------------------------------
--- lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey)
+-- lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey, savedVarsImperialPvpKey)
 -------------------------------------------------------------------------------
 -- Adds filter checkboxes to the world map.
 -- Returns: pveCheckbox, pvpCheckbox
@@ -884,7 +874,7 @@ end
 local function OnLoad(code, addon)
    if addon:find("^ZO") then return end
    EVENT_MANAGER:UnregisterForEvent("LibMapPins", EVENT_ADD_ON_LOADED)
-   
+
    if WORLD_MAP_FILTERS.pvePanel.checkBoxPool then
       WORLD_MAP_FILTERS.pvePanel.checkBoxPool.parent = ZO_WorldMapFiltersPvEContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvEContainer", ZO_WorldMapFiltersPvE, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
       for i, control in pairs(WORLD_MAP_FILTERS.pvePanel.checkBoxPool.m_Active) do
@@ -912,7 +902,7 @@ local function OnLoad(code, addon)
    if ZO_WorldMapFiltersPvEContainer then
       ZO_WorldMapFiltersPvEContainer:SetAnchorFill()
    end
-   
+
    if WORLD_MAP_FILTERS.pvpPanel.checkBoxPool then
       WORLD_MAP_FILTERS.pvpPanel.checkBoxPool.parent = ZO_WorldMapFiltersPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersPvPContainer", ZO_WorldMapFiltersPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
       for i, control in pairs(WORLD_MAP_FILTERS.pvpPanel.checkBoxPool.m_Active) do

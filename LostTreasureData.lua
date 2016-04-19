@@ -24,10 +24,10 @@ LOST_TREASURE_DATA = {
 ----Auridon
   [178] = {
     ["treasure"] = {
-      {0.4963,  0.8861,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[treasuremap_auridon_01]],            43625 },
+      {0.4955,  0.8927,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[treasuremap_auridon_01]],            43625 },
       {0.4850,  0.6411,  [[Auridon Treasure Map II]],  [[Auridon Schatzkarte II]],  [[Carte Au Trésor d'Auridia II]],  [[treasuremap_auridon_02]],            43626 },
       {0.4400,  0.5000,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[treasuremap_auridon_03]],            43627 },
-      {0.6600,  0.4100,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[treasuremap_auridon_04]],            43628 },
+      {0.6699,  0.4154,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[treasuremap_auridon_04]],            43628 },
       {0.5033,  0.2588,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[treasuremap_auridon_05]],            43629 },
       {0.3408,  0.1352,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[treasuremap_auridon_06]],            43630 },
       {0.6863,  0.9598,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
@@ -90,7 +90,7 @@ LOST_TREASURE_DATA = {
       {0.2028,  0.4993,  [[Malabal Tor Treasure Map I]],   [[Malabal Tor Schatzkarte I]],   [[Carte Au Trésor de Malabal Tor I]],   [[treasuremap_malabaltor_01]],          43643 },
       {0.0549,  0.4775,  [[Malabal Tor Treasure Map II]],  [[Malabal Tor Schatzkarte II]],  [[Carte Au Trésor de Malabal Tor II]],  [[treasuremap_malabaltor_02]],          43644 },
       {0.5015,  0.6819,  [[Malabal Tor Treasure Map III]], [[Malabal Tor Schatzkarte III]], [[Carte Au Trésor de Malabal Tor III]], [[treasuremap_malabaltor_03]],          43645 },
-      {0.6520,  0.7010,  [[Malabal Tor Treasure Map IV]],  [[Malabal Tor Schatzkarte IV]],  [[Carte Au Trésor de Malabal Tor IV]],  [[treasuremap_malabaltor_04]],          43646 },
+      {0.6534,  0.7034,  [[Malabal Tor Treasure Map IV]],  [[Malabal Tor Schatzkarte IV]],  [[Carte Au Trésor de Malabal Tor IV]],  [[treasuremap_malabaltor_04]],          43646 },
       {0.8000,  0.2860,  [[Malabal Tor Treasure Map V]],   [[Malabal Tor Schatzkarte V]],   [[Carte Au Trésor de Malabal Tor V]],   [[treasuremap_malabaltor_05]],          43647 },
       {0.6627,  0.2306,  [[Malabal Tor Treasure Map VI]],  [[Malabal Tor Schatzkarte VI]],  [[Carte Au Trésor de Malabal Tor VI]],  [[treasuremap_malabaltor_06]],          43648 },
       {0.1238,  0.5252,  [[Malabal Tor CE Treasure Map]],  [[Malabal Tor CE Schatzkarte]],  [[Carte Au Trésor de Malabal Tor EC]],  [[treasuremap_ce_aldmeri_malbator_05]], 44940 },
@@ -382,9 +382,9 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
       {0.5275,  0.1627,  [[Enchanter Survey: Bangkorai]],  [[Verzauberergutachten: Bangkorai]], [[Repérages d'Enchanteur : Bangkoraï]],           [[bankorai_survey_enchanter]],  57810 },
       {0.5800,  0.3761,  [[Clothier Survey: Bangkorai]],   [[Schneidergutachten: Bangkorai]],   [[Repérages de Tailleur : Bangkoraï]],            [[bankorai_survey_clothier]],   57764 },
-   -- {0.0000,  0.0000,  [[Alchemist Survey: Bangkorai]],  [[Alchemistengutachten: Bangkorai]], [[Repérages d'Alchemiste : Bangkoraï]],           [[bankorai_survey_alchemist]],  57781 },
-      {0.4730,  0.6153,  [[Blacksmith Survey: Bangkorai]], [[Schmiedegutachten: Bangkorai]],    [[Repérages de Forgeron : Bangkoraï]],            [[bankorai_survey_blacksmith]], 57795 },
-      {0.6701,  0.7022,  [[Woodworker Survey: Bangkorai]], [[Schreinergutachten: Bangkorai]],   [[Repérages de Travailleur du Bois : Bangkoraï]], [[bankorai_survey_woodworker]], 57827 },
+   -- {0.0000,  0.0000,  [[Alchemist Survey: Bangkorai]],  [[Alchemistengutachten: Bangkorai]], [[Repérages d'Alchemiste : Bangkoraï]],           [[bangkorai_survey_alchemist]],  57781 },
+      {0.4730,  0.6153,  [[Blacksmith Survey: Bangkorai]], [[Schmiedegutachten: Bangkorai]],    [[Repérages de Forgeron : Bangkoraï]],            [[bangkorai_survey_blacksmith]], 57795 },
+      {0.6701,  0.7022,  [[Woodworker Survey: Bangkorai]], [[Schreinergutachten: Bangkorai]],   [[Repérages de Travailleur du Bois : Bangkoraï]], [[bangkorai_survey_woodworker]], 57827 },
     },
   },
 ----Coldharbour
@@ -429,9 +429,31 @@ LOST_TREASURE_DATA = {
       {0.8071,  0.2691,  [[Cyrodiil Treasure Map XIII]],  [[Cyrodiil Schatzkarte XIII]],  [[Carte Au Trésor de Cyrodiil XIII]],  [[treasuremap_cyrodiil_ebon_01]], 43715 },
       {0.6903,  0.5109,  [[Cyrodiil Treasure Map XIV]],   [[Cyrodiil Schatzkarte XIV]],   [[Carte Au Trésor de Cyrodiil XIV]],   [[treasuremap_cyrodiil_ebon_02]], 43716 },
       {0.6749,  0.4704,  [[Cyrodiil Treasure Map XV]],    [[Cyrodiil Schatzkarte XV]],    [[Carte Au Trésor de Cyrodiil XV]],    [[treasuremap_cyrodiil_ebon_03]], 43717 },
-      {0.6800,  0.6300,  [[Cyrodiil Treasure Map XVI]],   [[Cyrodiil Schatzkarte XVI]],   [[Carte Au Trésor de Cyrodiil XVI]],   [[treasuremap_cyrodiil_ebon_04]], 43718 },
+      {0.6798,  0.6329,  [[Cyrodiil Treasure Map XVI]],   [[Cyrodiil Schatzkarte XVI]],   [[Carte Au Trésor de Cyrodiil XVI]],   [[treasuremap_cyrodiil_ebon_04]], 43718 },
       {0.7720,  0.4671,  [[Cyrodiil Treasure Map XVII]],  [[Cyrodiil Schatzkarte XVII]],  [[Carte Au Trésor de Cyrodiil XVII]],  [[treasuremap_cyrodiil_ebon_05]], 43719 },
       {0.7360,  0.5147,  [[Cyrodiil Treasure Map XVIII]], [[Cyrodiil Schatzkarte XVIII]], [[Carte Au Trésor de Cyrodiil XVIII]], [[treasuremap_cyrodiil_ebon_06]], 43720 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXIII]], [[Cyrodiil Schatzkarte XXXIII]], [[Carte Au Trésor de Cyrodiil XXXIII]], [[?????]], 43735 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXIV]], [[Cyrodiil Schatzkarte XXXIV]], [[Carte Au Trésor de Cyrodiil XXXIV]], [[?????]], 43736 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXV]], [[Cyrodiil Schatzkarte XXXV]], [[Carte Au Trésor de Cyrodiil XXXV]], [[?????]], 43737 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXVI]], [[Cyrodiil Schatzkarte XXXVI]], [[Carte Au Trésor de Cyrodiil XXXVI]], [[?????]], 43738 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXVII]], [[Cyrodiil Schatzkarte XXXVII]], [[Carte Au Trésor de Cyrodiil XXXVII]], [[?????]], 43739 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXVIII]], [[Cyrodiil Schatzkarte XXXVIII]], [[Carte Au Trésor de Cyrodiil XXXVIII]], [[?????]], 43740 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XXXIX]], [[Cyrodiil Schatzkarte XXXIX]], [[Carte Au Trésor de Cyrodiil XXXIX]], [[?????]], 43741 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XL]], [[Cyrodiil Schatzkarte XL]], [[Carte Au Trésor de Cyrodiil XL]], [[?????]], 43742 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLI]], [[Cyrodiil Schatzkarte XLI]], [[Carte Au Trésor de Cyrodiil XLI]], [[?????]], 43743 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLII]], [[Cyrodiil Schatzkarte XLII]], [[Carte Au Trésor de Cyrodiil XLII]], [[?????]], 43744 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLIII]], [[Cyrodiil Schatzkarte XLIII]], [[Carte Au Trésor de Cyrodiil XLIII]], [[?????]], 43745 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLIV]], [[Cyrodiil Schatzkarte XLIV]], [[Carte Au Trésor de Cyrodiil XLIV]], [[?????]], 43746 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLV]], [[Cyrodiil Schatzkarte XLV]], [[Carte Au Trésor de Cyrodiil XLV]], [[?????]], 43747 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLVI]], [[Cyrodiil Schatzkarte XLVI]], [[Carte Au Trésor de Cyrodiil XLVI]], [[?????]], 43748 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLVII]], [[Cyrodiil Schatzkarte XLVII]], [[Carte Au Trésor de Cyrodiil XLVII]], [[?????]], 43749 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLVIII]], [[Cyrodiil Schatzkarte XLVIII]], [[Carte Au Trésor de Cyrodiil XLVIII]], [[?????]], 43750 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map XLIX]], [[Cyrodiil Schatzkarte XLIX]], [[Carte Au Trésor de Cyrodiil XLIX]], [[?????]], 43751 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map L]], [[Cyrodiil Schatzkarte L]], [[Carte Au Trésor de Cyrodiil L]], [[?????]], 43752 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map LI]], [[Cyrodiil Schatzkarte LI]], [[Carte Au Trésor de Cyrodiil LI]], [[?????]], 43753 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map LII]], [[Cyrodiil Schatzkarte LII]], [[Carte Au Trésor de Cyrodiil LII]], [[?????]], 43754 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map LIII]], [[Cyrodiil Schatzkarte LIII]], [[Carte Au Trésor de Cyrodiil LIII]], [[?????]], 43755 },
+--      {0.0000,  0.0000,  [[Cyrodiil Treasure Map LIV]], [[Cyrodiil Schatzkarte LIV]], [[Carte Au Trésor de Cyrodiil LIV]], [[?????]], 43756 },
     },
   },
   ----Craglorn
@@ -463,7 +485,7 @@ LOST_TREASURE_DATA = {
     },
   },
   ----Wrothgar
-  [395] = {
+  [396] = {
     ["treasure"] = {
       {0.4798,  0.7865,  [[Orsinium Treasure Map I]],   [[Schatzkarte: Orsinium I]],   [[Carte Au Trésor D'Orsinium I]],   [[treasuremap_orsinium_01]], 43727 },
       {0.7647,  0.5651,  [[Orsinium Treasure Map II]],  [[Schatzkarte: Orsinium II]],  [[Carte Au Trésor D'Orsinium II]],  [[treasuremap_orsinium_02]], 43728 },
@@ -488,6 +510,15 @@ LOST_TREASURE_DATA = {
       {0.2051,  0.8190,  [[Enchanter Survey: Wrothgar I]],    [[Verzauberergutachten I: Wrothgar]],   [[Repérages d'Enchanteur : Wrothgar I]],             [[orsinium_survey_enchanter_01]],  71086 },
       {0.4377,  0.6688,  [[Enchanter Survey: Wrothgar II]],   [[Verzauberergutachten II: Wrothgar]],  [[Repérages d'Enchanteur : Wrothgar II]],            [[orsinium_survey_enchanter_02]],  71087 },
       {0.6893,  0.4434,  [[Enchanter Survey: Wrothgar III]],  [[Verzauberergutachten III: Wrothgar]], [[Repérages d'Enchanteur : Wrothgar III]],           [[orsinium_survey_enchanter_03]],  71088 },
+    },
+  },
+  -- Hew's Bane
+  [513] = {
+    ["treasure"] = {
+        {0.4168,  0.8509,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[treasuremap_thievesguild_01]], 43733 },
+        {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hew's Bane II]],  [[Carte Au Trésor Hew's Bane II]],  [[treasuremap_thievesguild_02]], 43734 },
+    },
+    ["surveys"] = {
     },
   },
 }

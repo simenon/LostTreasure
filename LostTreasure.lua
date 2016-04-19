@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.5",
+    Version = "4.10",
 }
 
 LT = ZO_Object:Subclass()
@@ -83,6 +83,8 @@ local compassLayout_Surveys = {
 local LostTreasureTLW = nil
 local currentTreasureMapItemID = nil
 
+local INFORMATION_TOOLTIP = nil
+
 local lang
 local TREASURE_TEXT = { 
 	en = "treasure map",
@@ -99,12 +101,26 @@ local SURVEYS_TEXT = {
 LT.dirtyPins = {}
 LT.isUpdating = false
 
+-- Gamepad Switch -- Credits Daeymon ----
+local function OnGamepadPreferredModeChanged()
+    if IsInGamepadPreferredMode() then
+        INFORMATION_TOOLTIP = ZO_MapLocationTooltip_Gamepad
+    else
+        INFORMATION_TOOLTIP = InformationTooltip
+    end
+end
+
 --Creates ToolTip from treasure info
 local pinTooltipCreator = {
 	creator = function(pin)
         local _, pinTag = pin:GetPinTypeAndTag()
-		InformationTooltip:AddLine(pinTag[LOST_TREASURE_INDEX.MAP_NAME], "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
-        InformationTooltip:AddLine(string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100).."x"..string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+		if IsInGamepadPreferredMode() then
+			INFORMATION_TOOLTIP:LayoutIconStringLine(INFORMATION_TOOLTIP.tooltip, nil, zo_strformat(pinTag[LOST_TREASURE_INDEX.MAP_NAME]), INFORMATION_TOOLTIP.tooltip:GetStyle("mapTitle"))
+            		INFORMATION_TOOLTIP:LayoutIconStringLine(INFORMATION_TOOLTIP.tooltip, pinTextures[4], zo_strformat("<<1>>x<<2>>", string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100), string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100)), {fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3})
+        	else
+            		INFORMATION_TOOLTIP:AddLine(pinTag[LOST_TREASURE_INDEX.MAP_NAME], "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+            		INFORMATION_TOOLTIP:AddLine(string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100).."x"..string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+        	end
 	end,
 	tooltip = 1, -- tooltip type is information
 }
@@ -198,8 +214,22 @@ local function QueueCreatePins(treasureType, key)
 
 	if not LT.isUpdating then
 		LT.isUpdating = true
-		zo_callLater(CreatePins, 250)
+		if IsPlayerActivated() then
+			if LMP.AUI.IsMinimapEnabled() then
+				zo_callLater(CreatePins, 150)
+			else
+				CreatePins()
+			end
+		else
+			EVENT_MANAGER:RegisterForEvent("LostTreasure_PinUpdate", EVENT_PLAYER_ACTIVATED,
+				function(event)
+					EVENT_MANAGER:UnregisterForEvent("LostTreasure_PinUpdate", event)
+					CreatePins()
+				end)
+
+		end
 	end
+	
 end
 
 local function pinCreator(treasureType)
@@ -303,10 +333,8 @@ function LT:SlotAdded(bagId, slotIndex, slotData)
 	local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
 	local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
 
-	if isTreasureMap or isSurveyMap then
-		local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
-		slotData.itemID = tonumber(itemID)
-	end
+	local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
+	slotData.itemID = tonumber(itemID)
 
 	if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
 		LMP:RefreshPins(MAP_PIN_TYPES.treasure)
@@ -543,6 +571,7 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 	elseif lang == "fr" then
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_FR
 	elseif lang == "ru" then
+		lang = "en"
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
         else
 		lang = "en"
@@ -550,7 +579,6 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 	end
 
 	createMiniTreasureMap()
-
    	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LT:EVENT_SHOW_TREASURE_MAP(...) end)
 
 	SHARED_INVENTORY:RegisterCallback("SlotAdded", LT.SlotAdded, self)
@@ -571,6 +599,9 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 	COMPASS_PINS:AddCustomPin(COMPASS_PIN_TYPES.surveys, function() compassCallback("surveys") end, compassLayout_Surveys)
 
 	createLAM2Panel()
+
+	OnGamepadPreferredModeChanged()
+	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
 
 	EVENT_MANAGER:UnregisterForEvent(Addon.Name, EVENT_ADD_ON_LOADED)
 end
