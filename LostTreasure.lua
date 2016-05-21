@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.11",
+    Version = "4.12",
 }
 
 LT = ZO_Object:Subclass()
@@ -19,7 +19,6 @@ LT.defaults = {
 	showSurveysCompass = true,
 	surveysPinTexture = 1,
 	surveysMarkMapMenuOption = 2,
-
 	showMiniTreasureMap = true,
 	miniTreasureMap = { 
 		point = TOPLEFT,
@@ -30,6 +29,7 @@ LT.defaults = {
 	},
 	pinTextureSize = 32,
 	apiVersion = GetAPIVersion(),
+	markerDeletionDelay = 10,
 }
 
 -- some strings
@@ -103,11 +103,10 @@ LT.isUpdating = false
 
 -- Gamepad Switch -- Credits Daeymon ----
 local function OnGamepadPreferredModeChanged()
-    if IsInGamepadPreferredMode() then
-        INFORMATION_TOOLTIP = ZO_MapLocationTooltip_Gamepad
-    else
-        INFORMATION_TOOLTIP = InformationTooltip
-    end
+  INFORMATION_TOOLTIP = InformationTooltip
+  if IsInGamepadPreferredMode() then
+    INFORMATION_TOOLTIP = ZO_MapLocationTooltip_Gamepad
+  end
 end
 
 --Creates ToolTip from treasure info
@@ -141,6 +140,7 @@ end
 -- creates/refreshes any pins that need creating/refreshing
 -- thanks Garkin!
 local function CreatePins()
+	d("Refreshing PINS")
 	local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
 	if GetMapType() == MAPTYPE_SUBZONE then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
 		local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
@@ -249,8 +249,18 @@ local function showMiniTreasureMap(texture)
     end
 end
 
-local function hideMiniTreasureMap()
-    LostTreasureTLW:SetHidden(true)
+function LT:hideMiniTreasureMap()
+  LostTreasureTLW:SetHidden(true) 
+end
+
+function  LT:refreshTreasurePins()
+  LMP:RefreshPins(MAP_PIN_TYPES.treasure)
+  COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
+end
+
+function  LT:refreshSurveyPins()
+  LMP:RefreshPins(MAP_PIN_TYPES.surveys)
+  COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
 end
 
 local function createMiniTreasureMap()
@@ -328,44 +338,43 @@ end
 -- callback to check if an item was added to inventory; if it was a map, update its pins
 -- thanks Garkin!
 function LT:SlotAdded(bagId, slotIndex, slotData)
-	if not (bagId == BAG_BACKPACK and slotData and slotData.itemType == ITEMTYPE_TROPHY) then return end
-
-	local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
-	local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
-
-	local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
-	slotData.itemID = tonumber(itemID)
-
-	if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
-		LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-		COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-	end
-	if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
-		LMP:RefreshPins(MAP_PIN_TYPES.surveys)
-		COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
-	end
+  if not (bagId == BAG_BACKPACK and slotData and slotData.itemType == ITEMTYPE_TROPHY) then return end
+  
+  local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
+  local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
+  
+  local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
+  slotData.itemID = tonumber(itemID)
+  
+  if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
+    LT:refreshTreasurePins()
+  end
+  if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
+    LT:refreshSurveyePins()	
+  end
 end
 
--- callback to check if an item was removed from inventory; if it was a map, update its pins
--- thanks Garkin!
 function LT:SlotRemoved(bagId, slotIndex, slotData)
-	if not (slotData and slotData.itemID) then return end
-
-	local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
-	local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
-
-	if (currentTreasureMapItemID and currentTreasureMapItemID == slotData.itemID) then
-		hideMiniTreasureMap()
-	end
-
-	if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
-		LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-		COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
-	end
-	if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
-		LMP:RefreshPins(MAP_PIN_TYPES.surveys)
-		COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
-	end
+  if not (slotData and slotData.itemID) then return end
+  
+  local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
+  local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
+  
+  if (currentTreasureMapItemID and currentTreasureMapItemID == slotData.itemID) then
+    zo_callLater( 
+      function() LT:hideMiniTreasureMap() end, LT.SavedVariables.markerDeletionDelay * 1000 )
+  end
+  
+  if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
+    zo_callLater( 
+      function() LT:refreshTreasurePins() end, 
+      LT.SavedVariables.markerDeletionDelay * 1000 )
+  end
+  if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
+    zo_callLater( 
+      function() LT:refreshSurveyPins() end, 
+      LT.SavedVariables.markerDeletionDelay * 1000 )
+  end
 end
 
 
@@ -449,94 +458,100 @@ local function createLAM2Panel()
         end,
         disabled = function() return not LT.SavedVariables.showTreasure and not LT.SavedVariables.showTreasureCompass end,
       },
-
-		[5] = {
-			type = "checkbox",
-			name = strings.SURVEYS_ON_MAP,
-			tooltip = strings.SURVEYS_ON_MAP_TOOLTIP,
-			getFunc = function() return LT.SavedVariables.showSurveys end,
-			setFunc = function(value) 
-				LT.SavedVariables.showSurveys = value 
-				LMP:SetEnabled(MAP_PIN_TYPES.surveys, value)
-			end,
-		},
-		[6] = {
-			type = "checkbox",
-			name = strings.SURVEYS_ON_COMPASS,
-			tooltip = strings.SURVEYS_ON_COMPASS_TOOLTIP,
-			getFunc = function() return LT.SavedVariables.showSurveysCompass end,
-			setFunc = function(value) 
-				LT.SavedVariables.showSurveysCompass = value 
-				COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
-			end,
-		},
-        [7] = {
-            type = "dropdown",
-            name = strings.SURVEYS_ICON,
-            tooltip = strings.SURVEYS_ICON_TOOLTIP,
-            choices = pinTexturesList,
-            getFunc = function() return pinTexturesList[LT.SavedVariables.surveysPinTexture] end,
-            setFunc = function(value) 
-                for i,v in pairs(pinTexturesList) do
-                    if v == value then
-                        LT.SavedVariables.surveysPinTexture = i
-                        surveysMapIcon:SetTexture(pinTextures[i])
-                        LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "texture", pinTextures[i])
-						LMP:RefreshPins(MAP_PIN_TYPES.surveys)
-						COMPASS_PINS.pinLayouts[COMPASS_PIN_TYPES.surveys].texture = pinTextures[i]
-						COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
-						break
-                    end
-                end
-            end,
-			reference = "LT_SurveysMapOption",
-			disabled = function() return not LT.SavedVariables.showSurveys and not LT.SavedVariables.showSurveysCompass end,
-        },
-        [8] = {
-            type = "dropdown",
-            name = strings.SURVEYS_MARK_WHICH,
-            tooltip = strings.SURVEYS_MARK_WHICH_TOOLTIP,
-            choices = markMapMenuOptions,
-            getFunc = function() return markMapMenuOptions[LT.SavedVariables.surveysMarkMapMenuOption] end,
-            setFunc = function(value) 
-                for i,v in pairs(markMapMenuOptions) do
-                    if v == value then
-                        LT.SavedVariables.surveysMarkMapMenuOption = i
-                        LMP:RefreshPins(MAP_PIN_TYPES.surveys)
-						COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
-					else
-						if LT.dirtyPins[i] then LT.dirtyPins[i].surveys = nil end
-                    end
-                end
-            end,
-			disabled = function() return not LT.SavedVariables.showSurveys and not LT.SavedVariables.showSurveysCompass end,
-        },
-
-        [9] = {
-            type = "slider",
-            name = strings.PIN_SIZE,
-            tooltip = strings.PIN_SIZE_TOOLTIP,
-            min = 12, 
-            max = 48, 
-            step = 2, 
-            getFunc = function() return LT.SavedVariables.pinTextureSize end, 
-            setFunc = function(value) 
-                LT.SavedVariables.pinTextureSize = value
-                LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "size", value)
-				LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "size", value)
-				LMP:RefreshPins(MAP_PIN_TYPES.treasure)
-				LMP:RefreshPins(MAP_PIN_TYPES.surveys)
-			end,
-        },
-
-
-        [10] = {
-            type = "checkbox",
-            name = strings.SHOW_MINIMAP,
-            tooltip = strings.SHOW_MINIMAP_TOOLTIP,
-            getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
-            setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
-        },  
+      [5] = {
+        type = "checkbox",
+        name = strings.SURVEYS_ON_MAP,
+        tooltip = strings.SURVEYS_ON_MAP_TOOLTIP,
+        getFunc = function() return LT.SavedVariables.showSurveys end,
+        setFunc = function(value) 
+          LT.SavedVariables.showSurveys = value 
+          LMP:SetEnabled(MAP_PIN_TYPES.surveys, value)
+        end,
+      },
+      [6] = {
+        type = "checkbox",
+        name = strings.SURVEYS_ON_COMPASS,
+        tooltip = strings.SURVEYS_ON_COMPASS_TOOLTIP,
+        getFunc = function() return LT.SavedVariables.showSurveysCompass end,
+        setFunc = function(value) 
+          LT.SavedVariables.showSurveysCompass = value 
+          COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
+        end,
+      },
+      [7] = {
+          type = "dropdown",
+          name = strings.SURVEYS_ICON,
+          tooltip = strings.SURVEYS_ICON_TOOLTIP,
+          choices = pinTexturesList,
+          getFunc = function() return pinTexturesList[LT.SavedVariables.surveysPinTexture] end,
+          setFunc = function(value) 
+              for i,v in pairs(pinTexturesList) do
+                  if v == value then
+                      LT.SavedVariables.surveysPinTexture = i
+                      surveysMapIcon:SetTexture(pinTextures[i])
+                      LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "texture", pinTextures[i])
+      					LMP:RefreshPins(MAP_PIN_TYPES.surveys)
+      					COMPASS_PINS.pinLayouts[COMPASS_PIN_TYPES.surveys].texture = pinTextures[i]
+      					COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
+      					break
+                  end
+              end
+          end,
+      		reference = "LT_SurveysMapOption",
+      		disabled = function() return not LT.SavedVariables.showSurveys and not LT.SavedVariables.showSurveysCompass end,
+      },
+      [8] = {
+          type = "dropdown",
+          name = strings.SURVEYS_MARK_WHICH,
+          tooltip = strings.SURVEYS_MARK_WHICH_TOOLTIP,
+          choices = markMapMenuOptions,
+          getFunc = function() return markMapMenuOptions[LT.SavedVariables.surveysMarkMapMenuOption] end,
+          setFunc = function(value) 
+              for i,v in pairs(markMapMenuOptions) do
+                  if v == value then
+                      LT.SavedVariables.surveysMarkMapMenuOption = i
+                      LMP:RefreshPins(MAP_PIN_TYPES.surveys)
+      					COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
+      				else
+      					if LT.dirtyPins[i] then LT.dirtyPins[i].surveys = nil end
+                  end
+              end
+          end,
+      		disabled = function() return not LT.SavedVariables.showSurveys and not LT.SavedVariables.showSurveysCompass end,
+      },
+      [9] = {
+          type = "slider",
+          name = strings.PIN_SIZE,
+          tooltip = strings.PIN_SIZE_TOOLTIP,
+          min = 12, 
+          max = 48, 
+          step = 2, 
+          getFunc = function() return LT.SavedVariables.pinTextureSize end, 
+          setFunc = function(value) 
+              LT.SavedVariables.pinTextureSize = value
+              LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "size", value)
+      			LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "size", value)
+      			LMP:RefreshPins(MAP_PIN_TYPES.treasure)
+      			LMP:RefreshPins(MAP_PIN_TYPES.surveys)
+      		end,
+      },
+      [10] = {
+          type = "checkbox",
+          name = strings.SHOW_MINIMAP,
+          tooltip = strings.SHOW_MINIMAP_TOOLTIP,
+          getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
+          setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
+      }, 
+      [11] = {
+        type = "slider",
+        name = "BETA : Marker Deletion Delay",
+	tooltip = "Adds a delay before deleting a marked location on the map. Only works in conjunction with Mark on Use or Mark all in Inventory. This will not work when you open up the map as it refreshes all pins then.",
+	min = 0,
+	max = 60,
+	step = 1,
+	getFunc = function() return LT.SavedVariables.markerDeletionDelay end,
+	setFunc = function(value)  LT.SavedVariables.markerDeletionDelay = value end,
+      } 
     }
 
     local myPanel = LAM2:RegisterAddonPanel(Addon.Name.."LAM2Options", panelData)
