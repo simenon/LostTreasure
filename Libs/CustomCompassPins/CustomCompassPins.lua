@@ -1,5 +1,5 @@
 -- CustomCompassPins by Shinni
-local version = 1.281
+local version = 1.29
 local onlyUpdate = false
 
 if COMPASS_PINS and COMPASS_PINS.version then
@@ -205,7 +205,12 @@ function CompassPinManager:CreatePin(pinType, pinTag, xLoc, yLoc)
 	data.yLoc = yLoc or 0
 	data.pinType = pinType or "NoType"
 	data.pinTag = pinTag or {}
-
+	
+	self:RemovePin(data.pinTag) -- added in 1.29
+	-- some addons add new compass pins outside of this libraries callback
+	-- function. in such a case the old pins haven't been removed yet and get stuck
+	-- see destinations comment section 03/19/16 (uladz) and newer
+	
 	self.pinData[pinTag] = data
 end
 
