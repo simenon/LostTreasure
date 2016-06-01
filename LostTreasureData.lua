@@ -317,7 +317,7 @@ LOST_TREASURE_DATA = {
 ----Rivenspire
   [5] = {
     ["treasure"] = {
-      {0.3200,  0.5000,  [[Rivenspire Treasure Map I]],   [[Kluftspitze Schatzkarte I]],   [[Carte Au Trésor de Fendretour I]],   [[treasuremap_rivenspire_01]],               43607 },
+      {0.3285,  0.5091,  [[Rivenspire Treasure Map I]],   [[Kluftspitze Schatzkarte I]],   [[Carte Au Trésor de Fendretour I]],   [[treasuremap_rivenspire_01]],               43607 },
       {0.1773,  0.6285,  [[Rivenspire Treasure Map II]],  [[Kluftspitze Schatzkarte II]],  [[Carte Au Trésor de Fendretour II]],  [[treasuremap_rivenspire_02]],               43608 },
       {0.7175,  0.4362,  [[Rivenspire Treasure Map III]], [[Kluftspitze Schatzkarte III]], [[Carte Au Trésor de Fendretour III]], [[treasuremap_rivenspire_03]],               43609 },
       {0.7206,  0.7199,  [[Rivenspire Treasure Map IV]],  [[Kluftspitze Schatzkarte IV]],  [[Carte Au Trésor de Fendretour IV]],  [[treasuremap_rivenspire_04]],               43610 },
