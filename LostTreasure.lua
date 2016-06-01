@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.12",
+    Version = "4.13",
 }
 
 LT = ZO_Object:Subclass()
@@ -349,7 +349,7 @@ function LT:SlotAdded(bagId, slotIndex, slotData)
     LT:refreshTreasurePins()
   end
   if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
-    LT:refreshSurveyePins()	
+    LT:refreshSurveyPins()	
   end
 end
 
