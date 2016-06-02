@@ -290,7 +290,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW.map:SetAnchorFill(LostTreasureTLW)
 
     LostTreasureTLW.map.close = WINDOW_MANAGER:CreateControlFromVirtual(nil, LostTreasureTLW.map, "ZO_CloseButton")
-    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) LT:hideMiniTreasureMap() end)
+    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) hideMiniTreasureMap() end)
 end
 
 function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
@@ -354,7 +354,7 @@ function LT:SlotAdded(bagId, slotIndex, slotData)
 end
 
 function LT:SlotRemoved(bagId, slotIndex, slotData)
-  if not (slotData and slotData.itemID) then return end
+  if not (bagId == BAG_BACKPACK and slotData and slotData.itemID and slotData.itemType == ITEMTYPE_TROPHY) then return end
   
   local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
   local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
