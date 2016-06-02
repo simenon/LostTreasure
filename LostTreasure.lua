@@ -290,7 +290,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW.map:SetAnchorFill(LostTreasureTLW)
 
     LostTreasureTLW.map.close = WINDOW_MANAGER:CreateControlFromVirtual(nil, LostTreasureTLW.map, "ZO_CloseButton")
-    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) hideMiniTreasureMap() end)
+    LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) LT:hideMiniTreasureMap() end)
 end
 
 function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
