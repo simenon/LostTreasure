@@ -1,4 +1,4 @@
-﻿LOST_TREASURE_INDEX = {
+LOST_TREASURE_INDEX = {
   X = 1,
   Y = 2,
   MAP_NAME = 3,
@@ -517,6 +517,15 @@ LOST_TREASURE_DATA = {
     ["treasure"] = {
         {0.4168,  0.8509,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[treasuremap_thievesguild_01]], 43733 },
         {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hew's Bane II]],  [[Carte Au Trésor Hew's Bane II]],  [[treasuremap_thievesguild_02]], 43734 },
+    },
+    ["surveys"] = {
+    },
+  },
+  -- Dark Brotherhood, Gold Coast
+  [519] = {
+    ["treasure"] = {
+        {0.6393,  0.3322,  [[Gold Coast Treasure Map I]],   [[Schatzkarte: Gold Coast I]],   [[Carte Au Trésor Gold Coast I]],   [[treasuremap_darkbrotherhood_01]], 43735 },
+        {0.4836,  0.3207,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Gold Coast II]],  [[Carte Au Trésor Gold Coast II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
     },
     ["surveys"] = {
     },
