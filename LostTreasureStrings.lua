@@ -23,6 +23,13 @@ LOST_TREASURE_STRINGS = {
 		
 		SHOW_MINIMAP = "Show Mini Treasure Map",
 		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+
+		MARK_MAP_MENU_OPTION1 = "Mark on use",
+		MARK_MAP_MENU_OPTION2 = "Mark all in inventory",
+		MARK_MAP_MENU_OPTION3 = "Mark all locations",
+		
+		MARKER_DELAY = "BETA : Marker Deletion Delay",
+		MARKER_DELAY_TOOLTIP = "Adds a delay before deleting a marked location on the map. Only works in conjunction with Mark on Use or Mark all in Inventory. This will not work when you open up the map as it refreshes all pins then.",
 	},
 	["fr"] = {
 		TREASURE_ON_MAP = "Show Treasure on Map",
@@ -48,6 +55,13 @@ LOST_TREASURE_STRINGS = {
 		
 		SHOW_MINIMAP = "Show Mini Treasure Map",
 		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+
+		MARK_MAP_MENU_OPTION1 = "Mark on use",
+		MARK_MAP_MENU_OPTION2 = "Mark all in inventory",
+		MARK_MAP_MENU_OPTION3 = "Mark all locations",
+		
+		MARKER_DELAY = "BETA : Marker Deletion Delay",
+		MARKER_DELAY_TOOLTIP = "Adds a delay before deleting a marked location on the map. Only works in conjunction with Mark on Use or Mark all in Inventory. This will not work when you open up the map as it refreshes all pins then.",
 	},
 	["de"] = {
 		TREASURE_ON_MAP = "Show Treasure on Map",
@@ -73,6 +87,13 @@ LOST_TREASURE_STRINGS = {
 		
 		SHOW_MINIMAP = "Show Mini Treasure Map",
 		SHOW_MINIMAP_TOOLTIP = "Show the mini treasure map on screen when using map from inventory?",
+		
+		MARK_MAP_MENU_OPTION1 = "Markiere bei Benutzung",
+		MARK_MAP_MENU_OPTION2 = "Markiere alle im Inventar",
+		MARK_MAP_MENU_OPTION3 = "Markiere alle Standorte",
+		
+		MARKER_DELAY = "BETA: Verzögerung zur Löschung der Markierung",
+		MARKER_DELAY_TOOLTIP = "Hier kannst du Verzögerung in Sekunden einstellen, bevor eine Markierung gelöscht wird. Diese Einstellung funktioniert nur, wenn du oben \'Mark all in inventory\' ausgewählt hast.",
 	},
 	["ru"] = {
 		TREASURE_ON_MAP = "Coêpoáèûa îa êapòe",
@@ -98,5 +119,12 @@ LOST_TREASURE_STRINGS = {
 		
 		SHOW_MINIMAP = "Íèîè-êapòa coêpoáèû",
 		SHOW_MINIMAP_TOOLTIP = "Ïoêaçaòö íaìeîöêó êoïèô êapòÿ coêpoáèû îa ëêpaîe, êoâäa ècïoìöçóeòe êapòó á èîáeîòape?",
+
+		MARK_MAP_MENU_OPTION1 = "Mark on use",
+		MARK_MAP_MENU_OPTION2 = "Mark all in inventory",
+		MARK_MAP_MENU_OPTION3 = "Mark all locations",
+		
+		MARKER_DELAY = "BETA : Marker Deletion Delay",
+		MARKER_DELAY_TOOLTIP = "Adds a delay before deleting a marked location on the map. Only works in conjunction with Mark on Use or Mark all in Inventory. This will not work when you open up the map as it refreshes all pins then.",
 	},
 }

@@ -42,10 +42,12 @@ local COMPASS_PIN_TYPES = {
 	surveys = Addon.Name.."CompassSurveysPin",
 }
 
+local lang = GetCVar("Language.2")
+
 local markMapMenuOptions = {
-    [1] = [[Mark on use]],
-    [2] = [[Mark all in inventory]],
-    [3] = [[Mark all locations]]
+    [1] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION1,
+    [2] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION2,
+    [3] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION3,
 }
 
 local pinTexturesList = {
@@ -85,7 +87,6 @@ local currentTreasureMapItemID = nil
 
 local INFORMATION_TOOLTIP = nil
 
-local lang
 local TREASURE_TEXT = { 
 	en = "treasure map",
 	de = "schatzkarte",
@@ -543,8 +544,8 @@ local function createLAM2Panel()
       }, 
       [11] = {
         type = "slider",
-        name = "BETA : Marker Deletion Delay",
-	tooltip = "Adds a delay before deleting a marked location on the map. Only works in conjunction with Mark on Use or Mark all in Inventory. This will not work when you open up the map as it refreshes all pins then.",
+        name = strings.MARKER_DELAY,
+	tooltip = strings.MARKER_DELAY_TOOLTIP, 
 	min = 0,
 	max = 60,
 	step = 1,
