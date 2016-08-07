@@ -18,7 +18,7 @@
     reference = "MyAddonSlider" -- unique global reference to control (optional)
 } ]]
 
-local widgetVersion = 10
+local widgetVersion = 11
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("slider", widgetVersion) then return end
 
@@ -96,7 +96,7 @@ function LAMCreateControl.slider(parent, sliderData, controlName)
     local maxValue = sliderData.max
     slider:SetMinMax(minValue, maxValue)
     slider:SetHandler("OnMouseEnter", function() ZO_Options_OnMouseEnter(control) end)
-    slider:SetHandler("OnMouseEnter", function() ZO_Options_OnMouseExit(control) end)
+    slider:SetHandler("OnMouseExit", function() ZO_Options_OnMouseExit(control) end)
 
     slider.bg = wm:CreateControl(nil, slider, CT_BACKDROP)
     local bg = slider.bg
@@ -161,7 +161,9 @@ function LAMCreateControl.slider(parent, sliderData, controlName)
         control:UpdateValue(false, value)
     end)
     slidervalue:SetHandler("OnTextChanged", function(self)
-        local value = tonumber(self:GetText())
+        local input = self:GetText()
+        if(#input > 1 and not input:sub(-1):match("[0-9]")) then return end
+        local value = tonumber(input)
         if(value) then
             HandleValueChanged(value)
         end
@@ -182,14 +184,16 @@ function LAMCreateControl.slider(parent, sliderData, controlName)
         control:UpdateValue(false, value)
     end)
     slider:SetHandler("OnMouseWheel", function(self, value)
+        if(not self:GetEnabled()) then return end
         local new_value = (tonumber(slidervalue:GetText()) or sliderData.min or 0) + ((sliderData.step or 1) * value)
         control:UpdateValue(false, new_value)
     end)
 
-    if sliderData.warning then
+    if sliderData.warning ~= nil then
         control.warning = wm:CreateControlFromVirtual(nil, control, "ZO_Options_WarningIcon")
         control.warning:SetAnchor(RIGHT, slider, LEFT, -5, 0)
-        control.warning.data = {tooltipText = LAM.util.GetStringFromValue(sliderData.warning)}
+        control.UpdateWarning = LAM.util.UpdateWarning
+        control:UpdateWarning()
     end
 
     control.UpdateValue = UpdateValue

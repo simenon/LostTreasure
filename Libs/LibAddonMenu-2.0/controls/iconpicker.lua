@@ -18,7 +18,7 @@
     reference = "MyAddonIconPicker" -- unique global reference to control (optional)
 } ]]
 
-local widgetVersion = 6
+local widgetVersion = 7
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("iconpicker", widgetVersion) then return end
 
@@ -304,7 +304,7 @@ local function UpdateDisabled(control)
         iconPicker:Clear()
     end
 
-    SetColor(control)
+    SetColor(control, control.icon.color)
     if disable then
         control.label:SetColor(ZO_DEFAULT_DISABLED_COLOR:UnpackRGBA())
     else
@@ -408,10 +408,11 @@ function LAMCreateControl.iconpicker(parent, iconpickerData, controlName)
     mungeOverlay:SetAddressMode(TEX_MODE_WRAP)
     mungeOverlay:SetAnchorFill()
 
-    if iconpickerData.warning then
+    if iconpickerData.warning ~= nil then
         control.warning = wm:CreateControlFromVirtual(nil, control, "ZO_Options_WarningIcon")
         control.warning:SetAnchor(RIGHT, control.container, LEFT, -5, 0)
-        control.warning.data = {tooltipText = LAM.util.GetStringFromValue(iconpickerData.warning)}
+        control.UpdateWarning = LAM.util.UpdateWarning
+        control:UpdateWarning()
     end
 
     control.UpdateChoices = UpdateChoices

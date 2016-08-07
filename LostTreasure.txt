@@ -25,6 +25,7 @@ Libs\LibAddonMenu-2.0\controls\header.lua
 Libs\LibAddonMenu-2.0\controls\slider.lua
 Libs\LibAddonMenu-2.0\controls\texture.lua
 Libs\LibAddonMenu-2.0\controls\iconpicker.lua
+Libs\LibAddonMenu-2.0\controls\divider.lua
 
 Libs\CustomCompassPins\CustomCompassPins.lua
 
