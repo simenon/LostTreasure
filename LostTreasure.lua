@@ -585,8 +585,9 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_DE
 	elseif lang == "fr" then
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_FR
+	elseif lang == "jp" then
+		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
 	elseif lang == "ru" then
-		lang = "en"
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
         else
 		lang = "en"
