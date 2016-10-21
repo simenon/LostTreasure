@@ -30,6 +30,7 @@ LT.defaults = {
 	pinTextureSize = 32,
 	apiVersion = GetAPIVersion(),
 	markerDeletionDelay = 10,
+	pinLevel = 10,
 }
 
 -- some strings
@@ -551,6 +552,22 @@ local function createLAM2Panel()
 	step = 1,
 	getFunc = function() return LT.SavedVariables.markerDeletionDelay end,
 	setFunc = function(value)  LT.SavedVariables.markerDeletionDelay = value end,
+      }, 
+      [12] = {
+        type = "slider",
+        name = strings.PIN_LEVEL,
+	tooltip = strings.PIN_LEVEL_TOOLTIP, 
+	min = 0,
+	max = 250,
+	step = 10,
+	getFunc = function() return LT.SavedVariables.pinLevel end,
+	setFunc = function(value)
+              LT.SavedVariables.pinLevel = value
+              LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "level", value)
+      			LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "level", value)
+      			LMP:RefreshPins(MAP_PIN_TYPES.treasure)
+      			LMP:RefreshPins(MAP_PIN_TYPES.surveys)
+      		end,
       } 
     }
 
@@ -602,6 +619,8 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 
 	pinLayout_Treasure.texture = pinTextures[LT.SavedVariables.treasurePinTexture]
 	pinLayout_Treasure.size = LT.SavedVariables.pinTextureSize
+	pinLayout_Treasure.level = LT.SavedVariables.pinLevel
+
 	compassLayout_Treasure.texture = pinTextures[LT.SavedVariables.treasurePinTexture]
    	LMP:AddPinType(MAP_PIN_TYPES.treasure, function() pinCreator("treasure") end, nil, pinLayout_Treasure, pinTooltipCreator)
 	LMP:AddPinFilter(MAP_PIN_TYPES.treasure, "Lost Treasure Maps", false, LT.SavedVariables, "showTreasure")
@@ -609,6 +628,8 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 
 	pinLayout_Surveys.texture = pinTextures[LT.SavedVariables.surveysPinTexture]
 	pinLayout_Surveys.size = LT.SavedVariables.pinTextureSize
+	pinLayout_Surveys.level = LT.SavedVariables.pinLevel
+
 	compassLayout_Surveys.texture = pinTextures[LT.SavedVariables.surveysPinTexture]
    	LMP:AddPinType(MAP_PIN_TYPES.surveys, function() pinCreator("surveys") end, nil, pinLayout_Surveys, pinTooltipCreator)
 	LMP:AddPinFilter(MAP_PIN_TYPES.surveys, "Lost Treasure Survey Maps", false, LT.SavedVariables, "showSurveys")
