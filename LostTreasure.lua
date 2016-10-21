@@ -56,6 +56,9 @@ local pinTexturesList = {
     [2] = [[X black]],
     [3] = [[Map black (Mitsarugi)]],
     [4] = [[Map white (Mitsarugi)]],
+    [5] = [[Justice Stolen Map]],
+    [6] = [[Scroll]],
+    [7] = [[Delivery Box]],
 }
 
 local pinTextures = {
@@ -63,6 +66,9 @@ local pinTextures = {
     [2] = [[LostTreasure/Icons/x_black.dds]],
     [3] = [[LostTreasure/Icons/map_black.dds]], 
     [4] = [[LostTreasure/Icons/map_white.dds]], 
+    [5] = [[esoui\art\icons\justice_stolen_map_001.dds]],
+    [6] = [[esoui\art\icons\scroll_001.dds]],
+    [7] = [[esoui\art\icons\delivery_box_001.dds]],
 }
 
 local pinLayout_Treasure = {
