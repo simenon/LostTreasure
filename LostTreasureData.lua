@@ -64,7 +64,12 @@ LOST_TREASURE_DATA = {
       {0.6120,  0.3808,  [[Alchemist Survey: Grahtwood]],  [[Alchemistengutachten: Grahtwald]], [[Repérages d'Alchemiste : Bois de Graht]],           [[grahtwood_survey_alchemist]],  57771 },
       {0.4258,  0.2649,  [[Woodworker Survey: Grahtwood]], [[Schreinergutachten: Grahtwald]],   [[Repérages de Travailleur du Bois : Bois de Graht]], [[grahtwood_survey_woodworker]], 57816 },
     },
-   },
+  },
+  ["eldenrootgroundfloor"] = {
+    ["treasure"] = {
+      {0.8820,  0.4106,  [[Grahtwood Treasure Map II]],  [[Grahtwald Schatzkarte II]],  [[Carte Au Trésor du bois de Graht II]],  [[treasuremap_grahtwood_02]],            43632 },
+    },
+  },
 ----Greenshade
   [18] = {
     ["treasure"] = {
