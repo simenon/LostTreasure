@@ -145,14 +145,9 @@ local function CreatePin(treasureType, pinData, map, compass)
 	end
 end
 
--- creates/refreshes any pins that need creating/refreshing
--- thanks Garkin!
 local function CreatePins()
-	local data = LOST_TREASURE_DATA[GetCurrentMapZoneIndex()]
-	if GetMapType() == MAPTYPE_SUBZONE then  --subzone in the current map, derive info from texture instead of mapname to avoid issues with french and german clients
-		local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
-		data = LOST_TREASURE_DATA[subzone]
-	end
+	local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
+	data = LOST_TREASURE_DATA[subzone]
 
 	if data then
 		if LT.dirtyPins[1] then
