@@ -159,7 +159,7 @@ LOST_TREASURE_DATA = {
   [9] = {
     ["treasure"] = {
       {0.7931,  0.5756,  [[Stonefalls Treasure Map I]],   [[Steinfälle Schatzkarte I]],   [[Carte Au Trésor des Éboulis I]],   [[treasuremap_stonefalls_001]],             43655 },
-      {0.6241,  0.5102,  [[Stonefalls Treasure Map II]],  [[Steinfälle Schatzkarte II]],  [[Carte Au Trésor des Éboulis II]],  [[treasuremap_stonefalls_002]],             43656 },
+      {0.6040,  0.4904,  [[Stonefalls Treasure Map II]],  [[Steinfälle Schatzkarte II]],  [[Carte Au Trésor des Éboulis II]],  [[treasuremap_stonefalls_002]],             43656 },
       {0.4697,  0.5920,  [[Stonefalls Treasure Map III]], [[Steinfälle Schatzkarte III]], [[Carte Au Trésor des Éboulis III]], [[treasuremap_stonefalls_003]],             43657 },
       {0.1779,  0.4517,  [[Stonefalls Treasure Map IV]],  [[Steinfälle Schatzkarte IV]],  [[Carte Au Trésor des Éboulis IV]],  [[treasuremap_stonefalls_004]],             43658 },
       {0.1937,  0.5504,  [[Stonefalls Treasure Map V]],   [[Steinfälle Schatzkarte V]],   [[Carte Au Trésor des Éboulis V]],   [[treasuremap_stonefalls_005]],             43659 },
