@@ -1,4 +1,4 @@
-LOST_TREASURE_STRINGS = {
+﻿LOST_TREASURE_STRINGS = {
 	["en"] = {
 		TREASURE_ON_MAP = "Show Treasure on Map",
 		TREASURE_ON_MAP_TOOLTIP = "Show treasure map locations on player map?",
