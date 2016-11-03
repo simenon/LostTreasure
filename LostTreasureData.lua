@@ -30,7 +30,7 @@ LOST_TREASURE_DATA = {
       {0.4416,  0.5075,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[オーリドンの宝の地図3]],    [[treasuremap_auridon_03]],            43627 },
       {0.6699,  0.4154,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[オーリドンの宝の地図4]],    [[treasuremap_auridon_04]],            43628 },
       {0.5033,  0.2588,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[オーリドンの宝の地図5]],    [[treasuremap_auridon_05]],            43629 },
-      {0.3408,  0.1352,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[オーリドンの宝の地図6]],    [[treasuremap_auridon_06]],            43630 },
+      {0.3385,  0.1318,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[オーリドンの宝の地図6]],    [[treasuremap_auridon_06]],            43630 },
       {0.6881,  0.9678,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[オーリドンの宝の地図(CE)]], [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
     },
     ["surveys"] = {
