@@ -1,4 +1,5 @@
-﻿## APIVersion: 100017
+﻿
+## APIVersion: 100017
 ## Title: |cFFFFBELost Treasure|r
 ## Description: Shows treasure map locations
 ## Version: 4.23
