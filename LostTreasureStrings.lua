@@ -1,4 +1,4 @@
-﻿LOST_TREASURE_STRINGS = {
+LOST_TREASURE_STRINGS = {
 	["en"] = {
 		TREASURE_ON_MAP = "Show Treasure on Map",
 		TREASURE_ON_MAP_TOOLTIP = "Show treasure map locations on player map?",
@@ -161,8 +161,8 @@
 		PIN_SIZE = "ピンテクスチャ―サイズ",
 		PIN_SIZE_TOOLTIP = "ピンのサイズを指定します",
 
-		PIN_LEVEL = "Pin Map Level",
-		PIN_LEVEL_TOOLTIP = "Higher level draws pin over lower level pins. Increase if pin is obscured by other pins.",
+		PIN_LEVEL = "ピンマップレベル",
+		PIN_LEVEL_TOOLTIP = "レベルが大きいピンが小さいピンの上に描画されます。他のピンに隠れる場合は大きくします。",
 		
 		SHOW_MINIMAP = "ミニ宝の地図を表示",
 		SHOW_MINIMAP_TOOLTIP = "インベントリからマップを使用した際ミニ宝の地図を画面に表示しますか？",
