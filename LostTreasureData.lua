@@ -400,7 +400,7 @@ LOST_TREASURE_DATA = {
       {0.4097,  0.5680,  [[Coldharbour Treasure Map II]],  [[Kalthafen Schatzkarte II]],  [[Carte Au Trésor d'Havreglace II]],  [[コールドハーバーの宝の地図2]],    [[treasuremap_coldharbour_02]], 43686 },
       {0.6036,  0.6927,  [[Coldharbour Treasure Map III]], [[Kalthafen Schatzkarte III]], [[Carte Au Trésor d'Havreglace III]], [[コールドハーバーの宝の地図3]],    [[treasuremap_coldharbour_03]], 43687 },
       {0.7559,  0.7761,  [[Coldharbour Treasure Map IV]],  [[Kalthafen Schatzkarte IV]],  [[Carte Au Trésor d'Havreglace IV]],  [[コールドハーバーの宝の地図4]],    [[treasuremap_coldharbour_04]], 43688 },
-      {0.4300,  0.4600,  [[Coldharbour Treasure Map V]],   [[Kalthafen Schatzkarte V]],   [[Carte Au Trésor d'Havreglace V]],   [[コールドハーバーの宝の地図5]],    [[treasuremap_coldharbour_05]], 43689 },
+      {0.4331,  0.4550,  [[Coldharbour Treasure Map V]],   [[Kalthafen Schatzkarte V]],   [[Carte Au Trésor d'Havreglace V]],   [[コールドハーバーの宝の地図5]],    [[treasuremap_coldharbour_05]], 43689 },
       {0.4975,  0.3993,  [[Coldharbour Treasure Map VI]],  [[Kalthafen Schatzkarte VI]],  [[Carte Au Trésor d'Havreglace VI]],  [[コールドハーバーの宝の地図6]],    [[treasuremap_coldharbour_06]], 43690 },
       {0.5521,  0.4145,  [[Coldharbour CE Treasure Map]],  [[Kalthafen CE Schatzkarte]],  [[Carte Au Trésor d'Havreglace EC]],  [[コールドハーバーの宝の地図(CE)]], [[treasuremap_1_coldharbor]],   44932 },
     },
