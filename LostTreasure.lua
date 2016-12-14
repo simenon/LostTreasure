@@ -98,13 +98,13 @@ local TREASURE_TEXT = {
 	en = "treasure map",
 	de = "schatzkarte",
 	fr = "carte au trésor",
-	ru = "êapòa coêpoáèû", 
+	ru = "карта сокровищ", 
 }
 local SURVEYS_TEXT = {
 	en = "survey:",
 	de = "gutachten",
 	fr = "repérages",
-	ru = "èccìeäoáaîèe",
+	ru = "исследование",
 }
 LT.dirtyPins = {}
 LT.isUpdating = false
@@ -606,8 +606,8 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 	elseif lang == "jp" then
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_JP
 	elseif lang == "ru" then
-		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
-        else
+		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_RU
+    else
 		lang = "en"
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
 	end
