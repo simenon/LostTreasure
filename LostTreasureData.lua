@@ -165,7 +165,7 @@ LOST_TREASURE_DATA = {
   ["stonefalls"] = {
     ["treasure"] = {
       {0.7931,  0.5756,  [[Stonefalls Treasure Map I]],   [[Steinfälle Schatzkarte I]],   [[Carte Au Trésor des Éboulis I]],   [[ストンフォールの宝の地図1]],    [[treasuremap_stonefalls_001]],             43655 },
-      {0.6040,  0.4904,  [[Stonefalls Treasure Map II]],  [[Steinfälle Schatzkarte II]],  [[Carte Au Trésor des Éboulis II]],  [[ストンフォールの宝の地図2]],    [[treasuremap_stonefalls_002]],             43656 },
+      {0.6038,  0.4899,  [[Stonefalls Treasure Map II]],  [[Steinfälle Schatzkarte II]],  [[Carte Au Trésor des Éboulis II]],  [[ストンフォールの宝の地図2]],    [[treasuremap_stonefalls_002]],             43656 },
       {0.4697,  0.5920,  [[Stonefalls Treasure Map III]], [[Steinfälle Schatzkarte III]], [[Carte Au Trésor des Éboulis III]], [[ストンフォールの宝の地図3]],    [[treasuremap_stonefalls_003]],             43657 },
       {0.1779,  0.4517,  [[Stonefalls Treasure Map IV]],  [[Steinfälle Schatzkarte IV]],  [[Carte Au Trésor des Éboulis IV]],  [[ストンフォールの宝の地図4]],    [[treasuremap_stonefalls_004]],             43658 },
       {0.1937,  0.5504,  [[Stonefalls Treasure Map V]],   [[Steinfälle Schatzkarte V]],   [[Carte Au Trésor des Éboulis V]],   [[ストンフォールの宝の地図5]],    [[treasuremap_stonefalls_005]],             43659 },
