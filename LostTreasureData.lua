@@ -212,7 +212,7 @@ LOST_TREASURE_DATA = {
       {0.7040,  0.7014,  [[Shadowfen Treasure Map III]], [[Schattenfenn Schatzkarte III]], [[Carte Au Trésor de Fangeombre III]], [[シャドウフェンの宝の地図3]],    [[treasuremap_shadowfen_03]],              43669 },
       {0.6093,  0.6119,  [[Shadowfen Treasure Map IV]],  [[Schattenfenn Schatzkarte IV]],  [[Carte Au Trésor de Fangeombre IV]],  [[シャドウフェンの宝の地図4]],    [[treasuremap_shadowfen_04]],              43670 },
       {0.406,   0.469,   [[Shadowfen Treasure Map V]],   [[Schattenfenn Schatzkarte V]],   [[Carte Au Trésor de Fangeombre V]],   [[シャドウフェンの宝の地図5]],    [[treasuremap_shadowfen_05]],              43671 },
-      {0.2367,  0.5538,  [[Shadowfen Treasure Map VI]],  [[Schattenfenn Schatzkarte VI]],  [[Carte Au Trésor de Fangeombre VI]],  [[シャドウフェンの宝の地図6]],    [[treasuremap_shadowfen_06]],              43672 },
+      {0.2383,  0.5640,  [[Shadowfen Treasure Map VI]],  [[Schattenfenn Schatzkarte VI]],  [[Carte Au Trésor de Fangeombre VI]],  [[シャドウフェンの宝の地図6]],    [[treasuremap_shadowfen_06]],              43672 },
       {0.6426,  0.4554,  [[Shadowfen CE Treasure Map]],  [[Schattenfenn CE Schatzkarte]],  [[Carte Au Trésor de Fangeombre EC]],  [[シャドウフェンの宝の地図(CE)]], [[treasuremap_ce_ebonheart_shadowfen_04]], 44943 },
     },
     ["surveys"] = {
