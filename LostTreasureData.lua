@@ -352,7 +352,7 @@ LOST_TREASURE_DATA = {
       {0.1113,	0.5218,  [[Alik'r Treasure Map II]],  [[Alik'r Wüste Schatzkarte II]],  [[Carte Au Trésor du désert d'Alik'r II]],  [[アリクルの宝の地図2]],    [[treasuremap_alikr_002]],              43614 },
       {0.6261,	0.6306,  [[Alik'r Treasure Map III]], [[Alik'r Wüste Schatzkarte III]], [[Carte Au Trésor du désert d'Alik'r III]], [[アリクルの宝の地図3]],    [[treasuremap_alikr_003]],              43615 },
       {0.5839,	0.2561,  [[Alik'r Treasure Map IV]],  [[Alik'r Wüste Schatzkarte IV]],  [[Carte Au Trésor du désert d'Alik'r IV]],  [[アリクルの宝の地図4]],    [[treasuremap_alikr_004]],              43616 },
-      {0.7784,	0.5174,  [[Alik'r Treasure Map V]],   [[Alik'r Wüste Schatzkarte V]],   [[Carte Au Trésor du désert d'Alik'r V]],   [[アリクルの宝の地図5]],    [[treasuremap_alikr_005]],              43617 },
+      {0.7865,	0.5256,  [[Alik'r Treasure Map V]],   [[Alik'r Wüste Schatzkarte V]],   [[Carte Au Trésor du désert d'Alik'r V]],   [[アリクルの宝の地図5]],    [[treasuremap_alikr_005]],              43617 },
       {0.7176,	0.4692,  [[Alik'r Treasure Map VI]],  [[Alik'r Wüste Schatzkarte VI]],  [[Carte Au Trésor du désert d'Alik'r VI]],  [[アリクルの宝の地図6]],    [[treasuremap_alikr_06]],               43618 },
       {0.3246,  0.3679,  [[Alik'r CE Treasure Map]],  [[Alik'r Wüste CE Schatzkarte]],  [[Carte Au Trésor du désert d'Alik'r EC]],  [[アリクルの宝の地図(CE)]], [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
     },
