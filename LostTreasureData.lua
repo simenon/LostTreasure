@@ -27,7 +27,7 @@ LOST_TREASURE_DATA = {
     ["treasure"] = {
       {0.4955,  0.8927,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[オーリドンの宝の地図1]],    [[treasuremap_auridon_01]],            43625 },
       {0.4850,  0.6411,  [[Auridon Treasure Map II]],  [[Auridon Schatzkarte II]],  [[Carte Au Trésor d'Auridia II]],  [[オーリドンの宝の地図2]],    [[treasuremap_auridon_02]],            43626 },
-      {0.4416,  0.5075,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[オーリドンの宝の地図3]],    [[treasuremap_auridon_03]],            43627 },
+      {0.4419,  0.5074,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[オーリドンの宝の地図3]],    [[treasuremap_auridon_03]],            43627 },
       {0.6699,  0.4154,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[オーリドンの宝の地図4]],    [[treasuremap_auridon_04]],            43628 },
       {0.5033,  0.2588,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[オーリドンの宝の地図5]],    [[treasuremap_auridon_05]],            43629 },
       {0.3385,  0.1318,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[オーリドンの宝の地図6]],    [[treasuremap_auridon_06]],            43630 },
