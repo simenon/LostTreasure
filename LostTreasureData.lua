@@ -537,7 +537,7 @@ LOST_TREASURE_DATA = {
   ["goldcoast"] = {
     ["treasure"] = {
         {0.6393,  0.3322,  [[Gold Coast Treasure Map I]],   [[Schatzkarte: Gold Coast I]],   [[Carte Au Trésor Gold Coast I]],   [[ゴールドコーストの宝の地図1]],  [[Золотой берег, карта сокровищ I]],   [[treasuremap_darkbrotherhood_01]], 43735 },
-        {0.4836,  0.3207,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Gold Coast II]],  [[Carte Au Trésor Gold Coast II]],  [[ゴールドコーストの宝の地図2]],  [[Золотой берег, карта сокровищ II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
+        {0.4885,  0.3213,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Gold Coast II]],  [[Carte Au Trésor Gold Coast II]],  [[ゴールドコーストの宝の地図2]],  [[Золотой берег, карта сокровищ II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
     },
     ["surveys"] = {
     },
