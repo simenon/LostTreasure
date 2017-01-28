@@ -527,7 +527,7 @@ LOST_TREASURE_DATA = {
   -- Hew's Bane
   ["hewsbane"] = {
     ["treasure"] = {
-        {0.4168,  0.8509,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[ヒューズベインの宝の地図1]],  [[Проклятие Хью, карта сокровищ I]],   [[treasuremap_thievesguild_01]], 43733 },
+        {0.4140,  0.8445,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[ヒューズベインの宝の地図1]],  [[Проклятие Хью, карта сокровищ I]],   [[treasuremap_thievesguild_01]], 43733 },
         {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hew's Bane II]],  [[Carte Au Trésor Hew's Bane II]],  [[ヒューズベインの宝の地図2]],  [[Проклятие Хью, карта сокровищ II]],  [[treasuremap_thievesguild_02]], 43734 },
     },
     ["surveys"] = {
