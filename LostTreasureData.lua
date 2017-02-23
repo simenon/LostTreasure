@@ -130,7 +130,7 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
       {0.3297,  0.7369,  [[Enchanter Survey: Reaper's March]],  [[Verzauberergutachten: Schnittermark]], [[Repérages d'Enchanteur : Marche de la Camarde]],           [[付呪師の調査: リーパーズ・マーチ]],   [[исследование зачарователя: Марка Смерти]], [[reapersmarch_survey_enchanter]],  57808 },
       {0.5924,  0.5187,  [[Clothier Survey: Reaper's March]],   [[Schneidergutachten: Schnittermark]],   [[Repérages de Tailleur : Marche de la Camarde]],            [[仕立師の調査: リーパーズ・マーチ]],   [[исследование портного: Марка Смерти]],     [[reapersmarch_survey_clothier]],   57763 },
-   -- {0.0000,  0.0000,  [[Alchemist Survey: Reaper's March]],  [[Alchemistengutachten: Schnittermark]], [[Repérages d'Alchemiste : Marche de la Camarde]],           [[錬金術師の調査: リーパーズ・マーチ]], [[исследование алхимика: Марка Смерти]],     [[reapersmarch_survey_alchemist]],  57780 },
+      {0.3000,  0.3616,  [[Alchemist Survey: Reaper's March]],  [[Alchemistengutachten: Schnittermark]], [[Repérages d'Alchemiste : Marche de la Camarde]],           [[錬金術師の調査: リーパーズ・マーチ]], [[исследование алхимика: Марка Смерти]],     [[reapersmarch_survey_alchemist]],  57780 },
       {0.6450,  0.2200,  [[Blacksmith Survey: Reaper's March]], [[Schmiedegutachten: Schnittermark]],    [[Repérages de Forgeron : Marche de la Camarde]],            [[鍛冶師の調査: リーパーズ・マーチ]],   [[исследование кузнеца: Марка Смерти]],      [[reapersmarch_survey_blacksmith]], 57793 },
       {0.4289,  0.8485,  [[Woodworker Survey: Reaper's March]], [[Schreinergutachten: Schnittermark]],   [[Repérages de Travailleur du Bois : Marche de la Camarde]], [[木工師の調査: リーパーズ・マーチ]],   [[исследование столяра: Марка Смерти]],      [[reapersmarch_survey_woodworker]], 57825 },
     },
@@ -256,7 +256,7 @@ LOST_TREASURE_DATA = {
     },
     ["surveys"] = {
       {0.6291,  0.3575,  [[Clothier Survey: The Rift]],   [[Schneidergutachten: Rift]],   [[Repérages de Tailleur : La Brèche]],            [[仕立師の調査報告: リフト]],   [[исследование портного: Рифт]], [[therift_survey_clothier]],   57765 },
-   -- {0.0000,  0.0000,  [[Alchemist Survey: The Rift]],  [[Alchemistengutachten: Rift]], [[Repérages d'Alchemiste : La Brèche]],           [[錬金術師の調査報告: リフト]], [[исследование алхимика: Рифт]], [[therift_survey_alchemist]],  57782 },
+      {0.4170,  0.4220,  [[Alchemist Survey: The Rift]],  [[Alchemistengutachten: Rift]], [[Repérages d'Alchemiste : La Brèche]],           [[錬金術師の調査報告: リフト]], [[исследование алхимика: Рифт]], [[therift_survey_alchemist]],  57782 },
       {0.7141,  0.5586,  [[Blacksmith Survey: The Rift]], [[Schmiedegutachten: Rift]],    [[Repérages de Forgeron : La Brèche]],            [[鍛冶師の調査報告: リフト]],   [[исследование кузнеца: Рифт]], [[therift_survey_blacksmith]], 57794 },
       {0.1515,  0.2967,  [[Enchanter Survey: The Rift]],  [[Verzauberergutachten: Rift]], [[Repérages d'Enchanteur : La Brèche]],           [[付呪師の調査報告: リフト]],   [[исследование зачарователя: Рифт]], [[therift_survey_enchanter]],  57809 },
       {0.4975,  0.3367,  [[Woodworker Survey: The Rift]], [[Schreinergutachten: Rift]],   [[Repérages de Travailleur du Bois : La Brèche]], [[木工師の調査報告: リフト]],   [[исследование столяра: Рифт]], [[therift_survey_woodworker]], 57826 },
@@ -334,7 +334,7 @@ LOST_TREASURE_DATA = {
     },
     ["surveys"] = {
       {0.2971,  0.6413,  [[Clothier Survey: Rivenspire]],   [[Schneidergutachten: Kluftspitze]],   [[Repérages de Tailleur : Fendretour]],            [[仕立師の調査報告: リベンスパイアー]],   [[исследование портного: Ривенспайр]],     [[rivenspire_survey_clothier]],   57759 },
-      {0.8025,  0.3298,  [[Alchemist Survey: Rivenspire]],  [[Alchemistengutachten: Kluftspitze]], [[Repérages d'Alchemiste : Fendretour]],           [[錬金術師の調査報告: リベンスパイアー]], [[исследование алхимика: Ривенспайр]],     [[rivenspire_survey_alchemist]],  57776 },
+      {0.8065,  0.3297,  [[Alchemist Survey: Rivenspire]],  [[Alchemistengutachten: Kluftspitze]], [[Repérages d'Alchemiste : Fendretour]],           [[錬金術師の調査報告: リベンスパイアー]], [[исследование алхимика: Ривенспайр]],     [[rivenspire_survey_alchemist]],  57776 },
       {0.6929,  0.6243,  [[Blacksmith Survey: Rivenspire]], [[Schmiedegutachten: Kluftspitze]],    [[Repérages de Forgeron : Fendretour]],            [[鍛冶師の調査報告: リベンスパイアー]],   [[исследование кузнеца: Ривенспайр]],      [[rivenspire_survey_blacksmith]], 57790 },
       {0.6182,  0.4312,  [[Enchanter Survey: Rivenspire]],  [[Verzauberergutachten: Kluftspitze]], [[Repérages d'Enchanteur : Fendretour]],           [[付呪師の調査報告: リベンスパイアー]],   [[исследование зачарователя: Ривенспайр]], [[rivenspire_survey_enchanter]],  57804 },
       {0.5444,  0.6439,  [[Woodworker Survey: Rivenspire]], [[Schreinergutachten: Kluftspitze]],   [[Repérages de Travailleur du Bois : Fendretour]], [[木工師の調査報告: リベンスパイアー]],   [[исследование столяра: Ривенспайр]],      [[rivenspire_survey_woodworker]], 57821 },
@@ -389,7 +389,7 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
       {0.5275,  0.1627,  [[Enchanter Survey: Bangkorai]],  [[Verzauberergutachten: Bangkorai]], [[Repérages d'Enchanteur : Bangkoraï]],           [[付呪師の調査報告: バンコライ]],   [[исследование зачарователя: Бангкорай]], [[bankorai_survey_enchanter]],  57810 },
       {0.5800,  0.3761,  [[Clothier Survey: Bangkorai]],   [[Schneidergutachten: Bangkorai]],   [[Repérages de Tailleur : Bangkoraï]],            [[仕立師の調査報告: バンコライ]],   [[исследование портного: Бангкорай]],     [[bankorai_survey_clothier]],   57764 },
-   -- {0.0000,  0.0000,  [[Alchemist Survey: Bangkorai]],  [[Alchemistengutachten: Bangkorai]], [[Repérages d'Alchemiste : Bangkoraï]],           [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Бангкорай]],     [[bangkorai_survey_alchemist]],  57781 },
+      {0.3583,  0.3841,  [[Alchemist Survey: Bangkorai]],  [[Alchemistengutachten: Bangkorai]], [[Repérages d'Alchemiste : Bangkoraï]],           [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Бангкорай]],     [[bangkorai_survey_alchemist]],  57781 },
       {0.4730,  0.6153,  [[Blacksmith Survey: Bangkorai]], [[Schmiedegutachten: Bangkorai]],    [[Repérages de Forgeron : Bangkoraï]],            [[鍛冶師の調査報告: バンコライ]],   [[исследование кузнеца: Бангкорай]],      [[bangkorai_survey_blacksmith]], 57795 },
       {0.6701,  0.7022,  [[Woodworker Survey: Bangkorai]], [[Schreinergutachten: Bangkorai]],   [[Repérages de Travailleur du Bois : Bangkoraï]], [[木工師の調査報告: バンコライ]],   [[исследование столяра: Бангкорай]],      [[bangkorai_survey_woodworker]], 57827 },
     },
