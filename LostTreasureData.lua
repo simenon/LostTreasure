@@ -470,7 +470,7 @@ LOST_TREASURE_DATA = {
       {0.4188,  0.4750,  [[Craglorn Treasure Map II]],  [[Kargstein Schatzkarte II]],  [[Carte Au Trésor de Raidelorn II]],  [[クラグローンの宝の地図2]], [[Краглорн, карта сокровищ II]], [[treasuremap_craglorn_02]], 43722 },
       {0.7054,  0.5591,  [[Craglorn Treasure Map III]], [[Kargstein Schatzkarte III]], [[Carte Au Trésor de Raidelorn III]], [[クラグローンの宝の地図3]], [[Краглорн, карта сокровищ III]], [[treasuremap_craglorn_03]], 43723 },
       {0.6555,  0.6712,  [[Craglorn Treasure Map IV]],  [[Kargstein Schatzkarte IV]],  [[Carte Au Trésor de Raidelorn IV]],  [[クラグローンの宝の地図4]], [[Краглорн, карта сокровищ IV]], [[treasuremap_craglorn_04]], 43724 },
-      {0.5950,  0.3650,  [[Craglorn Treasure Map V]],   [[Kargstein Schatzkarte V]] ,  [[Carte Au Trésor de Raidelorn V]],   [[クラグローンの宝の地図5]], [[Краглорн, карта сокровищ V]], [[treasuremap_craglorn_05]], 43725 },
+      {0.5964,  0.3684,  [[Craglorn Treasure Map V]],   [[Kargstein Schatzkarte V]] ,  [[Carte Au Trésor de Raidelorn V]],   [[クラグローンの宝の地図5]], [[Краглорн, карта сокровищ V]], [[treasuremap_craglorn_05]], 43725 },
       {0.3605,  0.4486,  [[Craglorn Treasure Map VI]],  [[Kargstein Schatzkarte VI]],  [[Carte Au Trésor de Raidelorn VI]],  [[クラグローンの宝の地図6]], [[Краглорн, карта сокровищ VI]], [[treasuremap_craglorn_06]], 43726 },
     },
     ["surveys"] = {
