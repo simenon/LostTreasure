@@ -542,4 +542,25 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
     },
   },
+  -- Vvardenfell
+  ["vvardenfell"] = {
+    ["treasure"] = {
+      {0.6627, 0.5285, [[Vvardenfell CE Treasure Map I]], [[Schatzkarte: Vvardenfell CE I]], [[Carte Au Trésor Vvardenfell EC I]], [[ヒューズベインの宝の地図1]], [[Проклятие Хью, коллекционная карта Вварденфела I]], [[treasuremap_vvardenfell_02]], 43743 },
+      {0.6346, 0.7002, [[Vvardenfell CE Treasure Map II]], [[Schatzkarte: Vvardenfell CE II]], [[Carte Au Trésor Vvardenfell EC II]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, коллекционная карта Вварденфела II]], [[treasuremap_vvardenfell_07]], 43744 },
+      {0.2835, 0.5715, [[Vvardenfell CE Treasure Map III]], [[Schatzkarte: Vvardenfell CE III]], [[Carte Au Trésor Vvardenfell EC III]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, коллекционная карта Вварденфела III]], [[treasuremap_vvardenfell_09]], 43745 },
+      {0.6664, 0.8721, [[Vvardenfell Treasure Map I]], [[Schatzkarte: Vvardenfell I]], [[Carte Au Trésor Vvardenfell I]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела I]], [[treasuremap_vvardenfell_01]], 43737 },
+      {0.7558, 0.3154, [[Vvardenfell Treasure Map II]], [[Schatzkarte: Vvardenfell II]], [[Carte Au Trésor Vvardenfell II]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела II]], [[treasuremap_vvardenfell_03]], 43738 },
+      {0.1973, 0.4309, [[Vvardenfell Treasure Map III]], [[Schatzkarte: Vvardenfell III]], [[Carte Au Trésor Vvardenfell III]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела III]], [[treasuremap_vvardenfell_04]], 43739 },
+      {0.0100, 0.0100, [[Vvardenfell Treasure Map IV]], [[Schatzkarte: Vvardenfell IV]], [[Carte Au Trésor Vvardenfell IV]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела IV]], [[treasuremap_vvardenfell_05]], 43740 },
+      {0.5645, 0.2565, [[Vvardenfell Treasure Map V]], [[Schatzkarte: Vvardenfell V]], [[Carte Au Trésor Vvardenfell V]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела V]], [[treasuremap_vvardenfell_06]], 43741 },
+      {0.6681, 0.7193, [[Vvardenfell Treasure Map VI]], [[Schatzkarte: Vvardenfell VI]], [[Carte Au Trésor Vvardenfell VI]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела VI]], [[treasuremap_vvardenfell_08]], 43742 },
+    },
+    ["surveys"] = {
+      {0.4411, 0.2445, [[Enchanter Survey: Vvardenfell]], [[Verzauberergutachten: Vvardenfell]], [[Repérages d'Enchanteur : Vvardenfell]], [[付呪師の調査報告: バンコライ]], [[исследование зачарователя: Вварденфела]], [[vvardenfell_survey_enchanter]], 126122 },
+      {0.8419, 0.7310, [[Clothier Survey: Vvardenfell]], [[Schneidergutachten: Vvardenfell]], [[Repérages de Tailleur : Vvardenfell]], [[仕立師の調査報告: バンコライ]], [[исследование портного: Вварденфела]], [[vvardenfell_survey_clothier]], 126111 },
+      {0.2904, 0.3250, [[Alchemist Survey: Vvardenfell]], [[Alchemistengutachten: Vvardenfell]], [[Repérages d'Alchemiste : Vvardenfell]], [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Вварденфела]], [[vvardenfell_survey_alchemist]], 126113 },
+      {0.6718, 0.6267, [[Blacksmith Survey: Vvardenfell]], [[Schmiedegutachten: Vvardenfell]], [[Repérages de Forgeron : Vvardenfell]], [[鍛冶師の調査報告: バンコライ]], [[исследование кузнеца: Вварденфела]], [[vvardenfell_survey_blacksmith]], 126110 },
+      {0.3368, 0.7736, [[Woodworker Survey: Vvardenfell]], [[Schreinergutachten: Vvardenfell]], [[Repérages de Travailleur du Bois : Vvardenfell]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Вварденфела]], [[vvardenfell_survey_woodworker]], 126112 },
+    },
+  },
 }
