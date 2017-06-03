@@ -551,7 +551,7 @@ LOST_TREASURE_DATA = {
       {0.6664, 0.8721, [[Vvardenfell Treasure Map I]], [[Schatzkarte: Vvardenfell I]], [[Carte Au Trésor Vvardenfell I]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела I]], [[treasuremap_vvardenfell_01]], 43737 },
       {0.7558, 0.3154, [[Vvardenfell Treasure Map II]], [[Schatzkarte: Vvardenfell II]], [[Carte Au Trésor Vvardenfell II]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела II]], [[treasuremap_vvardenfell_03]], 43738 },
       {0.1973, 0.4309, [[Vvardenfell Treasure Map III]], [[Schatzkarte: Vvardenfell III]], [[Carte Au Trésor Vvardenfell III]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела III]], [[treasuremap_vvardenfell_04]], 43739 },
-      {0.0100, 0.0100, [[Vvardenfell Treasure Map IV]], [[Schatzkarte: Vvardenfell IV]], [[Carte Au Trésor Vvardenfell IV]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела IV]], [[treasuremap_vvardenfell_05]], 43740 },
+      {0.4489, 0.6933, [[Vvardenfell Treasure Map IV]], [[Schatzkarte: Vvardenfell IV]], [[Carte Au Trésor Vvardenfell IV]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела IV]], [[treasuremap_vvardenfell_05]], 43740 },
       {0.5645, 0.2565, [[Vvardenfell Treasure Map V]], [[Schatzkarte: Vvardenfell V]], [[Carte Au Trésor Vvardenfell V]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела V]], [[treasuremap_vvardenfell_06]], 43741 },
       {0.6681, 0.7193, [[Vvardenfell Treasure Map VI]], [[Schatzkarte: Vvardenfell VI]], [[Carte Au Trésor Vvardenfell VI]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела VI]], [[treasuremap_vvardenfell_08]], 43742 },
     },
