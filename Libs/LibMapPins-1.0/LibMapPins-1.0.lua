@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 14
+local MAJOR, MINOR = "LibMapPins-1.0", 15
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -632,6 +632,8 @@ function lib:SetEnabled(pinType, state)
          ZO_CheckButton_SetCheckState(filter.pvp, enabled)
       elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
          ZO_CheckButton_SetCheckState(filter.imperialPvP, enabled)
+		elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+         ZO_CheckButton_SetCheckState(filter.battleground, enabled)
       end
    end
 
@@ -689,8 +691,12 @@ end
 --                filter state for Imperial City PvP context, used only if separate
 --                is true. If separate is true, savedVars exists but this argument
 --                is nil, state will be stored in savedVars[pinTypeString .. "_imperialPvP"].
+-- savedVarsBattlegroundKey: (nilable), key in the savedVars table where you store
+--                filter state for Battleground PvP context, used only if separate
+--                is true. If separate is true, savedVars exists but this argument
+--                is nil, state will be stored in savedVars[pinTypeString .. "_battleground"].
 -------------------------------------------------------------------------------
-function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey, savedVarsImperialPvpKey)
+function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey, savedVarsImperialPvpKey, savedVarsBattlegroundKey)
    local pinTypeString, pinTypeId
    if type(pinType) == "string" then
       pinTypeString = pinType
@@ -713,9 +719,11 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
       if separate then
          filter.pvpKey = savedVarsPvpKey or pinTypeString .. "_pvp"
          filter.imperialPvPKey = savedVarsImperialPvpKey or pinTypeString .. "_imperialPvP"
+         filter.battlegroundKey = savedVarsBattlegroundKey or pinTypeString .. "_battleground"
       else
          filter.pvpKey = filter.pveKey
          filter.imperialPvPKey = filter.pveKey
+         filter.battlegroundKey = filter.pveKey
       end
    end
 
@@ -733,6 +741,7 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
    filter.pve = AddCheckbox(WORLD_MAP_FILTERS.pvePanel, pinCheckboxText)
    filter.pvp = AddCheckbox(WORLD_MAP_FILTERS.pvpPanel, pinCheckboxText)
    filter.imperialPvP = AddCheckbox(WORLD_MAP_FILTERS.imperialPvPPanel, pinCheckboxText)
+   filter.battleground = AddCheckbox(WORLD_MAP_FILTERS.battlegroundPanel, pinCheckboxText)
 
    if filter.vars ~= nil then
       ZO_CheckButton_SetToggleFunction(filter.pve,
@@ -750,6 +759,11 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
             filter.vars[filter.imperialPvPKey] = state
             self:SetEnabled(pinTypeId, state)
          end)
+      ZO_CheckButton_SetToggleFunction(filter.battleground,
+         function(button, state)
+            filter.vars[filter.battlegroundKey] = state
+            self:SetEnabled(pinTypeId, state)
+         end)
 
       local mapFilterType = GetMapFilterType()
       if mapFilterType == MAP_FILTER_TYPE_STANDARD then
@@ -758,6 +772,8 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
          self:SetEnabled(pinTypeId, filter.vars[filter.pvpKey])
       elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
          self:SetEnabled(pinTypeId, filter.vars[filter.imperialPvPKey])
+		elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+         self:SetEnabled(pinTypeId, filter.vars[filter.battlegroundKey])
       end
    else
       ZO_CheckButton_SetToggleFunction(filter.pve,
@@ -777,7 +793,7 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
       ZO_CheckButton_SetCheckState(filter.imperialPvP, self:IsEnabled(pinTypeId))
    end
 
-   return filter.pve, filter.pvp, filter.imperialPvP
+   return filter.pve, filter.pvp, filter.imperialPvP, filter.battleground
 end
 
 -------------------------------------------------------------------------------
@@ -812,6 +828,8 @@ function lib.OnMapChanged()
       context = "pvp"
    elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
       context = "imperialPvP"
+	elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+      context = "battleground"
    end
 
    if lib.context ~= context then
@@ -944,7 +962,7 @@ local function OnLoad(code, addon)
       end
    end
    if WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool then
-      WORLD_MAP_FILTERS.imeprialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      WORLD_MAP_FILTERS.imeperialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
       for i, control in pairs(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.m_Active) do
          control:SetParent(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.parent)
       end
@@ -957,6 +975,34 @@ local function OnLoad(code, addon)
    end
    if ZO_WorldMapFiltersImperialPvPContainer then
       ZO_WorldMapFiltersImperialPvPContainer:SetAnchorFill()
+   end
+	
+   if WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool then
+      WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.parent = ZO_WorldMapFiltersBattlegroundContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersBattlegroundContainer", ZO_WorldMapFiltersBattleground, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersBattlegroundCheckBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersBattlegroundCheckBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.battlegroundPanel.control then
+            ZO_WorldMapFiltersBattlegroundCheckBox1:SetAnchor(point, ZO_WorldMapFiltersBattlegroundContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool then
+      WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.parent = ZO_WorldMapFiltersBattlegroundContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersBattlegroundContainer", ZO_WorldMapFiltersBattleground, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersBattlegroundComboBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersBattlegroundComboBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.battlegroundPanel.control then
+            ZO_WorldMapFiltersPvPComboBox1:SetAnchor(point, ZO_WorldMapFiltersBattlegroundContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if ZO_WorldMapFiltersBattlegroundContainer then
+      ZO_WorldMapFiltersBattlegroundContainer:SetAnchorFill()
    end
 end
 EVENT_MANAGER:RegisterForEvent("LibMapPins", EVENT_ADD_ON_LOADED, OnLoad)
