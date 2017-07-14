@@ -104,6 +104,41 @@ LOST_TREASURE_STRINGS = {
     MARKER_DELAY = "BETA: Verzögerung zur Löschung der Markierung",
     MARKER_DELAY_TOOLTIP = "Hier kannst du Verzögerung in Sekunden einstellen, bevor eine Markierung gelöscht wird. Diese Einstellung funktioniert nur, wenn du oben \'Markiere alle im Inventar\' ausgewählt hast.",
   },
+  ["pl"] = {
+    TREASURE_ON_MAP = "Pokaż skarb na mapie",
+    TREASURE_ON_MAP_TOOLTIP = "Pokazuje mapę skarbów na mapie gracza",
+    TREASURE_ON_COMPASS = "Pokaż skarb na kompasie",
+    TREASURE_ON_COMPASS_TOOLTIP = "Pokazuje mapę skarbów na kompasie",
+    TREASURE_ICON = "Rodzaj znacznika skarbu",
+    TREASURE_ICON_TOOLTIP = "Określa która tekstura będzie reprezentować skarby",
+    TREASURE_MARK_WHICH = "Znacznik skarbu na mapie",
+    TREASURE_MARK_WHICH_TOOLTIP = "Kiedy zaznaczamy lokalizacje skarbów na mapie gracza?",
+    
+    SURVEYS_ON_MAP = "Pokaż surowce rzemieślnicze na mapie",
+    SURVEYS_ON_MAP_TOOLTIP = "Pokazuje surowce rzemieślnicze na mapie gracza",
+    SURVEYS_ON_COMPASS = "Pokaż surowce rzemieślnicze na kompasie",
+    SURVEYS_ON_COMPASS_TOOLTIP = "Pokazuje surowce rzemieślnicze na kompasie gracza",
+    SURVEYS_ICON = "Rodzaj znacznika surowców rzemieślniczych",
+    SURVEYS_ICON_TOOLTIP = "Określa która tekstura będzie reprezentować surowce rzemieślnicze",
+    SURVEYS_MARK_WHICH = "Znacznik surowców rzemieślniczych na mapie",
+    SURVEYS_MARK_WHICH_TOOLTIP = "Kiedy zaznaczamy lokalizacje surowców rzemieślniczych na mapie gracza?",
+    
+    PIN_SIZE = "Wielkość znacznika",
+    PIN_SIZE_TOOLTIP = "Wielkość znacznika w podpowiedziach",
+    
+    PIN_LEVEL = "Priorytet znacznika.",
+    PIN_LEVEL_TOOLTIP = "Zwiększa priorytet znacznika, jeżeli znacznik jest zasłonięty innym znacznikiem, wyciaga go na wierzch.",
+    
+    SHOW_MINIMAP = "Pokaż małą mapę skarbów",
+    SHOW_MINIMAP_TOOLTIP = "Pokazuje małą mape skarbów po użyciu z ekwipunku.",
+    
+    MARK_MAP_MENU_OPTION1 = "Zaznacz po użyciu",
+    MARK_MAP_MENU_OPTION2 = "Zaznacz wszystkie z ekwpiunku",
+    MARK_MAP_MENU_OPTION3 = "Zaznacz we wszstkich lokacjach",
+    
+    MARKER_DELAY = "TESTOWY : Opóźnienie usunięcia znacznika",
+    MARKER_DELAY_TOOLTIP = "Opóźnia usunięcie zaznaczonej lokalizacji na mapie. Działa tylko w połączeniu  'Zaznacz po użyciu' lub 'Zaznacz wszystkie z ekwipunku'. Nie będzie działać, gdy otworzysz mapę ponieważ  to odświeża wszystkie znaczniki.",
+  },
   ["ru"] = {
     TREASURE_ON_MAP = "Показывать сокровища на карте",
     TREASURE_ON_MAP_TOOLTIP = "Показывать месторасположение карты сокровищ на карте игрока?",
