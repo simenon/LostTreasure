@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.29",
+    Version = "4.30",
 }
 
 LT = ZO_Object:Subclass()
@@ -54,8 +54,8 @@ local markMapMenuOptions = {
 local pinTexturesList = {
     [1] = [[X red]],
     [2] = [[X black]],
-    [3] = [[Map black (Mitsarugi)]],
-    [4] = [[Map white (Mitsarugi)]],
+    [3] = [[Map black]],
+    [4] = [[Map white]],
     [5] = [[Justice Stolen Map]],
     [6] = [[Scroll]],
     [7] = [[Delivery Box]],
@@ -607,6 +607,8 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_JP
 	elseif lang == "ru" then
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_RU
+	elseif lang == "pl" then
+		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
     else
 		lang = "en"
 		LOST_TREASURE_INDEX.MAP_NAME = LOST_TREASURE_INDEX.MAP_NAME_EN
