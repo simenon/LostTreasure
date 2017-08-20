@@ -5,7 +5,8 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.30",
+    Version = "4.31",
+    WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
 LT = ZO_Object:Subclass()
@@ -20,7 +21,7 @@ LT.defaults = {
 	surveysPinTexture = 1,
 	surveysMarkMapMenuOption = 2,
 	showMiniTreasureMap = true,
-	miniTreasureMap = { 
+	miniTreasureMap = {
 		point = TOPLEFT,
 		relativeTo = GuiRoot,
 		relativePoint = TOPLEFT,
@@ -64,8 +65,8 @@ local pinTexturesList = {
 local pinTextures = {
     [1] = [[LostTreasure/Icons/x_red.dds]],
     [2] = [[LostTreasure/Icons/x_black.dds]],
-    [3] = [[LostTreasure/Icons/map_black.dds]], 
-    [4] = [[LostTreasure/Icons/map_white.dds]], 
+    [3] = [[LostTreasure/Icons/map_black.dds]],
+    [4] = [[LostTreasure/Icons/map_white.dds]],
     [5] = [[esoui\art\icons\justice_stolen_map_001.dds]],
     [6] = [[esoui\art\icons\scroll_001.dds]],
     [7] = [[esoui\art\icons\delivery_box_001.dds]],
@@ -94,11 +95,11 @@ local currentTreasureMapItemID = nil
 
 local INFORMATION_TOOLTIP = nil
 
-local TREASURE_TEXT = { 
+local TREASURE_TEXT = {
 	en = "treasure map",
 	de = "schatzkarte",
 	fr = "carte au trésor",
-	ru = "карта сокровищ", 
+	ru = "карта сокровищ",
 }
 local SURVEYS_TEXT = {
 	en = "survey:",
@@ -231,7 +232,7 @@ local function QueueCreatePins(treasureType, key)
 
 		end
 	end
-	
+
 end
 
 local function pinCreator(treasureType)
@@ -252,7 +253,7 @@ local function showMiniTreasureMap(texture)
 end
 
 function LT:hideMiniTreasureMap()
-  LostTreasureTLW:SetHidden(true) 
+  LostTreasureTLW:SetHidden(true)
 end
 
 function  LT:refreshTreasurePins()
@@ -271,7 +272,7 @@ local function createMiniTreasureMap()
     LostTreasureTLW:SetMovable( true )
     LostTreasureTLW:SetClampedToScreen(true)
     LostTreasureTLW:SetDimensions( 400 , 400 )
-    LostTreasureTLW:SetAnchor( 
+    LostTreasureTLW:SetAnchor(
         LT.SavedVariables.miniTreasureMap.point,
         GetControl(LT.SavedVariables.miniTreasureMap.relativeTo),
         LT.SavedVariables.miniTreasureMap.relativePoint,
@@ -325,9 +326,9 @@ function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
 	local myLink
 	local bagCache = SHARED_INVENTORY:GenerateFullSlotData(nil, BAG_BACKPACK)
 	for slot, itemData in pairs(bagCache) do
-		if name == itemData.name then 
+		if name == itemData.name then
 			myLink = GetItemLink(BAG_BACKPACK, slot)
-			break 
+			break
 		end
 	end
 
@@ -341,40 +342,40 @@ end
 -- thanks Garkin!
 function LT:SlotAdded(bagId, slotIndex, slotData)
   if not (bagId == BAG_BACKPACK and slotData and slotData.itemType == ITEMTYPE_TROPHY) then return end
-  
+
   local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
   local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
-  
+
   local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
   slotData.itemID = tonumber(itemID)
-  
+
   if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
     LT:refreshTreasurePins()
   end
   if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
-    LT:refreshSurveyPins()	
+    LT:refreshSurveyPins()
   end
 end
 
 function LT:SlotRemoved(bagId, slotIndex, slotData)
   if not (bagId == BAG_BACKPACK and slotData and slotData.itemID and slotData.itemType == ITEMTYPE_TROPHY) then return end
-  
+
   local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
   local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
-  
+
   if (currentTreasureMapItemID and currentTreasureMapItemID == slotData.itemID) then
-    zo_callLater( 
+    zo_callLater(
       function() LT:hideMiniTreasureMap() end, LT.SavedVariables.markerDeletionDelay * 1000 )
   end
-  
+
   if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
-    zo_callLater( 
-      function() LT:refreshTreasurePins() end, 
+    zo_callLater(
+      function() LT:refreshTreasurePins() end,
       LT.SavedVariables.markerDeletionDelay * 1000 )
   end
   if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
-    zo_callLater( 
-      function() LT:refreshSurveyPins() end, 
+    zo_callLater(
+      function() LT:refreshSurveyPins() end,
       LT.SavedVariables.markerDeletionDelay * 1000 )
   end
 end
@@ -390,6 +391,8 @@ local function createLAM2Panel()
         author = "|cFFA500"..Addon.Author.."|r",
         version = Addon.Version,
         registerForRefresh = true,
+        registerForDefaults = true,
+        website = Addon.WebSite,
     }
 
     local optionsData = {
@@ -397,11 +400,11 @@ local function createLAM2Panel()
         type = "checkbox",
         name = strings.TREASURE_ON_MAP,
         tooltip = strings.TREASURE_ON_MAP_TOOLTIP,
-        getFunc = function() 
-          return LT.SavedVariables.showTreasure 
+        getFunc = function()
+          return LT.SavedVariables.showTreasure
         end,
-        setFunc = function(value) 
-          LT.SavedVariables.showTreasure = value 
+        setFunc = function(value)
+          LT.SavedVariables.showTreasure = value
           LMP:SetEnabled(MAP_PIN_TYPES.treasure, value)
         end,
       },
@@ -409,11 +412,11 @@ local function createLAM2Panel()
         type = "checkbox",
         name = strings.TREASURE_ON_COMPASS,
         tooltip = strings.TREASURE_ON_COMPASS_TOOLTIP,
-        getFunc = function() 
-          return LT.SavedVariables.showTreasureCompass 
+        getFunc = function()
+          return LT.SavedVariables.showTreasureCompass
         end,
-        setFunc = function(value) 
-          LT.SavedVariables.showTreasureCompass = value 
+        setFunc = function(value)
+          LT.SavedVariables.showTreasureCompass = value
           COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.treasure)
         end,
       },
@@ -423,7 +426,7 @@ local function createLAM2Panel()
         tooltip = strings.TREASURE_ICON_TOOLTIP,
         choices = pinTexturesList,
         getFunc = function() return pinTexturesList[LT.SavedVariables.treasurePinTexture] end,
-        setFunc = function(value) 
+        setFunc = function(value)
             for i,v in pairs(pinTexturesList) do
                 if v == value then
                     LT.SavedVariables.treasurePinTexture = i
@@ -444,10 +447,10 @@ local function createLAM2Panel()
         name = strings.TREASURE_MARK_WHICH,
         tooltip = strings.TREASURE_MARK_WHICH_TOOLTIP,
         choices = markMapMenuOptions,
-        getFunc = function() 
-	  return markMapMenuOptions[LT.SavedVariables.treasureMarkMapMenuOption] 
+        getFunc = function()
+	  return markMapMenuOptions[LT.SavedVariables.treasureMarkMapMenuOption]
 	end,
-        setFunc = function(value) 
+        setFunc = function(value)
           for i,v in pairs(markMapMenuOptions) do
             if v == value then
               LT.SavedVariables.treasureMarkMapMenuOption = i
@@ -465,8 +468,8 @@ local function createLAM2Panel()
         name = strings.SURVEYS_ON_MAP,
         tooltip = strings.SURVEYS_ON_MAP_TOOLTIP,
         getFunc = function() return LT.SavedVariables.showSurveys end,
-        setFunc = function(value) 
-          LT.SavedVariables.showSurveys = value 
+        setFunc = function(value)
+          LT.SavedVariables.showSurveys = value
           LMP:SetEnabled(MAP_PIN_TYPES.surveys, value)
         end,
       },
@@ -475,8 +478,8 @@ local function createLAM2Panel()
         name = strings.SURVEYS_ON_COMPASS,
         tooltip = strings.SURVEYS_ON_COMPASS_TOOLTIP,
         getFunc = function() return LT.SavedVariables.showSurveysCompass end,
-        setFunc = function(value) 
-          LT.SavedVariables.showSurveysCompass = value 
+        setFunc = function(value)
+          LT.SavedVariables.showSurveysCompass = value
           COMPASS_PINS:RefreshPins(COMPASS_PIN_TYPES.surveys)
         end,
       },
@@ -486,7 +489,7 @@ local function createLAM2Panel()
           tooltip = strings.SURVEYS_ICON_TOOLTIP,
           choices = pinTexturesList,
           getFunc = function() return pinTexturesList[LT.SavedVariables.surveysPinTexture] end,
-          setFunc = function(value) 
+          setFunc = function(value)
               for i,v in pairs(pinTexturesList) do
                   if v == value then
                       LT.SavedVariables.surveysPinTexture = i
@@ -508,7 +511,7 @@ local function createLAM2Panel()
           tooltip = strings.SURVEYS_MARK_WHICH_TOOLTIP,
           choices = markMapMenuOptions,
           getFunc = function() return markMapMenuOptions[LT.SavedVariables.surveysMarkMapMenuOption] end,
-          setFunc = function(value) 
+          setFunc = function(value)
               for i,v in pairs(markMapMenuOptions) do
                   if v == value then
                       LT.SavedVariables.surveysMarkMapMenuOption = i
@@ -525,11 +528,11 @@ local function createLAM2Panel()
           type = "slider",
           name = strings.PIN_SIZE,
           tooltip = strings.PIN_SIZE_TOOLTIP,
-          min = 12, 
-          max = 48, 
-          step = 2, 
-          getFunc = function() return LT.SavedVariables.pinTextureSize end, 
-          setFunc = function(value) 
+          min = 12,
+          max = 48,
+          step = 2,
+          getFunc = function() return LT.SavedVariables.pinTextureSize end,
+          setFunc = function(value)
               LT.SavedVariables.pinTextureSize = value
               LMP:SetLayoutKey(MAP_PIN_TYPES.treasure, "size", value)
       			LMP:SetLayoutKey(MAP_PIN_TYPES.surveys, "size", value)
@@ -543,21 +546,21 @@ local function createLAM2Panel()
           tooltip = strings.SHOW_MINIMAP_TOOLTIP,
           getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
           setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
-      }, 
+      },
       [11] = {
         type = "slider",
         name = strings.MARKER_DELAY,
-	tooltip = strings.MARKER_DELAY_TOOLTIP, 
+	tooltip = strings.MARKER_DELAY_TOOLTIP,
 	min = 0,
 	max = 60,
 	step = 1,
 	getFunc = function() return LT.SavedVariables.markerDeletionDelay end,
 	setFunc = function(value)  LT.SavedVariables.markerDeletionDelay = value end,
-      }, 
+      },
       [12] = {
         type = "slider",
         name = strings.PIN_LEVEL,
-	tooltip = strings.PIN_LEVEL_TOOLTIP, 
+	tooltip = strings.PIN_LEVEL_TOOLTIP,
 	min = 0,
 	max = 250,
 	step = 10,
@@ -569,7 +572,7 @@ local function createLAM2Panel()
       			LMP:RefreshPins(MAP_PIN_TYPES.treasure)
       			LMP:RefreshPins(MAP_PIN_TYPES.surveys)
       		end,
-      } 
+      }
     }
 
     local myPanel = LAM2:RegisterAddonPanel(Addon.Name.."LAM2Options", panelData)
