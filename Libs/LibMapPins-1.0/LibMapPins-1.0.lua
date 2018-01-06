@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 14
+local MAJOR, MINOR = "LibMapPins-1.0", 17
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -45,63 +45,6 @@ if not lib.pinManager then
    lib.pinManager.customPins[_G[pinType]] = nil
    lib.pinManager.m_keyToPinMapping[_G[pinType]] = nil
    _G[pinType] = nil
-end
-
---AUI support
-lib.AUI = lib.AUI or { mapping = {}, tasks = {} }
-
-function lib.AUI.DoesMinimapExist()
-   if AUI and AUI.Minimap and AUI.Minimap.Pin then
-      return true
-   end
-
-   return false
-end
-
-function lib.AUI.IsMinimapEnabled()
-   if lib.AUI.DoesMinimapExist() then
-      return AUI.Minimap.IsEnabled()
-   end
-
-   return false
-end
-
-function lib.AUI.IsMinimapLoaded()
-   if lib.AUI.DoesMinimapExist() then
-      return AUI.Minimap.IsLoaded()
-   end
-
-   return false
-end
-
-function lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
-   local pinTypeId = _G[pinTypeString]
-   local pinData = lib.pinManager.customPins[pinTypeId]
-
-   local AUI_pinTypeId = AUI.Minimap.Pin.AddCustomPinType(pinLayoutData, function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end, pinTooltipCreator)
-   lib.AUI.mapping[pinTypeId] = AUI_pinTypeId
-end
-
-function lib.AUI.UpdateQueuedCustomPinTypes()
-   if lib.AUI.IsMinimapEnabled() == false or lib.AUI.IsMinimapLoaded() then
-      EVENT_MANAGER:UnregisterForUpdate("AUI_OnInit")
-   end
-
-   if AUI.Minimap.IsLoaded() then
-      for id, funcArgs in ipairs(lib.AUI.tasks) do
-         lib.AUI.AddCustomPinType(unpack(funcArgs))
-         lib.AUI.tasks[id] = nil
-      end
-      lib.AUI.queued = false
-   end
-end
-
-function lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-   table.insert(lib.AUI.tasks, {pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator})
-   if not lib.AUI.queued then
-      EVENT_MANAGER:RegisterForUpdate("AUI_OnInit", 0, lib.AUI.UpdateQueuedCustomPinTypes)
-      lib.AUI.queued = true
-   end	
 end
 
 -------------------------------------------------------------------------------
@@ -210,14 +153,6 @@ function lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallba
    self.pinManager:SetCustomPinEnabled(pinTypeId, true)
    self.pinManager:RefreshCustomPins(pinTypeId)  
    
-   if lib.AUI.DoesMinimapExist() then
-      if lib.AUI.IsMinimapLoaded() then
-         lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
-      else
-         lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-      end
-   end
-
    return pinTypeId
 end
 
@@ -250,18 +185,6 @@ function lib:CreatePin(pinType, pinTag, locX, locY, areaRadius)
 	  if pinData then	 
          local isEnabled = self:IsEnabled(pinTypeId)
          if isEnabled then
-			if self.AUI.IsMinimapLoaded() then
-			   if AUI.Minimap.GetVersion then
-			      if AUI.Minimap.GetVersion() >= 1.2 then
-			         AUI.Minimap.Pin.CreateCustomPin(self.AUI.mapping[pinTypeId], pinTag, locX, locY, areaRadius)
-			      end
-		       else
-			      local mapIndex = AUI.Minimap.Map.GetCurrentMapIndex()
-			      local pinName = pinData.pinTypeString .. AUI.Minimap.Pin.GetCustomPinCount() + 1
-				
-			      AUI.Minimap.Pin.CreateCustomPin(pinName, self.AUI.mapping[pinTypeId], pinTag, mapIndex, locX, locY, areaRadius)			 
-		       end
-			end
 			self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)			 
         end
 	  end
@@ -339,14 +262,6 @@ function lib:SetLayoutData(pinType, pinLayoutData)
       for k,v in pairs(pinLayoutData) do
          ZO_MapPin.PIN_DATA[pinTypeId][k] = v
       end
-
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] = {}
-         for k,v in pairs(pinLayoutData) do
-            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][k] = v
-         end
-      end
    end
 end
 
@@ -371,13 +286,6 @@ function lib:SetLayoutKey(pinType, key, data)
 
    if pinTypeId ~= nil then
       ZO_MapPin.PIN_DATA[pinTypeId][key] = data
-
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         if AUI_pinTypeId and AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] then
-            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][key] = data
-         end
-      end
    end
 end
 
@@ -446,17 +354,6 @@ function lib:RefreshPins(pinType)
       pinTypeId = pinType
    end
 
-   if self.AUI.IsMinimapLoaded() then
-      if pinTypeId ~= nil then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-      else
-         for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
-            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-         end
-      end
-   end
-   
    self.pinManager:RefreshCustomPins(pinTypeId)
 end
 
@@ -482,18 +379,7 @@ function lib:RemoveCustomPin(pinType, pinTag)
 
    if pinTypeId ~= nil then
       self.pinManager:RemovePins(pinTypeString, pinTypeId, pinTag)
-
-      if self.AUI.IsMinimapLoaded() then
-         if pinTypeId ~= nil then
-            local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-         else
-            for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
-               AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-            end
-         end
-      end
-    end
+   end
 end
 
 -------------------------------------------------------------------------------
@@ -542,11 +428,6 @@ function lib:SetAddCallback(pinType, pinTypeAddCallback)
    end
 
    if pinTypeId ~= nil then
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId].callback = function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end
-      end
-	  
 	  self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
    end
 end
@@ -632,6 +513,8 @@ function lib:SetEnabled(pinType, state)
          ZO_CheckButton_SetCheckState(filter.pvp, enabled)
       elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
          ZO_CheckButton_SetCheckState(filter.imperialPvP, enabled)
+		elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+         ZO_CheckButton_SetCheckState(filter.battleground, enabled)
       end
    end
 
@@ -689,8 +572,12 @@ end
 --                filter state for Imperial City PvP context, used only if separate
 --                is true. If separate is true, savedVars exists but this argument
 --                is nil, state will be stored in savedVars[pinTypeString .. "_imperialPvP"].
+-- savedVarsBattlegroundKey: (nilable), key in the savedVars table where you store
+--                filter state for Battleground PvP context, used only if separate
+--                is true. If separate is true, savedVars exists but this argument
+--                is nil, state will be stored in savedVars[pinTypeString .. "_battleground"].
 -------------------------------------------------------------------------------
-function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey, savedVarsImperialPvpKey)
+function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVarsPveKey, savedVarsPvpKey, savedVarsImperialPvpKey, savedVarsBattlegroundKey)
    local pinTypeString, pinTypeId
    if type(pinType) == "string" then
       pinTypeString = pinType
@@ -713,9 +600,11 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
       if separate then
          filter.pvpKey = savedVarsPvpKey or pinTypeString .. "_pvp"
          filter.imperialPvPKey = savedVarsImperialPvpKey or pinTypeString .. "_imperialPvP"
+         filter.battlegroundKey = savedVarsBattlegroundKey or pinTypeString .. "_battleground"
       else
          filter.pvpKey = filter.pveKey
          filter.imperialPvPKey = filter.pveKey
+         filter.battlegroundKey = filter.pveKey
       end
    end
 
@@ -733,6 +622,7 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
    filter.pve = AddCheckbox(WORLD_MAP_FILTERS.pvePanel, pinCheckboxText)
    filter.pvp = AddCheckbox(WORLD_MAP_FILTERS.pvpPanel, pinCheckboxText)
    filter.imperialPvP = AddCheckbox(WORLD_MAP_FILTERS.imperialPvPPanel, pinCheckboxText)
+   filter.battleground = AddCheckbox(WORLD_MAP_FILTERS.battlegroundPanel, pinCheckboxText)
 
    if filter.vars ~= nil then
       ZO_CheckButton_SetToggleFunction(filter.pve,
@@ -750,6 +640,11 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
             filter.vars[filter.imperialPvPKey] = state
             self:SetEnabled(pinTypeId, state)
          end)
+      ZO_CheckButton_SetToggleFunction(filter.battleground,
+         function(button, state)
+            filter.vars[filter.battlegroundKey] = state
+            self:SetEnabled(pinTypeId, state)
+         end)
 
       local mapFilterType = GetMapFilterType()
       if mapFilterType == MAP_FILTER_TYPE_STANDARD then
@@ -758,6 +653,8 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
          self:SetEnabled(pinTypeId, filter.vars[filter.pvpKey])
       elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
          self:SetEnabled(pinTypeId, filter.vars[filter.imperialPvPKey])
+		elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+         self:SetEnabled(pinTypeId, filter.vars[filter.battlegroundKey])
       end
    else
       ZO_CheckButton_SetToggleFunction(filter.pve,
@@ -777,7 +674,7 @@ function lib:AddPinFilter(pinType, pinCheckboxText, separate, savedVars, savedVa
       ZO_CheckButton_SetCheckState(filter.imperialPvP, self:IsEnabled(pinTypeId))
    end
 
-   return filter.pve, filter.pvp, filter.imperialPvP
+   return filter.pve, filter.pvp, filter.imperialPvP, filter.battleground
 end
 
 -------------------------------------------------------------------------------
@@ -812,6 +709,8 @@ function lib.OnMapChanged()
       context = "pvp"
    elseif mapFilterType == MAP_FILTER_TYPE_AVA_IMPERIAL then
       context = "imperialPvP"
+	elseif mapFilterType == MAP_FILTER_TYPE_BATTLEGROUND then
+      context = "battleground"
    end
 
    if lib.context ~= context then
@@ -944,7 +843,7 @@ local function OnLoad(code, addon)
       end
    end
    if WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool then
-      WORLD_MAP_FILTERS.imeprialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
       for i, control in pairs(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.m_Active) do
          control:SetParent(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.parent)
       end
@@ -957,6 +856,34 @@ local function OnLoad(code, addon)
    end
    if ZO_WorldMapFiltersImperialPvPContainer then
       ZO_WorldMapFiltersImperialPvPContainer:SetAnchorFill()
+   end
+	
+   if WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool then
+      WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.parent = ZO_WorldMapFiltersBattlegroundContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersBattlegroundContainer", ZO_WorldMapFiltersBattleground, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.battlegroundPanel.checkBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersBattlegroundCheckBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersBattlegroundCheckBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.battlegroundPanel.control then
+            ZO_WorldMapFiltersBattlegroundCheckBox1:SetAnchor(point, ZO_WorldMapFiltersBattlegroundContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool then
+      WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.parent = ZO_WorldMapFiltersBattlegroundContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersBattlegroundContainer", ZO_WorldMapFiltersBattleground, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      for i, control in pairs(WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.m_Active) do
+         control:SetParent(WORLD_MAP_FILTERS.battlegroundPanel.comboBoxPool.parent)
+      end
+      if ZO_WorldMapFiltersBattlegroundComboBox1 then 
+         local valid, point, control, relPoint, x, y = ZO_WorldMapFiltersBattlegroundComboBox1:GetAnchor(0)
+         if control == WORLD_MAP_FILTERS.battlegroundPanel.control then
+            ZO_WorldMapFiltersPvPComboBox1:SetAnchor(point, ZO_WorldMapFiltersBattlegroundContainerScrollChild, relPoint, x, y)
+         end
+      end
+   end
+   if ZO_WorldMapFiltersBattlegroundContainer then
+      ZO_WorldMapFiltersBattlegroundContainer:SetAnchorFill()
    end
 end
 EVENT_MANAGER:RegisterForEvent("LibMapPins", EVENT_ADD_ON_LOADED, OnLoad)
@@ -1098,3 +1025,15 @@ EVENT_MANAGER:RegisterForEvent("MapPinTest_OnLoad", EVENT_ADD_ON_LOADED, OnLoad)
 -------------------------------------------------------------------------------
 -- END of sample code
 --]]---------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- AUI support (removed)
+-------------------------------------------------------------------------------
+lib.AUI = lib.AUI or {}
+
+function lib.AUI.DoesMinimapExist() end
+function lib.AUI.IsMinimapEnabled() end
+function lib.AUI.IsMinimapLoaded() end
+function lib.AUI.AddCustomPinType() end
+function lib.AUI.UpdateQueuedCustomPinTypes() end
+function lib.AUI.SetQueuedCustomPinType() end
