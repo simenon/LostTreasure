@@ -29,8 +29,8 @@ LOST_TREASURE_DATA = {
       {0.4955,  0.8927,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[オーリドンの宝の地図1]],    [[Ауридон, карта сокровищ I]],             [[treasuremap_auridon_01]],            43625 },
       {0.4850,  0.6411,  [[Auridon Treasure Map II]],  [[Auridon Schatzkarte II]],  [[Carte Au Trésor d'Auridia II]],  [[オーリドンの宝の地図2]],    [[Ауридон, карта сокровищ II]],            [[treasuremap_auridon_02]],            43626 },
       {0.4419,  0.5074,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[オーリドンの宝の地図3]],    [[Ауридон, карта сокровищ III]],           [[treasuremap_auridon_03]],            43627 },
-      {0.6699,  0.4154,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[オーリドンの宝の地図4]],    [[Ауридон, карта сокровищ IV]],            [[treasuremap_auridon_04]],            43628 },
-      {0.5033,  0.2588,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[オーリドンの宝の地図5]],    [[Ауридон, карта сокровищ V]],             [[treasuremap_auridon_05]],            43629 },
+      {0.6641,  0.4114,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[オーリドンの宝の地図4]],    [[Ауридон, карта сокровищ IV]],            [[treasuremap_auridon_04]],            43628 },
+      {0.5000,  0.2525,  [[Auridon Treasure Map V]],   [[Auridon Schatzkarte V]],   [[Carte Au Trésor d'Auridia V]],   [[オーリドンの宝の地図5]],    [[Ауридон, карта сокровищ V]],             [[treasuremap_auridon_05]],            43629 },
       {0.3385,  0.1318,  [[Auridon Treasure Map VI]],  [[Auridon Schatzkarte VI]],  [[Carte Au Trésor d'Auridia VI]],  [[オーリドンの宝の地図6]],    [[Ауридон, карта сокровищ VI]],            [[treasuremap_auridon_06]],            43630 },
       {0.6881,  0.9678,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[オーリドンの宝の地図(CE)]], [[Ауридон, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
     },
@@ -286,12 +286,12 @@ LOST_TREASURE_DATA = {
   ----Glenumbra
   ["glenumbra"] = {
     ["treasure"] = {
-      {0.5265,  0.7618,  [[Glenumbra Treasure Map I]],   [[Glenumbra Schatzkarte I]],   [[Carte Au Trésor de la Glénumbrie I]],   [[グレナンブラの宝の地図1]],    [[Гленумбра, карта сокровищ I]], [[treasuremap_glenumbra_001]],              43507 },
-      {0.4920,  0.4542,  [[Glenumbra Treasure Map II]],  [[Glenumbra Schatzkarte II]],  [[Carte Au Trésor de la Glénumbrie II]],  [[グレナンブラの宝の地図2]],    [[Гленумбра, карта сокровищ II]], [[treasuremap_glenumbra_002]],              43525 },
-      {0.6595,  0.2617,  [[Glenumbra Treasure Map III]], [[Glenumbra Schatzkarte III]], [[Carte Au Trésor de la Glénumbrie III]], [[グレナンブラの宝の地図3]],    [[Гленумбра, карта сокровищ III]], [[treasuremap_glenumbra_003]],              43527 },
-      {0.7337,  0.5285,  [[Glenumbra Treasure Map IV]],  [[Glenumbra Schatzkarte IV]],  [[Carte Au Trésor de la Glénumbrie IV]],  [[グレナンブラの宝の地図4]],    [[Гленумбра, карта сокровищ IV]], [[treasuremap_glenumbra_004]],              43600 },
-      {0.2752,  0.5285,  [[Glenumbra Treasure Map V]],   [[Glenumbra Schatzkarte V]],   [[Carte Au Trésor de la Glénumbrie V]],   [[グレナンブラの宝の地図5]],    [[Гленумбра, карта сокровищ V]], [[treasuremap_glenumbra_005]],              43509 },
-      {0.5157,  0.2545,  [[Glenumbra Treasure Map VI]],  [[Glenumbra Schatzkarte VI]],  [[Carte Au Trésor de la Glénumbrie VI]],  [[グレナンブラの宝の地図6]],    [[Гленумбра, карта сокровищ VI]], [[treasuremap_glenumbra_006]],              43526 },
+      {0.5265,  0.7618,  [[Glenumbra Treasure Map I]],   [[Glenumbra Schatzkarte I]],   [[Carte Au Trésor de la Glénumbrie I]],   [[グレナンブラの宝の地図1]],    [[Гленумбра, карта сокровищ I]],             [[treasuremap_glenumbra_001]],              43507 },
+      {0.4920,  0.4542,  [[Glenumbra Treasure Map II]],  [[Glenumbra Schatzkarte II]],  [[Carte Au Trésor de la Glénumbrie II]],  [[グレナンブラの宝の地図2]],    [[Гленумбра, карта сокровищ II]],            [[treasuremap_glenumbra_002]],              43525 },
+      {0.6595,  0.2617,  [[Glenumbra Treasure Map III]], [[Glenumbra Schatzkarte III]], [[Carte Au Trésor de la Glénumbrie III]], [[グレナンブラの宝の地図3]],    [[Гленумбра, карта сокровищ III]],           [[treasuremap_glenumbra_003]],              43527 },
+      {0.7337,  0.5285,  [[Glenumbra Treasure Map IV]],  [[Glenumbra Schatzkarte IV]],  [[Carte Au Trésor de la Glénumbrie IV]],  [[グレナンブラの宝の地図4]],    [[Гленумбра, карта сокровищ IV]],            [[treasuremap_glenumbra_004]],              43600 },
+      {0.2752,  0.5285,  [[Glenumbra Treasure Map V]],   [[Glenumbra Schatzkarte V]],   [[Carte Au Trésor de la Glénumbrie V]],   [[グレナンブラの宝の地図5]],    [[Гленумбра, карта сокровищ V]],             [[treasuremap_glenumbra_005]],              43509 },
+      {0.5157,  0.2545,  [[Glenumbra Treasure Map VI]],  [[Glenumbra Schatzkarte VI]],  [[Carte Au Trésor de la Glénumbrie VI]],  [[グレナンブラの宝の地図6]],    [[Гленумбра, карта сокровищ VI]],            [[treasuremap_glenumbra_006]],              43526 },
       {0.7030,  0.4668,  [[Glenumbra CE Treasure Map]],  [[Glenumbra CE Schatzkarte]],  [[Carte Au Trésor de la Glénumbrie EC]],  [[グレナンブラの宝の地図(CE)]], [[Гленумбра, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_glenumbra_02]], 44936 },
     },
     ["surveys"] = {
@@ -556,11 +556,20 @@ LOST_TREASURE_DATA = {
       {0.6681, 0.7193, [[Vvardenfell Treasure Map VI]], [[Schatzkarte: Vvardenfell VI]], [[Carte Au Trésor Vvardenfell VI]], [[ヒューズベインの宝の地図2]], [[Проклятие Хью, карта Вварденфела VI]], [[treasuremap_vvardenfell_08]], 43742 },
     },
     ["surveys"] = {
-      {0.4411, 0.2445, [[Enchanter Survey: Vvardenfell]], [[Verzauberergutachten: Vvardenfell]], [[Repérages d'Enchanteur : Vvardenfell]], [[付呪師の調査報告: バンコライ]], [[исследование зачарователя: Вварденфела]], [[vvardenfell_survey_enchanter]], 126122 },
-      {0.8419, 0.7310, [[Clothier Survey: Vvardenfell]], [[Schneidergutachten: Vvardenfell]], [[Repérages de Tailleur : Vvardenfell]], [[仕立師の調査報告: バンコライ]], [[исследование портного: Вварденфела]], [[vvardenfell_survey_clothier]], 126111 },
-      {0.2904, 0.3250, [[Alchemist Survey: Vvardenfell]], [[Alchemistengutachten: Vvardenfell]], [[Repérages d'Alchemiste : Vvardenfell]], [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Вварденфела]], [[vvardenfell_survey_alchemist]], 126113 },
-      {0.6718, 0.6267, [[Blacksmith Survey: Vvardenfell]], [[Schmiedegutachten: Vvardenfell]], [[Repérages de Forgeron : Vvardenfell]], [[鍛冶師の調査報告: バンコライ]], [[исследование кузнеца: Вварденфела]], [[vvardenfell_survey_blacksmith]], 126110 },
-      {0.3368, 0.7736, [[Woodworker Survey: Vvardenfell]], [[Schreinergutachten: Vvardenfell]], [[Repérages de Travailleur du Bois : Vvardenfell]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Вварденфела]], [[vvardenfell_survey_woodworker]], 126112 },
+      {0.4411, 0.2445, [[Enchanter Survey: Vvardenfell]],  [[Verzauberergutachten: Vvardenfell]], [[Repérages d'Enchanteur : Vvardenfell]], [[付呪師の調査報告: バンコライ]], [[исследование зачарователя: Вварденфела]], [[vvardenfell_survey_enchanter]], 126122 },
+      {0.8419, 0.7310, [[Clothier Survey: Vvardenfell]],   [[Schneidergutachten: Vvardenfell]],   [[Repérages de Tailleur : Vvardenfell]],  [[仕立師の調査報告: バンコライ]], [[исследование портного: Вварденфела]], [[vvardenfell_survey_clothier]], 126111 },
+      {0.2904, 0.3250, [[Alchemist Survey: Vvardenfell]],  [[Alchemistengutachten: Vvardenfell]], [[Repérages d'Alchemiste : Vvardenfell]], [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Вварденфела]], [[vvardenfell_survey_alchemist]], 126113 },
+      {0.6718, 0.6267, [[Blacksmith Survey: Vvardenfell]], [[Schmiedegutachten: Vvardenfell]],    [[Repérages de Forgeron : Vvardenfell]],  [[鍛冶師の調査報告: バンコライ]], [[исследование кузнеца: Вварденфела]], [[vvardenfell_survey_blacksmith]], 126110 },
+      {0.3368, 0.7736, [[Woodworker Survey: Vvardenfell]], [[Schreinergutachten: Vvardenfell]],   [[Repérages de Travailleur du Bois : Vvardenfell]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Вварденфела]], [[vvardenfell_survey_woodworker]], 126112 },
+    },
+  },
+  -- Clockwork City
+  ["clockwork"] = {
+    ["treasure"] = {
+        {0.1813,  0.5961,  [[Clockwork City Treasure Map I]],  [[Schatzkarte: Clockwork City I]],  [[Carte Au Trésor Clockwork City I]],  [[Clockwork City Treasure Map I]],  [[Clockwork City Treasure Map I]],   [[treasuremap_clockworkcity_01]], 43746 },
+        {0.8030,  0.4237,  [[Clockwork City Treasure Map II]], [[Schatzkarte: Clockwork City II]], [[Carte Au Trésor Clockwork City II]], [[Clockwork City Treasure Map II]], [[Clockwork City Treasure Map II]],  [[treasuremap_clockworkcity_02]], 43747 },
+    },
+    ["surveys"] = {
     },
   },
 }

@@ -26,7 +26,7 @@
 -- OTHER DEALINGS IN THE SOFTWARE.
 --
 -------------------------------------------------------------------------------
-local MAJOR, MINOR = "LibMapPins-1.0", 15
+local MAJOR, MINOR = "LibMapPins-1.0", 17
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR, MINOR)
 if not lib then return end
@@ -45,63 +45,6 @@ if not lib.pinManager then
    lib.pinManager.customPins[_G[pinType]] = nil
    lib.pinManager.m_keyToPinMapping[_G[pinType]] = nil
    _G[pinType] = nil
-end
-
---AUI support
-lib.AUI = lib.AUI or { mapping = {}, tasks = {} }
-
-function lib.AUI.DoesMinimapExist()
-   if AUI and AUI.Minimap and AUI.Minimap.Pin then
-      return true
-   end
-
-   return false
-end
-
-function lib.AUI.IsMinimapEnabled()
-   if lib.AUI.DoesMinimapExist() then
-      return AUI.Minimap.IsEnabled()
-   end
-
-   return false
-end
-
-function lib.AUI.IsMinimapLoaded()
-   if lib.AUI.DoesMinimapExist() then
-      return AUI.Minimap.IsLoaded()
-   end
-
-   return false
-end
-
-function lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
-   local pinTypeId = _G[pinTypeString]
-   local pinData = lib.pinManager.customPins[pinTypeId]
-
-   local AUI_pinTypeId = AUI.Minimap.Pin.AddCustomPinType(pinLayoutData, function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end, pinTooltipCreator)
-   lib.AUI.mapping[pinTypeId] = AUI_pinTypeId
-end
-
-function lib.AUI.UpdateQueuedCustomPinTypes()
-   if lib.AUI.IsMinimapEnabled() == false or lib.AUI.IsMinimapLoaded() then
-      EVENT_MANAGER:UnregisterForUpdate("AUI_OnInit")
-   end
-
-   if AUI.Minimap.IsLoaded() then
-      for id, funcArgs in ipairs(lib.AUI.tasks) do
-         lib.AUI.AddCustomPinType(unpack(funcArgs))
-         lib.AUI.tasks[id] = nil
-      end
-      lib.AUI.queued = false
-   end
-end
-
-function lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-   table.insert(lib.AUI.tasks, {pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator})
-   if not lib.AUI.queued then
-      EVENT_MANAGER:RegisterForUpdate("AUI_OnInit", 0, lib.AUI.UpdateQueuedCustomPinTypes)
-      lib.AUI.queued = true
-   end	
 end
 
 -------------------------------------------------------------------------------
@@ -210,14 +153,6 @@ function lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallba
    self.pinManager:SetCustomPinEnabled(pinTypeId, true)
    self.pinManager:RefreshCustomPins(pinTypeId)  
    
-   if lib.AUI.DoesMinimapExist() then
-      if lib.AUI.IsMinimapLoaded() then
-         lib.AUI.AddCustomPinType(pinTypeString, pinLayoutData, pinTypeAddCallback, pinTypeOnResizeCallback, pinTooltipCreator)
-      else
-         lib.AUI.SetQueuedCustomPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-      end
-   end
-
    return pinTypeId
 end
 
@@ -250,18 +185,6 @@ function lib:CreatePin(pinType, pinTag, locX, locY, areaRadius)
 	  if pinData then	 
          local isEnabled = self:IsEnabled(pinTypeId)
          if isEnabled then
-			if self.AUI.IsMinimapLoaded() then
-			   if AUI.Minimap.GetVersion then
-			      if AUI.Minimap.GetVersion() >= 1.2 then
-			         AUI.Minimap.Pin.CreateCustomPin(self.AUI.mapping[pinTypeId], pinTag, locX, locY, areaRadius)
-			      end
-		       else
-			      local mapIndex = AUI.Minimap.Map.GetCurrentMapIndex()
-			      local pinName = pinData.pinTypeString .. AUI.Minimap.Pin.GetCustomPinCount() + 1
-				
-			      AUI.Minimap.Pin.CreateCustomPin(pinName, self.AUI.mapping[pinTypeId], pinTag, mapIndex, locX, locY, areaRadius)			 
-		       end
-			end
 			self.pinManager:CreatePin(pinTypeId, pinTag, locX, locY, areaRadius)			 
         end
 	  end
@@ -339,14 +262,6 @@ function lib:SetLayoutData(pinType, pinLayoutData)
       for k,v in pairs(pinLayoutData) do
          ZO_MapPin.PIN_DATA[pinTypeId][k] = v
       end
-
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] = {}
-         for k,v in pairs(pinLayoutData) do
-            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][k] = v
-         end
-      end
    end
 end
 
@@ -371,13 +286,6 @@ function lib:SetLayoutKey(pinType, key, data)
 
    if pinTypeId ~= nil then
       ZO_MapPin.PIN_DATA[pinTypeId][key] = data
-
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         if AUI_pinTypeId and AUI_MINIMAP_PIN_DATA[AUI_pinTypeId] then
-            AUI_MINIMAP_PIN_DATA[AUI_pinTypeId][key] = data
-         end
-      end
    end
 end
 
@@ -446,17 +354,6 @@ function lib:RefreshPins(pinType)
       pinTypeId = pinType
    end
 
-   if self.AUI.IsMinimapLoaded() then
-      if pinTypeId ~= nil then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-      else
-         for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
-            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-         end
-      end
-   end
-   
    self.pinManager:RefreshCustomPins(pinTypeId)
 end
 
@@ -482,18 +379,7 @@ function lib:RemoveCustomPin(pinType, pinTag)
 
    if pinTypeId ~= nil then
       self.pinManager:RemovePins(pinTypeString, pinTypeId, pinTag)
-
-      if self.AUI.IsMinimapLoaded() then
-         if pinTypeId ~= nil then
-            local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-            AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-         else
-            for pinTypeId, AUI_pinTypeId in pairs(self.AUI.mapping) do
-               AUI.Minimap.Pin.RemoveCustomPinsByType(AUI_pinTypeId)
-            end
-         end
-      end
-    end
+   end
 end
 
 -------------------------------------------------------------------------------
@@ -542,11 +428,6 @@ function lib:SetAddCallback(pinType, pinTypeAddCallback)
    end
 
    if pinTypeId ~= nil then
-      if AUI_MINIMAP_PIN_DATA then
-         local AUI_pinTypeId = self.AUI.mapping[pinTypeId]
-         AUI_MINIMAP_PIN_DATA[AUI_pinTypeId].callback = function(p1, p2) if pinTypeAddCallback and AUI.Minimap.IsShow() then lib.pinManager:RemovePins(pinTypeString) pinTypeAddCallback(p1, p2) end end
-      end
-	  
 	  self.pinManager.customPins[pinTypeId].layoutCallback = pinTypeAddCallback
    end
 end
@@ -962,7 +843,7 @@ local function OnLoad(code, addon)
       end
    end
    if WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool then
-      WORLD_MAP_FILTERS.imeperialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
+      WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.parent = ZO_WorldMapFiltersImperialPvPContainerScrollChild or WINDOW_MANAGER:CreateControlFromVirtual("ZO_WorldMapFiltersImperialPvPContainer", ZO_WorldMapFiltersImperialPvP, "ZO_ScrollContainer"):GetNamedChild("ScrollChild")
       for i, control in pairs(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.m_Active) do
          control:SetParent(WORLD_MAP_FILTERS.imperialPvPPanel.comboBoxPool.parent)
       end
@@ -1144,3 +1025,15 @@ EVENT_MANAGER:RegisterForEvent("MapPinTest_OnLoad", EVENT_ADD_ON_LOADED, OnLoad)
 -------------------------------------------------------------------------------
 -- END of sample code
 --]]---------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- AUI support (removed)
+-------------------------------------------------------------------------------
+lib.AUI = lib.AUI or {}
+
+function lib.AUI.DoesMinimapExist() end
+function lib.AUI.IsMinimapEnabled() end
+function lib.AUI.IsMinimapLoaded() end
+function lib.AUI.AddCustomPinType() end
+function lib.AUI.UpdateQueuedCustomPinTypes() end
+function lib.AUI.SetQueuedCustomPinType() end
