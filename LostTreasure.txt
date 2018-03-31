@@ -6,9 +6,9 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: Shows treasure map locations
-## Version: 4.32
+## Version: 4.33
 ## Author:  |cFFA500CrazyDutchGuy|r
-## APIVersion: 100021
+## APIVersion: 100022
 ## SavedVariables: LOST_TREASURE_SV
 ## OptionalDependsOn: LibStub LibMapPins-1.0 LibAddonMenu-2.0 CustomCompassPins
 
