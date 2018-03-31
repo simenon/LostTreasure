@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.31",
+    Version = "4.33",
     WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
@@ -121,14 +121,24 @@ end
 --Creates ToolTip from treasure info
 local pinTooltipCreator = {
 	creator = function(pin)
-        local _, pinTag = pin:GetPinTypeAndTag()
+		local function getItemLinkFromItemId(itemId) 
+			local name = GetItemLinkName(ZO_LinkHandler_CreateLink("Test Trash", nil, ITEM_LINK_TYPE,itemId, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 10000, 0))
+			local link = ZO_LinkHandler_CreateLinkWithoutBrackets(zo_strformat("<<t:1>>",name), nil, ITEM_LINK_TYPE,itemId, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 10000, 0)
+
+			return string.match(link,"|H0:item:%d+:%d:%d%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d+:%d").."|h|h"
+		end
+
+		local _, pinTag = pin:GetPinTypeAndTag()
+
 		if IsInGamepadPreferredMode() then
 			INFORMATION_TOOLTIP:LayoutIconStringLine(INFORMATION_TOOLTIP.tooltip, nil, zo_strformat(pinTag[LOST_TREASURE_INDEX.MAP_NAME]), INFORMATION_TOOLTIP.tooltip:GetStyle("mapTitle"))
-            		INFORMATION_TOOLTIP:LayoutIconStringLine(INFORMATION_TOOLTIP.tooltip, pinTextures[4], zo_strformat("<<1>>x<<2>>", string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100), string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100)), {fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3})
-        	else
-            		INFORMATION_TOOLTIP:AddLine(pinTag[LOST_TREASURE_INDEX.MAP_NAME], "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
-            		INFORMATION_TOOLTIP:AddLine(string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100).."x"..string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
-        	end
+			INFORMATION_TOOLTIP:LayoutIconStringLine(INFORMATION_TOOLTIP.tooltip, pinTextures[4], zo_strformat("<<1>>x<<2>>", string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100), string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100)), {fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3})
+		else
+			local bag,_,_ = GetItemLinkStacks(getItemLinkFromItemId(pinTag[LOST_TREASURE_INDEX.ITEMID]))
+
+			INFORMATION_TOOLTIP:AddLine(pinTag[LOST_TREASURE_INDEX.MAP_NAME].." ("..tostring(bag)..")", "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+			INFORMATION_TOOLTIP:AddLine(string.format("%.2f",pinTag[LOST_TREASURE_INDEX.X]*100).."x"..string.format("%.2f",pinTag[LOST_TREASURE_INDEX.Y]*100), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())--name color
+		end
 	end,
 	tooltip = 1, -- tooltip type is information
 }
