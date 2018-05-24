@@ -40,6 +40,7 @@ LOST_TREASURE_DATA = {
       {0.5483,  0.4650,  [[Woodworker Survey: Auridon]], [[Schreinergutachten: Auridon]],   [[Repérages de Travailleur du Bois : Auridia]], [[木工師の調査報告: オーリドン]],   [[исследование столяра: Ауридон]],      [[auridon_survey_woodworker]], 57741 },
       {0.6359,  0.6950,  [[Blacksmith Survey: Auridon]], [[Schmiedegutachten: Auridon]],    [[Repérages de Forgeron : Auridia]],            [[鍛冶師の調査報告: オーリドン]],   [[исследование кузнеца: Ауридон]],      [[auridon_survey_blacksmith]], 57687 },
       {0.4085,  0.7007,  [[Clothier Survey: Auridon]],   [[Schneidergutachten: Auridon]],   [[Repérages de Tailleur : Auridia]],            [[仕立師の調査報告: オーリドン]],   [[исследование портного: Ауридон]],     [[auridon_survey_clothier]],   57738 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Auridon]],   [[Jewelry Crafting Survey: Auridon]],   [[Jewelry Crafting Survey: Auridon]],            [[Jewelry Crafting Survey: Auridon]],   [[Jewelry Crafting Survey: Auridon]],     [[auridon_survey_jewelry]],  139422 },
     },
   },
 ----Auridon, Vulkhel Guard
@@ -65,6 +66,7 @@ LOST_TREASURE_DATA = {
       {0.4578,  0.7874,  [[Clothier Survey: Grahtwood]],   [[Schneidergutachten: Grahtwald]],   [[Repérages de Tailleur : Bois de Graht]],            [[仕立師の調査報告: グラーウッド]],   [[исследование портного: Гратвуд]],     [[grahtwood_survey_clothier]],   57754 },
       {0.6120,  0.3808,  [[Alchemist Survey: Grahtwood]],  [[Alchemistengutachten: Grahtwald]], [[Repérages d'Alchemiste : Bois de Graht]],           [[錬金術師の調査報告: グラーウッド]], [[исследование алхимика: Гратвуд]],     [[grahtwood_survey_alchemist]],  57771 },
       {0.4258,  0.2649,  [[Woodworker Survey: Grahtwood]], [[Schreinergutachten: Grahtwald]],   [[Repérages de Travailleur du Bois : Bois de Graht]], [[木工師の調査報告: グラーウッド]],   [[исследование столяра: Гратвуд]],      [[grahtwood_survey_woodworker]], 57816 },
+      {0.3894,  0.3932,  [[Jewelry Crafting Survey: Grahtwood]], [[Jewelry Crafting Survey: Grahtwood]],   [[Jewelry Crafting Survey: Grahtwood]], [[Jewelry Crafting Survey: Grahtwood]],   [[Jewelry Crafting Survey: Grahtwood]],      [[grahtwood_survey_jewelry]], 139425},
     },
   },
   ["eldenrootgroundfloor"] = {
@@ -89,6 +91,7 @@ LOST_TREASURE_DATA = {
       {0.5990,  0.6273,  [[Blacksmith Survey: Greenshade]], [[Schmiedegutachten: Grünschatten]],    [[Repérages de Forgeron : Prasin]],            [[鍛冶師の調査報告: グリーンシェイド]],   [[исследование кузнеца: Гриншейд]],      [[greenshade_survey_blacksmith]], 57788 },
       {0.5028,  0.2891,  [[Enchanter Survey: Greenshade]],  [[Verzauberergutachten: Grünschatten]], [[Repérages d'Enchanteur : Prasin]],           [[付呪師の調査報告: グリーンシェイド]],   [[исследование зачарователя: Гриншейд]], [[greenshade_survey_enchanter]],  57802 },
       {0.2991,  0.8134,  [[Woodworker Survey: Greenshade]], [[Schreinergutachten: Grünschatten]],   [[Repérages de Travailleur du Bois : Prasin]], [[木工師の調査報告: グリーンシェイド]],   [[исследование столяра: Гриншейд]],      [[greenshade_survey_woodworker]], 57819 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]],      [[greenshade_survey_jewelry]], 139427},
     },
   },
 ----Malabal Tor
@@ -108,6 +111,7 @@ LOST_TREASURE_DATA = {
       {0.8326,  0.4942,  [[Blacksmith Survey: Malabal Tor]], [[Schmiedegutachten: Malabal Tor]],    [[Repérages de Forgeron : Malabal Tor]],            [[鍛冶師の調査報告: マラバル・トール]],   [[исследование кузнеца: Малабал Тор]],      [[malabaltor_survey_blacksmith]], 57791 },
       {0.5845,  0.7977,  [[Enchanter Survey: Malabal Tor]],  [[Verzauberergutachten: Malabal Tor]], [[Repérages d'Enchanteur : Malabal Tor]],           [[付呪師の調査報告: マラバル・トール]],   [[исследование зачарователя: Малабал Тор]], [[malabaltor_survey_enchanter]],  57805 },
       {0.5850,  0.5865,  [[Woodworker Survey: Malabal Tor]], [[Schreinergutachten: Malabal Tor]],   [[Repérages de Travailleur du Bois : Malabal Tor]], [[木工師の調査報告: マラバル・トール]],   [[исследование столяра: Малабал Тор]],      [[malabaltor_survey_woodworker]], 57822 },
+      {0.4135,  0.6588,  [[Jewelry Crafting Survey: Malabal Tor]], [[Jewelry Crafting Survey: Malabal Tor]],   [[Jewelry Crafting Survey: Malabal Tor]], [[Jewelry Crafting Survey: Malabal Tor]],   [[Jewelry Crafting Survey: Malabal Tor]],      [[malabaltor_survey_jewelry]], 139430},
     },
   },
   ["velynharbor"] = {
@@ -133,6 +137,7 @@ LOST_TREASURE_DATA = {
       {0.3000,  0.3616,  [[Alchemist Survey: Reaper's March]],  [[Alchemistengutachten: Schnittermark]], [[Repérages d'Alchemiste : Marche de la Camarde]],           [[錬金術師の調査: リーパーズ・マーチ]], [[исследование алхимика: Марка Смерти]],     [[reapersmarch_survey_alchemist]],  57780 },
       {0.6450,  0.2200,  [[Blacksmith Survey: Reaper's March]], [[Schmiedegutachten: Schnittermark]],    [[Repérages de Forgeron : Marche de la Camarde]],            [[鍛冶師の調査: リーパーズ・マーチ]],   [[исследование кузнеца: Марка Смерти]],      [[reapersmarch_survey_blacksmith]], 57793 },
       {0.4289,  0.8485,  [[Woodworker Survey: Reaper's March]], [[Schreinergutachten: Schnittermark]],   [[Repérages de Travailleur du Bois : Marche de la Camarde]], [[木工師の調査: リーパーズ・マーチ]],   [[исследование столяра: Марка Смерти]],      [[reapersmarch_survey_woodworker]], 57825 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]],      [[reapersmarch_survey_jewelry]], 139432},
     },
   },
   ["rawlkha"] = {
@@ -179,6 +184,7 @@ LOST_TREASURE_DATA = {
       {0.1590,  0.5593,  [[Woodworker Survey: Stonefalls]], [[Schreinergutachten: Steinfälle]],   [[Repérages de Travailleur du Bois : Éboulis]], [[木工師の調査報告: ストンフォール]],   [[исследование столяра: Стоунфолз]],      [[stonefalls_survey_woodworker]], 57743 },
       {0.5591,  0.3908,  [[Alchemist Survey: Stonefalls]],  [[Alchemistengutachten: Steinfälle]], [[Repérages d'Alchemiste : Éboulis]],           [[錬金術師の調査報告: ストンフォール]], [[исследование алхимика: Стоунфолз]],     [[stonefalls_survey_alchemist]],  57746 },
       {0.7478,  0.5827,  [[Enchanter Survey: Stonefalls]],  [[Verzauberergutachten: Steinfälle]], [[Repérages d'Enchanteur : Éboulis]],           [[付呪師の調査報告: ストンフォール]],   [[исследование зачарователя: Стоунфолз]], [[stonefalls_survey_enchanter]],  57735 },
+      {0.6840,  0.6401,  [[Jewelry Crafting Survey: Stonefalls]],  [[Jewelry Crafting Survey: Stonefalls]], [[Jewelry Crafting Survey: Stonefalls]],           [[Jewelry Crafting Survey: Stonefalls]],   [[Jewelry Crafting Survey: Stonefalls]], [[stonefalls_survey_jewelry]],  139424 },
     },
   },
   ["ebonheart"] = {
@@ -203,6 +209,7 @@ LOST_TREASURE_DATA = {
       {0.2389,  0.4811,  [[Clothier Survey: Deshaan]],   [[Schneidergutachten: Deshaan]],   [[Repérages de Tailleur : Deshaan]],            [[仕立師の調査報告: デシャーン]],   [[исследование портного: Дешаан]],     [[deshaan_survey_clothier]],   57755 },
       {0.1484,  0.4960,  [[Alchemist Survey: Deshaan]],  [[Alchemistengutachten: Deshaan]], [[Repérages d'Alchemiste : Deshaan]],           [[錬金術師の調査報告: デシャーン]], [[исследование алхимика: Дешаан]],     [[deshaan_survey_alchemist]],  57772 },
       {0.6370,  0.5503,  [[Woodworker Survey: Deshaan]], [[Schreinergutachten: Deshaan]],   [[Repérages de Travailleur du Bois : Deshaan]], [[木工師の調査報告: デシャーン]],   [[исследование столяра: Дешаан]],      [[deshaan_survey_woodworker]], 57817 },
+      {0.4861,  0.6148,  [[Jewelry Crafting Survey: Deshaan]], [[Jewelry Crafting Survey: Deshaan]],   [[Jewelry Crafting Survey: Deshaan]], [[Jewelry Crafting Survey: Deshaan]],   [[Jewelry Crafting Survey: Deshaan]],      [[deshaan_survey_jewelry]], 139426},
     },
   },
 ----Shadowfen
@@ -222,6 +229,7 @@ LOST_TREASURE_DATA = {
       {0.7959,  0.8522,  [[Blacksmith Survey: Shadowfen]], [[Schmiedegutachten: Schattenfenn]],    [[Repérages de Forgeron : Fangeombre]],            [[鍛冶師の調査報告: シャドウフェン]],   [[исследование кузнеца: Шедоуфен]], [[shadowfen_survey_blacksmith]], 57789 },
       {0.4006,  0.6956,  [[Enchanter Survey: Shadowfen]],  [[Verzauberergutachten: Schattenfenn]], [[Repérages d'Enchanteur : Fangeombre]],           [[付呪師の調査報告: シャドウフェン]],   [[исследование зачарователя: Шедоуфен]], [[shadowfen_survey_enchanter]],  57803 },
       {0.5804,  0.6794,  [[Woodworker Survey: Shadowfen]], [[Schreinergutachten: Schattenfenn]],   [[Repérages de Travailleur du Bois : Fangeombre]], [[木工師の調査報告: シャドウフェン]],   [[исследование столяра: Шедоуфен]], [[shadowfen_survey_woodworker]], 57820 },
+      {0.8888,  0.6867,  [[Jewelry Crafting Survey: Shadowfen]], [[Jewelry Crafting Survey: Shadowfen]],   [[Jewelry Crafting Survey: Shadowfen]], [[Jewelry Crafting Survey: Shadowfen]],   [[Jewelry Crafting Survey: Shadowfen]],      [[shadowfen_survey_jewelry]], 139428},
     },
   },
 ----Eastmarch
@@ -241,6 +249,7 @@ LOST_TREASURE_DATA = {
       {0.3533,  0.2886,  [[Blacksmith Survey: Eastmarch]], [[Schmiedegutachten: Ostmarsch]],    [[Repérages de Forgeron : Estemarche]],            [[鍛冶師の調査報告: イーストマーチ]],   [[исследование кузнеца: Истмарк]],      [[eastmarch_survey_blacksmith]], 57801 },
       {0.5306,  0.4149,  [[Enchanter Survey: Eastmarch]],  [[Verzauberergutachten: Ostmarsch]], [[Repérages d'Enchanteur : Estemarche]],           [[付呪師の調査報告: イーストマーチ]],   [[исследование зачарователя: Истмарк]], [[eastmarch_survey_enchanter]],  57807 },
       {0.4524,  0.4977,  [[Woodworker Survey: Eastmarch]], [[Schreinergutachten: Ostmarsch]],   [[Repérages de Travailleur du Bois : Estemarche]], [[木工師の調査報告: イーストマーチ]],   [[исследование столяра: Истмарк]],      [[eastmarch_survey_woodworker]], 57823 },
+      {0.3925,  0.6870,  [[Jewelry Crafting Survey: Eastmarch]], [[Jewelry Crafting Survey: Eastmarch]],   [[Jewelry Crafting Survey: Eastmarch]], [[Jewelry Crafting Survey: Eastmarch]],   [[Jewelry Crafting Survey: Eastmarch]],      [[eastmarch_survey_jewelry]], 139440},
     },
   },
 ----The Rift
@@ -260,6 +269,7 @@ LOST_TREASURE_DATA = {
       {0.7141,  0.5586,  [[Blacksmith Survey: The Rift]], [[Schmiedegutachten: Rift]],    [[Repérages de Forgeron : La Brèche]],            [[鍛冶師の調査報告: リフト]],   [[исследование кузнеца: Рифт]], [[therift_survey_blacksmith]], 57794 },
       {0.1515,  0.2967,  [[Enchanter Survey: The Rift]],  [[Verzauberergutachten: Rift]], [[Repérages d'Enchanteur : La Brèche]],           [[付呪師の調査報告: リフト]],   [[исследование зачарователя: Рифт]], [[therift_survey_enchanter]],  57809 },
       {0.4975,  0.3367,  [[Woodworker Survey: The Rift]], [[Schreinergutachten: Rift]],   [[Repérages de Travailleur du Bois : La Brèche]], [[木工師の調査報告: リフト]],   [[исследование столяра: Рифт]], [[therift_survey_woodworker]], 57826 },
+      {0.8028,  0.4202,  [[Jewelry Crafting Survey: The Rift]], [[Jewelry Crafting Survey: The Rift]],   [[Jewelry Crafting Survey: The Rift]], [[Jewelry Crafting Survey: The Rift]],   [[Jewelry Crafting Survey: The Rift]],      [[therift_survey_jewelry]], 139433},
     },
   },
   ["nimalten"] = {
@@ -300,6 +310,7 @@ LOST_TREASURE_DATA = {
       {0.6467,  0.5039,  [[Woodworker Survey: Glenumbra]], [[Schreinergutachten: Glenumbra]],   [[Repérages de Travailleur du Bois : Glénumbrie]], [[木工師の調査報告: グレナンブラ]],   [[исследование столяра: Гленумбра]],      [[glenumbra_survey_woodworker]], 57742 },
       {0.3432,  0.4932,  [[Alchemist Survey: Glenumbra]],  [[Alchemistengutachten: Glenumbra]], [[Repérages d'Alchemiste : Glénumbrie]],           [[錬金術師の調査報告: グレナンブラ]], [[исследование алхимика: Гленумбра]],     [[glenumbra_survey_alchemist]],  57745 },
       {0.3650,  0.8400,  [[Blacksmith Survey: Glenumbra]], [[Shcmiedegutachten: Glenumbra]],    [[Repérages de Forgeron : Glénumbrie]],            [[鍛冶師の調査報告: グレナンブラ]],   [[исследование кузнеца: Гленумбра]],      [[glenumbra_survey_blacksmith]], 57736 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Glenumbra]], [[Jewelry Crafting Survey: Glenumbra]],   [[Jewelry Crafting Survey: Glenumbra]], [[Jewelry Crafting Survey: Glenumbra]],   [[Jewelry Crafting Survey: Glenumbra]],      [[glenumbra_survey_jewelry]], 139423},
     },
   },
 ----Stormhaven
@@ -319,6 +330,7 @@ LOST_TREASURE_DATA = {
       {0.2683,  0.3162,  [[Clothier Survey: Stormhaven]],   [[Schneidergutachten: Sturmhafen]],   [[Repérages de Tailleur : Havre-Tempête]],             [[仕立師の調査報告: ストームヘヴン]],   [[исследование портного: Стормхейвен]],     [[stormhaven_survey_clothier]],   57756 },
       {0.7945,  0.5003,  [[Alchemist Survey: Stormhaven]],  [[Alchemistengutachten: Sturmhafen]], [[Repérages d'Alchemiste : Havre-Tempête]],            [[錬金術師の調査報告: ストームヘヴン]], [[исследование алхимика: Стормхейвен]],     [[stormhaven_survey_alchemist]],  57773 },
       {0.5710,  0.4467,  [[Woodworker Survey: Stormhaven]], [[Schreinergutachten: Sturmhafen]],   [[CRepérages de Travailleur du Bois : Havre-Tempête]], [[木工師の調査報告: ストームヘヴン]],   [[исследование столяра: Стормхейвен]],      [[stormhaven_survey_woodworker]], 57818 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]],      [[stormhaven_survey_jewelry]], 139408},
     },
   },
 ----Rivenspire
@@ -338,6 +350,7 @@ LOST_TREASURE_DATA = {
       {0.6929,  0.6243,  [[Blacksmith Survey: Rivenspire]], [[Schmiedegutachten: Kluftspitze]],    [[Repérages de Forgeron : Fendretour]],            [[鍛冶師の調査報告: リベンスパイアー]],   [[исследование кузнеца: Ривенспайр]],      [[rivenspire_survey_blacksmith]], 57790 },
       {0.6182,  0.4312,  [[Enchanter Survey: Rivenspire]],  [[Verzauberergutachten: Kluftspitze]], [[Repérages d'Enchanteur : Fendretour]],           [[付呪師の調査報告: リベンスパイアー]],   [[исследование зачарователя: Ривенспайр]], [[rivenspire_survey_enchanter]],  57804 },
       {0.5444,  0.6439,  [[Woodworker Survey: Rivenspire]], [[Schreinergutachten: Kluftspitze]],   [[Repérages de Travailleur du Bois : Fendretour]], [[木工師の調査報告: リベンスパイアー]],   [[исследование столяра: Ривенспайр]],      [[rivenspire_survey_woodworker]], 57821 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]],      [[rivenspire_survey_jewelry]], 139429},
     },
   },
 ----Rivenspire, North Point
@@ -363,6 +376,7 @@ LOST_TREASURE_DATA = {
       {0.1503,	0.4822,  [[Blacksmith Survey: Alik'r]], [[Schmiedegutachten: Alik'r-Wüste]],    [[Repérages de Forgeron : Alik'r]],            [[鍛冶師の調査報告: アリクル]],   [[исследование кузнеца: Алик'р]],      [[alikr_survey_blacksmith]], 57792 },
       {0.7821,	0.3621,  [[Enchanter Survey: Alik'r]],  [[Verzauberergutachten: Alik'r-Wüste]], [[Repérages d'Enchanteur : Alik'r]],           [[付呪師の調査報告: アリクル]],   [[исследование зачарователя: Алик'р]], [[alikr_survey_enchanter]],  57806 },
       {0.5870,	0.3790,  [[Woodworker Survey: Alik'r]], [[Schreinergutachten: Alik'r-Wüste]],   [[Repérages de Travailleur du Bois : Alik'r]], [[木工師の調査報告: アリクル]],   [[исследование столяра: Алик'р]],      [[alikr_survey_woodworker]], 57824 },
+      {0.9004,	0.5333,  [[Jewelry Crafting Survey: Alik'r]], [[Jewelry Crafting Survey: Alik'r]],   [[Jewelry Crafting Survey: Alik'r]], [[Jewelry Crafting Survey: Alik'r]],   [[Jewelry Crafting Survey: Alik'r]],   [[alikr_survey_jewelry]],    139431 },
     },
   },
   ["sentinel"] = {
@@ -392,6 +406,7 @@ LOST_TREASURE_DATA = {
       {0.3583,  0.3841,  [[Alchemist Survey: Bangkorai]],  [[Alchemistengutachten: Bangkorai]], [[Repérages d'Alchemiste : Bangkoraï]],           [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Бангкорай]],     [[bangkorai_survey_alchemist]],  57781 },
       {0.4730,  0.6153,  [[Blacksmith Survey: Bangkorai]], [[Schmiedegutachten: Bangkorai]],    [[Repérages de Forgeron : Bangkoraï]],            [[鍛冶師の調査報告: バンコライ]],   [[исследование кузнеца: Бангкорай]],      [[bangkorai_survey_blacksmith]], 57795 },
       {0.6701,  0.7022,  [[Woodworker Survey: Bangkorai]], [[Schreinergutachten: Bangkorai]],   [[Repérages de Travailleur du Bois : Bangkoraï]], [[木工師の調査報告: バンコライ]],   [[исследование столяра: Бангкорай]],      [[bangkorai_survey_woodworker]], 57827 },
+      {0.4674,  0.6938,  [[Jewelry Crafting Survey: Bangkorai]],   [[Jewelry Crafting Survey: Bangkorai]],   [[Jewelry Crafting Survey: Bangkorai]],            [[Jewelry Crafting Survey: Bangkorai]],   [[Jewelry Crafting Survey: Bangkorai]],     [[bangkorai_survey_jewelry]],  139434 },
     },
   },
 ----Coldharbour
@@ -416,6 +431,8 @@ LOST_TREASURE_DATA = {
       {0.4263,  0.7008,  [[Alchemist Survey: Coldharbour II]],  [[Alchemistengutachten II: Kalthafen]], [[Repérages d'Alchemiste : Havreglace II]],           [[錬金術師の調査報告: コールドハーバー2]], [[исследование алхимика: Хладная Гавань II]],     [[coldharbor02_survey_alchemist]], 57784 },
       {0.4545,  0.5050,  [[Woodworker Survey: Coldharbour I]],  [[Schreinergutachten I: Kalthafen]],    [[Repérages de Travailleur du Bois : Havreglace I]],  [[作業員の調査報告: コールドハーバー1]],   [[исследование столяра: Хладная Гавань I]],       [[coldharbor1_survey_woodworker]], 57828 },
       {0.5500,  0.4475,  [[Woodworker Survey: Coldharbour II]], [[Schreinergutachten II: Kalthafen]],   [[Repérages de Travailleur du Bois : Havreglace II]], [[作業員の調査報告: コールドハーバー2]],   [[исследование столяра: Хладная Гавань II]],      [[coldharbor2_survey_woodworker]], 57829 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],            [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],     [[coldharbor1_survey_jewelry]],  139435 },
+      {0.4110,  0.8136,  [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],            [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],     [[coldharbor2_survey_jewelry]],  139436 },
     },
   },
 ----Cyrodiil
@@ -489,6 +506,9 @@ LOST_TREASURE_DATA = {
       {0.5820,  0.5243,  [[Enchanter Survey: Craglorn I]],    [[Verzauberergutachten I: Kargstein]],   [[Repérages d'Enchanteur : Raidelorn I]],             [[付呪師の調査報告: クラグローン1]],   [[исследование зачарователя: Краглорн I]],   [[craglorn1_survey_enchanter]],  57813 },
       {0.1693,  0.3774,  [[Enchanter Survey: Craglorn II]],   [[Verzauberergutachten II: Kargstein]],  [[Repérages d'Enchanteur : Raidelorn II]],            [[付呪師の調査報告: クラグローン2]],   [[исследование зачарователя: Краглорн II]],  [[craglorn2_survey_enchanter]],  57814 },
       {0.6766,  0.4291,  [[Enchanter Survey: Craglorn III]],  [[Verzauberergutachten III: Kargstein]], [[Repérages d'Enchanteur : Raidelorn III]],           [[付呪師の調査報告: クラグローン3]],   [[исследование зачарователя: Краглорн III]], [[craglorn3_survey_enchanter]],  57815 },
+      {0.7511,  0.4635,  [[Jewelry Crafting Survey: Craglorn I]],   [[Jewelry Crafting Survey: Craglorn I]],   [[Jewelry Crafting Survey: Craglorn I]],            [[Jewelry Crafting Survey: Craglorn I]],   [[Jewelry Crafting Survey: Craglorn I]],     [[craglorn1_survey_jewelry]],  139437 },
+      {0.4424,  0.6745,  [[Jewelry Crafting Survey: Craglorn II]],   [[Jewelry Crafting Survey: Craglorn II]],   [[Jewelry Crafting Survey: Craglorn II]],            [[Jewelry Crafting Survey: Craglorn II]],   [[Jewelry Crafting Survey: Craglorn II]],     [[craglorn2_survey_jewelry]],  139438 },
+      {0.3519,  0.5400,  [[Jewelry Crafting Survey: Craglorn III]],   [[Jewelry Crafting Survey: Craglorn III]],   [[Jewelry Crafting Survey: Craglorn III]],            [[Jewelry Crafting Survey: Craglorn III]],   [[Jewelry Crafting Survey: Craglorn III]],     [[craglorn3_survey_jewelry]],  139439 },
     },
   },
   ----Wrothgar
@@ -517,6 +537,9 @@ LOST_TREASURE_DATA = {
       {0.2051,  0.8190,  [[Enchanter Survey: Wrothgar I]],    [[Verzauberergutachten I: Wrothgar]],   [[Repérages d'Enchanteur : Wrothgar I]],             [[付呪師の調査報告: ロスガー1]],   [[исследование зачарователя: Ротгар I]],   [[orsinium_survey_enchanter_01]],  71086 },
       {0.4377,  0.6688,  [[Enchanter Survey: Wrothgar II]],   [[Verzauberergutachten II: Wrothgar]],  [[Repérages d'Enchanteur : Wrothgar II]],            [[付呪師の調査報告: ロスガー2]],   [[исследование зачарователя: Ротгар II]],  [[orsinium_survey_enchanter_02]],  71087 },
       {0.6893,  0.4434,  [[Enchanter Survey: Wrothgar III]],  [[Verzauberergutachten III: Wrothgar]], [[Repérages d'Enchanteur : Wrothgar III]],           [[付呪師の調査報告: ロスガー3]],   [[исследование зачарователя: Ротгар III]], [[orsinium_survey_enchanter_03]],  71088 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Wrothgar I]],    [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],             [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],   [[orsinium_survey_jewelry_01]],  139441 },
+      {0.4441,  0.5889,  [[Jewelry Crafting Survey: Wrothgar II]],    [[Jewelry Crafting Survey: Wrothgar II]],   [[Jewelry Crafting Survey: Wrothgar II]],             [[Jewelry Crafting Survey: Wrothgar II]],   [[Jewelry Crafting Survey: Wrothgar II]],   [[orsinium_survey_jewelry_02]],  139442 },
+      {0.1935,  0.6810,  [[Jewelry Crafting Survey: Wrothgar III]],    [[Jewelry Crafting Survey: Wrothgar III]],   [[Jewelry Crafting Survey: Wrothgar III]],             [[Jewelry Crafting Survey: Wrothgar III]],   [[Jewelry Crafting Survey: Wrothgar III]],   [[orsinium_survey_jewelry_03]],  139443 },
     },
   },
   ["morkul"] = {
@@ -561,6 +584,7 @@ LOST_TREASURE_DATA = {
       {0.2904, 0.3250, [[Alchemist Survey: Vvardenfell]],  [[Alchemistengutachten: Vvardenfell]], [[Repérages d'Alchemiste : Vvardenfell]], [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Вварденфела]], [[vvardenfell_survey_alchemist]], 126113 },
       {0.6718, 0.6267, [[Blacksmith Survey: Vvardenfell]], [[Schmiedegutachten: Vvardenfell]],    [[Repérages de Forgeron : Vvardenfell]],  [[鍛冶師の調査報告: バンコライ]], [[исследование кузнеца: Вварденфела]], [[vvardenfell_survey_blacksmith]], 126110 },
       {0.3368, 0.7736, [[Woodworker Survey: Vvardenfell]], [[Schreinergutachten: Vvardenfell]],   [[Repérages de Travailleur du Bois : Vvardenfell]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Вварденфела]], [[vvardenfell_survey_woodworker]], 126112 },
+      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]],      [[vvardenfell_survey_jewelry]], 139444},
     },
   },
   -- Clockwork City

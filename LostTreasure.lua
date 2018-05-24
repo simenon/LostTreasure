@@ -5,7 +5,7 @@ local Addon = {
     Name = "LostTreasure",
     NameSpaced = "Lost Treasure",
     Author = "CrazyDutchGuy ",
-    Version = "4.33",
+    Version = "5.00",
     WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
