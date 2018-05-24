@@ -26,7 +26,7 @@ LOST_TREASURE_DATA = {
 ----Auridon
   ["auridon"] = {
     ["treasure"] = {
-      {0.4955,  0.8927,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[オーリドンの宝の地図1]],    [[Ауридон, карта сокровищ I]],             [[treasuremap_auridon_01]],            43625 },
+      {0.4934,  0.8891,  [[Auridon Treasure Map I]],   [[Auridon Schatzkarte I]],   [[Carte Au Trésor d'Auridia I]],   [[オーリドンの宝の地図1]],    [[Ауридон, карта сокровищ I]],             [[treasuremap_auridon_01]],            43625 },
       {0.4850,  0.6411,  [[Auridon Treasure Map II]],  [[Auridon Schatzkarte II]],  [[Carte Au Trésor d'Auridia II]],  [[オーリドンの宝の地図2]],    [[Ауридон, карта сокровищ II]],            [[treasuremap_auridon_02]],            43626 },
       {0.4419,  0.5074,  [[Auridon Treasure Map III]], [[Auridon Schatzkarte III]], [[Carte Au Trésor d'Auridia III]], [[オーリドンの宝の地図3]],    [[Ауридон, карта сокровищ III]],           [[treasuremap_auridon_03]],            43627 },
       {0.6641,  0.4114,  [[Auridon Treasure Map IV]],  [[Auridon Schatzkarte IV]],  [[Carte Au Trésor d'Auridia IV]],  [[オーリドンの宝の地図4]],    [[Ауридон, карта сокровищ IV]],            [[treasuremap_auridon_04]],            43628 },
@@ -35,8 +35,8 @@ LOST_TREASURE_DATA = {
       {0.6881,  0.9678,  [[Auridon CE Treasure Map]],  [[Auridon CE Schatzkarte]],  [[Carte Au Trésor d'Auridia EC]],  [[オーリドンの宝の地図(CE)]], [[Ауридон, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
     },
     ["surveys"] = {
-      {0.5459,  0.3020,  [[Alchemist Survey: Auridon]],  [[Alchemistengutachten: Auridon]], [[Repérages d'Alchemiste : Auridia]],           [[錬金術師の調査報告: オーリドン]], [[исследование алхимика: Ауридон]],     [[auridon_survey_alchemist]],  57744 },
-      {0.4471,  0.2855,  [[Enchanter Survey: Auridon]],  [[Verzauberergutachten: Auridon]], [[Repérages d'Enchanteur : Auridia]],           [[付呪師の調査報告: オーリドン]],   [[исследование зачарователя: Ауридон]], [[auridon_survey_enchanter]],  57733 },
+      {0.5451,  0.3001,  [[Alchemist Survey: Auridon]],  [[Alchemistengutachten: Auridon]], [[Repérages d'Alchemiste : Auridia]],           [[錬金術師の調査報告: オーリドン]], [[исследование алхимика: Ауридон]],     [[auridon_survey_alchemist]],  57744 },
+      {0.4449,  0.2856,  [[Enchanter Survey: Auridon]],  [[Verzauberergutachten: Auridon]], [[Repérages d'Enchanteur : Auridia]],           [[付呪師の調査報告: オーリドン]],   [[исследование зачарователя: Ауридон]], [[auridon_survey_enchanter]],  57733 },
       {0.5483,  0.4650,  [[Woodworker Survey: Auridon]], [[Schreinergutachten: Auridon]],   [[Repérages de Travailleur du Bois : Auridia]], [[木工師の調査報告: オーリドン]],   [[исследование столяра: Ауридон]],      [[auridon_survey_woodworker]], 57741 },
       {0.6359,  0.6950,  [[Blacksmith Survey: Auridon]], [[Schmiedegutachten: Auridon]],    [[Repérages de Forgeron : Auridia]],            [[鍛冶師の調査報告: オーリドン]],   [[исследование кузнеца: Ауридон]],      [[auridon_survey_blacksmith]], 57687 },
       {0.4085,  0.7007,  [[Clothier Survey: Auridon]],   [[Schneidergutachten: Auridon]],   [[Repérages de Tailleur : Auridia]],            [[仕立師の調査報告: オーリドン]],   [[исследование портного: Ауридон]],     [[auridon_survey_clothier]],   57738 },
@@ -87,7 +87,7 @@ LOST_TREASURE_DATA = {
     },
     ["surveys"] = {
       {0.5563,  0.3957,  [[Clothier Survey: Greenshade]],   [[Schneidergutachten: Grünschatten]],   [[Repérages de Tailleur : Prasin]],            [[仕立師の調査報告: グリーンシェイド]],   [[исследование портного: Гриншейд]],     [[greenshade_survey_clothier]],   57757 },
-      {0.7642,  0.8267,  [[Alchemist Survey: Greenshade]],  [[Alchemistengutachten: Grünschatten]], [[Repérages d'Alchemiste : Prasin]],           [[錬金術師の調査報告: グリーンシェイド]], [[исследование алхимика: Гриншейд]],     [[greenshade_survey_alchemist]],  57774 },
+      {0.7642,  0.8266,  [[Alchemist Survey: Greenshade]],  [[Alchemistengutachten: Grünschatten]], [[Repérages d'Alchemiste : Prasin]],           [[錬金術師の調査報告: グリーンシェイド]], [[исследование алхимика: Гриншейд]],     [[greenshade_survey_alchemist]],  57774 },
       {0.5990,  0.6273,  [[Blacksmith Survey: Greenshade]], [[Schmiedegutachten: Grünschatten]],    [[Repérages de Forgeron : Prasin]],            [[鍛冶師の調査報告: グリーンシェイド]],   [[исследование кузнеца: Гриншейд]],      [[greenshade_survey_blacksmith]], 57788 },
       {0.5028,  0.2891,  [[Enchanter Survey: Greenshade]],  [[Verzauberergutachten: Grünschatten]], [[Repérages d'Enchanteur : Prasin]],           [[付呪師の調査報告: グリーンシェイド]],   [[исследование зачарователя: Гриншейд]], [[greenshade_survey_enchanter]],  57802 },
       {0.2991,  0.8134,  [[Woodworker Survey: Greenshade]], [[Schreinergutachten: Grünschatten]],   [[Repérages de Travailleur du Bois : Prasin]], [[木工師の調査報告: グリーンシェイド]],   [[исследование столяра: Гриншейд]],      [[greenshade_survey_woodworker]], 57819 },
@@ -132,7 +132,7 @@ LOST_TREASURE_DATA = {
       {0.4087,  0.5434,  [[Reaper's March CE Treasure Map]],  [[Schnittermark CE Schatzkarte]],  [[Carte Au Trésor de la marche de la Camarde EC]],  [[リーパーズ・マーチの宝の地図(CE)]], [[Марка Смерти, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_reapersmarch_06]], 44941 },
     },
     ["surveys"] = {
-      {0.3297,  0.7369,  [[Enchanter Survey: Reaper's March]],  [[Verzauberergutachten: Schnittermark]], [[Repérages d'Enchanteur : Marche de la Camarde]],           [[付呪師の調査: リーパーズ・マーチ]],   [[исследование зачарователя: Марка Смерти]], [[reapersmarch_survey_enchanter]],  57808 },
+      {0.3314,  0.7321,  [[Enchanter Survey: Reaper's March]],  [[Verzauberergutachten: Schnittermark]], [[Repérages d'Enchanteur : Marche de la Camarde]],           [[付呪師の調査: リーパーズ・マーチ]],   [[исследование зачарователя: Марка Смерти]], [[reapersmarch_survey_enchanter]],  57808 },
       {0.5924,  0.5187,  [[Clothier Survey: Reaper's March]],   [[Schneidergutachten: Schnittermark]],   [[Repérages de Tailleur : Marche de la Camarde]],            [[仕立師の調査: リーパーズ・マーチ]],   [[исследование портного: Марка Смерти]],     [[reapersmarch_survey_clothier]],   57763 },
       {0.3000,  0.3616,  [[Alchemist Survey: Reaper's March]],  [[Alchemistengutachten: Schnittermark]], [[Repérages d'Alchemiste : Marche de la Camarde]],           [[錬金術師の調査: リーパーズ・マーチ]], [[исследование алхимика: Марка Смерти]],     [[reapersmarch_survey_alchemist]],  57780 },
       {0.6450,  0.2200,  [[Blacksmith Survey: Reaper's March]], [[Schmiedegutachten: Schnittermark]],    [[Repérages de Forgeron : Marche de la Camarde]],            [[鍛冶師の調査: リーパーズ・マーチ]],   [[исследование кузнеца: Марка Смерти]],      [[reapersmarch_survey_blacksmith]], 57793 },
@@ -170,7 +170,7 @@ LOST_TREASURE_DATA = {
 --Stonefalls
   ["stonefalls"] = {
     ["treasure"] = {
-      {0.7931,  0.5756,  [[Stonefalls Treasure Map I]],   [[Steinfälle Schatzkarte I]],   [[Carte Au Trésor des Éboulis I]],   [[ストンフォールの宝の地図1]],    [[Стоунфолз, карта сокровищ I]], [[treasuremap_stonefalls_001]],             43655 },
+      {0.7952,  0.5758,  [[Stonefalls Treasure Map I]],   [[Steinfälle Schatzkarte I]],   [[Carte Au Trésor des Éboulis I]],   [[ストンフォールの宝の地図1]],    [[Стоунфолз, карта сокровищ I]], [[treasuremap_stonefalls_001]],             43655 },
       {0.6038,  0.4899,  [[Stonefalls Treasure Map II]],  [[Steinfälle Schatzkarte II]],  [[Carte Au Trésor des Éboulis II]],  [[ストンフォールの宝の地図2]],    [[Стоунфолз, карта сокровищ II]], [[treasuremap_stonefalls_002]],             43656 },
       {0.4716,  0.5923,  [[Stonefalls Treasure Map III]], [[Steinfälle Schatzkarte III]], [[Carte Au Trésor des Éboulis III]], [[ストンフォールの宝の地図3]],    [[Стоунфолз, карта сокровищ III]], [[treasuremap_stonefalls_003]],             43657 },
       {0.1779,  0.4517,  [[Stonefalls Treasure Map IV]],  [[Steinfälle Schatzkarte IV]],  [[Carte Au Trésor des Éboulis IV]],  [[ストンフォールの宝の地図4]],    [[Стоунфолз, карта сокровищ IV]], [[treasuremap_stonefalls_004]],             43658 },
@@ -183,7 +183,7 @@ LOST_TREASURE_DATA = {
       {0.3114,  0.4355,  [[Clothier Survey: Stonefalls]],   [[Schneidergutachten: Steinfälle]],   [[Repérages de Tailleur : Éboulis]],            [[仕立師の調査報告: ストンフォール]],   [[исследование портного: Стоунфолз]],     [[stonefalls_survey_clothier]],   57740 },
       {0.1590,  0.5593,  [[Woodworker Survey: Stonefalls]], [[Schreinergutachten: Steinfälle]],   [[Repérages de Travailleur du Bois : Éboulis]], [[木工師の調査報告: ストンフォール]],   [[исследование столяра: Стоунфолз]],      [[stonefalls_survey_woodworker]], 57743 },
       {0.5591,  0.3908,  [[Alchemist Survey: Stonefalls]],  [[Alchemistengutachten: Steinfälle]], [[Repérages d'Alchemiste : Éboulis]],           [[錬金術師の調査報告: ストンフォール]], [[исследование алхимика: Стоунфолз]],     [[stonefalls_survey_alchemist]],  57746 },
-      {0.7478,  0.5827,  [[Enchanter Survey: Stonefalls]],  [[Verzauberergutachten: Steinfälle]], [[Repérages d'Enchanteur : Éboulis]],           [[付呪師の調査報告: ストンフォール]],   [[исследование зачарователя: Стоунфолз]], [[stonefalls_survey_enchanter]],  57735 },
+      {0.7502,  0.5841,  [[Enchanter Survey: Stonefalls]],  [[Verzauberergutachten: Steinfälle]], [[Repérages d'Enchanteur : Éboulis]],           [[付呪師の調査報告: ストンフォール]],   [[исследование зачарователя: Стоунфолз]], [[stonefalls_survey_enchanter]],  57735 },
       {0.6840,  0.6401,  [[Jewelry Crafting Survey: Stonefalls]],  [[Jewelry Crafting Survey: Stonefalls]], [[Jewelry Crafting Survey: Stonefalls]],           [[Jewelry Crafting Survey: Stonefalls]],   [[Jewelry Crafting Survey: Stonefalls]], [[stonefalls_survey_jewelry]],  139424 },
     },
   },
@@ -371,7 +371,7 @@ LOST_TREASURE_DATA = {
       {0.3246,  0.3679,  [[Alik'r CE Treasure Map]],  [[Alik'r Wüste CE Schatzkarte]],  [[Carte Au Trésor du désert d'Alik'r EC]],  [[アリクルの宝の地図(CE)]], [[Алик'р, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
     },
     ["surveys"] = {
-      {0.6134,	0.6101,  [[Clothier Survey: Alik'r]],   [[Schneidergutachten: Alik'r-Wüste]],   [[Repérages de Tailleur : Alik'r]],            [[仕立師の調査報告: アリクル]],   [[исследование портного: Алик'р]],     [[alikr_survey_clothier]],   57762 },
+      {0.6176,	0.6096,  [[Clothier Survey: Alik'r]],   [[Schneidergutachten: Alik'r-Wüste]],   [[Repérages de Tailleur : Alik'r]],            [[仕立師の調査報告: アリクル]],   [[исследование портного: Алик'р]],     [[alikr_survey_clothier]],   57762 },
       {0.4159,	0.6325,  [[Alchemist Survey: Alik'r]],  [[Alchemistengutachten: Alik'r-Wüste]], [[Repérages d'Alchemiste : Alik'r]],           [[錬金術師の調査報告: アリクル]], [[исследование алхимика: Алик'р]],     [[alikr_survey_alchemist]],  57779 },
       {0.1503,	0.4822,  [[Blacksmith Survey: Alik'r]], [[Schmiedegutachten: Alik'r-Wüste]],    [[Repérages de Forgeron : Alik'r]],            [[鍛冶師の調査報告: アリクル]],   [[исследование кузнеца: Алик'р]],      [[alikr_survey_blacksmith]], 57792 },
       {0.7821,	0.3621,  [[Enchanter Survey: Alik'r]],  [[Verzauberergutachten: Alik'r-Wüste]], [[Repérages d'Enchanteur : Alik'r]],           [[付呪師の調査報告: アリクル]],   [[исследование зачарователя: Алик'р]], [[alikr_survey_enchanter]],  57806 },
@@ -425,7 +425,7 @@ LOST_TREASURE_DATA = {
       {0.7310,  0.7030,  [[Blacksmith Survey: Coldharbour II]], [[Schmiedegutachten II: Kalthafen]],    [[Repérages de Forgeron : Havreglace II]],            [[鍛冶師の調査報告: コールドハーバー2]],   [[исследование кузнеца: Хладная Гавань II]],      [[coldharbor1_survey_blacksmith]], 57797 },
       {0.6726,  0.7606,  [[Clothier Survey: Coldharbour I]],    [[Schneidergutachten I: Kalthafen]],    [[Repérages de Tailleur : Havreglace I]],             [[仕立師の調査報告: コールドハーバー1]],   [[исследование портного: Хладная Гавань I]],      [[coldharbor1_survey_clothier]],   57766 },
       {0.6309,  0.6994,  [[Clothier Survey: Coldharbour II]],   [[Schneidergutachten II: Kalthafen]],   [[Repérages de Tailleur : Havreglace II]],            [[仕立師の調査報告: コールドハーバー2]],   [[исследование портного: Хладная Гавань II]],     [[coldharbor2_survey_clothier]],   57767 },
-      {0.2486,  0.6182,  [[Enchanter Survey: Coldharbour I]],   [[Verzauberergutachten I: Kalthafen]],  [[Repérages d'Enchanteur : Havreglace I]],            [[詠唱者の調査報告: コールドハーバー1]],   [[исследование зачарователя: Хладная Гавань I]],  [[coldharbor1_survey_enchanter]],  57811 },
+      {0.2485,  0.6220,  [[Enchanter Survey: Coldharbour I]],   [[Verzauberergutachten I: Kalthafen]],  [[Repérages d'Enchanteur : Havreglace I]],            [[詠唱者の調査報告: コールドハーバー1]],   [[исследование зачарователя: Хладная Гавань I]],  [[coldharbor1_survey_enchanter]],  57811 },
       {0.2619,  0.6765,  [[Enchanter Survey: Coldharbour II]],  [[Verzauberergutachten II: Kalthafen]], [[Repérages d'Enchanteur : Havreglace II]],           [[詠唱者の調査報告: コールドハーバー2]],   [[исследование зачарователя: Хладная Гавань II]], [[coldharbor2_survey_enchanter]],  57812 },
       {0.4138,  0.7758,  [[Alchemist Survey: Coldharbour I]],   [[Alchemistengutachten I: Kalthafen]],  [[Repérages d'Alchemiste : Havreglace I]],            [[錬金術師の調査報告: コールドハーバー1]], [[исследование алхимика: Хладная Гавань I]],      [[coldharbor01_survey_alchemist]], 57783 },
       {0.4263,  0.7008,  [[Alchemist Survey: Coldharbour II]],  [[Alchemistengutachten II: Kalthafen]], [[Repérages d'Alchemiste : Havreglace II]],           [[錬金術師の調査報告: コールドハーバー2]], [[исследование алхимика: Хладная Гавань II]],     [[coldharbor02_survey_alchemist]], 57784 },
