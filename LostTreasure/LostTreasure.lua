@@ -112,8 +112,8 @@ local SURVEYS_TEXT = {
 LT.dirtyPins = {}
 LT.isUpdating = false
 LT.listMarkOnUse = {}
-LT.listMarkOnUse[MAP_PIN_TYPES.treasure] = {}
-LT.listMarkOnUse[MAP_PIN_TYPES.surveys] = {}
+LT.listMarkOnUse["treasure"] = {}
+LT.listMarkOnUse["surveys"] = {}
 
 -- Gamepad Switch -- Credits Daeymon ----
 local function OnGamepadPreferredModeChanged()
@@ -170,8 +170,9 @@ local function CreatePins()
       for treasureType, keys in pairs(LT.dirtyPins[1]) do
         local treasureTypeData = data[treasureType]
         if treasureTypeData then
-          for _, pinData in pairs(treasureTypeData) do
-            if LT.listMarkOnUse[MAP_PIN_TYPES.surveys][pinData[LOST_TREASURE_INDEX.ITEMID]] then
+          for _, pinData in pairs(treasureTypeData) do			
+            if LT.listMarkOnUse[treasureType][pinData[LOST_TREASURE_INDEX.ITEMID]] then
+				d("Create Pin")
               CreatePin(treasureType, pinData, keys.map, keys.compass)
             end
           end
@@ -305,7 +306,7 @@ function LT:EVENT_SHOW_BOOK(eventCode, title, body, medium, showTitle, bookId)
   if LT.SavedVariables["surveysMarkMapMenuOption"] == 1 then
     for LTitemID, LTbookID in pairs(LOST_TREASURE_ITEMID_TO_BOOKID) do
       if bookId == LTbookID then
-        LT.listMarkOnUse[MAP_PIN_TYPES.surveys][LTitemID] = LT.listMarkOnUse[MAP_PIN_TYPES.surveys][LTitemID] or {}
+        LT.listMarkOnUse["surveys"][LTitemID] = LT.listMarkOnUse["surveys"][LTitemID] or {}
         return
       end
     end
@@ -323,7 +324,7 @@ function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
       for _, pinData in pairs(v["treasure"]) do
         if mapTextureName == pinData[LOST_TREASURE_INDEX.TEXTURE] then
           if LT.SavedVariables["treasureMarkMapMenuOption"] == 1 then
-            LT.listMarkOnUse[MAP_PIN_TYPES.treasure][LOST_TREASURE_INDEX.ITEMID] = LT.listMarkOnUse[MAP_PIN_TYPES.treasure][LOST_TREASURE_INDEX.ITEMID] or {}
+            LT.listMarkOnUse["treasure"][pinData[LOST_TREASURE_INDEX.ITEMID]] = LT.listMarkOnUse["treasure"][pinData[LOST_TREASURE_INDEX.ITEMID]] or {}
           end
           currentTreasureMapItemID = pinData[LOST_TREASURE_INDEX.ITEMID]
           return
@@ -334,7 +335,7 @@ function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
       for _, pinData in pairs(v["surveys"]) do
         if mapTextureName == pinData[LOST_TREASURE_INDEX.TEXTURE] then
           if LT.SavedVariables["surveysMarkMapMenuOption"] == 1 then
-            LT.listMarkOnUse[MAP_PIN_TYPES.surveys][LOST_TREASURE_INDEX.ITEMID] = LT.listMarkOnUse[MAP_PIN_TYPES.surveys][LOST_TREASURE_INDEX.ITEMID] or {}
+            LT.listMarkOnUse["surveys"][pinData[LOST_TREASURE_INDEX.ITEMID]] = LT.listMarkOnUse["surveys"][pinData[LOST_TREASURE_INDEX.ITEMID]] or {}
           end
           currentTreasureMapItemID = pinData[LOST_TREASURE_INDEX.ITEMID]
           return
@@ -391,8 +392,8 @@ function LT:SlotRemoved(bagId, slotIndex, slotData)
 
   if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
     if LT.SavedVariables["treasureMarkMapMenuOption"] == 1 then
-      if LT.listMarkOnUse[MAP_PIN_TYPES.treasure][slotData.itemID] then
-        LT.listMarkOnUse[MAP_PIN_TYPES.treasure][slotData.itemID] = nil			
+      if LT.listMarkOnUse["treasure"][slotData.itemID] then
+        LT.listMarkOnUse["treasure"][slotData.itemID] = nil
       end
     end
 
@@ -402,8 +403,8 @@ function LT:SlotRemoved(bagId, slotIndex, slotData)
   end
   if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
     if LT.SavedVariables["surveysMarkMapMenuOption"] == 1 then
-      if LT.listMarkOnUse[MAP_PIN_TYPES.surveys][slotData.itemID] then
-        LT.listMarkOnUse[MAP_PIN_TYPES.surveys][slotData.itemID] = nil			
+      if LT.listMarkOnUse["surveys"][slotData.itemID] then
+        LT.listMarkOnUse["surveys"][slotData.itemID] = nil
       end
     end
 
