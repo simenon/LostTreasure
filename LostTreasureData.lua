@@ -597,3 +597,30 @@ LOST_TREASURE_DATA = {
     },
   },
 }
+
+LOST_TREASURE_ITEMID_TO_BOOKID = {
+  [139408] = 5116, --Jewelry Crafting Survey: Stormhaven
+  [139422] = 5124, --Jewelry Crafting Survey: Auridon
+  [139423] = 5125, --Jewelry Crafting Survey: Glenumbra
+  [139424] = 5126, --Jewelry Crafting Survey: Stonefalls
+  [139425] = 5127, --Jewelry Crafting Survey: Grahtwood
+  [139426] = 5128, --Jewelry Crafting Survey: Deshaan
+  [139427] = 5129, --Jewelry Crafting Survey: Greenshade
+  [139428] = 5130, --Jewelry Crafting Survey: Shadowfen
+  [139429] = 5131, --Jewelry Crafting Survey: Rivenspire
+  [139430] = 5132, --Jewelry Crafting Survey: Malabal Tor
+  [139431] = 5133, --Jewelry Crafting Survey: Alik’r
+  [139432] = 5134, --Jewelry Crafting Survey: Reaper’s March
+  [139433] = 5135, --Jewelry Crafting Survey: The Rift
+  [139434] = 5136, --Jewelry Crafting Survey: Bangkorai
+  [139435] = 5142, --Jewelry Crafting Survey: Coldharbour I
+  [139436] = 5143, --Jewelry Crafting Survey: Coldharbour II
+  [139437] = 5144, --Jewelry Crafting Survey: Craglorn I
+  [139438] = 5145, --Jewelry Crafting Survey: Craglorn II
+  [139439] = 5151, --Jewelry Crafting Survey: Craglorn III
+  [139440] = 5137, --Jewelry Crafting Survey: Eastmarch
+  [139441] = 5153, --Jewelry Crafting Survey: Wrothgar I
+  [139442] = 5154, --Jewelry Crafting Survey: Wrothgar II
+  [139443] = 5155, --Jewelry Crafting Survey: Wrothgar III
+  [139444] = 5156, --Jewelry Crafting Survey: Vvardenfell
+}

@@ -10,6 +10,7 @@ local Addon = {
 }
 
 LT = ZO_Object:Subclass()
+
 LT.defaults = {
 	showTreasure = true,
 	showTreasureCompass = true,
@@ -162,6 +163,7 @@ local function CreatePins()
 
 	if data then
 		if LT.dirtyPins[1] then
+			-- this does not work properly for jewelry crafting surveys, as they behave as books ....
 			for treasureType, keys in pairs(LT.dirtyPins[1]) do
 				local treasureTypeData = data[treasureType]
 				if treasureTypeData then
@@ -305,6 +307,15 @@ local function createMiniTreasureMap()
 
     LostTreasureTLW.map.close = WINDOW_MANAGER:CreateControlFromVirtual(nil, LostTreasureTLW.map, "ZO_CloseButton")
     LostTreasureTLW.map.close:SetHandler("OnClicked", function(...) LT:hideMiniTreasureMap() end)
+end
+
+function LT:EVENT_SHOW_BOOK(eventCode, title, body, medium, showTitle, bookId)
+	for LTitemID, LTbookID in pairs(LOST_TREASURE_ITEMID_TO_BOOKID) do
+		if bookId == LTbookID then
+			currentTreasureMapItemID = LTitemID			
+			return
+		end
+	end
 end
 
 function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
@@ -629,6 +640,7 @@ function LT:EVENT_ADD_ON_LOADED(event, name)
 
 	createMiniTreasureMap()
    	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_TREASURE_MAP, function(...) LT:EVENT_SHOW_TREASURE_MAP(...) end)
+	EVENT_MANAGER:RegisterForEvent(Addon.Name, EVENT_SHOW_BOOK, function(...) LT:EVENT_SHOW_BOOK(...) end)
 
 	SHARED_INVENTORY:RegisterCallback("SlotAdded", LT.SlotAdded, self)
 	SHARED_INVENTORY:RegisterCallback("SlotRemoved", LT.SlotRemoved, self)
