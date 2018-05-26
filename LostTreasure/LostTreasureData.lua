@@ -330,7 +330,7 @@ LOST_TREASURE_DATA = {
       {0.2683,  0.3162,  [[Clothier Survey: Stormhaven]],   [[Schneidergutachten: Sturmhafen]],   [[Repérages de Tailleur : Havre-Tempête]],             [[仕立師の調査報告: ストームヘヴン]],   [[исследование портного: Стормхейвен]],     [[stormhaven_survey_clothier]],   57756 },
       {0.7945,  0.5003,  [[Alchemist Survey: Stormhaven]],  [[Alchemistengutachten: Sturmhafen]], [[Repérages d'Alchemiste : Havre-Tempête]],            [[錬金術師の調査報告: ストームヘヴン]], [[исследование алхимика: Стормхейвен]],     [[stormhaven_survey_alchemist]],  57773 },
       {0.5710,  0.4467,  [[Woodworker Survey: Stormhaven]], [[Schreinergutachten: Sturmhafen]],   [[CRepérages de Travailleur du Bois : Havre-Tempête]], [[木工師の調査報告: ストームヘヴン]],   [[исследование столяра: Стормхейвен]],      [[stormhaven_survey_woodworker]], 57818 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]],      [[stormhaven_survey_jewelry]], 139408},
+      {0.5955,  0.4567,  [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]],      [[stormhaven_survey_jewelry]], 139408},
     },
   },
 ----Rivenspire
@@ -350,7 +350,7 @@ LOST_TREASURE_DATA = {
       {0.6929,  0.6243,  [[Blacksmith Survey: Rivenspire]], [[Schmiedegutachten: Kluftspitze]],    [[Repérages de Forgeron : Fendretour]],            [[鍛冶師の調査報告: リベンスパイアー]],   [[исследование кузнеца: Ривенспайр]],      [[rivenspire_survey_blacksmith]], 57790 },
       {0.6182,  0.4312,  [[Enchanter Survey: Rivenspire]],  [[Verzauberergutachten: Kluftspitze]], [[Repérages d'Enchanteur : Fendretour]],           [[付呪師の調査報告: リベンスパイアー]],   [[исследование зачарователя: Ривенспайр]], [[rivenspire_survey_enchanter]],  57804 },
       {0.5444,  0.6439,  [[Woodworker Survey: Rivenspire]], [[Schreinergutachten: Kluftspitze]],   [[Repérages de Travailleur du Bois : Fendretour]], [[木工師の調査報告: リベンスパイアー]],   [[исследование столяра: Ривенспайр]],      [[rivenspire_survey_woodworker]], 57821 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]],      [[rivenspire_survey_jewelry]], 139429},
+      {0.6750,  0.1182,  [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]], [[Jewelry Crafting Survey: Rivenspire]],   [[Jewelry Crafting Survey: Rivenspire]],      [[rivenspire_survey_jewelry]], 139429},
     },
   },
 ----Rivenspire, North Point
@@ -431,7 +431,7 @@ LOST_TREASURE_DATA = {
       {0.4263,  0.7008,  [[Alchemist Survey: Coldharbour II]],  [[Alchemistengutachten II: Kalthafen]], [[Repérages d'Alchemiste : Havreglace II]],           [[錬金術師の調査報告: コールドハーバー2]], [[исследование алхимика: Хладная Гавань II]],     [[coldharbor02_survey_alchemist]], 57784 },
       {0.4545,  0.5050,  [[Woodworker Survey: Coldharbour I]],  [[Schreinergutachten I: Kalthafen]],    [[Repérages de Travailleur du Bois : Havreglace I]],  [[作業員の調査報告: コールドハーバー1]],   [[исследование столяра: Хладная Гавань I]],       [[coldharbor1_survey_woodworker]], 57828 },
       {0.5500,  0.4475,  [[Woodworker Survey: Coldharbour II]], [[Schreinergutachten II: Kalthafen]],   [[Repérages de Travailleur du Bois : Havreglace II]], [[作業員の調査報告: コールドハーバー2]],   [[исследование столяра: Хладная Гавань II]],      [[coldharbor2_survey_woodworker]], 57829 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],            [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],     [[coldharbor1_survey_jewelry]],  139435 },
+      {0.5454,  0.7398,  [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],            [[Jewelry Crafting Survey: Coldharbour I]],   [[Jewelry Crafting Survey: Coldharbour I]],     [[coldharbor1_survey_jewelry]],  139435 },
       {0.4110,  0.8136,  [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],            [[Jewelry Crafting Survey: Coldharbour II]],   [[Jewelry Crafting Survey: Coldharbour II]],     [[coldharbor2_survey_jewelry]],  139436 },
     },
   },
@@ -537,7 +537,7 @@ LOST_TREASURE_DATA = {
       {0.2051,  0.8190,  [[Enchanter Survey: Wrothgar I]],    [[Verzauberergutachten I: Wrothgar]],   [[Repérages d'Enchanteur : Wrothgar I]],             [[付呪師の調査報告: ロスガー1]],   [[исследование зачарователя: Ротгар I]],   [[orsinium_survey_enchanter_01]],  71086 },
       {0.4377,  0.6688,  [[Enchanter Survey: Wrothgar II]],   [[Verzauberergutachten II: Wrothgar]],  [[Repérages d'Enchanteur : Wrothgar II]],            [[付呪師の調査報告: ロスガー2]],   [[исследование зачарователя: Ротгар II]],  [[orsinium_survey_enchanter_02]],  71087 },
       {0.6893,  0.4434,  [[Enchanter Survey: Wrothgar III]],  [[Verzauberergutachten III: Wrothgar]], [[Repérages d'Enchanteur : Wrothgar III]],           [[付呪師の調査報告: ロスガー3]],   [[исследование зачарователя: Ротгар III]], [[orsinium_survey_enchanter_03]],  71088 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Wrothgar I]],    [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],             [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],   [[orsinium_survey_jewelry_01]],  139441 },
+      {0.8236,  0.5892,  [[Jewelry Crafting Survey: Wrothgar I]],    [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],             [[Jewelry Crafting Survey: Wrothgar I]],   [[Jewelry Crafting Survey: Wrothgar I]],   [[orsinium_survey_jewelry_01]],  139441 },
       {0.4441,  0.5889,  [[Jewelry Crafting Survey: Wrothgar II]],    [[Jewelry Crafting Survey: Wrothgar II]],   [[Jewelry Crafting Survey: Wrothgar II]],             [[Jewelry Crafting Survey: Wrothgar II]],   [[Jewelry Crafting Survey: Wrothgar II]],   [[orsinium_survey_jewelry_02]],  139442 },
       {0.1935,  0.6810,  [[Jewelry Crafting Survey: Wrothgar III]],    [[Jewelry Crafting Survey: Wrothgar III]],   [[Jewelry Crafting Survey: Wrothgar III]],             [[Jewelry Crafting Survey: Wrothgar III]],   [[Jewelry Crafting Survey: Wrothgar III]],   [[orsinium_survey_jewelry_03]],  139443 },
     },
@@ -584,7 +584,7 @@ LOST_TREASURE_DATA = {
       {0.2904, 0.3250, [[Alchemist Survey: Vvardenfell]],  [[Alchemistengutachten: Vvardenfell]], [[Repérages d'Alchemiste : Vvardenfell]], [[錬金術師の調査報告: バンコライ]], [[исследование алхимика: Вварденфела]], [[vvardenfell_survey_alchemist]], 126113 },
       {0.6718, 0.6267, [[Blacksmith Survey: Vvardenfell]], [[Schmiedegutachten: Vvardenfell]],    [[Repérages de Forgeron : Vvardenfell]],  [[鍛冶師の調査報告: バンコライ]], [[исследование кузнеца: Вварденфела]], [[vvardenfell_survey_blacksmith]], 126110 },
       {0.3368, 0.7736, [[Woodworker Survey: Vvardenfell]], [[Schreinergutachten: Vvardenfell]],   [[Repérages de Travailleur du Bois : Vvardenfell]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Вварденфела]], [[vvardenfell_survey_woodworker]], 126112 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]],      [[vvardenfell_survey_jewelry]], 139444},
+      {0.1748, 0.4099, [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]], [[Jewelry Crafting Survey: Vvardenfell]],   [[Jewelry Crafting Survey: Vvardenfell]],      [[vvardenfell_survey_jewelry]], 139444},
     },
   },
   -- Clockwork City
@@ -592,6 +592,16 @@ LOST_TREASURE_DATA = {
     ["treasure"] = {
         {0.1813,  0.5961,  [[Clockwork City Treasure Map I]],  [[Schatzkarte: Clockwork City I]],  [[Carte Au Trésor Clockwork City I]],  [[Clockwork City Treasure Map I]],  [[Clockwork City Treasure Map I]],   [[treasuremap_clockworkcity_01]], 43746 },
         {0.8030,  0.4237,  [[Clockwork City Treasure Map II]], [[Schatzkarte: Clockwork City II]], [[Carte Au Trésor Clockwork City II]], [[Clockwork City Treasure Map II]], [[Clockwork City Treasure Map II]],  [[treasuremap_clockworkcity_02]], 43747 },
+    },
+    ["surveys"] = {
+    },
+  },
+    -- Clockwork City
+  ["summerset"] = {
+    ["treasure"] = {
+        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],     [[Carte Au Trésor Summerset EC I]],     [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]], [[treasuremap_summerset_02]], 139007 },
+        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],    [[Carte Au Trésor Summerset EC II]],    [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]], [[treasuremap_summerset_05]], 139008 },
+        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset l CE III]], [[Carte Au Trésor Summerset l EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 },
     },
     ["surveys"] = {
     },
