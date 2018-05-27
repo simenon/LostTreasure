@@ -40,7 +40,7 @@ LOST_TREASURE_DATA = {
       {0.4449,  0.2856,  [[Enchanter Survey: Auridon]],        [[Verzauberergutachten: Auridon]],    [[Repérages d'Enchanteur : Auridia]],           [[付呪師の調査報告: オーリドン]],       [[исследование зачарователя: Ауридон]], [[auridon_survey_enchanter]],  57733  },
       {0.5483,  0.4650,  [[Woodworker Survey: Auridon]],       [[Schreinergutachten: Auridon]],      [[Repérages de Travailleur du Bois : Auridia]], [[木工師の調査報告: オーリドン]],       [[исследование столяра: Ауридон]],      [[auridon_survey_woodworker]], 57741  },
       {0.6359,  0.6950,  [[Blacksmith Survey: Auridon]],       [[Schmiedegutachten: Auridon]],       [[Repérages de Forgeron : Auridia]],            [[鍛冶師の調査報告: オーリドン]],       [[исследование кузнеца: Ауридон]],      [[auridon_survey_blacksmith]], 57687  },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]],           [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]],   nil,                           139422 },
+      {0.3988,  0.6122,  [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]],           [[Jewelry Crafting Survey: Auridon]], [[Jewelry Crafting Survey: Auridon]],   nil,                           139422 },
     },
   },
 ----Auridon, Vulkhel Guard
@@ -91,7 +91,7 @@ LOST_TREASURE_DATA = {
       {0.5990,  0.6273,  [[Blacksmith Survey: Greenshade]], [[Schmiedegutachten: Grünschatten]],    [[Repérages de Forgeron : Prasin]],            [[鍛冶師の調査報告: グリーンシェイド]],   [[исследование кузнеца: Гриншейд]],      [[greenshade_survey_blacksmith]], 57788 },
       {0.5028,  0.2891,  [[Enchanter Survey: Greenshade]],  [[Verzauberergutachten: Grünschatten]], [[Repérages d'Enchanteur : Prasin]],           [[付呪師の調査報告: グリーンシェイド]],   [[исследование зачарователя: Гриншейд]], [[greenshade_survey_enchanter]],  57802 },
       {0.2991,  0.8134,  [[Woodworker Survey: Greenshade]], [[Schreinergutachten: Grünschatten]],   [[Repérages de Travailleur du Bois : Prasin]], [[木工師の調査報告: グリーンシェイド]],   [[исследование столяра: Гриншейд]],      [[greenshade_survey_woodworker]], 57819 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]],      [[greenshade_survey_jewelry]], 139427},
+      {0.2309,  0.4013,  [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]], [[Jewelry Crafting Survey: Greenshade]],   [[Jewelry Crafting Survey: Greenshade]],      [[greenshade_survey_jewelry]], 139427},
     },
   },
 ----Malabal Tor
@@ -330,7 +330,7 @@ LOST_TREASURE_DATA = {
       {0.2683,  0.3162,  [[Clothier Survey: Stormhaven]],   [[Schneidergutachten: Sturmhafen]],   [[Repérages de Tailleur : Havre-Tempête]],             [[仕立師の調査報告: ストームヘヴン]],   [[исследование портного: Стормхейвен]],     [[stormhaven_survey_clothier]],   57756 },
       {0.7945,  0.5003,  [[Alchemist Survey: Stormhaven]],  [[Alchemistengutachten: Sturmhafen]], [[Repérages d'Alchemiste : Havre-Tempête]],            [[錬金術師の調査報告: ストームヘヴン]], [[исследование алхимика: Стормхейвен]],     [[stormhaven_survey_alchemist]],  57773 },
       {0.5710,  0.4467,  [[Woodworker Survey: Stormhaven]], [[Schreinergutachten: Sturmhafen]],   [[CRepérages de Travailleur du Bois : Havre-Tempête]], [[木工師の調査報告: ストームヘヴン]],   [[исследование столяра: Стормхейвен]],      [[stormhaven_survey_woodworker]], 57818 },
-      {0.5955,  0.4567,  [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]],      [[stormhaven_survey_jewelry]], 139408},
+      {0.2624,  0.4567,  [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]], [[Jewelry Crafting Survey: Stormhaven]],   [[Jewelry Crafting Survey: Stormhaven]],      [[stormhaven_survey_jewelry]], 139408},
     },
   },
 ----Rivenspire
@@ -598,10 +598,17 @@ LOST_TREASURE_DATA = {
   },
     -- Clockwork City
   ["summerset"] = {
-    ["treasure"] = {
-        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],     [[Carte Au Trésor Summerset EC I]],     [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]], [[treasuremap_summerset_02]], 139007 },
-        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],    [[Carte Au Trésor Summerset EC II]],    [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]], [[treasuremap_summerset_05]], 139008 },
-        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset l CE III]], [[Carte Au Trésor Summerset l EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 },
+    ["treasure"] = {	 
+        {0.0000 ,0.0000, [[Summerset Treasure Map I]],      [[Schatzkarte: Summerset I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 }, --v
+        {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Summerset II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 }, --v
+        {0.0000 ,0.0000, [[Summerset Treasure Map III]],    [[Schatzkarte: Summerset III]],    [[Carte Au Trésor Summerset III]],    [[[Summerset Treasure Map III]],    [[[Summerset Treasure Map III]],    [[treasuremap_summerset_04]], 43750 }, --v
+        {0.0000 ,0.0000, [[Summerset Treasure Map IV]],     [[Schatzkarte: Summerset IV]],     [[Carte Au Trésor Summerset IV]],     [[[Summerset Treasure Map IV]],     [[[Summerset Treasure Map IV]],     [[treasuremap_summerset_07]], 43751 }, --v
+        {0.0000 ,0.0000, [[Summerset Treasure Map V]],      [[Schatzkarte: Summerset V]],      [[Carte Au Trésor Summerset V]],      [[[Summerset Treasure Map V]],      [[[Summerset Treasure Map V]],      [[treasuremap_summerset_09]], 43752 }, --v
+        -- treasuremap_summerset_09
+        {0.0000 ,0.0000, [[Summerset Treasure Map VI]],     [[Schatzkarte: Summerset VI]],     [[Carte Au Trésor Summerset VI]],     [[[Summerset Treasure Map VI]],     [[[Summerset Treasure Map VI]],     [[treasuremap_summerset_10_gjadilslegacy]], 43753 }, --v
+        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],   [[Carte Au Trésor Summerset EC I]],   [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]],   [[treasuremap_summerset_02]], 139007 }, --v
+        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],  [[Carte Au Trésor Summerset EC II]],  [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]],  [[treasuremap_summerset_05]], 139008 }, --v
+        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset CE III]], [[Carte Au Trésor Summerset EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 }, --v
     },
     ["surveys"] = {
     },
