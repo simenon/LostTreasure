@@ -6,7 +6,7 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: Shows treasure map locations
-## Version: 5.02
+## Version: 5.04
 ## Author:  |cFFA500CrazyDutchGuy|r
 ## APIVersion: 100023
 ## SavedVariables: LOST_TREASURE_SV

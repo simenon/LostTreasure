@@ -137,7 +137,7 @@ LOST_TREASURE_DATA = {
       {0.3000,  0.3616,  [[Alchemist Survey: Reaper's March]],  [[Alchemistengutachten: Schnittermark]], [[Repérages d'Alchemiste : Marche de la Camarde]],           [[錬金術師の調査: リーパーズ・マーチ]], [[исследование алхимика: Марка Смерти]],     [[reapersmarch_survey_alchemist]],  57780 },
       {0.6450,  0.2200,  [[Blacksmith Survey: Reaper's March]], [[Schmiedegutachten: Schnittermark]],    [[Repérages de Forgeron : Marche de la Camarde]],            [[鍛冶師の調査: リーパーズ・マーチ]],   [[исследование кузнеца: Марка Смерти]],      [[reapersmarch_survey_blacksmith]], 57793 },
       {0.4289,  0.8485,  [[Woodworker Survey: Reaper's March]], [[Schreinergutachten: Schnittermark]],   [[Repérages de Travailleur du Bois : Marche de la Camarde]], [[木工師の調査: リーパーズ・マーチ]],   [[исследование столяра: Марка Смерти]],      [[reapersmarch_survey_woodworker]], 57825 },
-      {0.0000,  0.0000,  [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]],      [[reapersmarch_survey_jewelry]], 139432},
+      {0.2470,  0.5320,  [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]],   [[Jewelry Crafting Survey: Reaper's March]],      [[reapersmarch_survey_jewelry]], 139432},
     },
   },
   ["rawlkha"] = {
@@ -599,16 +599,15 @@ LOST_TREASURE_DATA = {
     -- Clockwork City
   ["summerset"] = {
     ["treasure"] = {	 
-        {0.0000 ,0.0000, [[Summerset Treasure Map I]],      [[Schatzkarte: Summerset I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 }, --v
-        {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Summerset II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 }, --v
-        {0.0000 ,0.0000, [[Summerset Treasure Map III]],    [[Schatzkarte: Summerset III]],    [[Carte Au Trésor Summerset III]],    [[[Summerset Treasure Map III]],    [[[Summerset Treasure Map III]],    [[treasuremap_summerset_04]], 43750 }, --v
-        {0.0000 ,0.0000, [[Summerset Treasure Map IV]],     [[Schatzkarte: Summerset IV]],     [[Carte Au Trésor Summerset IV]],     [[[Summerset Treasure Map IV]],     [[[Summerset Treasure Map IV]],     [[treasuremap_summerset_07]], 43751 }, --v
-        {0.0000 ,0.0000, [[Summerset Treasure Map V]],      [[Schatzkarte: Summerset V]],      [[Carte Au Trésor Summerset V]],      [[[Summerset Treasure Map V]],      [[[Summerset Treasure Map V]],      [[treasuremap_summerset_09]], 43752 }, --v
-        -- treasuremap_summerset_09
-        {0.0000 ,0.0000, [[Summerset Treasure Map VI]],     [[Schatzkarte: Summerset VI]],     [[Carte Au Trésor Summerset VI]],     [[[Summerset Treasure Map VI]],     [[[Summerset Treasure Map VI]],     [[treasuremap_summerset_10_gjadilslegacy]], 43753 }, --v
-        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],   [[Carte Au Trésor Summerset EC I]],   [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]],   [[treasuremap_summerset_02]], 139007 }, --v
-        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],  [[Carte Au Trésor Summerset EC II]],  [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]],  [[treasuremap_summerset_05]], 139008 }, --v
-        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset CE III]], [[Carte Au Trésor Summerset EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 }, --v
+        {0.4870 ,0.1970, [[Summerset Treasure Map I]],      [[Schatzkarte: Summerset I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 },
+        {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Summerset II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 },
+        {0.3670 ,0.4005, [[Summerset Treasure Map III]],    [[Schatzkarte: Summerset III]],    [[Carte Au Trésor Summerset III]],    [[[Summerset Treasure Map III]],    [[[Summerset Treasure Map III]],    [[treasuremap_summerset_04]], 43750 },
+        {0.3568 ,0.5687, [[Summerset Treasure Map IV]],     [[Schatzkarte: Summerset IV]],     [[Carte Au Trésor Summerset IV]],     [[[Summerset Treasure Map IV]],     [[[Summerset Treasure Map IV]],     [[treasuremap_summerset_07]], 43751 },
+        {0.1693 ,0.3203, [[Summerset Treasure Map V]],      [[Schatzkarte: Summerset V]],      [[Carte Au Trésor Summerset V]],      [[[Summerset Treasure Map V]],      [[[Summerset Treasure Map V]],      [[treasuremap_summerset_09]], 43752 },
+        {0.6721 ,0.7827, [[Summerset Treasure Map VI]],     [[Schatzkarte: Summerset VI]],     [[Carte Au Trésor Summerset VI]],     [[[Summerset Treasure Map VI]],     [[[Summerset Treasure Map VI]],     [[treasuremap_summerset_10_gjadilslegacy]], 43753 },
+        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],   [[Carte Au Trésor Summerset EC I]],   [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]],   [[treasuremap_summerset_02]], 139007 },
+        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],  [[Carte Au Trésor Summerset EC II]],  [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]],  [[treasuremap_summerset_05]], 139008 },
+        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset CE III]], [[Carte Au Trésor Summerset EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 },
     },
     ["surveys"] = {
     },
