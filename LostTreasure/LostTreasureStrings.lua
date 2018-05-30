@@ -209,4 +209,39 @@ LOST_TREASURE_STRINGS = {
     MARKER_DELAY = "BETA : マーカー削除ディレイ",
     MARKER_DELAY_TOOLTIP = "マップからマークされた位置を削除する前にディレイを追加します。使用中をマークかインベントリ内の全てをマークを使用中のみ動作します。マップを開くと全てのピンを更新してしまうため、機能しません。",
   },
+  ["br"] = {
+    TREASURE_ON_MAP_TOOLTIP = "Mostra locais dos mapas de tesouro no mapa do jogador?",
+    TREASURE_ON_MAP = "Mostra Tesouros no Mapa",
+    TREASURE_ON_COMPASS = "Mostra Tesouro na Bússola",
+    TREASURE_ON_COMPASS_TOOLTIP = "Mostra locais dos mapas de tesouro na barra da bússola?",
+    TREASURE_ICON = "Textura do Pin de Tesouro",
+    TREASURE_ICON_TOOLTIP = "Que textura do pin usar para os locais dos mapas de tesouro",
+    TREASURE_MARK_WHICH = "Marca Mapa de Tesouro",
+    TREASURE_MARK_WHICH_TOOLTIP = "Quando marcar os locais de tesouro no mapa do jogador",
+    
+    SURVEYS_ON_MAP = "Mostra Pesquisas de Fabricação no Mapa",
+    SURVEYS_ON_MAP_TOOLTIP = "Mostra as pesquisas de fabricação no mapa do jogador?",
+    SURVEYS_ON_COMPASS = "Mostra Pesquisas de Fabricação na Bússola",
+    SURVEYS_ON_COMPASS_TOOLTIP = "Mostra as localizações de Pesquisas de Fabricação na barra da bússola?",
+    SURVEYS_ICON = "Textura do Pin de Pesquisa",
+    SURVEYS_ICON_TOOLTIP = "Qual textura usar no pin para locais de Pesquisas de Fabricação",
+    SURVEYS_MARK_WHICH = "Marca Pesquisa no Mapa",
+    SURVEYS_MARK_WHICH_TOOLTIP = "Quando marcar locais de Pesquisas no mapa do jogador",
+    
+    PIN_SIZE = "Tamanho da Textura do Pin",
+    PIN_SIZE_TOOLTIP = "Tamanho do pin",
+    
+    PIN_LEVEL = " Nível Pin no Mapa",
+    PIN_LEVEL_TOOLTIP = "Níveis mais Altos desenham o pin sobre pins de níveis menores. Aumenta se o pin é obscurecido por outros pins.",
+    
+    SHOW_MINIMAP = "Mostra Mini Mapa de Tesouros",
+    SHOW_MINIMAP_TOOLTIP = "Mostra o mini mapa do tesouro na tela quando usar o mapa a partir do inventário?",
+    
+    MARK_MAP_MENU_OPTION1 = "Marca em uso",
+    MARK_MAP_MENU_OPTION2 = "Marca tudo no inventário",
+    MARK_MAP_MENU_OPTION3 = "Marca todas as locações",
+    
+    MARKER_DELAY = "BETA : Atraso para Apagar Marcador",
+    MARKER_DELAY_TOOLTIP = "Inclui um atraso antes de apagar uma locação marcada no mapa. Só funciona em conjunto com Marca em Uso ou Marca Tudo no Inventário. Isso não funcionará quando você abrir o mapa quando está atualizando todos os pins.",
+  },
 }
