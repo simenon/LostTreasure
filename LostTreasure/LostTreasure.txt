@@ -35,6 +35,9 @@ Libs\LibAddonMenu-2.0\controls\divider.lua
 
 Libs\CustomCompassPins\CustomCompassPins.lua
 
-LostTreasureStrings.lua
+;LostTreasureStrings.lua
+Lang\en.lua
+Lang\$(language).lua
+
 LostTreasureData.lua
 LostTreasure.lua
