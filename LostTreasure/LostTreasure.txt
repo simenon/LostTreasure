@@ -6,9 +6,9 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: Shows treasure map locations
-## Version: 5.04
+## Version: 5.05
 ## Author:  |cFFA500CrazyDutchGuy|r
-## APIVersion: 100023
+## APIVersion: 100024
 ## SavedVariables: LOST_TREASURE_SV
 ## OptionalDependsOn: LibStub LibMapPins-1.0 LibAddonMenu-2.0 CustomCompassPins
 
@@ -35,6 +35,9 @@ Libs\LibAddonMenu-2.0\controls\divider.lua
 
 Libs\CustomCompassPins\CustomCompassPins.lua
 
-LostTreasureStrings.lua
+;LostTreasureStrings.lua
+Lang\en.lua
+Lang\$(language).lua
+
 LostTreasureData.lua
 LostTreasure.lua

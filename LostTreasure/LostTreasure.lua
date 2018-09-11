@@ -5,7 +5,7 @@ local Addon = {
   Name = "LostTreasure",
   NameSpaced = "Lost Treasure",
   Author = "CrazyDutchGuy ",
-  Version = "5.04",
+  Version = "5.05",
   WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
@@ -48,9 +48,9 @@ local COMPASS_PIN_TYPES = {
 local lang = GetCVar("Language.2")
 
 local markMapMenuOptions = {
-  [1] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION1,
-  [2] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION2,
-  [3] = LOST_TREASURE_STRINGS[lang].MARK_MAP_MENU_OPTION3,
+  [1] = GetString(LTS_MARK_MAP_MENU_OPTION1),
+  [2] = GetString(LTS_MARK_MAP_MENU_OPTION2),
+  [3] = GetString(LTS_MARK_MAP_MENU_OPTION3),
 }
 
 local pinTexturesList = {
@@ -416,8 +416,7 @@ end
 
 
 local function createLAM2Panel()
-  local treasureMapIcon
-  local strings = LOST_TREASURE_STRINGS[lang]
+  local treasureMapIcon  
   
   local panelData = {
     type = "panel",
@@ -433,8 +432,8 @@ local function createLAM2Panel()
   local optionsData = {
     [1] = {
       type = "checkbox",
-      name = strings.TREASURE_ON_MAP,
-      tooltip = strings.TREASURE_ON_MAP_TOOLTIP,
+      name = GetString(LTS_TREASURE_ON_MAP),
+      tooltip = GetString(LTS_TREASURE_ON_MAP_TOOLTIP),
       getFunc = function()
         return LT.SavedVariables.showTreasure
       end,
@@ -445,8 +444,8 @@ local function createLAM2Panel()
     },
     [2] = {
       type = "checkbox",
-      name = strings.TREASURE_ON_COMPASS,
-      tooltip = strings.TREASURE_ON_COMPASS_TOOLTIP,
+      name = GetString(LTS_TREASURE_ON_COMPASS),
+      tooltip = GetString(LTS_TREASURE_ON_COMPASS_TOOLTIP),
       getFunc = function()
         return LT.SavedVariables.showTreasureCompass
       end,
@@ -457,8 +456,8 @@ local function createLAM2Panel()
     },
     [3] = {
       type = "dropdown",
-      name = strings.TREASURE_ICON,
-      tooltip = strings.TREASURE_ICON_TOOLTIP,
+      name = GetString(LTS_TREASURE_ICON),
+      tooltip = GetString(LTS_TREASURE_ICON_TOOLTIP),
       choices = pinTexturesList,
       getFunc = function() return pinTexturesList[LT.SavedVariables.treasurePinTexture] end,
       setFunc = function(value)
@@ -479,8 +478,8 @@ local function createLAM2Panel()
     },
     [4] = {
       type = "dropdown",
-      name = strings.TREASURE_MARK_WHICH,
-      tooltip = strings.TREASURE_MARK_WHICH_TOOLTIP,
+      name = GetString(LTS_TREASURE_MARK_WHICH),
+      tooltip = GetString(LTS_TREASURE_MARK_WHICH_TOOLTIP),
       choices = markMapMenuOptions,
       getFunc = function()
         return markMapMenuOptions[LT.SavedVariables.treasureMarkMapMenuOption]
@@ -500,8 +499,8 @@ local function createLAM2Panel()
     },
     [5] = {
       type = "checkbox",
-      name = strings.SURVEYS_ON_MAP,
-      tooltip = strings.SURVEYS_ON_MAP_TOOLTIP,
+      name = GetString(LTS_SURVEYS_ON_MAP),
+      tooltip = GetString(LTS_SURVEYS_ON_MAP_TOOLTIP),
       getFunc = function() return LT.SavedVariables.showSurveys end,
       setFunc = function(value)
         LT.SavedVariables.showSurveys = value
@@ -510,8 +509,8 @@ local function createLAM2Panel()
     },
     [6] = {
       type = "checkbox",
-      name = strings.SURVEYS_ON_COMPASS,
-      tooltip = strings.SURVEYS_ON_COMPASS_TOOLTIP,
+      name = GetString(LTS_SURVEYS_ON_COMPASS),
+      tooltip = GetString(LTS_SURVEYS_ON_COMPASS_TOOLTIP),
       getFunc = function() return LT.SavedVariables.showSurveysCompass end,
       setFunc = function(value)
         LT.SavedVariables.showSurveysCompass = value
@@ -520,8 +519,8 @@ local function createLAM2Panel()
     },
     [7] = {
       type = "dropdown",
-      name = strings.SURVEYS_ICON,
-      tooltip = strings.SURVEYS_ICON_TOOLTIP,
+      name = GetString(LTS_SURVEYS_ICON),
+      tooltip = GetString(LTS_SURVEYS_ICON_TOOLTIP),
       choices = pinTexturesList,
       getFunc = function() return pinTexturesList[LT.SavedVariables.surveysPinTexture] end,
       setFunc = function(value)
@@ -542,8 +541,8 @@ local function createLAM2Panel()
     },
     [8] = {
       type = "dropdown",
-      name = strings.SURVEYS_MARK_WHICH,
-      tooltip = strings.SURVEYS_MARK_WHICH_TOOLTIP,
+      name = GetString(LTS_SURVEYS_MARK_WHICH),
+      tooltip = GetString(LTS_SURVEYS_MARK_WHICH_TOOLTIP),
       choices = markMapMenuOptions,
       getFunc = function() return markMapMenuOptions[LT.SavedVariables.surveysMarkMapMenuOption] end,
       setFunc = function(value)
@@ -563,8 +562,8 @@ local function createLAM2Panel()
     },
     [9] = {
       type = "slider",
-      name = strings.PIN_SIZE,
-      tooltip = strings.PIN_SIZE_TOOLTIP,
+      name = GetString(LTS_PIN_SIZE),
+      tooltip = GetString(LTS_PIN_SIZE_TOOLTIP),
       min = 12,
       max = 48,
       step = 2,
@@ -579,15 +578,15 @@ local function createLAM2Panel()
     },
     [10] = {
       type = "checkbox",
-      name = strings.SHOW_MINIMAP,
-      tooltip = strings.SHOW_MINIMAP_TOOLTIP,
+      name = GetString(LTS_SHOW_MINIMAP),
+      tooltip = GetString(LTS_SHOW_MINIMAP_TOOLTIP),
       getFunc = function() return LT.SavedVariables.showMiniTreasureMap end,
       setFunc = function(value) LT.SavedVariables.showMiniTreasureMap = value end,
     },
     [11] = {
       type = "slider",
-      name = strings.MARKER_DELAY,
-      tooltip = strings.MARKER_DELAY_TOOLTIP,
+      name = GetString(LTS_MARKER_DELAY),
+      tooltip = GetString(LTS_MARKER_DELAY_TOOLTIP),
       min = 0,
       max = 60,
       step = 1,
@@ -596,8 +595,8 @@ local function createLAM2Panel()
     },
     [12] = {
       type = "slider",
-      name = strings.PIN_LEVEL,
-      tooltip = strings.PIN_LEVEL_TOOLTIP,
+      name = GetString(LTS_PIN_LEVEL),
+      tooltip = GetString(LTS_PIN_LEVEL_TOOLTIP),
       min = 0,
       max = 250,
       step = 10,
