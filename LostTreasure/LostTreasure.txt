@@ -5,10 +5,10 @@
 ; You can read the full terms at https://account.elderscrollsonline.com/add-on-terms
 
 ## Title: |cFFFFBELost Treasure|r
-## Description: Shows treasure map locations
-## Version: 5.05
+## Description: The one and only true treasure and survey map locator. All others are just copies.
+## Version: 5.06
 ## Author:  |cFFA500CrazyDutchGuy|r
-## APIVersion: 100024
+## APIVersion: 100025
 ## SavedVariables: LOST_TREASURE_SV
 ## OptionalDependsOn: LibStub LibMapPins-1.0 LibAddonMenu-2.0 CustomCompassPins
 

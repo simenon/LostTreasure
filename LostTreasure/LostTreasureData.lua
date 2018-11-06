@@ -612,6 +612,15 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
     },
   },
+  -- Murkmire
+  ["murkmire"] = {
+    ["treasure"] = {
+        {0.5458,  0.3791,  [[Murkmire Treasure Map I]],  [[Schatzkarte: Murkmire I]],  [[Carte Au Trésor Murkmire I]],  [[Murkmire Treasure Map I]],  [[Murkmire Treasure Map I]],   [[treasuremap_murkmire_01]], 145510 },
+        {0.4471,  0.4071,  [[Murkmire Treasure Map II]], [[Schatzkarte: Murkmire II]], [[Carte Au Trésor Murkmire II]], [[Murkmire Treasure Map II]], [[Murkmire Treasure Map II]],  [[treasuremap_murkmire_02]], 145512 },
+    },
+    ["surveys"] = {
+    },
+  },
 }
 
 LOST_TREASURE_ITEMID_TO_BOOKID = {
