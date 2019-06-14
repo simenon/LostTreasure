@@ -621,6 +621,28 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
     },
   },
+  -- Elsweyr
+  ["elsweyr"] = {
+    ["treasure"] = {
+        {0.6148,  0.4074,  [[Northern Elsweyr Treasure Map I]],  [[Schatzkarte: Northern Elsweyr I]],  [[Carte Au Trésor Northern Elsweyr I]],  [[Northern Elsweyr Treasure Map I]],  [[Northern Elsweyr Treasure Map I]],   [[treasuremap_elsweyr_01]], 151613 },
+        {0.4173,  0.2222,  [[Northern Elsweyr Treasure Map II]], [[Schatzkarte: Northern Elsweyr II]], [[Carte Au Trésor Northern Elsweyr II]], [[Northern Elsweyr Treasure Map II]], [[Northern Elsweyr Treasure Map II]],  [[treasuremap_elsweyr_02]], 151614 },
+        {0.3988 ,0.5741, [[Northern Elsweyr Treasure Map III]],    [[Schatzkarte: Northern Elsweyr III]],    [[Carte Au Trésor Northern Elsweyr III]],    [[[Northern Elsweyr Treasure Map III]],    [[[Northern Elsweyr Treasure Map III]],    [[treasuremap_elsweyr_03]], 151615 },
+        {0.2543 ,0.7556, [[Northern Elsweyr Treasure Map IV]],     [[Schatzkarte: Northern Elsweyr IV]],     [[Carte Au Trésor Northern Elsweyr IV]],     [[[Northern Elsweyr Treasure Map IV]],     [[[Northern Elsweyr Treasure Map IV]],     [[treasuremap_elsweyr_04]], 151616 },
+        {0.4852 ,0.6728, [[Northern Elsweyr Treasure Map V]],      [[Schatzkarte: Northern Elsweyr V]],      [[Carte Au Trésor Northern Elsweyr V]],      [[[Northern Elsweyr Treasure Map V]],      [[[Northern Elsweyr Treasure Map V]],      [[treasuremap_elsweyr_05]], 151617 },
+        {0.6284 ,0.4568, [[Northern Elsweyr Treasure Map VI]],     [[Schatzkarte: Northern Elsweyr VI]],     [[Carte Au Trésor Northern Elsweyr VI]],     [[[Northern Elsweyr Treasure Map VI]],     [[[Northern Elsweyr Treasure Map VI]],     [[treasuremap_elsweyr_06]], 151618 },
+ --       {0.3175 ,0.7284, [[Northern Elsweyr CE Treasure Map I]],   [[Schatzkarte: Northern Elsweyr CE I]],   [[Carte Au Trésor Northern Elsweyr EC I]],   [[[Northern Elsweyr CE Treasure Map I]],   [[[Northern Elsweyr CE Treasure Map I]],   [[treasuremap_elsweyr_07]], 151619 }, --Guessed item ID
+ --       {0.3926, 0.2198, [[Northern Elsweyr CE Treasure Map II]],  [[Schatzkarte: Northern Elsweyr CE II]],  [[Carte Au Trésor Northern Elsweyr EC II]],  [[[Northern Elsweyr CE Treasure Map II]],  [[[Northern Elsweyr CE Treasure Map II]],  [[treasuremap_elsweyr_08]], 151620 }, --Guessed item ID
+ --       {0.8099, 0.3667, [[Northern Elsweyr CE Treasure Map III]], [[Schatzkarte: Northern Elsweyr CE III]], [[Carte Au Trésor Northern Elsweyr EC III]], [[[Northern Elsweyr CE Treasure Map III]], [[[Northern Elsweyr CE Treasure Map III]], [[treasuremap_elsweyr_09]], 151621 }, --Guessed item ID
+    },
+    ["surveys"] = {
+      {0.4271, 0.4212, [[Alchemist Survey: Northern Elsweyr]],  [[Alchemistengutachten: Northern Elsweyr]], [[Repérages d'Alchemiste : Northern Elsweyr]], [[錬金術師の調査報告: Northern Elsweyr]], [[исследование алхимика: Northern Elsweyr]], [[elsweyr_survey_alchemist]], 151601 },
+      {0.2695, 0.4402, [[Blacksmith Survey: Northern Elsweyr]], [[Schmiedegutachten: Northern Elsweyr]],    [[Repérages de Forgeron : Northern Elsweyr]],  [[鍛冶師の調査報告: Northern Elsweyr]], [[исследование кузнеца: Northern Elsweyr]], [[elsweyr_survey_blacksmith]], 151598 },
+      {0.3161, 0.5549, [[Clothier Survey: Northern Elsweyr]],   [[Schneidergutachten: Northern Elsweyr]],   [[Repérages de Tailleur : Northern Elsweyr]],  [[仕立師の調査報告: Northern Elsweyr]], [[исследование портного: Northern Elsweyr]], [[elsweyr_survey_clothier]], 151599 },
+      {0.4410, 0.3880, [[Enchanter Survey: Northern Elsweyr]],  [[Verzauberergutachten: Northern Elsweyr]], [[Repérages d'Enchanteur : Northern Elsweyr]], [[付呪師の調査報告: Northern Elsweyr]], [[исследование зачарователя: Northern Elsweyr]], [[elsweyr_survey_enchanter]], 151602 },
+      {0.6120, 0.6430, [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],   [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],   [[Jewelry Crafting Survey: Northern Elsweyr]],      [[elsweyr_survey_jewelry]], 151603},
+      {0.4911, 0.6794, [[Woodworker Survey: Northern Elsweyr]], [[Schreinergutachten: Northern Elsweyr]],   [[Repérages de Travailleur du Bois : Northern Elsweyr]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Northern Elsweyr]], [[elsweyr_survey_woodworker]], 151600 },
+    },
+  },
 }
 
 LOST_TREASURE_ITEMID_TO_BOOKID = {
