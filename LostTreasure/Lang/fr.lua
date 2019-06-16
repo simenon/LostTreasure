@@ -30,4 +30,4 @@ ZO_CreateStringId ("LTS_MARK_MAP_MENU_OPTION2","Carte dans l'inventaire")
 ZO_CreateStringId ("LTS_MARK_MAP_MENU_OPTION3","Tous")
  
 ZO_CreateStringId ("LTS_MARKER_DELAY","BETA : Délai d'effacement des marqueurs")
-ZO_CreateStringId ("LTS_MARKER_DELAY_TOOLTIP", "Ajoute un délai avant d'effacer un emplacement marqué sur la carte. Fonctionne seulement en conjonction avec les options 'Marquer à l'utilisation' et 'Dans l'inventaire'.\nNe fonctionne pas lors de l'ouverture de la carte car tous les marqueurs sont actualisés."
+ZO_CreateStringId ("LTS_MARKER_DELAY_TOOLTIP", "Ajoute un délai avant d'effacer un emplacement marqué sur la carte. Fonctionne seulement en conjonction avec les options 'Marquer à l'utilisation' et 'Dans l'inventaire'.\nNe fonctionne pas lors de l'ouverture de la carte car tous les marqueurs sont actualisés.")
