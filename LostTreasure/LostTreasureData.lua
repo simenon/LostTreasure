@@ -1,4 +1,4 @@
-﻿LOST_TREASURE_INDEX = {
+LOST_TREASURE_INDEX = {
   X = 1,
   Y = 2,
   MAP_NAME = 3,

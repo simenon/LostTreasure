@@ -1,4 +1,4 @@
-﻿ZO_CreateStringId ("LTS_TREASURE_ON_MAP","Pokaż skarb na mapie")
+ZO_CreateStringId ("LTS_TREASURE_ON_MAP","Pokaż skarb na mapie")
 ZO_CreateStringId ("LTS_TREASURE_ON_MAP_TOOLTIP","Pokazuje mapę skarbów na mapie gracza")
 ZO_CreateStringId ("LTS_TREASURE_ON_COMPASS","Pokaż skarb na kompasie")
 ZO_CreateStringId ("LTS_TREASURE_ON_COMPASS_TOOLTIP","Pokazuje mapę skarbów na kompasie")

@@ -1,4 +1,4 @@
-﻿ZO_CreateStringId ("LTS_TREASURE_ON_MAP","マップに宝を表示")
+ZO_CreateStringId ("LTS_TREASURE_ON_MAP","マップに宝を表示")
 ZO_CreateStringId ("LTS_TREASURE_ON_MAP_TOOLTIP","プレイヤーマップに宝の位置を表示しますか？")
 ZO_CreateStringId ("LTS_TREASURE_ON_COMPASS","コンパスに宝を表示")
 ZO_CreateStringId ("LTS_TREASURE_ON_COMPASS_TOOLTIP","コンパスバーに宝の位置を表示しますか？")

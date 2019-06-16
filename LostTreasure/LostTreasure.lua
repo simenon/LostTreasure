@@ -1,4 +1,4 @@
-﻿local LAM2 = LibStub:GetLibrary("LibAddonMenu-2.0")
+local LAM2 = LibStub:GetLibrary("LibAddonMenu-2.0")
 local LMP = LibStub:GetLibrary("LibMapPins-1.0")
 
 local Addon = {
