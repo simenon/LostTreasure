@@ -550,8 +550,8 @@ LOST_TREASURE_DATA = {
   -- Hew's Bane
   ["hewsbane"] = {
     ["treasure"] = {
-        {0.4140,  0.8445,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[ヒューズベインの宝の地図1]],  [[Проклятие Хью, карта сокровищ I]],   [[treasuremap_thievesguild_01]], 43733 },
-        {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hew's Bane II]],  [[Carte Au Trésor Hew's Bane II]],  [[ヒューズベインの宝の地図2]],  [[Проклятие Хью, карта сокровищ II]],  [[treasuremap_thievesguild_02]], 43734 },
+      {0.4140,  0.8445,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hew's Bane I]],   [[Carte Au Trésor Hew's Bane I]],   [[ヒューズベインの宝の地図1]],  [[Проклятие Хью, карта сокровищ I]],   [[treasuremap_thievesguild_01]], 43733 },
+      {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hew's Bane II]],  [[Carte Au Trésor Hew's Bane II]],  [[ヒューズベインの宝の地図2]],  [[Проклятие Хью, карта сокровищ II]],  [[treasuremap_thievesguild_02]], 43734 },
     },
     ["surveys"] = {
     },
@@ -559,8 +559,8 @@ LOST_TREASURE_DATA = {
   -- Dark Brotherhood, Gold Coast
   ["goldcoast"] = {
     ["treasure"] = {
-        {0.6440,  0.3296,  [[Gold Coast Treasure Map I]],   [[Schatzkarte: Gold Coast I]],   [[Carte Au Trésor Gold Coast I]],   [[ゴールドコーストの宝の地図1]],  [[Золотой берег, карта сокровищ I]],   [[treasuremap_darkbrotherhood_01]], 43735 },
-        {0.4885,  0.3213,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Gold Coast II]],  [[Carte Au Trésor Gold Coast II]],  [[ゴールドコーストの宝の地図2]],  [[Золотой берег, карта сокровищ II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
+      {0.6440,  0.3296,  [[Gold Coast Treasure Map I]],   [[Schatzkarte: Gold Coast I]],   [[Carte Au Trésor Gold Coast I]],   [[ゴールドコーストの宝の地図1]],  [[Золотой берег, карта сокровищ I]],   [[treasuremap_darkbrotherhood_01]], 43735 },
+      {0.4885,  0.3213,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Gold Coast II]],  [[Carte Au Trésor Gold Coast II]],  [[ゴールドコーストの宝の地図2]],  [[Золотой берег, карта сокровищ II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
     },
     ["surveys"] = {
     },
@@ -590,8 +590,8 @@ LOST_TREASURE_DATA = {
   -- Clockwork City
   ["clockwork"] = {
     ["treasure"] = {
-        {0.1813,  0.5961,  [[Clockwork City Treasure Map I]],  [[Schatzkarte: Clockwork City I]],  [[Carte Au Trésor Clockwork City I]],  [[Clockwork City Treasure Map I]],  [[Clockwork City Treasure Map I]],   [[treasuremap_clockworkcity_01]], 43746 },
-        {0.8030,  0.4237,  [[Clockwork City Treasure Map II]], [[Schatzkarte: Clockwork City II]], [[Carte Au Trésor Clockwork City II]], [[Clockwork City Treasure Map II]], [[Clockwork City Treasure Map II]],  [[treasuremap_clockworkcity_02]], 43747 },
+      {0.1813,  0.5961,  [[Clockwork City Treasure Map I]],  [[Schatzkarte: Clockwork City I]],  [[Carte Au Trésor Clockwork City I]],  [[Clockwork City Treasure Map I]],  [[Clockwork City Treasure Map I]],   [[treasuremap_clockworkcity_01]], 43746 },
+      {0.8030,  0.4237,  [[Clockwork City Treasure Map II]], [[Schatzkarte: Clockwork City II]], [[Carte Au Trésor Clockwork City II]], [[Clockwork City Treasure Map II]], [[Clockwork City Treasure Map II]],  [[treasuremap_clockworkcity_02]], 43747 },
     },
     ["surveys"] = {
     },
@@ -599,15 +599,15 @@ LOST_TREASURE_DATA = {
     -- Clockwork City
   ["summerset"] = {
     ["treasure"] = {	 
-        {0.4870 ,0.1970, [[Summerset Treasure Map I]],      [[Schatzkarte: Summerset I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 },
-        {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Summerset II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 },
-        {0.3670 ,0.4005, [[Summerset Treasure Map III]],    [[Schatzkarte: Summerset III]],    [[Carte Au Trésor Summerset III]],    [[[Summerset Treasure Map III]],    [[[Summerset Treasure Map III]],    [[treasuremap_summerset_04]], 43750 },
-        {0.3568 ,0.5687, [[Summerset Treasure Map IV]],     [[Schatzkarte: Summerset IV]],     [[Carte Au Trésor Summerset IV]],     [[[Summerset Treasure Map IV]],     [[[Summerset Treasure Map IV]],     [[treasuremap_summerset_07]], 43751 },
-        {0.1693 ,0.3203, [[Summerset Treasure Map V]],      [[Schatzkarte: Summerset V]],      [[Carte Au Trésor Summerset V]],      [[[Summerset Treasure Map V]],      [[[Summerset Treasure Map V]],      [[treasuremap_summerset_09]], 43752 },
-        {0.6721 ,0.7827, [[Summerset Treasure Map VI]],     [[Schatzkarte: Summerset VI]],     [[Carte Au Trésor Summerset VI]],     [[[Summerset Treasure Map VI]],     [[[Summerset Treasure Map VI]],     [[treasuremap_summerset_10_gjadilslegacy]], 43753 },
-        {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],   [[Carte Au Trésor Summerset EC I]],   [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]],   [[treasuremap_summerset_02]], 139007 },
-        {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],  [[Carte Au Trésor Summerset EC II]],  [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]],  [[treasuremap_summerset_05]], 139008 },
-        {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset CE III]], [[Carte Au Trésor Summerset EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 },
+      {0.4870 ,0.1970, [[Summerset Treasure Map I]],      [[Schatzkarte: Summerset I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 },
+      {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Summerset II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 },
+      {0.3670 ,0.4005, [[Summerset Treasure Map III]],    [[Schatzkarte: Summerset III]],    [[Carte Au Trésor Summerset III]],    [[[Summerset Treasure Map III]],    [[[Summerset Treasure Map III]],    [[treasuremap_summerset_04]], 43750 },
+      {0.3568 ,0.5687, [[Summerset Treasure Map IV]],     [[Schatzkarte: Summerset IV]],     [[Carte Au Trésor Summerset IV]],     [[[Summerset Treasure Map IV]],     [[[Summerset Treasure Map IV]],     [[treasuremap_summerset_07]], 43751 },
+      {0.1693 ,0.3203, [[Summerset Treasure Map V]],      [[Schatzkarte: Summerset V]],      [[Carte Au Trésor Summerset V]],      [[[Summerset Treasure Map V]],      [[[Summerset Treasure Map V]],      [[treasuremap_summerset_09]], 43752 },
+      {0.6721 ,0.7827, [[Summerset Treasure Map VI]],     [[Schatzkarte: Summerset VI]],     [[Carte Au Trésor Summerset VI]],     [[[Summerset Treasure Map VI]],     [[[Summerset Treasure Map VI]],     [[treasuremap_summerset_10_gjadilslegacy]], 43753 },
+      {0.5980 ,0.5600, [[Summerset CE Treasure Map I]],   [[Schatzkarte: Summerset CE I]],   [[Carte Au Trésor Summerset EC I]],   [[[Summerset CE Treasure Map I]],   [[[Summerset CE Treasure Map I]],   [[treasuremap_summerset_02]], 139007 },
+      {0.3350, 0.3240, [[Summerset CE Treasure Map II]],  [[Schatzkarte: Summerset CE II]],  [[Carte Au Trésor Summerset EC II]],  [[[Summerset CE Treasure Map II]],  [[[Summerset CE Treasure Map II]],  [[treasuremap_summerset_05]], 139008 },
+      {0.2040, 0.6260, [[Summerset CE Treasure Map III]], [[Schatzkarte: Summerset CE III]], [[Carte Au Trésor Summerset EC III]], [[[Summerset CE Treasure Map III]], [[[Summerset CE Treasure Map III]], [[treasuremap_summerset_06]], 139009 },
     },
     ["surveys"] = {
     },
@@ -615,8 +615,8 @@ LOST_TREASURE_DATA = {
   -- Murkmire
   ["murkmire"] = {
     ["treasure"] = {
-        {0.5458,  0.3791,  [[Murkmire Treasure Map I]],  [[Schatzkarte: Murkmire I]],  [[Carte Au Trésor Murkmire I]],  [[Murkmire Treasure Map I]],  [[Murkmire Treasure Map I]],   [[treasuremap_murkmire_01]], 145510 },
-        {0.4471,  0.4071,  [[Murkmire Treasure Map II]], [[Schatzkarte: Murkmire II]], [[Carte Au Trésor Murkmire II]], [[Murkmire Treasure Map II]], [[Murkmire Treasure Map II]],  [[treasuremap_murkmire_02]], 145512 },
+      {0.5458,  0.3791,  [[Murkmire Treasure Map I]],  [[Schatzkarte: Murkmire I]],  [[Carte Au Trésor Murkmire I]],  [[Murkmire Treasure Map I]],  [[Murkmire Treasure Map I]],   [[treasuremap_murkmire_01]], 145510 },
+      {0.4471,  0.4071,  [[Murkmire Treasure Map II]], [[Schatzkarte: Murkmire II]], [[Carte Au Trésor Murkmire II]], [[Murkmire Treasure Map II]], [[Murkmire Treasure Map II]],  [[treasuremap_murkmire_02]], 145512 },
     },
     ["surveys"] = {
     },
@@ -624,23 +624,23 @@ LOST_TREASURE_DATA = {
   -- Elsweyr
   ["elsweyr"] = {
     ["treasure"] = {
-        {0.6148,  0.4074,  [[Northern Elsweyr Treasure Map I]],  [[Schatzkarte: Northern Elsweyr I]],  [[Carte Au Trésor Northern Elsweyr I]],  [[Northern Elsweyr Treasure Map I]],  [[Northern Elsweyr Treasure Map I]],   [[treasuremap_elsweyr_01]], 151613 },
-        {0.4173,  0.2222,  [[Northern Elsweyr Treasure Map II]], [[Schatzkarte: Northern Elsweyr II]], [[Carte Au Trésor Northern Elsweyr II]], [[Northern Elsweyr Treasure Map II]], [[Northern Elsweyr Treasure Map II]],  [[treasuremap_elsweyr_02]], 151614 },
-        {0.3988 ,0.5741, [[Northern Elsweyr Treasure Map III]],    [[Schatzkarte: Northern Elsweyr III]],    [[Carte Au Trésor Northern Elsweyr III]],    [[[Northern Elsweyr Treasure Map III]],    [[[Northern Elsweyr Treasure Map III]],    [[treasuremap_elsweyr_03]], 151615 },
-        {0.2543 ,0.7556, [[Northern Elsweyr Treasure Map IV]],     [[Schatzkarte: Northern Elsweyr IV]],     [[Carte Au Trésor Northern Elsweyr IV]],     [[[Northern Elsweyr Treasure Map IV]],     [[[Northern Elsweyr Treasure Map IV]],     [[treasuremap_elsweyr_04]], 151616 },
-        {0.4852 ,0.6728, [[Northern Elsweyr Treasure Map V]],      [[Schatzkarte: Northern Elsweyr V]],      [[Carte Au Trésor Northern Elsweyr V]],      [[[Northern Elsweyr Treasure Map V]],      [[[Northern Elsweyr Treasure Map V]],      [[treasuremap_elsweyr_05]], 151617 },
-        {0.6284 ,0.4568, [[Northern Elsweyr Treasure Map VI]],     [[Schatzkarte: Northern Elsweyr VI]],     [[Carte Au Trésor Northern Elsweyr VI]],     [[[Northern Elsweyr Treasure Map VI]],     [[[Northern Elsweyr Treasure Map VI]],     [[treasuremap_elsweyr_06]], 151618 },
- --       {0.3175 ,0.7284, [[Northern Elsweyr CE Treasure Map I]],   [[Schatzkarte: Northern Elsweyr CE I]],   [[Carte Au Trésor Northern Elsweyr EC I]],   [[[Northern Elsweyr CE Treasure Map I]],   [[[Northern Elsweyr CE Treasure Map I]],   [[treasuremap_elsweyr_07]], 151619 }, --Guessed item ID
- --       {0.3926, 0.2198, [[Northern Elsweyr CE Treasure Map II]],  [[Schatzkarte: Northern Elsweyr CE II]],  [[Carte Au Trésor Northern Elsweyr EC II]],  [[[Northern Elsweyr CE Treasure Map II]],  [[[Northern Elsweyr CE Treasure Map II]],  [[treasuremap_elsweyr_08]], 151620 }, --Guessed item ID
- --       {0.8099, 0.3667, [[Northern Elsweyr CE Treasure Map III]], [[Schatzkarte: Northern Elsweyr CE III]], [[Carte Au Trésor Northern Elsweyr EC III]], [[[Northern Elsweyr CE Treasure Map III]], [[[Northern Elsweyr CE Treasure Map III]], [[treasuremap_elsweyr_09]], 151621 }, --Guessed item ID
+      {0.6148, 0.4074, [[Northern Elsweyr Treasure Map I]],      [[Schatzkarte: Northern Elsweyr I]],      [[Carte Au Trésor Northern Elsweyr I]],      [[Northern Elsweyr Treasure Map I]],      [[Northern Elsweyr Treasure Map I]],      [[treasuremap_elsweyr_01]], 151613 },
+      {0.4173, 0.2222, [[Northern Elsweyr Treasure Map II]],     [[Schatzkarte: Northern Elsweyr II]],     [[Carte Au Trésor Northern Elsweyr II]],     [[Northern Elsweyr Treasure Map II]],     [[Northern Elsweyr Treasure Map II]],     [[treasuremap_elsweyr_02]], 151614 },
+      {0.3988, 0.5741, [[Northern Elsweyr Treasure Map III]],    [[Schatzkarte: Northern Elsweyr III]],    [[Carte Au Trésor Northern Elsweyr III]],    [[Northern Elsweyr Treasure Map III]],    [[Northern Elsweyr Treasure Map III]],    [[treasuremap_elsweyr_03]], 151615 },
+      {0.2543, 0.7556, [[Northern Elsweyr Treasure Map IV]],     [[Schatzkarte: Northern Elsweyr IV]],     [[Carte Au Trésor Northern Elsweyr IV]],     [[Northern Elsweyr Treasure Map IV]],     [[Northern Elsweyr Treasure Map IV]],     [[treasuremap_elsweyr_04]], 151616 },
+      {0.4852, 0.6728, [[Northern Elsweyr Treasure Map V]],      [[Schatzkarte: Northern Elsweyr V]],      [[Carte Au Trésor Northern Elsweyr V]],      [[Northern Elsweyr Treasure Map V]],      [[Northern Elsweyr Treasure Map V]],      [[treasuremap_elsweyr_05]], 151617 },
+      {0.6284, 0.4568, [[Northern Elsweyr Treasure Map VI]],     [[Schatzkarte: Northern Elsweyr VI]],     [[Carte Au Trésor Northern Elsweyr VI]],     [[Northern Elsweyr Treasure Map VI]],     [[Northern Elsweyr Treasure Map VI]],     [[treasuremap_elsweyr_06]], 151618 },
+      {0.3175 ,0.7284, [[Northern Elsweyr CE Treasure Map I]],   [[Schatzkarte: Northern Elsweyr CE I]],   [[Carte Au Trésor Northern Elsweyr EC I]],   [[Northern Elsweyr CE Treasure Map I]],   [[Northern Elsweyr CE Treasure Map I]],   [[treasuremap_elsweyr_07]], 147922 }, 
+      {0.3926, 0.2198, [[Northern Elsweyr CE Treasure Map II]],  [[Schatzkarte: Northern Elsweyr CE II]],  [[Carte Au Trésor Northern Elsweyr EC II]],  [[Northern Elsweyr CE Treasure Map II]],  [[Northern Elsweyr CE Treasure Map II]],  [[treasuremap_elsweyr_08]], 147923 }, 
+      {0.8099, 0.3667, [[Northern Elsweyr CE Treasure Map III]], [[Schatzkarte: Northern Elsweyr CE III]], [[Carte Au Trésor Northern Elsweyr EC III]], [[Northern Elsweyr CE Treasure Map III]], [[Northern Elsweyr CE Treasure Map III]], [[treasuremap_elsweyr_09]], 147924 }, 
     },
     ["surveys"] = {
-      {0.4271, 0.4212, [[Alchemist Survey: Northern Elsweyr]],  [[Alchemistengutachten: Northern Elsweyr]], [[Repérages d'Alchemiste : Northern Elsweyr]], [[錬金術師の調査報告: Northern Elsweyr]], [[исследование алхимика: Northern Elsweyr]], [[elsweyr_survey_alchemist]], 151601 },
-      {0.2695, 0.4402, [[Blacksmith Survey: Northern Elsweyr]], [[Schmiedegutachten: Northern Elsweyr]],    [[Repérages de Forgeron : Northern Elsweyr]],  [[鍛冶師の調査報告: Northern Elsweyr]], [[исследование кузнеца: Northern Elsweyr]], [[elsweyr_survey_blacksmith]], 151598 },
-      {0.3161, 0.5549, [[Clothier Survey: Northern Elsweyr]],   [[Schneidergutachten: Northern Elsweyr]],   [[Repérages de Tailleur : Northern Elsweyr]],  [[仕立師の調査報告: Northern Elsweyr]], [[исследование портного: Northern Elsweyr]], [[elsweyr_survey_clothier]], 151599 },
-      {0.4410, 0.3880, [[Enchanter Survey: Northern Elsweyr]],  [[Verzauberergutachten: Northern Elsweyr]], [[Repérages d'Enchanteur : Northern Elsweyr]], [[付呪師の調査報告: Northern Elsweyr]], [[исследование зачарователя: Northern Elsweyr]], [[elsweyr_survey_enchanter]], 151602 },
-      {0.6120, 0.6430, [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],   [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],   [[Jewelry Crafting Survey: Northern Elsweyr]],      [[elsweyr_survey_jewelry]], 151603},
-      {0.4911, 0.6794, [[Woodworker Survey: Northern Elsweyr]], [[Schreinergutachten: Northern Elsweyr]],   [[Repérages de Travailleur du Bois : Northern Elsweyr]], [[木工師の調査報告: バンコライ]], [[исследование столяра: Northern Elsweyr]], [[elsweyr_survey_woodworker]], 151600 },
+      {0.4271, 0.4212, [[Alchemist Survey: Northern Elsweyr]],        [[Alchemistengutachten: Northern Elsweyr]],    [[Repérages d'Alchemiste : Northern Elsweyr]],           [[錬金術師の調査報告: Northern Elsweyr]],       [[исследование алхимика: Northern Elsweyr]],     [[elsweyr_survey_alchemist]],  151601 },
+      {0.2695, 0.4402, [[Blacksmith Survey: Northern Elsweyr]],       [[Schmiedegutachten: Northern Elsweyr]],       [[Repérages de Forgeron : Northern Elsweyr]],            [[鍛冶師の調査報告: Northern Elsweyr]],         [[исследование кузнеца: Northern Elsweyr]],      [[elsweyr_survey_blacksmith]], 151598 },
+      {0.3161, 0.5549, [[Clothier Survey: Northern Elsweyr]],         [[Schneidergutachten: Northern Elsweyr]],      [[Repérages de Tailleur : Northern Elsweyr]],            [[仕立師の調査報告: Northern Elsweyr]],         [[исследование портного: Northern Elsweyr]],     [[elsweyr_survey_clothier]],   151599 },
+      {0.4410, 0.3880, [[Enchanter Survey: Northern Elsweyr]],        [[Verzauberergutachten: Northern Elsweyr]],    [[Repérages d'Enchanteur : Northern Elsweyr]],           [[付呪師の調査報告: Northern Elsweyr]],         [[исследование зачарователя: Northern Elsweyr]], [[elsweyr_survey_enchanter]],  151602 },
+      {0.6120, 0.6430, [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],           [[Jewelry Crafting Survey: Northern Elsweyr]], [[Jewelry Crafting Survey: Northern Elsweyr]],   [[elsweyr_survey_jewelry]],    151603 },
+      {0.4911, 0.6794, [[Woodworker Survey: Northern Elsweyr]],       [[Schreinergutachten: Northern Elsweyr]],      [[Repérages de Travailleur du Bois : Northern Elsweyr]], [[木工師の調査報告: バンコライ]],                [[исследование столяра: Northern Elsweyr]],      [[elsweyr_survey_woodworker]], 151600 },
     },
   },
 }
