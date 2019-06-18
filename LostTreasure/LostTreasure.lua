@@ -5,7 +5,7 @@ local Addon = {
   Name = "LostTreasure",
   NameSpaced = "Lost Treasure",
   Author = "CrazyDutchGuy ",
-  Version = "7.00",
+  Version = "7.01",
   WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
@@ -101,12 +101,14 @@ local TREASURE_TEXT = {
   de = "schatzkarte",
   fr = "carte au trésor",
   ru = "карта сокровищ",
+  jp = "宝箱の地図",
 }
 local SURVEYS_TEXT = {
   en = "survey:",
-  de = "gutachten",
+  de = "fundbericht",
   fr = "repérages",
-  ru = "исследование",
+  ru = "исследований:",
+  jp = "調査:",
 }
 
 LT.dirtyPins = {}
@@ -181,7 +183,7 @@ local function CreatePins()
     end
 
     if LT.dirtyPins[2] then
-      local bagCache = SHARED_INVENTORY:GenerateFullSlotData(nil, BAG_BACKPACK)
+      local bagCache = SHARED_INVENTORY:GetOrCreateBagCache(BAG_BACKPACK)
       for slotIndex, itemData in pairs(bagCache) do
         if itemData.itemID and itemData.itemType == ITEMTYPE_TROPHY then
           for treasureType, keys in pairs(LT.dirtyPins[2]) do
@@ -346,7 +348,7 @@ function LT:EVENT_SHOW_TREASURE_MAP(event, treasureMapIndex)
 
   name = zo_strformat(SI_TOOLTIP_ITEM_NAME, name)
   local myLink
-  local bagCache = SHARED_INVENTORY:GenerateFullSlotData(nil, BAG_BACKPACK)
+  local bagCache = SHARED_INVENTORY:GetOrCreateBagCache(BAG_BACKPACK)
   for slot, itemData in pairs(bagCache) do
     if name == itemData.name then
       myLink = GetItemLink(BAG_BACKPACK, slot)
@@ -363,34 +365,38 @@ end
 -- callback to check if an item was added to inventory; if it was a map, update its pins
 -- thanks Garkin!
 function LT:SlotAdded(bagId, slotIndex, slotData)
-  if not (bagId == BAG_BACKPACK and slotData and slotData.itemType == ITEMTYPE_TROPHY) then return end
-
-  local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
-  local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
+  if not ( bagId == BAG_BACKPACK and 
+           slotData and 
+           ( slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP or 
+             slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT))
+  then return end
 
   local itemID = select(4, ZO_LinkHandler_ParseLink(GetItemLink(BAG_BACKPACK, slotIndex)))
   slotData.itemID = tonumber(itemID)
 
-  if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
+  if slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP and LT.SavedVariables["treasureMarkMapMenuOption"] == 2 then
     LT:refreshTreasurePins()
   end
-  if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
+
+  if slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT and LT.SavedVariables["surveysMarkMapMenuOption"] == 2 then
     LT:refreshSurveyPins()
   end
 end
 
 function LT:SlotRemoved(bagId, slotIndex, slotData)
-  if not (bagId == BAG_BACKPACK and slotData and slotData.itemID and slotData.itemType == ITEMTYPE_TROPHY) then return end
-
-  local isTreasureMap = zo_plainstrfind(zo_strlower(slotData.name), TREASURE_TEXT[lang])
-  local isSurveyMap = zo_plainstrfind(zo_strlower(slotData.name), SURVEYS_TEXT[lang])
+  if not ( bagId == BAG_BACKPACK and 
+           slotData and 
+           ( slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP or 
+             slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT))
+  then return end
+  
 
   if (currentTreasureMapItemID and currentTreasureMapItemID == slotData.itemID) then
     zo_callLater(
       function() LT:hideMiniTreasureMap() end, LT.SavedVariables.markerDeletionDelay * 1000 )
   end
 
-  if isTreasureMap and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
+  if slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP and LT.SavedVariables["treasureMarkMapMenuOption"] <= 2 then
     if LT.SavedVariables["treasureMarkMapMenuOption"] == 1 then
       if LT.listMarkOnUse["treasure"][slotData.itemID] then
         LT.listMarkOnUse["treasure"][slotData.itemID] = nil
@@ -401,7 +407,8 @@ function LT:SlotRemoved(bagId, slotIndex, slotData)
       function() LT:refreshTreasurePins() end,
       LT.SavedVariables.markerDeletionDelay * 1000 )
   end
-  if isSurveyMap and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
+  
+  if slotData.specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT and LT.SavedVariables["surveysMarkMapMenuOption"] <= 2 then
     if LT.SavedVariables["surveysMarkMapMenuOption"] == 1 then
       if LT.listMarkOnUse["surveys"][slotData.itemID] then
         LT.listMarkOnUse["surveys"][slotData.itemID] = nil
