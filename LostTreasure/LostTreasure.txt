@@ -6,9 +6,9 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: The one and only true treasure and survey map locator. All others are just copies.
-## Version: 7.01
+## Version: 7.02
 ## Author:  |cFFA500CrazyDutchGuy|r
-## APIVersion: 100027
+## APIVersion: 100028
 ## SavedVariables: LOST_TREASURE_SV
 ## OptionalDependsOn: LibStub LibMapPins-1.0 LibAddonMenu-2.0 CustomCompassPins
 

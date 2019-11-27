@@ -5,7 +5,7 @@ local Addon = {
   Name = "LostTreasure",
   NameSpaced = "Lost Treasure",
   Author = "CrazyDutchGuy ",
-  Version = "7.01",
+  Version = "7.02",
   WebSite = "http://www.esoui.com/downloads/info561-LostTreasure.html",
 }
 
@@ -174,7 +174,6 @@ local function CreatePins()
         if treasureTypeData then
           for _, pinData in pairs(treasureTypeData) do			
             if LT.listMarkOnUse[treasureType][pinData[LOST_TREASURE_INDEX.ITEMID]] then
-				d("Create Pin")
               CreatePin(treasureType, pinData, keys.map, keys.compass)
             end
           end
@@ -183,16 +182,22 @@ local function CreatePins()
     end
 
     if LT.dirtyPins[2] then
+      local treasures = nil
       local bagCache = SHARED_INVENTORY:GetOrCreateBagCache(BAG_BACKPACK)
       for slotIndex, itemData in pairs(bagCache) do
-        if itemData.itemID and itemData.itemType == ITEMTYPE_TROPHY then
-          for treasureType, keys in pairs(LT.dirtyPins[2]) do
-            local treasureTypeData = data[treasureType]
-            if treasureTypeData then
-              for _, pinData in pairs(treasureTypeData) do
-                if itemData.itemID == pinData[LOST_TREASURE_INDEX.ITEMID] then
-                  CreatePin(treasureType, pinData, keys.map, keys.compass)
-                end
+        if itemData.itemType == ITEMTYPE_TROPHY then
+          treasures = treasures or {}
+          treasures[GetItemId(itemData.bagId, itemData.slotIndex)] = true
+        end
+      end
+      
+	  if treasures then
+        for treasureType, keys in pairs(LT.dirtyPins[2]) do
+          local treasureTypeData = data[treasureType]
+          if treasureTypeData then
+            for _, pinData in pairs(treasureTypeData) do
+              if treasures[pinData[LOST_TREASURE_INDEX.ITEMID]] then
+                CreatePin(treasureType, pinData, keys.map, keys.compass)
               end
             end
           end
