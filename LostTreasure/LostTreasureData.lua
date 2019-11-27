@@ -33,6 +33,7 @@ LOST_TREASURE_DATA = {
       {0.5000,  0.2525,  [[Auridon Treasure Map V]],   [[Schatzkarte: Auridon V]],   [[Carte Au Trésor d'Auridia V]],   [[オーリドンの宝の地図5]],    [[Ауридон, карта сокровищ V]],             [[treasuremap_auridon_05]],            43629 },
       {0.3385,  0.1318,  [[Auridon Treasure Map VI]],  [[Schatzkarte: Auridon VI]],  [[Carte Au Trésor d'Auridia VI]],  [[オーリドンの宝の地図6]],    [[Ауридон, карта сокровищ VI]],            [[treasuremap_auridon_06]],            43630 },
       {0.6881,  0.9678,  [[Auridon CE Treasure Map]],  [[CE-Schatzkarte: Auridon]],  [[Carte Au Trésor exclusive d'Auridia]],  [[オーリドンの宝の地図(CE)]], [[Ауридон, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
+	  {0.2000,  0.2180,  [[Glenmoril Wyrd Treasure Map: Auridon]], [[Glenmoril Wyrd Treasure Map: Auridon]], [[Glenmoril Wyrd Treasure Map: Auridon]], [[Glenmoril Wyrd Treasure Map: Auridon]], [[Glenmoril Wyrd Treasure Map: Auridon]], [[glenmoral_weapon_auridon_map]], 153640 },
     },
     ["surveys"] = {
       {0.4085,  0.7007,  [[Clothier Survey: Auridon]],         [[Schneidermaterial-Fundbericht: Auridon]],      [[Repérages de Tailleur : Auridia]],            [[仕立師の調査報告: オーリドン]],       [[исследование портного: Ауридон]],     [[auridon_survey_clothier]],   57738  },
@@ -104,6 +105,7 @@ LOST_TREASURE_DATA = {
       {0.8000,  0.2860,  [[Malabal Tor Treasure Map V]],   [[Schatzkarte: Malabal Tor  V]],   	[[Carte Au Trésor de Malabal Tor V]],   [[マラバル・トールの宝の地図5]],    [[Малабал Тор, карта сокровищ V]],             [[treasuremap_malabaltor_05]],          43647 },
       {0.6627,  0.2306,  [[Malabal Tor Treasure Map VI]],  [[Schatzkarte: Malabal Tor  VI]],  	[[Carte Au Trésor de Malabal Tor VI]],  [[マラバル・トールの宝の地図6]],    [[Малабал Тор, карта сокровищ VI]],            [[treasuremap_malabaltor_06]],          43648 },
       {0.1238,  0.5252,  [[Malabal Tor CE Treasure Map]],  [[CE-Schatzkarte: Malabal Tor]],		[[Carte Au Trésor exclusive de Malabal Tor]],  [[マラバル・トールの宝の地図(CE)]], [[Малабал Тор, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_malbator_05]], 44940 },
+	  {0.8250,  0.4460,  [[Glenmoril Wyrd Treasure Map: Malabal Tor]], [[Glenmoril Wyrd Treasure Map: Malabal Tor]], [[Glenmoril Wyrd Treasure Map: Malabal Tor]], [[Glenmoril Wyrd Treasure Map: Malabal Tor]], [[Glenmoril Wyrd Treasure Map: Malabal Tor]], [[glenmoral_weapon_malabaltor_map]], 153644 },
     },
     ["surveys"] = {
       {0.8024,  0.1611,  [[Alchemist Survey: Malabal Tor]], 		[[Alchemiematerial-Fundbericht: Malabal Tor]], 		[[Repérages d'Alchemiste : Malabal Tor]],           [[錬金術師の調査報告: マラバル・トール]], [[исследование алхимика: Малабал Тор]],     [[malabaltor_survey_alchemist]],  57777 },
@@ -130,6 +132,7 @@ LOST_TREASURE_DATA = {
       {0.5510,  0.4160,  [[Reaper's March Treasure Map V]],   [[Schatzkarte: Schnittermark V]],   [[Carte Au Trésor de la marche de la Camarde V]],         [[リーパーズ・マーチの宝の地図5]],    [[Марка Смерти, карта сокровищ V]],             [[treasuremap_reapersmarch_05]],            43653 },
       {0.6687,  0.2401,  [[Reaper's March Treasure Map VI]],  [[Schatzkarte: Schnittermark VI]],  [[Carte Au Trésor de la marche de la Camarde VI]],        [[リーパーズ・マーチの宝の地図6]],    [[Марка Смерти, карта сокровищ VI]],            [[treasuremap_reapersmarch_06]],            43654 },
       {0.4087,  0.5434,  [[Reaper's March CE Treasure Map]],  [[CE-Schatzkarte: Schnittermark]],  [[Carte Au Trésor exclusive de la marche de la Camarde]], [[リーパーズ・マーチの宝の地図(CE)]], [[Марка Смерти, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_reapersmarch_06]], 44941 },
+	  {0.2980,  0.1540,  [[Glenmoril Wyrd Treasure Map: Reaper's March]], [[Glenmoril Wyrd Treasure Map: Reaper's March]], [[Glenmoril Wyrd Treasure Map: Reaper's March]], [[Glenmoril Wyrd Treasure Map: Reaper's March]], [[Glenmoril Wyrd Treasure Map: Reaper's March]], [[glenmoral_weapon_reapersmarch_map]], 153645 },
     },
     ["surveys"] = {
       {0.3314,  0.7321,  [[Enchanter Survey: Reaper's March]],        [[Verzauberermaterial-Fundbericht: Schnittermark]], [[Repérages d'Enchanteur : Marche de la Camarde]],           [[付呪師の調査: リーパーズ・マーチ]],          [[исследование зачарователя: Марка Смерти]], [[reapersmarch_survey_enchanter]],  57808  },
@@ -177,6 +180,7 @@ LOST_TREASURE_DATA = {
       {0.1937,  0.5504,  [[Stonefalls Treasure Map V]],   [[Schatzkarte: Steinfälle V]],   [[Carte Au Trésor des Éboulis V]],         [[ストンフォールの宝の地図5]],    [[Стоунфолз, карта сокровищ V]],             [[treasuremap_stonefalls_005]],             43659 },
       {0.36,    0.70,    [[Stonefalls Treasure Map VI]],  [[Schatzkarte: Steinfälle VI]],  [[Carte Au Trésor des Éboulis VI]],        [[ストンフォールの宝の地図6]],    [[Стоунфолз, карта сокровищ VI]],            [[treasuremap_stonefalls_006]],             43660 },
       {0.5200,  0.6129,  [[Stonefalls CE Treasure Map]],  [[CE-Schatzkarte: Steinfälle]],  [[Carte Au Trésor exclusive des Éboulis]], [[ストンフォールの宝の地図(CE)]], [[Стоунфолз, коллекционная карта сокровищ]], [[treasuremap_ce_ebonheart_stonefalls_02]], 44944 },
+	  {0.8230,  0.4010,  [[Glenmoril Wyrd Treasure Map: Stonefalls]], [[Glenmoril Wyrd Treasure Map: Stonefalls]], [[Glenmoril Wyrd Treasure Map: Stonefalls]], [[Glenmoril Wyrd Treasure Map: Stonefalls]], [[Glenmoril Wyrd Treasure Map: Stonefalls]], [[glenmoral_weapon_stonefalls_map]], 153648 },
     },
     ["surveys"] = {
       {0.6718,  0.5741,  [[Blacksmith Survey: Stonefalls]],       [[Schmiedematerial-Fundbericht: Steinfälle]],    [[Repérages de Forgeron : Éboulis]],            [[鍛冶師の調査報告: ストンフォール]],      [[исследование кузнеца: Стоунфолз]],      [[stonefalls_survey_blacksmith]], 57737  },
@@ -222,6 +226,7 @@ LOST_TREASURE_DATA = {
       {0.406,   0.469,   [[Shadowfen Treasure Map V]],   [[Schatzkarte: Schattenfenn V]],   [[Carte Au Trésor de Fangeombre V]],         [[シャドウフェンの宝の地図5]],    [[Шедоуфен, карта сокровищ V]],             [[treasuremap_shadowfen_05]],              43671 },
       {0.2383,  0.5640,  [[Shadowfen Treasure Map VI]],  [[Schatzkarte: Schattenfenn VI]],  [[Carte Au Trésor de Fangeombre VI]],        [[シャドウフェンの宝の地図6]],    [[Шедоуфен, карта сокровищ VI]],            [[treasuremap_shadowfen_06]],              43672 },
       {0.6426,  0.4554,  [[Shadowfen CE Treasure Map]],  [[CE-Schatzkarte: Schattenfenn]],  [[Carte Au Trésor exclusive de Fangeombre]], [[シャドウフェンの宝の地図(CE)]], [[Шедоуфен, коллекционная карта сокровищ]], [[treasuremap_ce_ebonheart_shadowfen_04]], 44943 },
+	  {0.4830,  0.7010,  [[Glenmoril Wyrd Treasure Map: Shadowfen]], [[Glenmoril Wyrd Treasure Map: Shadowfen]], [[Glenmoril Wyrd Treasure Map: Shadowfen]], [[Glenmoril Wyrd Treasure Map: Shadowfen]], [[Glenmoril Wyrd Treasure Map: Shadowfen]], [[glenmoral_weapon_shadowfen_map]], 153647 },
     },
     ["surveys"] = {
       {0.7517,  0.4308,  [[Clothier Survey: Shadowfen]],         [[Schneidermaterial-Fundbericht: Schattenfenn]],   [[CRepérages de Tailleur : Fangeombre]],           [[仕立師の調査報告: シャドウフェン]],     [[исследование портного: Шедоуфен]],     [[shadowfen_survey_clothier]],   57758  },
@@ -242,6 +247,7 @@ LOST_TREASURE_DATA = {
       {0.7369,  0.6603,  [[Eastmarch Treasure Map V]],   [[Schatzkarte: Ostmarsch V]],   [[Carte Au Trésor d'Estemarche V]],         [[イーストマーチの宝の地図5]],    [[Истмарк, карта сокровищ V]],             [[treasuremap_eastmarch_05]],              43677 },
       {0.6059,  0.5391,  [[Eastmarch Treasure Map VI]],  [[Schatzkarte: Ostmarsch VI]],  [[Carte Au Trésor d'Estemarche VI]],        [[イーストマーチの宝の地図6]],    [[Истмарк, карта сокровищ VI]],            [[treasuremap_eastmarch_06]],              43678 },
       {0.7136,  0.5833,  [[Eastmarch CE Treasure Map]],  [[CE-Schatzkarte: Ostmarsch]],  [[Carte Au Trésor exclusive d'Estemarche]], [[イーストマーチの宝の地図(CE)]], [[Истмарк, коллекционная карта сокровищ]], [[treasuremap_ce_ebonheart_eastmarch_05]], 44935 },
+	  {0.4310,  0.5870,  [[Glenmoril Wyrd Treasure Map: Eastmarch]], [[Glenmoril Wyrd Treasure Map: Eastmarch]], [[Glenmoril Wyrd Treasure Map: Eastmarch]], [[Glenmoril Wyrd Treasure Map: Eastmarch]], [[Glenmoril Wyrd Treasure Map: Eastmarch]], [[glenmoral_weapon_eastmarch_map]], 153643 },
     },
     ["surveys"] = {
       {0.6800,  0.6125,  [[Clothier Survey: Eastmarch]],         [[Schneidermaterial-Fundbericht: Ostmarsch]],   [[Repérages de Tailleur : Estemarche]],            [[仕立師の調査報告: イーストマーチ]],     [[исследование портного: Истмарк]],     [[eastmarch_survey_clothier]],   57761  },
@@ -303,6 +309,7 @@ LOST_TREASURE_DATA = {
       {0.2752,  0.5285,  [[Glenumbra Treasure Map V]],   [[Schatzkarte: Glenumbra V]],   [[Carte Au Trésor de la Glénumbrie V]],          [[グレナンブラの宝の地図5]],    [[Гленумбра, карта сокровищ V]],             [[treasuremap_glenumbra_005]],              43509 },
       {0.5157,  0.2545,  [[Glenumbra Treasure Map VI]],  [[Schatzkarte: Glenumbra VI]],  [[Carte Au Trésor de la Glénumbrie VI]],         [[グレナンブラの宝の地図6]],    [[Гленумбра, карта сокровищ VI]],            [[treasuremap_glenumbra_006]],              43526 },
       {0.7030,  0.4668,  [[Glenumbra CE Treasure Map]],  [[CE-Schatzkarte: Glenumbra]],  [[Carte Au Trésor exclusive de la Glénumbrie]],  [[グレナンブラの宝の地図(CE)]], [[Гленумбра, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_glenumbra_02]], 44936 },
+	  {0.6060,  0.2040,  [[Glenmoril Wyrd Treasure Map: Daggerfall]], [[Glenmoril Wyrd Treasure Map: Daggerfall]], [[Glenmoril Wyrd Treasure Map: Daggerfall]], [[Glenmoril Wyrd Treasure Map: Daggerfall]], [[Glenmoril Wyrd Treasure Map: Daggerfall]], [[glenmoral_weapon_daggerfall_map]], 153642 },
     },
     ["surveys"] = {
       {0.7158,  0.3056,  [[Enchanter Survey: Glenumbra]],        [[Verzauberermaterial-Fundbericht: Glenumbra]], [[Repérages d'Enchanteur : Glénumbrie]],           [[付呪師の調査報告: グレナンブラ]],       [[исследование зачарователя: Гленумбра]], [[glenumbra_survey_enchanter]],  57734  },
@@ -343,6 +350,7 @@ LOST_TREASURE_DATA = {
       {0.7584,  0.3199,  [[Rivenspire Treasure Map V]],   [[Schatzkarte: Kluftspitze V]],   [[Carte Au Trésor de Fendretour V]],         [[リベンスパイアーの宝の地図5]],    [[Ривенспайр, карта сокровищ V]],             [[treasuremap_rivenspire_05]],               43611 },
       {0.4092,  0.2994,  [[Rivenspire Treasure Map VI]],  [[Schatzkarte: Kluftspitze VI]],  [[Carte Au Trésor de Fendretour VI]],        [[リベンスパイアーの宝の地図6]],    [[Ривенспайр, карта сокровищ VI]],            [[treasuremap_rivenspire_06]],               43612 },
       {0.7599,  0.1621,  [[Rivenspire CE Treasure Map]],  [[CE-Schatzkarte: Kluftspitze]],  [[Carte Au Trésor exclusive de Fendretour]], [[リベンスパイアーの宝の地図(CE)]], [[Ривенспайр, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
+	  {0.7060,  0.6960,  [[Glenmoril Wyrd Treasure Map: Rivenspire]], [[Glenmoril Wyrd Treasure Map: Rivenspire]], [[Glenmoril Wyrd Treasure Map: Rivenspire]], [[Glenmoril Wyrd Treasure Map: Rivenspire]], [[Glenmoril Wyrd Treasure Map: Rivenspire]], [[glenmoral_weapon_rivenspire_map]], 153646 },
     },
     ["surveys"] = {
       {0.2971,  0.6413,  [[Clothier Survey: Rivenspire]],         [[Schneidermaterial-Fundbericht: Kluftspitze]],   [[Repérages de Tailleur : Fendretour]],            [[仕立師の調査報告: リベンスパイアー]],    [[исследование портного: Ривенспайр]],     [[rivenspire_survey_clothier]],   57759  },
@@ -368,7 +376,8 @@ LOST_TREASURE_DATA = {
       {0.5839, 0.2561,  [[Alik'r Treasure Map IV]],  [[Schatzkarte: Alik'r IV]],  [[Carte Au Trésor du désert d'Alik'r IV]],        [[アリクルの宝の地図4]],    [[Алик'р, карта сокровищ IV]],            [[treasuremap_alikr_004]],              43616 },
       {0.7865, 0.5256,  [[Alik'r Treasure Map V]],   [[Schatzkarte: Alik'r V]],   [[Carte Au Trésor du désert d'Alik'r V]],         [[アリクルの宝の地図5]],    [[Алик'р, карта сокровищ V]],             [[treasuremap_alikr_005]],              43617 },
       {0.7176, 0.4692,  [[Alik'r Treasure Map VI]],  [[Schatzkarte: Alik'r VI]],  [[Carte Au Trésor du désert d'Alik'r VI]],        [[アリクルの宝の地図6]],    [[Алик'р, карта сокровищ VI]],            [[treasuremap_alikr_06]],               43618 },
-      {0.3246,  0.3679,  [[Alik'r CE Treasure Map]], [[CE-Schatzkarte: Alik'r]],  [[Carte Au Trésor exclusive du désert d'Alik'r]], [[アリクルの宝の地図(CE)]], [[Алик'р, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
+      {0.3246, 0.3679,  [[Alik'r CE Treasure Map]],  [[CE-Schatzkarte: Alik'r]],  [[Carte Au Trésor exclusive du désert d'Alik'r]], [[アリクルの宝の地図(CE)]], [[Алик'р, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
+	  {0.8540, 0.5560,  [[Glenmoril Wyrd Treasure Map: Alik'r]], [[Glenmoril Wyrd Treasure Map: Alik'r]], [[Glenmoril Wyrd Treasure Map: Alik'r]], [[Glenmoril Wyrd Treasure Map: Alik'r]], [[Glenmoril Wyrd Treasure Map: Alik'r]], [[glenmoral_weapon_alikr_map]], 153639 },
     },
     ["surveys"] = {
       {0.6176, 0.6096,  [[Clothier Survey: Alik'r]],         [[Schneidermaterial-Fundbericht: Alik'r-Wüste]],   [[Repérages de Tailleur : Alik'r]],            [[仕立師の調査報告: アリクル]],        [[исследование портного: Алик'р]],     [[alikr_survey_clothier]],   57762  },
@@ -399,6 +408,7 @@ LOST_TREASURE_DATA = {
       {0.3290,  0.6930,  [[Bangkorai Treasure Map V]],   [[Schatzkarte: Bangkorai V]],   [[Carte Au Trésor de Bangkoraï V]],         [[バンコライの宝の地図5]],    [[Бангкорай, карта сокровищ V]],             [[treasuremap_bankorai_05]],               43623 },
       {0.6447,  0.6926,  [[Bangkorai Treasure Map VI]],  [[Schatzkarte: Bangkorai VI]],  [[Carte Au Trésor de Bangkoraï VI]],        [[バンコライの宝の地図6]],    [[Бангкорай, карта сокровищ VI]],            [[treasuremap_bankorai_06]],               43624 },
       {0.6092,  0.7593,  [[Bangkorai CE Treasure Map]],  [[CE-Schatzkarte: Bangkorai]],  [[Carte Au Trésor exclusive de Bangkoraï]], [[バンコライの宝の地図(CE)]], [[Бангкорай, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_bankorai_06]], 44929 },
+	  {0.5900,  0.4000,  [[Glenmoril Wyrd Treasure Map: Bangkorai]], [[Glenmoril Wyrd Treasure Map: Bangkorai]], [[Glenmoril Wyrd Treasure Map: Bangkorai]], [[Glenmoril Wyrd Treasure Map: Bangkorai]], [[Glenmoril Wyrd Treasure Map: Bangkorai]], [[glenmoral_weapon_bangkorai_map]], 153641 },
     },
     ["surveys"] = {
       {0.5275,  0.1627,  [[Enchanter Survey: Bangkorai]],        [[Verzauberermaterial-Fundbericht: Bangkorai]], [[Repérages d'Enchanteur : Bangkoraï]],           [[付呪師の調査報告: バンコライ]],         [[исследование зачарователя: Бангкорай]], [[bankorai_survey_enchanter]],   57810  },
@@ -596,7 +606,7 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
     },
   },
-    -- summerset
+  -- summerset
   ["summerset"] = {
     ["treasure"] = {	 
         {0.4870 ,0.1970, [[Summerset Treasure Map I]],      [[Schatzkarte: Sommersend I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 },
@@ -621,7 +631,7 @@ LOST_TREASURE_DATA = {
     ["surveys"] = {
     },
   },
-      -- northern Elsweyr
+  -- Northern Elsweyr
   ["elsweyr"] = {
     ["treasure"] = {  
       {0.6116 ,0.4083, [[Northern Elsweyr Treasure Map I]],      [[Schatzkarte: nördliches Elsweyr I]],      [[Carte au trésor du nord d'Elsweyr I]],     [[Elsweyr Treasure Map I]],      [[Elsweyr Treasure Map I]],      [[treasuremap_elsweyr_01]],    151613 },
@@ -641,7 +651,16 @@ LOST_TREASURE_DATA = {
       {0.2685, 0.4400, [[Blacksmith Survey: Northern Elsweyr]],       [[Schmiedegmaterial-Fundbericht: nördliches Elsweyr]], [[Repérages de forgeron : Nord d'Elsweyr]],            [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_blacksmith]], 151598 },
       {0.4918, 0.6791, [[Woodworker Survey: Northern Elsweyr]],       [[Schreinermaterial-Fundbericht: nördliches Elsweyr]], [[Repérages de travailleur du Bois : Nord d'Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_woodworker]], 151600 },
       {0.6131, 0.6433, [[Jewelry Crafting Survey: Northern Elsweyr]], [[Schmuckmaterial-Fundbericht: nördliches Elsweyr]],   [[Repérages de Joaillier : Nord d'Elsweyr]],           [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_jewelry]],    151603 },
- },
+	},
+  },
+  -- Southern Elsweyr
+  ["southernelsweyr"] = {
+    ["treasure"] = {  
+      {0.4691 ,0.6369, [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Mapyr I]], [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Map I]],  [[treasuremap_elsweyr_08]], 156716 },
+      {0.2929 ,0.2574, [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]],  [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]], [[treasuremap_elsweyr_07]], 156715 },            
+    },
+    ["surveys"] = {      
+	},
   },
 }
 
