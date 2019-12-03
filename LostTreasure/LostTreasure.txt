@@ -10,12 +10,8 @@
 ## Author:  |cFFA500CrazyDutchGuy|r
 ## APIVersion: 100029
 ## SavedVariables: LOST_TREASURE_SV
-## DependsOn: LibMapPins-1.0 LibAddonMenu-2.0
-## OptionalDependsOn: CustomCompassPins
+## DependsOn: LibAddonMenu-2.0>=30 LibMapPins-1.0>=18 CustomCompassPins
 
-Libs\CustomCompassPins\CustomCompassPins.lua
-
-;LostTreasureStrings.lua
 Lang\en.lua
 Lang\$(language).lua
 
