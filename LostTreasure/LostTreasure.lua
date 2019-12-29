@@ -164,8 +164,7 @@ local function CreatePin(treasureType, pinData, map, compass)
 end
 
 local function CreatePins()
-  local subzone = string.match(GetMapTileTexture(), "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
-  data = LOST_TREASURE_DATA[subzone]
+  local data = LOST_TREASURE_DATA[GetCurrentMapId()]
 
   if data then
     if LT.dirtyPins[1] then      

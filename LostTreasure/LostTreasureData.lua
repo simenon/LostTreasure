@@ -13,7 +13,7 @@ LOST_TREASURE_INDEX = {
 
 LOST_TREASURE_DATA = {
 ----Khenarthi's Roost
-  ["khenarthisroost"] = {
+  [258] = {
     ["treasure"] = {
       {0.6119,  0.7579,  [[Khenarthi's Roost Treasure Map I]],     [[Schatzkarte: Khenarthis Rast I]],     [[Carte Au Trésor du perchoir de Khenarthi I]],            [[ケナーシズルーストの宝の地図1]],     [[Гнездо Кенарти, карта сокровищ I]],                [[treasuremap_khenarthi_01]],             43695 },
       {0.2254,  0.3140,  [[Khenarthi's Roost Treasure Map II]],    [[Schatzkarte: Khenarthis Rast II]],    [[Carte Au Trésor du perchoir de Khenarthi II]],           [[ケナーシズルーストの宝の地図2]],     [[Гнездо Кенарти, карта сокровищ II]],               [[treasuremap_khenarthi_02]],             43696 },
@@ -24,7 +24,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Auridon
-  ["auridon"] = {
+  [143] = {
     ["treasure"] = {
       {0.4934,  0.8891,  [[Auridon Treasure Map I]],   [[Schatzkarte: Auridon I]],   [[Carte Au Trésor d'Auridia I]],   [[オーリドンの宝の地図1]],    [[Ауридон, карта сокровищ I]],             [[treasuremap_auridon_01]],            43625 },
       {0.4850,  0.6411,  [[Auridon Treasure Map II]],  [[Schatzkarte: Auridon II]],  [[Carte Au Trésor d'Auridia II]],  [[オーリドンの宝の地図2]],    [[Ауридон, карта сокровищ II]],            [[treasuremap_auridon_02]],            43626 },
@@ -45,13 +45,13 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Auridon, Vulkhel Guard
-  ["vulkhelguard"] = {
+  [243] = {
     ["treasure"] = {
       {0.9143,  0.7058,  [[Auridon CE Treasure Map]], [[CE-Schatzkarte: Auridon]], [[Carte Au Trésor d'Auridia EC]], [[オーリドンの宝の地図(CE)]], [[Ауридон, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_auridon_02]], 44927 },
     },
   },
 ----Grahtwood
-  ["grahtwood"] = {
+  [9] = {
     ["treasure"] = {
       {0.3951,  0.6750,  [[Grahtwood Treasure Map I]],   [[Schatzkarte: Grahtwald I]],   [[Carte Au Trésor du bois de Graht I]],   [[グラーウッドの宝の地図1]],    [[Гратвуд, карта сокровищ I]],             [[treasuremap_grahtwood_01]],            43631 },
       {0.6496,  0.4778,  [[Grahtwood Treasure Map II]],  [[Schatzkarte: Grahtwald II]],  [[Carte Au Trésor du bois de Graht II]],  [[グラーウッドの宝の地図2]],    [[Гратвуд, карта сокровищ II]],            [[treasuremap_grahtwood_02]],            43632 },
@@ -70,13 +70,14 @@ LOST_TREASURE_DATA = {
       {0.3903,  0.3928,  [[Jewelry Crafting Survey: Grahtwood]], [[Schmuckmaterial-Fundbericht: Grahtwald]], 		[[Repérages de Joaillier : Bois de Graht]],               [[Jewelry Crafting Survey: Grahtwood]], [[Jewelry Crafting Survey: Grahtwood]],      nil, 139425},
     },
   },
-  ["eldenrootgroundfloor"] = {
+----Grahtwood, Elden Root
+  [445] = {
     ["treasure"] = {
       {0.8820,  0.4106,  [[Grahtwood Treasure Map II]],  [[Schatzkarte: Grahtwald II]],  [[Carte Au Trésor du bois de Graht II]],  [[グラーウッドの宝の地図2]], [[Гратвуд, коллекционная карта сокровищ]], [[treasuremap_grahtwood_02]], 43632 },
     },
   },
 ----Greenshade
-  ["greenshade"] = {
+  [300] = {
     ["treasure"] = {
       {0.6543,  0.8344,  [[Greenshade Treasure Map I]],   [[Schatzkarte: Grünschatten I]],   [[Carte Au Trésor de Prasin I]],   [[グリーンシェイドの宝の地図1]],    [[Гриншейд, карта сокровищ I]],             [[treasuremap_greenshade_01]],            43637 },
       {0.7222,  0.7418,  [[Greenshade Treasure Map II]],  [[Schatzkarte: Grünschatten II]],  [[Carte Au Trésor de Prasin II]],  [[グリーンシェイドの宝の地図2]],    [[Гриншейд, карта сокровищ II]],            [[treasuremap_greenshade_02]],            43638 },
@@ -96,7 +97,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Malabal Tor
-  ["malabaltor"] = {
+  [22] = {
     ["treasure"] = {
       {0.2028,  0.4993,  [[Malabal Tor Treasure Map I]],   [[Schatzkarte: Malabal Tor  I]],   	[[Carte Au Trésor de Malabal Tor I]],   [[マラバル・トールの宝の地図1]],    [[Малабал Тор, карта сокровищ I]],             [[treasuremap_malabaltor_01]],          43643 },
       {0.0549,  0.4775,  [[Malabal Tor Treasure Map II]],  [[Schatzkarte: Malabal Tor  II]],  	[[Carte Au Trésor de Malabal Tor II]],  [[マラバル・トールの宝の地図2]],    [[Малабал Тор, карта сокровищ II]],            [[treasuremap_malabaltor_02]],          43644 },
@@ -116,14 +117,15 @@ LOST_TREASURE_DATA = {
       {0.4135,  0.6588,  [[Jewelry Crafting Survey: Malabal Tor]],	[[Schmuckmaterial-Fundbericht: Malabal Tor]],   	[[Repérages de Joaillier : Malabal Tor]], [[Jewelry Crafting Survey: Malabal Tor]],   [[Jewelry Crafting Survey: Malabal Tor]],      [[malabaltor_survey_jewelry]], 139430},
     },
   },
-  ["velynharbor"] = {
+----Malabal Tor, Velyn Harbor
+  [275] = {
     ["treasure"] = {
       {0.2089,  0.3581,  [[Malabal Tor Treasure Map II]], [[Schatzkarte: Malabal Tor II]], [[Carte Au Trésor de Malabal Tor II]],        [[マラバル・トールの宝の地図2]],    [[Малабал Тор, карта сокровищ II]],            [[treasuremap_malabaltor_02]],          43644 },
       {0.5132,  0.5649,  [[Malabal Tor CE Treasure Map]], [[CE-Schatzkarte: Malabal Tor]], [[Carte Au Trésor exclusive de Malabal Tor]], [[マラバル・トールの宝の地図(CE)]], [[Малабал Тор, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_malbator_05]], 44940 },
     },
   },
-----Reaper’s March
-  ["reapersmarch"] = {
+----Reaper's March
+  [256] = {
     ["treasure"] = {
       {0.3781,  0.4313,  [[Reaper's March Treasure Map I]],   [[Schatzkarte: Schnittermark I]],   [[Carte Au Trésor de la marche de la Camarde I]],         [[リーパーズ・マーチの宝の地図1]],    [[Марка Смерти, карта сокровищ I]],             [[treasuremap_reapersmarch_01]],            43649 },
       {0.3344,  0.1270,  [[Reaper's March Treasure Map II]],  [[Schatzkarte: Schnittermark II]],  [[Carte Au Trésor de la marche de la Camarde II]],        [[リーパーズ・マーチの宝の地図2]],    [[Марка Смерти, карта сокровищ II]],            [[treasuremap_reapersmarch_02]],            43650 },
@@ -143,13 +145,14 @@ LOST_TREASURE_DATA = {
       {0.2470,  0.5320,  [[Jewelry Crafting Survey: Reaper's March]], [[Schmuckmaterial-Fundbericht: Schnittermark]],     [[Repérages de Joaillier : Marche de la Camarde]],           [[Jewelry Crafting Survey: Reaper's March]], [[Jewelry Crafting Survey: Reaper's March]], [[reapersmarch_survey_jewelry]],    139432 },
     },
   },
-  ["rawlkha"] = {
+----Reaper's March, Rawl'kha
+  [312] = {
     ["treasure"] = {
       {0.0751,  0.4507,  [[Reaper's March CE Treasure Map]], [[CE-Schatzkarte: Schnittermark]], [[Carte Au Trésor exclusive de la marche de la Camarde]], [[リーパーズ・マーチの宝の地図(CE)]], [[Марка Смерти, коллекционная карта сокровищ]], [[treasuremap_ce_aldmeri_reapersmarch_06]], 44941 },
     },
   },
 ----Bleakrock Isle
-  ["bleakrock"] = {
+  [74] = {
     ["treasure"] = {
       {0.4383,  0.4067,  [[Bleakrock Treasure Map I]],  [[Schatzkarte: Ödfels I]],  [[Carte Au Trésor de l'île de Morneroc I]],         [[ブリークロックの宝の地図1]],    [[Бликрок, карта сокровищ I]],             [[treasuremap_bleakrock_001]],              43699 },
       {0.4264,  0.2201,  [[Bleakrock Treasure Map II]], [[Schatzkarte: Ödfels II]], [[Carte Au Trésor de l'île de Morneroc II]],        [[ブリークロックの宝の地図2]],    [[Бликрок, карта сокровищ II]],            [[treasuremap_bleakrock_002]],              43700 },
@@ -157,21 +160,21 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Bleakrock Isle, Bleackrock Village
-  ["bleakrockvillage"] = {
+  [8] = {
     ["treasure"] = {
       {0.5540,  0.6710,  [[Bleakrock CE Treasure Map]], [[CE-Schatzkarte: Ödfels]], [[Carte Au Trésor exclusive de l'île de Morneroc]], [[ブリークロックの宝の地図(CE)]], [[Бликрок, коллекционная карта сокровищ]], [[treasuremap_ce_ebonheart_bleakrock_01a]], 44931 },
     },
   },
 ----Bal Foyen
-  ["balfoyen"] = {
+  [75] = {
     ["treasure"] = {
       {0.6007,  0.7090, [[Bal Foyen Treasure Map I]],  [[Schatzkarte: Bal Foyen I]],  [[Carte Au Trésor de Bal Foyen I]],         [[バル・フォイエンの宝の地図1]],    [[Бал Фойен, карта сокровищ I]], [[treasuremap_balfoyen_001]],                          43701 },
       {0.24,    0.53,   [[Bal Foyen Treasure Map II]], [[Schatzkarte: Bal Foyen II]], [[Carte Au Trésor de Bal Foyen II]],        [[バル・フォイエンの宝の地図2]],    [[Бал Фойен, карта сокровищ II]], [[treasuremap_balfoyen_002]],                         43702 },
       {0.52,    0.42,   [[Bal Foyen CE Treasure Map]], [[CE-Schatzkarte: Bal Foyen]], [[Carte Au Trésor exclusive de Bal Foyen]], [[バル・フォイエンの宝の地図(CE)]], [[Бал Фойен, коллекционная карта сокровищ]], [[treasuremap_ce_ebonheart_balfoyen_01b]], 44928 },
     },
   },
---Stonefalls
-  ["stonefalls"] = {
+----Stonefalls
+  [7] = {
     ["treasure"] = {
       {0.7952,  0.5758,  [[Stonefalls Treasure Map I]],   [[Schatzkarte: Steinfälle I]],   [[Carte Au Trésor des Éboulis I]],         [[ストンフォールの宝の地図1]],    [[Стоунфолз, карта сокровищ I]],             [[treasuremap_stonefalls_001]],             43655 },
       {0.6038,  0.4899,  [[Stonefalls Treasure Map II]],  [[Schatzkarte: Steinfälle II]],  [[Carte Au Trésor des Éboulis II]],        [[ストンフォールの宝の地図2]],    [[Стоунфолз, карта сокровищ II]],            [[treasuremap_stonefalls_002]],             43656 },
@@ -191,13 +194,17 @@ LOST_TREASURE_DATA = {
       {0.6840,  0.6401,  [[Jewelry Crafting Survey: Stonefalls]], [[Schmuckmaterial-Fundbericht: Steinfälle]],     [[Repérages de Joaillier : Éboulis]],           [[Jewelry Crafting Survey: Stonefalls]], [[Jewelry Crafting Survey: Stonefalls]],  [[stonefalls_survey_jewelry]],    139424 },
     },
   },
-  ["ebonheart"] = {
+  ----Stonefalls, Ebonheart
+  [511] = {
+    ["treasure"] = {
+      {0.7498,  0.5627,  [[Stonefalls Treasure Map II]],  [[Schatzkarte: Steinfälle II]],  [[Carte Au Trésor des Éboulis II]],        [[ストンフォールの宝の地図2]],    [[Стоунфолз, карта сокровищ II]],            [[treasuremap_stonefalls_002]],             43656 },
+    },
     ["surveys"] = {
       {0.5407,  0.0913,  [[Alchemist Survey: Stonefalls]], [[Alchemiematerial-Fundbericht: Steinfälle]], [[Repérages d'Alchemiste : Éboulis]], [[錬金術師の調査報告: ストンフォール]], [[Стоунфолз, коллекционная карта сокровищ]], [[stonefalls_survey_alchemist]], 57746 },
     },
   },
 ----Deshaan
-  ["deshaan"] = {
+  [13] = {
     ["treasure"] = {
       {0.2599,  0.5507,  [[Deshaan Treasure Map I]],   [[Schatzkarte: Deshaan I]],   [[Carte Au Trésor de Deshaan I]],         [[デシャーンの宝の地図1]],    [[Дешаан, карта сокровищ I]],             [[treasuremap_deshaan_001]],             43661 },
       {0.1840,  0.4724,  [[Deshaan Treasure Map II]],  [[Schatzkarte: Deshaan II]],  [[Carte Au Trésor de Deshaan II]],        [[デシャーンの宝の地図2]],    [[Дешаан, карта сокровищ II]],            [[treasuremap_deshaan_002]],             43662 },
@@ -217,7 +224,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Shadowfen
-  ["shadowfen"] = {
+  [26] = {
     ["treasure"] = {
       {0.3697,  0.1501,  [[Shadowfen Treasure Map I]],   [[Schatzkarte: Schattenfenn I]],   [[Carte Au Trésor de Fangeombre I]],         [[シャドウフェンの宝の地図1]],    [[Шедоуфен, карта сокровищ I]],             [[treasuremap_shadowfen_01]],              43667 },
       {0.7088,  0.3925,  [[Shadowfen Treasure Map II]],  [[Schatzkarte: Schattenfenn II]],  [[Carte Au Trésor de Fangeombre II]],        [[シャドウフェンの宝の地図2]],    [[Шедоуфен, карта сокровищ II]],            [[treasuremap_shadowfen_02]],              43668 },
@@ -238,7 +245,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Eastmarch
-  ["eastmarch"] = {
+  [61] = {
     ["treasure"] = {
       {0.4410,  0.3740,  [[Eastmarch Treasure Map I]],   [[Schatzkarte: Ostmarsch I]],   [[Carte Au Trésor d'Estemarche I]],         [[イーストマーチの宝の地図1]],    [[Истмарк, карта сокровищ I]],             [[treasuremap_eastmarch_01]],              43673 },
       {0.3134,  0.4589,  [[Eastmarch Treasure Map II]],  [[Schatzkarte: Ostmarsch II]],  [[Carte Au Trésor d'Estemarche II]],        [[イーストマーチの宝の地図2]],    [[Истмарк, карта сокровищ II]],            [[treasuremap_eastmarch_02]],              43674 },
@@ -259,7 +266,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----The Rift
-  ["therift"] = {
+  [125] = {
     ["treasure"] = {
       {0.7412,  0.3782,  [[The Rift Treasure Map I]],   [[Schatzkarte: Rift I]],   [[Carte Au Trésor de la Brèche I]],         [[リフトの宝の地図1]],    [[Рифт, карта сокровищ I]],             [[treasuremap_therift_01]],           43679 },
       {0.4715,  0.4337,  [[The Rift Treasure Map II]],  [[Schatzkarte: Rift II]],  [[Carte Au Trésor de la Brèche II]],        [[リフトの宝の地図2]],    [[Рифт, карта сокровищ II]],            [[treasuremap_therift_02]],           43680 },
@@ -278,13 +285,13 @@ LOST_TREASURE_DATA = {
       {0.8035,  0.4203,  [[Jewelry Crafting Survey: The Rift]], [[Schmuckmaterial-Fundbericht: Rift]],     [[Repérages de Joaillier : La Brèche]],           [[Jewelry Crafting Survey: The Rift]], [[Jewelry Crafting Survey: The Rift]], [[therift_survey_jewelry]],    139433 },
     },
   },
-  ["nimalten"] = {
+  [543] = {
     ["treasure"] = {
       {0.4157,  0.3239,  [[The Rift Treasure Map III]], [[Schatzkarte: Rift III]], [[Carte Au Trésor de la Brèche III]], [[リフトの宝の地図3]], [[Рифт, карта сокровищ III]], [[treasuremap_therift_03]], 43681 },
     },
   },
 ----Stros M'Kai
-  ["strosmkai"] = {
+  [201] = {
     ["treasure"] = {
       {0.5458,  0.6406,  [[Stros M'Kai Treasure Map I]],  [[Schatzkarte: Stros M'Kai I]],  [[Carte Au Trésor de Stros M'Kai I]],         [[ストロス・エムカイの宝の地図1]],    [[Строс М'Кай, карта сокровищ I]],             [[treasuremap_strosmkai_001]],           43691 },
       {0.0989,  0.6127,  [[Stros M'Kai Treasure Map II]], [[Schatzkarte: Stros M'Kai II]], [[Carte Au Trésor de Stros M'Kai II]],        [[ストロス・エムカイの宝の地図2]],    [[Строс М'Кай, карта сокровищ II]],            [[treasuremap_strosmkai_002]],           43692 },
@@ -292,7 +299,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Betnikh
-  ["betnihk"] = {
+  [227] = {
     ["treasure"] = {
       {0.1735,  0.3136,  [[Betnikh Treasure Map I]],  [[Schatzkarte: Betnikh I]],  [[Carte Au Trésor de Betnikh I]],         [[ベトニクの宝の地図1]],    [[Бетник, карта сокровищ I]],             [[treasuremap_betnikh_001]],               43693 },
       {0.5680,  0.8759,  [[Betnikh Treasure Map II]], [[Schatzkarte: Betnikh II]], [[Carte Au Trésor de Betnikh II]],        [[ベトニクの宝の地図2]],    [[Бетник, карта сокровищ II]],            [[treasuremap_betnikh_002]],               43694 },
@@ -300,7 +307,7 @@ LOST_TREASURE_DATA = {
     },
   },
   ----Glenumbra
-  ["glenumbra"] = {
+  [1] = {
     ["treasure"] = {
       {0.5265,  0.7618,  [[Glenumbra Treasure Map I]],   [[Schatzkarte: Glenumbra I]],   [[Carte Au Trésor de la Glénumbrie I]],          [[グレナンブラの宝の地図1]],    [[Гленумбра, карта сокровищ I]],             [[treasuremap_glenumbra_001]],              43507 },
       {0.4920,  0.4542,  [[Glenumbra Treasure Map II]],  [[Schatzkarte: Glenumbra II]],  [[Carte Au Trésor de la Glénumbrie II]],         [[グレナンブラの宝の地図2]],    [[Гленумбра, карта сокровищ II]],            [[treasuremap_glenumbra_002]],              43525 },
@@ -321,7 +328,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Stormhaven
-  ["stormhaven"] = {
+  [12] = {
     ["treasure"] = {
       {0.2316,  0.5228,  [[Stormhaven Treasure Map I]],   [[Schatzkarte: Sturmhafen I]],   [[Carte Au Trésor d'Havre-tempête I]],         [[ストームヘヴンの宝の地図1]],    [[Стормхейвен, карта сокровищ I]],             [[treasuremap_stormhaven_001]],              43601 },
       {0.2569,  0.3466,  [[Stormhaven Treasure Map II]],  [[Schatzkarte: Sturmhafen II]],  [[Carte Au Trésor d'Havre-tempête II]],        [[ストームヘヴンの宝の地図2]],    [[Стормхейвен, карта сокровищ II]],            [[treasuremap_stormhaven_002]],              43602 },
@@ -341,7 +348,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Rivenspire
-  ["rivenspire"] = {
+  [10] = {
     ["treasure"] = {
       {0.3285,  0.5091,  [[Rivenspire Treasure Map I]],   [[Schatzkarte: Kluftspitze I]],   [[Carte Au Trésor de Fendretour I]],         [[リベンスパイアーの宝の地図1]],    [[Ривенспайр, карта сокровищ I]],             [[treasuremap_rivenspire_01]],               43607 },
       {0.1774,  0.6288,  [[Rivenspire Treasure Map II]],  [[Schatzkarte: Kluftspitze II]],  [[Carte Au Trésor de Fendretour II]],        [[リベンスパイアーの宝の地図2]],    [[Ривенспайр, карта сокровищ II]],            [[treasuremap_rivenspire_02]],               43608 },
@@ -362,13 +369,13 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Rivenspire, North Point
-  ["northpoint"] = {
+  [513] = {
     ["treasure"] = {
       {0.2763,  0.1772,  [[Rivenspire CE Treasure Map]], [[CE-Schatzkarte: Kluftspitze]], [[Carte Au Trésor exclusive de Fendretour]], [[リベンスパイアーの宝の地図(CE)]], [[Ривенспайр, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_rivenspire_04]], 44942 },
     },
   },
 ----Alik’r Desert
-  ["alikr"] = {
+  [30] = {
     ["treasure"] = {
       {0.3801, 0.6993,  [[Alik'r Treasure Map I]],   [[Schatzkarte: Alik'r I]],   [[Carte Au Trésor du désert d'Alik'r I]],         [[アリクルの宝の地図1]],    [[Алик'р, карта сокровищ I]],             [[treasuremap_alikr_001]],              43613 },
       {0.1113, 0.5218,  [[Alik'r Treasure Map II]],  [[Schatzkarte: Alik'r II]],  [[Carte Au Trésor du désert d'Alik'r II]],        [[アリクルの宝の地図2]],    [[Алик'р, карта сокровищ II]],            [[treasuremap_alikr_002]],              43614 },
@@ -388,18 +395,20 @@ LOST_TREASURE_DATA = {
       {0.9007, 0.5329,  [[Jewelry Crafting Survey: Alik'r]], [[Schmuckmaterial-Fundbericht: Alik'r-Wüste]],     [[Repérages de Joaillier : Alik'r]],           [[Jewelry Crafting Survey: Alik'r]], [[Jewelry Crafting Survey: Alik'r]],   [[alikr_survey_jewelry]],    139431 },
     },
   },
-  ["sentinel"] = {
+  ----Alik’r Desert, Sentinel
+  [83] = {
     ["treasure"] = {
       {0.7745,  0.0504,  [[Alik'r CE Treasure Map]], [[CE-Schatzkarte: Alik'r]], [[Carte Au Trésor exclusive du désert d'Alik'r]], [[アリクルの宝の地図(CE)]], [[Алик'р, коллекционная карта сокровищ]], [[treasuremap_ce_daggerfall_alikr_05]], 44926 },
     },
   },
-  ["kozanset"] = {
+  ----Alik’r Desert, Kozanset
+  [538] = {
     ["treasure"] = {
       {0.2260,  0.5964,  [[Alik'r Treasure Map VI]], [[Schatzkarte: Alik'r VI]], [[Carte Au Trésor du désert d'Alik'r VI]], [[アリクルの宝の地図6]], [[Алик'р, карта сокровищ VI]], [[treasuremap_alikr_06]], 43618 },
     },
   },
 ----Bangkorai
-  ["bangkorai"] = {
+  [20] = {
     ["treasure"] = {
       {0.4331,  0.2704,  [[Bangkorai Treasure Map I]],   [[Schatzkarte: Bangkorai I]],   [[Carte Au Trésor de Bangkoraï I]],         [[バンコライの宝の地図1]],    [[Бангкорай, карта сокровищ I]],             [[treasuremap_bankorai_01]],               43619 },
       {0.6146,  0.2083,  [[Bangkorai Treasure Map II]],  [[Schatzkarte: Bangkorai II]],  [[Carte Au Trésor de Bangkoraï II]],        [[バンコライの宝の地図2]],    [[Бангкорай, карта сокровищ II]],            [[treasuremap_bankorai_02]],               43620 },
@@ -420,7 +429,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Coldharbour
-  ["coldharbour"] = {
+  [255] = {
     ["treasure"] = {
       {0.4069,  0.8320,  [[Coldharbour Treasure Map I]],   [[Schatzkarte: Kalthafen I]],   [[Carte Au Trésor d'Havreglace I]],         [[コールドハーバーの宝の地図1]],    [[Хладная Гавань, карта сокровищ I]],             [[treasuremap_coldharbour_01]], 43685 },
       {0.4097,  0.5680,  [[Coldharbour Treasure Map II]],  [[Schatzkarte: Kalthafen II]],  [[Carte Au Trésor d'Havreglace II]],        [[コールドハーバーの宝の地図2]],    [[Хладная Гавань, карта сокровищ II]],            [[treasuremap_coldharbour_02]], 43686 },
@@ -446,7 +455,7 @@ LOST_TREASURE_DATA = {
     },
   },
 ----Cyrodiil
-  ["ava"] = {
+  [16] = {
     ["treasure"] = {
       {0.4076,  0.4906,  [[Cyrodiil Treasure Map I]],     [[Schatzkarte: Cyrodiil I]],     [[Carte Au Trésor de Cyrodiil I]],     [[シロディールの宝の地図1]],  [[Сиродил, карта сокровищ I]],     [[treasuremap_cyrodiil_ald_01]],  43703 },
       {0.5117,  0.8209,  [[Cyrodiil Treasure Map II]],    [[Schatzkarte: Cyrodiil II]],    [[Carte Au Trésor de Cyrodiil II]],    [[シロディールの宝の地図2]],  [[Сиродил, карта сокровищ II]],    [[treasuremap_cyrodiil_ald_02]],  43704 },
@@ -491,7 +500,7 @@ LOST_TREASURE_DATA = {
     },
   },
   ----Craglorn
-  ["craglorn"] = {
+  [1126] = {
     ["treasure"] = {
       {0.2866,  0.6212,  [[Craglorn Treasure Map I]],   [[Schatzkarte: Kargstein I]],   [[Carte Au Trésor de Raidelorn I]],   [[クラグローンの宝の地図1]], [[Краглорн, карта сокровищ I]],   [[treasuremap_craglorn_01]], 43721 },
       {0.4188,  0.4750,  [[Craglorn Treasure Map II]],  [[Schatzkarte: Kargstein II]],  [[Carte Au Trésor de Raidelorn II]],  [[クラグローンの宝の地図2]], [[Краглорн, карта сокровищ II]],  [[treasuremap_craglorn_02]], 43722 },
@@ -522,7 +531,7 @@ LOST_TREASURE_DATA = {
     },
   },
   ----Wrothgar
-  ["wrothgar"] = {
+  [667] = {
     ["treasure"] = {
       {0.4798,  0.7865,  [[Orsinium Treasure Map I]],   [[Schatzkarte: Orsinium I]],   [[Carte Au Trésor D'Orsinium I]],   [[オルシニウムの宝の地図1]], [[Орсиниум, карта сокровищ I]],   [[treasuremap_orsinium_01]], 43727 },
       {0.7647,  0.5651,  [[Orsinium Treasure Map II]],  [[Schatzkarte: Orsinium II]],  [[Carte Au Trésor D'Orsinium II]],  [[オルシニウムの宝の地図2]], [[Орсиниум, карта сокровищ II]],  [[treasuremap_orsinium_02]], 43728 },
@@ -552,13 +561,14 @@ LOST_TREASURE_DATA = {
       {0.1938,  0.6819,  [[Jewelry Crafting Survey: Wrothgar III]], [[Schmuckmaterial-Fundbericht: Wrothgar III]],     [[Repérages de Joaillier : Wrothgar III]],           [[Jewelry Crafting Survey: Wrothgar III]], [[Jewelry Crafting Survey: Wrothgar III]], [[orsinium_survey_jewelry_03]],    139443 },
     },
   },
-  ["morkul"] = {
+  ----Wrothgar, Morkul Stronghold
+  [954] = {
     ["treasure"] = {
       {-0.0675,  0.6872,  [[Orsinium Treasure Map IV]],  [[Schatzkarte: Orsinium IV]],  [[Carte Au Trésor D'Orsinium IV]],  [[オルシニウムの宝の地図4]],  [[Орсиниум, карта сокровищ IV]],  [[treasuremap_orsinium_04]], 43730 },
     },
   },
   -- Hew's Bane
-  ["hewsbane"] = {
+  [994] = {
     ["treasure"] = {
       {0.4140,  0.8445,  [[Hew's Bane Treasure Map I]],   [[Schatzkarte: Hews Fluch I]],   [[Carte Au Trésor Hew's Bane I]],   [[ヒューズベインの宝の地図1]],  [[Проклятие Хью, карта сокровищ I]],   [[treasuremap_thievesguild_01]], 43733 },
       {0.3865,  0.5805,  [[Hew's Bane Treasure Map II]],  [[Schatzkarte: Hews Fluch II]],  [[Carte Au Trésor Hew's Bane II]],  [[ヒューズベインの宝の地図2]],  [[Проклятие Хью, карта сокровищ II]],  [[treasuremap_thievesguild_02]], 43734 },
@@ -567,7 +577,7 @@ LOST_TREASURE_DATA = {
     },
   },
   -- Dark Brotherhood, Gold Coast
-  ["goldcoast"] = {
+  [1006] = {
     ["treasure"] = {
       {0.6440,  0.3296,  [[Gold Coast Treasure Map I]],   [[Schatzkarte: Goldküste I]],   [[Carte Au Trésor Gold Coast I]],   [[ゴールドコーストの宝の地図1]],  [[Золотой берег, карта сокровищ I]],   [[treasuremap_darkbrotherhood_01]], 43735 },
       {0.4885,  0.3213,  [[Gold Coast Treasure Map II]],  [[Schatzkarte: Goldküste II]],  [[Carte Au Trésor Gold Coast II]],  [[ゴールドコーストの宝の地図2]],  [[Золотой берег, карта сокровищ II]],  [[treasuremap_darkbrotherhood_02]], 43736 },
@@ -576,7 +586,7 @@ LOST_TREASURE_DATA = {
     },
   },
   -- Vvardenfell
-  ["vvardenfell"] = {
+  [1060] = {
     ["treasure"] = {
       {0.6627, 0.5285, [[Vvardenfell CE Treasure Map I]],   [[CE-Schatzkarte: Vvardenfell I]],   [[Carte Au Trésor Vvardenfell C'I]],   [[ヒューズベインの宝の地図1]], [[Проклятие Хью, коллекционная карта Вварденфела I]],   [[treasuremap_vvardenfell_02]], 43743 },
       {0.6346, 0.7002, [[Vvardenfell CE Treasure Map II]],  [[CE-Schatzkarte: Vvardenfell II]],  [[Carte Au Trésor Vvardenfell C'II]],  [[ヒューズベインの宝の地図2]], [[Проклятие Хью, коллекционная карта Вварденфела II]],  [[treasuremap_vvardenfell_07]], 43744 },
@@ -598,7 +608,7 @@ LOST_TREASURE_DATA = {
     },
   },
   -- Clockwork City
-  ["clockwork"] = {
+  [1313] = {
     ["treasure"] = {
       {0.1813,  0.5961,  [[Clockwork City Treasure Map I]],  [[Schatzkarte: Stadt der Uhrwerke I]],  [[la carte Au Trésor Cité Mécanique I]],  [[Clockwork City Treasure Map I]],  [[Clockwork City Treasure Map I]],   [[treasuremap_clockworkcity_01]], 43746 },
       {0.8030,  0.4237,  [[Clockwork City Treasure Map II]], [[Schatzkarte: Stadt der Uhrwerke II]], [[la carte Au Trésor Cité Mécanique II]], [[Clockwork City Treasure Map II]], [[Clockwork City Treasure Map II]],  [[treasuremap_clockworkcity_02]], 43747 },
@@ -607,7 +617,7 @@ LOST_TREASURE_DATA = {
     },
   },
   -- summerset
-  ["summerset"] = {
+  [1349] = {
     ["treasure"] = {	 
         {0.4870 ,0.1970, [[Summerset Treasure Map I]],      [[Schatzkarte: Sommersend I]],      [[Carte Au Trésor Summerset I]],      [[[Summerset Treasure Map I]],      [[[Summerset Treasure Map I]],      [[treasuremap_summerset_01]], 43748 },
         {0.7016 ,0.6788, [[Summerset Treasure Map II]],     [[Schatzkarte: Sommersend II]],     [[Carte Au Trésor Summerset II]],     [[[Summerset Treasure Map II]],     [[[Summerset Treasure Map II]],     [[treasuremap_summerset_03]], 43749 },
@@ -623,16 +633,16 @@ LOST_TREASURE_DATA = {
     },
   },
   -- Murkmire
-  ["murkmire"] = {
+  [1484] = {
     ["treasure"] = {
       {0.5458,  0.3791,  [[Murkmire Treasure Map I]],  [[Schatzkarte: Trübmoor I]],  [[la carte Au Trésor Tourbevase I]],  [[Murkmire Treasure Map I]],  [[Murkmire Treasure Map I]],   [[treasuremap_murkmire_01]], 145510 },
-      {0.4471,  0.4071,  [[Murkmire Treasure Map II]], [[Schatzkarte: Trübmoor II]], [[la carte Au Trésor Tourbevase II]], [[Murkmire Treasure Map II]], [[Murkmire Treasure Map II]],  [[treasuremap_murkmire_02]], 145512 },
+      {0.4513,  0.4080,  [[Murkmire Treasure Map II]], [[Schatzkarte: Trübmoor II]], [[la carte Au Trésor Tourbevase II]], [[Murkmire Treasure Map II]], [[Murkmire Treasure Map II]],  [[treasuremap_murkmire_02]], 145512 },
     },
     ["surveys"] = {
     },
   },
   -- Northern Elsweyr
-  ["elsweyr"] = {
+  [1555] = {
     ["treasure"] = {  
       {0.6116 ,0.4083, [[Northern Elsweyr Treasure Map I]],      [[Schatzkarte: nördliches Elsweyr I]],      [[Carte au trésor du nord d'Elsweyr I]],     [[Elsweyr Treasure Map I]],      [[Elsweyr Treasure Map I]],      [[treasuremap_elsweyr_01]],    151613 },
       {0.4213 ,0.2241, [[Northern Elsweyr Treasure Map II]],     [[Schatzkarte: nördliches Elsweyr II]],     [[Carte au trésor du nord d'Elsweyr II]],    [[Elsweyr Treasure Map II]],     [[Elsweyr Treasure Map II]],     [[treasuremap_elsweyr_02]],    151614 },       
@@ -651,16 +661,15 @@ LOST_TREASURE_DATA = {
       {0.2685, 0.4400, [[Blacksmith Survey: Northern Elsweyr]],       [[Schmiedegmaterial-Fundbericht: nördliches Elsweyr]], [[Repérages de forgeron : Nord d'Elsweyr]],            [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_blacksmith]], 151598 },
       {0.4918, 0.6791, [[Woodworker Survey: Northern Elsweyr]],       [[Schreinermaterial-Fundbericht: nördliches Elsweyr]], [[Repérages de travailleur du Bois : Nord d'Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_woodworker]], 151600 },
       {0.6131, 0.6433, [[Jewelry Crafting Survey: Northern Elsweyr]], [[Schmuckmaterial-Fundbericht: nördliches Elsweyr]],   [[Repérages de Joaillier : Nord d'Elsweyr]],           [[Enchanter Survey: Northern Elsweyr]], [[Enchanter Survey: Northern Elsweyr]], [[elsweyr_survey_jewelry]],    151603 },
-	},
+    },
   },
   -- Southern Elsweyr
-  ["southernelsweyr"] = {
+  [1654] = {
     ["treasure"] = {  
       {0.4691 ,0.6369, [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Mapyr I]], [[Southern Elsweyr Treasure Map I]],  [[Southern Elsweyr Treasure Map I]],  [[treasuremap_elsweyr_08]], 156716 },
       {0.2929 ,0.2574, [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]],  [[Southern Elsweyr Treasure Map II]], [[Southern Elsweyr Treasure Map II]], [[treasuremap_elsweyr_07]], 156715 },            
     },
-    ["surveys"] = {      
-	},
+    ["surveys"] = {},
   },
 }
 
