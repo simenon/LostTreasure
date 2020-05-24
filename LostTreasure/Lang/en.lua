@@ -15,6 +15,9 @@ local strings = {
 	SI_LOST_TREASURE_TREASURE_MAPS = "Treasure Maps",
 	SI_LOST_TREASURE_SURVEY_REPORTS = "Survey Reports",
 
+	SI_LOST_TREASURE_COMPARE_TREASURE = "treasure map",
+	SI_LOST_TREASURE_COMPARE_SURVEY = "survey:",
+
 	SI_LOST_TREASURE_SHOW_ON_MAP = "Show on map",
 	SI_LOST_TREASURE_SHOW_ON_MAP_TT = "Show pins on player map.",
 	SI_LOST_TREASURE_SHOW_ON_COMPASS = "Show on compass",

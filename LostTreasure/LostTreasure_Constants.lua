@@ -14,14 +14,14 @@ LOST_TREASURE_PIN_TYPE_DATA =
 	{
 		pinName = "LostTreasure_TreasureMapPin",
 		specializedItemType = SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP,
-		compareString = zo_strlower(GetString(SI_SPECIALIZEDITEMTYPE100)),
+		compareString = zo_strlower(GetString(SI_LOST_TREASURE_COMPARE_TREASURE)),
 		name = GetString(SI_LOST_TREASURE_TREASURE_MAPS),
 	},
 	[LOST_TREASURE_PIN_TYPE_SURVEYS] =
 	{
 		pinName = "LostTreasure_SurveyReportPin",
 		specializedItemType = SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT,
-		compareString = zo_strlower(GetString(SI_SPECIALIZEDITEMTYPE101)),
+		compareString = zo_strlower(GetString(SI_LOST_TREASURE_COMPARE_SURVEY)),
 		name = GetString(SI_LOST_TREASURE_SURVEY_REPORTS),
 	},
 }

@@ -9,6 +9,9 @@ local strings = {
 	SI_LOST_TREASURE_TREASURE_MAPS = "Cartes au trésor",
 	SI_LOST_TREASURE_SURVEY_REPORTS = "Repérages",
 
+	SI_LOST_TREASURE_COMPARE_TREASURE = "carte au trésor",
+	SI_LOST_TREASURE_COMPARE_SURVEY = "repérages",
+
 	SI_LOST_TREASURE_SHOW_ON_MAP = "Affichage de la carte",
 	SI_LOST_TREASURE_SHOW_ON_MAP_TT = "Afficher les marqueurs sur la carte.",
 	SI_LOST_TREASURE_SHOW_ON_COMPASS = "Affichage de la boussole",

@@ -9,6 +9,9 @@ local strings = {
 	SI_LOST_TREASURE_TREASURE_MAPS = "Schatzkarten",
 	SI_LOST_TREASURE_SURVEY_REPORTS = "Fundberichte",
 
+	SI_LOST_TREASURE_COMPARE_TREASURE = "schatzkarte:",
+	SI_LOST_TREASURE_COMPARE_SURVEY = "fundbericht:",
+
 	SI_LOST_TREASURE_SHOW_ON_MAP = "Auf Karte anzeigen",
 	SI_LOST_TREASURE_SHOW_ON_MAP_TT = "Zeigt die Symbole auf der Karte an.",
 	SI_LOST_TREASURE_SHOW_ON_COMPASS = "Im Kompass anzeigen",

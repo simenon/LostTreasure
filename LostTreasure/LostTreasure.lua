@@ -226,20 +226,22 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	self:UpdateVisibility(not self.savedVars.miniMap.enabled)
 
 	local pinType = GetPinTypeFromString(name)
-	local data = LostTreasure_GetAllData()
-	for zone, zonePinType in pairs(data) do
-		local zonePins = zonePinType[pinType]
-		if zonePins then
-			for index, pinData in ipairs(zonePins) do
-				if pinData[PIN_DATA_INDEX_TEXTURE] == mapTextureName then
-					local itemId = pinData[PIN_DATA_INDEX_ITEMID]
-					self.lastOpenedTreasureMapItemId = itemId
-					local markOption = self:GetPinTypeSettings(pinType, "markOption")
-					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-						table.insert(self.listMarkOnUse[pinType], itemId)
-						RefreshAllPinsFromPinType(pinType)
+	if pinType then
+		local data = LostTreasure_GetAllData()
+		for zone, zonePinType in pairs(data) do
+			local zonePins = zonePinType[pinType]
+			if zonePins then
+				for index, pinData in ipairs(zonePins) do
+					if pinData[PIN_DATA_INDEX_TEXTURE] == mapTextureName then
+						local itemId = pinData[PIN_DATA_INDEX_ITEMID]
+						self.lastOpenedTreasureMapItemId = itemId
+						local markOption = self:GetPinTypeSettings(pinType, "markOption")
+						if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+							table.insert(self.listMarkOnUse[pinType], itemId)
+							RefreshAllPinsFromPinType(pinType)
+						end
+						return
 					end
-					return
 				end
 			end
 		end
