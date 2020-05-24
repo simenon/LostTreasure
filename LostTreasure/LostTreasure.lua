@@ -317,14 +317,12 @@ function LostTreasure:InitializePins()
 	end
 
 	-- compass pin names
-	self:SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME) -- turn off by default until it's used
-
 	if COMPASS_PINS.version > 30 then
 		local TIME_BETWEEN_LABEL_UPDATES_MS = 250
 		local nextLabelUpdateTime = 0
 
 		ZO_PreHook(COMPASS, "OnUpdate", function()
-			if not self:GetCompassPinNameState() and nextLabelUpdateTime < nextLabelUpdateTime + 2 * TIME_BETWEEN_LABEL_UPDATES_MS then
+			if GetFrameTimeMilliseconds() > nextLabelUpdateTime + TIME_BETWEEN_LABEL_UPDATES_MS then
 				return false
 			else
 				return true
@@ -340,19 +338,16 @@ function LostTreasure:InitializePins()
 			if now < nextLabelUpdateTime then
 				return
 			end
-			nextLabelUpdateTime = now + TIME_BETWEEN_LABEL_UPDATES_MS
 
 			if pin.pinName then
 				if zo_abs(normalizedAngle) < 0.1 and zo_abs(normalizedDistance) < 0.95 then
-					self:SetCompassPinNameState(HOOK_COMPASS_PIN_NAME)
 					if overrideAnimation:IsPlaying() then
 						overPinAnimation:PlayBackward()
 					elseif not overPinAnimation:IsPlaying() or not overPinAnimation:IsPlayingBackward() then
 						overPinLabel:SetText(pin.pinName)
 						overPinAnimation:PlayForward()
 					end
-				else
-					self:SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME)
+					nextLabelUpdateTime = now + TIME_BETWEEN_LABEL_UPDATES_MS
 				end
 			end
 		end)
@@ -448,14 +443,6 @@ end
 
 function LostTreasure:GetPinTypeSettings(pinType, key)
 	return self.savedVars.pinTypes[pinType][key]
-end
-
-function LostTreasure:GetCompassPinNameState()
-	return self.disableCompassAnimation
-end
-
-function LostTreasure:SetCompassPinNameState(state)
-	self.disableCompassAnimation = state
 end
 
 function LostTreasure:UpdateVisibility(hidden, fadeTime)
