@@ -113,18 +113,18 @@ local function CreateNewPin(pinType, pinData, key)
 	end
 end
 
-local function AddTooltip(coordFormat, itemName, color, itemStackCount, iconPath)
+local function AddTooltip(text, itemName, color, itemStackCount, iconPath)
 	if IsInGamepadPreferredMode() then
 		local baseSection = ZO_MapLocationTooltip_Gamepad.tooltip
 		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, nil, itemName, { widthPercent = 100, fontFace = "$(GAMEPAD_BOLD_FONT)", fontSize = "$(GP_34)", uppercase = true, fontColor = color })
-		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, iconPath, coordFormat, { fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3 })
+		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, iconPath, text, { fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3 })
 		if itemStackCount > 1 then
 			ZO_MapLocationTooltip_Gamepad:LayoutStringLine(baseSection, string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount))
 		end
 	else
 		InformationTooltip:AddLine(itemName, "", color:UnpackRGB())
 		-- don't use zo_iconTextFormat, because it will turns points into commas
-		InformationTooltip:AddLine(string.format("%s %s", zo_iconFormat(iconPath, 32, 32), coordFormat), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())
+		InformationTooltip:AddLine(string.format("%s %s", zo_iconFormat(iconPath, 32, 32), text), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())
 		if itemStackCount > 1 then
 			InformationTooltip:AddLine(string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())
 		end
@@ -285,14 +285,14 @@ function LostTreasure:InitializePins()
 		creator = function(pin)
 			local pinTag = select(2, pin:GetPinTypeAndTag())
 			local x, y = pinTag[PIN_DATA_INDEX_X], pinTag[PIN_DATA_INDEX_Y]
-			local coordFormat = string.format("%.2f x %.2f", x * 100, y * 100)
+			local text = string.format("%.2f x %.2f", x * 100, y * 100)
 
 			local itemId = pinTag[PIN_DATA_INDEX_ITEMID]
 			local itemLink = LOST_TREASURE:GetItemLinkFromItemId(itemId)
 			local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
 			local color = GetItemQualityColor(GetItemLinkQuality(itemLink))
 
-			AddTooltip(coordFormat, itemName, color, GetItemLinkStacks(itemLink), "LostTreasure/Icons/map_white.dds")
+			AddTooltip(text, itemName, color, GetItemLinkStacks(itemLink), "LostTreasure/Icons/map_white.dds")
 		end,
 	}
 
