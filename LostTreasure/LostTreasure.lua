@@ -36,7 +36,7 @@ local DEFAULTS =
 		enabled = true,
 		anchor = ZO_Anchor:New(TOPLEFT, nil, TOPLEFT, 100, 100),
 		size = 400,
-		deletionDelay = 10,
+		deletionDelay = 4,
 	},
 	notifications = { },
 }
@@ -413,7 +413,6 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 end
 
 function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
-	-- INTERACTION_HARVEST for treasure maps and INTERACTION_NONE for survey report
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
 		local zone = self:GetZoneName()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, zone)
