@@ -320,15 +320,17 @@ function LostTreasure:InitializePins()
 	self:SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME) -- turn off by default until it's used
 
 	if COMPASS_PINS.version > 30 then
-		ZO_PreHook(COMPASS, "OnUpdate", function()
-			if self:GetCompassPinNameState() then
-				return true
-			end
-			return false
-		end)
-
 		local TIME_BETWEEN_LABEL_UPDATES_MS = 250
 		local nextLabelUpdateTime = 0
+
+		ZO_PreHook(COMPASS, "OnUpdate", function()
+			if not self:GetCompassPinNameState() and nextLabelUpdateTime < nextLabelUpdateTime + 2 * TIME_BETWEEN_LABEL_UPDATES_MS then
+				return false
+			else
+				return true
+			end
+		end)
+
 		local overPinLabel = COMPASS.centerOverPinLabel
 		local overPinAnimation = COMPASS.centerOverPinLabelAnimation
 		local overrideAnimation = COMPASS.areaOverrideAnimation
@@ -352,8 +354,6 @@ function LostTreasure:InitializePins()
 				else
 					self:SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME)
 				end
-			elseif not self:GetCompassPinNameState() then
-				self:SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME)
 			end
 		end)
 	end
