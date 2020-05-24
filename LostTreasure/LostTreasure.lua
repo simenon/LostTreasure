@@ -317,6 +317,9 @@ function LostTreasure:InitializePins()
 	end
 
 	-- compass pin names
+	-- they are currently not in use, because Shinni has to update COMPASS_PINS first with a new callback
+	-- and the option the pass pinName.
+	--[[
 	if COMPASS_PINS.version > 30 then
 		local TIME_BETWEEN_LABEL_UPDATES_MS = 250
 		local nextLabelUpdateTime = 0
@@ -352,6 +355,7 @@ function LostTreasure:InitializePins()
 			end
 		end)
 	end
+	]]
 end
 
 function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
