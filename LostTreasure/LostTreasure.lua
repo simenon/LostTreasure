@@ -415,7 +415,8 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
-		local zone = self:GetZoneName()
+		local zone = LibMapPins:GetZoneAndSubzone()
+		local subZone = self:GetZoneName()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, zone)
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
@@ -428,9 +429,9 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 		local NO_CHAT_OUTPUT = true
 		local x, y = LibMapPins:MyPosition(NO_CHAT_OUTPUT)
 
-		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, interactionType, itemId, itemLink)
+		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, subZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, subZone, interactionType, itemId, itemLink)
 
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zone, itemId, self.currentTreasureMapTextureName)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> - <<2>>", zone, subZone), itemId, GetCurrentMapId(), self.currentTreasureMapTextureName)
 	end
 end
 
