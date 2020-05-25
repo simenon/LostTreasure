@@ -81,16 +81,6 @@ local function GetPinNameFromPinType(pinType)
 	return LOST_TREASURE_PIN_TYPE_DATA[pinType].pinName
 end
 
-local function RefreshAllPinsFromPinType(pinName, refreshMapPinsOnly)
-	if type(pinName) == "number" then
-		pinName = GetPinNameFromPinType(pinName)
-	end
-	LibMapPins:RefreshPins(pinName)
-	if not refreshMapPinsOnly then
-		COMPASS_PINS:RefreshPins(pinName)
-	end
-end
-
 local function GetPinTypeFromString(itemName)
 	itemName = zo_strlower(itemName)
 	for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
@@ -237,7 +227,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 						local markOption = self:GetPinTypeSettings(pinType, "markOption")
 						if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 							table.insert(self.listMarkOnUse[pinType], itemId)
-							RefreshAllPinsFromPinType(pinType)
+							LostTreasure_RefreshAllPinsFromPinType(pinType)
 						end
 						return
 					end
@@ -253,7 +243,7 @@ function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 	local markOption = self:GetPinTypeSettings(pinType, "markOption")
 	if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 		table.insert(self.listMarkOnUse[pinType], itemId)
-		RefreshAllPinsFromPinType(pinType)
+		LostTreasure_RefreshAllPinsFromPinType(pinType)
 	end
 
 	self.logger:Info("Book opened. bookId: %s, title: %s, isCollected: %s", bookId, title, tostring(itemId ~= nil))
@@ -270,6 +260,42 @@ function LostTreasure:InitializeBagCache()
 end
 
 function LostTreasure:InitializePins()
+	-- handle pin names in compass frame
+	local TIME_BETWEEN_LABEL_UPDATES_MS = 250
+	local nextLabelUpdateTime = 0
+
+	ZO_PreHook(COMPASS, "OnUpdate", function()
+		if GetFrameTimeMilliseconds() > nextLabelUpdateTime + TIME_BETWEEN_LABEL_UPDATES_MS then
+			return false
+		else
+			return true
+		end
+	end)
+
+	local overPinLabel = COMPASS.centerOverPinLabel
+	local overPinAnimation = COMPASS.centerOverPinLabelAnimation
+	local overrideAnimation = COMPASS.areaOverrideAnimation
+
+	local function UpdatePinName(pin, _, normalizedAngle, normalizedDistance)
+		local now = GetFrameTimeMilliseconds()
+		if now < nextLabelUpdateTime then
+			return
+		end
+
+		if pin.pinName then
+			if zo_abs(normalizedAngle) < 0.1 and zo_abs(normalizedDistance) < 0.95 then
+				if overrideAnimation:IsPlaying() then
+					overPinAnimation:PlayBackward()
+				elseif not overPinAnimation:IsPlaying() or not overPinAnimation:IsPlayingBackward() then
+					overPinLabel:SetText(pin.pinName)
+					overPinAnimation:PlayForward()
+				end
+				nextLabelUpdateTime = now + TIME_BETWEEN_LABEL_UPDATES_MS
+			end
+		end
+	end
+
+	-- create new pins
 	local function PinTypeAddCallback(pinType, pinName)
 		if IsValidMapType() and LibMapPins:IsEnabled(pinName) then
 			self:CheckZoneData(pinType, LOST_TREASURE_PIN_KEY_MAP)
@@ -293,7 +319,7 @@ function LostTreasure:InitializePins()
 			local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
 			local color = GetItemQualityColor(GetItemLinkQuality(itemLink))
 
-			AddTooltip(text, itemName, color, GetItemLinkStacks(itemLink), "LostTreasure/Icons/map_white.dds")
+			LostTreasure_AddTooltip(text, itemName, color, GetItemLinkStacks(itemLink), "LostTreasure/Icons/map_white.dds")
 		end,
 	}
 
@@ -306,57 +332,19 @@ function LostTreasure:InitializePins()
 			size = settings.size,
 			texture = settings.texture,
 		}
-		LibMapPins:AddPinType(pinName, function() PinTypeAddCallback(pinType, pinName) end, nil, mapPinLayout, pinTooltipCreator)
-		LibMapPins:AddPinFilter(pinName, pinCheckboxText, nil, settings, "showOnMap")
 
 		local compassPinLayout = {
 			maxDistance = 0.05,
 			texture = settings.texture,
+			additionalLayout =
+			{
+				[1] = UpdatePinName,
+				[2] = function() end,
+			},
 		}
-		COMPASS_PINS:AddCustomPin(pinName, function() PinCallback(pinType) end, compassPinLayout)
-		COMPASS_PINS:RefreshPins(pinName)
+
+		LostTreasure_AddNewPins(pinName, pinType, function() PinTypeAddCallback(pinType, pinName) end, mapPinLayout, pinTooltipCreator, pinCheckboxText, function() PinCallback(pinType) end, compassPinLayout, settings, "showOnMap")
 	end
-
-	-- compass pin names
-	-- they are currently not in use, because Shinni has to update COMPASS_PINS first with a new callback
-	-- and the option the pass pinName.
-	--[[
-	if COMPASS_PINS.version > 30 then
-		local TIME_BETWEEN_LABEL_UPDATES_MS = 250
-		local nextLabelUpdateTime = 0
-
-		ZO_PreHook(COMPASS, "OnUpdate", function()
-			if GetFrameTimeMilliseconds() > nextLabelUpdateTime + TIME_BETWEEN_LABEL_UPDATES_MS then
-				return false
-			else
-				return true
-			end
-		end)
-
-		local overPinLabel = COMPASS.centerOverPinLabel
-		local overPinAnimation = COMPASS.centerOverPinLabelAnimation
-		local overrideAnimation = COMPASS.areaOverrideAnimation
-
-		CALLBACK_MANAGER:RegisterCallback("CustomCompassPins_SizeCallback", function(pin, _, normalizedAngle, normalizedDistance)
-			local now = GetFrameTimeMilliseconds()
-			if now < nextLabelUpdateTime then
-				return
-			end
-
-			if pin.pinName then
-				if zo_abs(normalizedAngle) < 0.1 and zo_abs(normalizedDistance) < 0.95 then
-					if overrideAnimation:IsPlaying() then
-						overPinAnimation:PlayBackward()
-					elseif not overPinAnimation:IsPlaying() or not overPinAnimation:IsPlayingBackward() then
-						overPinLabel:SetText(pin.pinName)
-						overPinAnimation:PlayForward()
-					end
-					nextLabelUpdateTime = now + TIME_BETWEEN_LABEL_UPDATES_MS
-				end
-			end
-		end)
-	end
-	]]
 end
 
 function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
@@ -366,7 +354,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			if pinData.specializedItemType == specializedItemType then
 				local markOption = self:GetPinTypeSettings(pinType, "markOption")
 				if markOption == LOST_TREASURE_MARK_OPTIONS_INVENTORY then
-					RefreshAllPinsFromPinType(pinType)
+					LostTreasure_RefreshAllPinsFromPinType(pinType)
 				end
 				break
 			end
@@ -401,7 +389,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 					end
 				end
 
-				self:ProzessQueue(pinType, function() RefreshAllPinsFromPinType(pinType) end, interactionType)
+				self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
 				self.bagCache[oldSlotData.itemId] = nil
 
 				self.logger:Debug("Item %d removed from backpack. interactionType %d, itemLink: %s", oldSlotData.itemId, interactionType, oldSlotData.itemLink)
@@ -414,7 +402,7 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
-		local zone = LibMapPins:GetZoneAndSubzone()
+		local zone = LostTreasure_GetZoneAndSubzone()
 		local subZone = self:GetZoneName()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, subZone)
 		if pinTypeData then
@@ -426,7 +414,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 		end
 
 		local NO_CHAT_OUTPUT = true
-		local x, y = LibMapPins:MyPosition(NO_CHAT_OUTPUT)
+		local x, y = LostTreasure_MyPosition()
 
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, subZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, subZone, interactionType, itemId, itemLink)
 
@@ -524,16 +512,8 @@ function LostTreasure_GetSavedVarsSettings()
 	return LOST_TREASURE.savedVars
 end
 
-function LostTreasure_SetCompassPinNameState(state)
-	LOST_TREASURE:SetCompassPinNameState(state)
-end
-
 function LostTreasure_GetPinNameFromPinType(pinType)
 	return GetPinNameFromPinType(pinType)
-end
-
-function LostTreasure_RefreshAllPinsFromPinType(pinName, onlyMapPins)
-	RefreshAllPinsFromPinType(pinName, onlyMapPins)
 end
 
 function LostTreasure_SetMiniMapAnchor()

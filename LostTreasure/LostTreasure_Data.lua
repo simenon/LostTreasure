@@ -533,7 +533,6 @@ local LOST_TREASURE_DATA = {
 			{0.4140, 0.8445, "treasuremap_thievesguild_01", 43733 }, -- Hew's Bane Treasure Map I
 			{0.3865, 0.5805, "treasuremap_thievesguild_02", 43734 }, -- Hew's Bane Treasure Map II
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 -- Dark Brotherhood, Gold Coast
 	["goldcoast"] = {
@@ -541,7 +540,6 @@ local LOST_TREASURE_DATA = {
 			{0.6440, 0.3296, "treasuremap_darkbrotherhood_01", 43735 }, -- Gold Coast Treasure Map I
 			{0.4885, 0.3213, "treasuremap_darkbrotherhood_02", 43736 }, -- Gold Coast Treasure Map II
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 -- Vvardenfell
 	["vvardenfell"] = {
@@ -571,7 +569,6 @@ local LOST_TREASURE_DATA = {
 			{0.1813, 0.5961, "treasuremap_clockworkcity_01", 43746 }, -- Clockwork City Treasure Map I
 			{0.8030, 0.4237, "treasuremap_clockworkcity_02", 43747 }, -- Clockwork City Treasure Map II
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 -- summerset
 	["summerset"] = {
@@ -586,15 +583,13 @@ local LOST_TREASURE_DATA = {
 			{0.3350, 0.3240, "treasuremap_summerset_05", 139008 }, -- Summerset CE Treasure Map II
 			{0.2040, 0.6260, "treasuremap_summerset_06", 139009 }, -- Summerset CE Treasure Map III
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 -- Murkmire
 	["murkmire"] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{0.5458, 0.3791, "treasuremap_murkmire_01", 145510 }, -- Murkmire Treasure Map I
-			{0.4471, 0.4071, "treasuremap_murkmire_02", 145512 }, -- Murkmire Treasure Map II
+			{0.5464, 0.3790, "treasuremap_murkmire_01", 145510 }, -- Murkmire Treasure Map I
+			{0.4510, 0.4079, "treasuremap_murkmire_02", 145512 }, -- Murkmire Treasure Map II
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 -- Northern Elsweyr
 	["elsweyr"] = {
@@ -624,7 +619,6 @@ local LOST_TREASURE_DATA = {
 			{0.4691, 0.6369, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
 			{0.2929, 0.2574, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
 		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] = { },
 	},
 
 }

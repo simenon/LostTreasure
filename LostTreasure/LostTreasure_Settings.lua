@@ -1,8 +1,4 @@
 local LibAddonMenu = LibAddonMenu2
-local LibMapPins = LibMapPins
-local COMPASS_PINS = COMPASS_PINS
-
-local HOOK_COMPASS_PIN_NAME = true
 
 local MARK_OPTIONS_VALUE = {
 	LOST_TREASURE_MARK_OPTIONS_USING,
@@ -48,31 +44,10 @@ local OPTIONS_TEXTURE_PATHS = {
 	-- this table must have the same size like OPTIONS_TEXTURE_NAMES to match values.
 }
 
-local function SetLayoutKey(pinType, key, data)
-	local pinName = LostTreasure_GetPinNameFromPinType(pinType)
-	LibMapPins:SetLayoutKey(pinName, key, data)
-end
-
-local function SetMapPinState(pinType, state)
-	local pinName = LostTreasure_GetPinNameFromPinType(pinType)
-	LibMapPins:SetEnabled(pinName, state)
-end
-
-local function RefreshCompassPinsFromPinType(pinType)
-	local pinName = LostTreasure_GetPinNameFromPinType(pinType)
-	COMPASS_PINS:RefreshPins(pinName)
-end
-
-local function SetCompassPinTypeTexture(pinType, texturePath)
-	local pinName = LostTreasure_GetPinNameFromPinType(pinType)
-	COMPASS_PINS.pinLayouts[pinName].texture = texturePath
-end
-
 local function UpdateMarkOptions(pinType, data)
 	for pinTypeShowSetting, _ in ipairs(MARK_OPTIONS_VALUE) do
 		if pinTypeShowSetting == data then
-			LostTreasure_RefreshAllPinsFromPinType(pinType)
-			break
+			return LostTreasure_RefreshAllPinsFromPinType(pinType)
 		end
 	end
 end
@@ -137,7 +112,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 			end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].showOnMap = value
-				SetMapPinState(pinType, value)
+				LostTreasure_SetMapPinState(pinType, value)
 			end,
 			default = defaults.pinTypes[pinType].showOnMap,
 		}
@@ -150,8 +125,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 			end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].showOnCompass = value
-				LostTreasure_SetCompassPinNameState(not HOOK_COMPASS_PIN_NAME)
-				RefreshCompassPinsFromPinType(pinType)
+				LostTreasure_RefreshCompassPinsFromPinType(pinType)
 			end,
 			default = defaults.pinTypes[pinType].showOnCompass,
 		}
@@ -164,8 +138,8 @@ function LostTreasure_Settings:AddSettingsMenu()
 			getFunc = function() return savedVars.pinTypes[pinType].texture end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].texture = value
-				SetLayoutKey(pinType, "texture", value)
-				SetCompassPinTypeTexture(pinType, value)
+				LostTreasure_SetLayoutKey(pinType, "texture", value)
+				LostTreasure_SetCompassPinTypeTexture(pinType, value)
 				LostTreasure_RefreshAllPinsFromPinType(pinType)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
@@ -184,7 +158,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 			setFunc = function(value)
 				value = zo_roundToNearest(value, 2) -- should be same as step
 				savedVars.pinTypes[pinType].size = value
-				SetLayoutKey(pinType, "size", value)
+				LostTreasure_SetLayoutKey(pinType, "size", value)
 				LostTreasure_RefreshAllPinsFromPinType(pinType)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap end,
@@ -217,7 +191,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 			setFunc = function(value)
 				value = zo_roundToNearest(value, 5) -- should be same as step
 				savedVars.pinTypes[pinType].pinLevel = value
-				SetLayoutKey(pinType, "level", value)
+				LostTreasure_SetLayoutKey(pinType, "level", value)
 				local ONLY_MAP_PINS = true
 				LostTreasure_RefreshAllPinsFromPinType(pinType, ONLY_MAP_PINS)
 			end,
