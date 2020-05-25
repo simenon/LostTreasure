@@ -95,29 +95,11 @@ end
 local function CreateNewPin(pinType, pinData, key)
 	local pinName = GetPinNameFromPinType(pinType)
 	if key == LOST_TREASURE_PIN_KEY_MAP then
-		LibMapPins:CreatePin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y])
+		LostTreasure_CreateMapPin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y])
 	elseif key == LOST_TREASURE_PIN_KEY_COMPASS then
 		local itemLink = LOST_TREASURE:GetItemLinkFromItemId(pinData[PIN_DATA_INDEX_ITEMID])
 		local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
-		COMPASS_PINS.pinManager:CreatePin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y], itemName)
-	end
-end
-
-local function AddTooltip(text, itemName, color, itemStackCount, iconPath)
-	if IsInGamepadPreferredMode() then
-		local baseSection = ZO_MapLocationTooltip_Gamepad.tooltip
-		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, nil, itemName, { widthPercent = 100, fontFace = "$(GAMEPAD_BOLD_FONT)", fontSize = "$(GP_34)", uppercase = true, fontColor = color })
-		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, iconPath, text, { fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3 })
-		if itemStackCount > 1 then
-			ZO_MapLocationTooltip_Gamepad:LayoutStringLine(baseSection, string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount))
-		end
-	else
-		InformationTooltip:AddLine(itemName, "", color:UnpackRGB())
-		-- don't use zo_iconTextFormat, because it will turns points into commas
-		InformationTooltip:AddLine(string.format("%s %s", zo_iconFormat(iconPath, 32, 32), text), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())
-		if itemStackCount > 1 then
-			InformationTooltip:AddLine(string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount), "", ZO_HIGHLIGHT_TEXT:UnpackRGB())
-		end
+		LostTreasure_CreateCompassPin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y], itemName)
 	end
 end
 
@@ -413,7 +395,6 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 			end
 		end
 
-		local NO_CHAT_OUTPUT = true
 		local x, y = LostTreasure_MyPosition()
 
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, subZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, subZone, interactionType, itemId, itemLink)
