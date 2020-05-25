@@ -417,7 +417,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
 		local zone = LibMapPins:GetZoneAndSubzone()
 		local subZone = self:GetZoneName()
-		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, zone)
+		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, subZone)
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
 				if itemId == layoutData[PIN_DATA_INDEX_ITEMID] then
