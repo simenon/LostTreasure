@@ -155,7 +155,6 @@ local HOOK_COMPASS_PIN_NAME = true
 local LostTreasure = ZO_Object:Subclass()
 
 LostTreasure.bagCache = { }
-LostTreasure.isInitial = true
 
 LostTreasure.listMarkOnUse =
 {
