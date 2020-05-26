@@ -3,9 +3,6 @@ local ADDON_DISPLAY_NAME = "Lost Treasure"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info561-LostTreasure.html"
 local ADDON_FEEDBACK = "https://www.esoui.com/portal.php?id=121&a=bugreport&addonid=561"
 
-local LibMapPins = LibMapPins
-local COMPASS_PINS = COMPASS_PINS
-
 local DEFAULTS =
 {
 	pinTypes =
@@ -40,14 +37,6 @@ local DEFAULTS =
 	},
 	notifications = { },
 }
-
-
--- LOCAL PIN DATA
------------------
-local PIN_DATA_INDEX_X = 1
-local PIN_DATA_INDEX_Y = 2
-local PIN_DATA_INDEX_TEXTURE = 3
-local PIN_DATA_INDEX_ITEMID = 4
 
 local TRACKED_SPECIALIZED_ITEM_TYPES =
 {
@@ -95,11 +84,11 @@ end
 local function CreateNewPin(pinType, pinData, key)
 	local pinName = GetPinNameFromPinType(pinType)
 	if key == LOST_TREASURE_PIN_KEY_MAP then
-		LostTreasure_CreateMapPin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y])
+		LostTreasure_CreateMapPin(pinName, pinData, pinData[LOST_TREASURE_DATA_INDEX_X], pinData[LOST_TREASURE_DATA_INDEX_Y])
 	elseif key == LOST_TREASURE_PIN_KEY_COMPASS then
-		local itemLink = LOST_TREASURE:GetItemLinkFromItemId(pinData[PIN_DATA_INDEX_ITEMID])
+		local itemLink = LOST_TREASURE:GetItemLinkFromItemId(pinData[LOST_TREASURE_DATA_INDEX_ITEMID])
 		local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
-		LostTreasure_CreateCompassPin(pinName, pinData, pinData[PIN_DATA_INDEX_X], pinData[PIN_DATA_INDEX_Y], itemName)
+		LostTreasure_CreateCompassPin(pinName, pinData, pinData[LOST_TREASURE_DATA_INDEX_X], pinData[LOST_TREASURE_DATA_INDEX_Y], itemName)
 	end
 end
 
@@ -123,11 +112,9 @@ end
 local HIDE_MINI_MAP = true
 local HOOK_COMPASS_PIN_NAME = true
 
-
 local LostTreasure = ZO_Object:Subclass()
 
 LostTreasure.bagCache = { }
-
 LostTreasure.listMarkOnUse =
 {
 	[LOST_TREASURE_PIN_TYPE_TREASURE] = { },
@@ -203,8 +190,8 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 			local zonePins = zonePinType[pinType]
 			if zonePins then
 				for index, pinData in ipairs(zonePins) do
-					if pinData[PIN_DATA_INDEX_TEXTURE] == mapTextureName then
-						local itemId = pinData[PIN_DATA_INDEX_ITEMID]
+					if pinData[LOST_TREASURE_DATA_INDEX_TEXTURE] == mapTextureName then
+						local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
 						self.lastOpenedTreasureMapItemId = itemId
 						local markOption = self:GetPinTypeSettings(pinType, "markOption")
 						if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
@@ -248,7 +235,7 @@ function LostTreasure:InitializePins()
 
 	ZO_PreHook(COMPASS, "OnUpdate", function()
 		if GetFrameTimeMilliseconds() > nextLabelUpdateTime + TIME_BETWEEN_LABEL_UPDATES_MS then
-			return false
+			return false -- use orig callback when we got an update from LibMapPins before
 		else
 			return true
 		end
@@ -279,7 +266,7 @@ function LostTreasure:InitializePins()
 
 	-- create new pins
 	local function PinTypeAddCallback(pinType, pinName)
-		if IsValidMapType() and LibMapPins:IsEnabled(pinName) then
+		if IsValidMapType() and LostTreasure_IsMapPinEnabled(pinName) then
 			self:CheckZoneData(pinType, LOST_TREASURE_PIN_KEY_MAP)
 		end
 	end
@@ -293,21 +280,20 @@ function LostTreasure:InitializePins()
 	local pinTooltipCreator = {
 		creator = function(pin)
 			local pinTag = select(2, pin:GetPinTypeAndTag())
-			local x, y = pinTag[PIN_DATA_INDEX_X], pinTag[PIN_DATA_INDEX_Y]
+			local x, y = pinTag[LOST_TREASURE_DATA_INDEX_X], pinTag[LOST_TREASURE_DATA_INDEX_Y]
 			local text = string.format("%.2f x %.2f", x * 100, y * 100)
 
-			local itemId = pinTag[PIN_DATA_INDEX_ITEMID]
+			local itemId = pinTag[LOST_TREASURE_DATA_INDEX_ITEMID]
 			local itemLink = LOST_TREASURE:GetItemLinkFromItemId(itemId)
 			local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
-			local color = GetItemQualityColor(GetItemLinkQuality(itemLink))
+			local stackCount = GetItemLinkStacks(itemLink)
+			local color = GetItemQualityColor(GetItemLinkDisplayQuality(itemLink))
 
-			LostTreasure_AddTooltip(text, itemName, color, GetItemLinkStacks(itemLink), "LostTreasure/Icons/map_white.dds")
+			LostTreasure_AddTooltip(text, itemName, color, stackCount, "LostTreasure/Icons/map_white.dds")
 		end,
 	}
 
 	for pinType, settings in ipairs(self.savedVars.pinTypes) do
-		local pinName = GetPinNameFromPinType(pinType)
-		local pinCheckboxText = zo_strformat("<<C:1>> (<<C:2>>)", LOST_TREASURE_PIN_TYPE_DATA[pinType].name, ADDON_DISPLAY_NAME)
 
 		local mapPinLayout = {
 			level = settings.pinLevel,
@@ -320,11 +306,13 @@ function LostTreasure:InitializePins()
 			texture = settings.texture,
 			additionalLayout =
 			{
-				[1] = UpdatePinName,
-				[2] = function() end,
+				[1] = UpdatePinName, -- update pin
+				[2] = function() end, -- disable pin
 			},
 		}
 
+		local pinName = GetPinNameFromPinType(pinType)
+		local pinCheckboxText = zo_strformat("<<C:1>> (<<C:2>>)", LOST_TREASURE_PIN_TYPE_DATA[pinType].name, ADDON_DISPLAY_NAME)
 		LostTreasure_AddNewPins(pinName, pinType, function() PinTypeAddCallback(pinType, pinName) end, mapPinLayout, pinTooltipCreator, pinCheckboxText, function() PinCallback(pinType) end, compassPinLayout, settings, "showOnMap")
 	end
 end
@@ -385,21 +373,19 @@ end
 function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
 		local zone = LostTreasure_GetZoneAndSubzone()
-		local subZone = self:GetZoneName()
-		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, subZone)
+		local mainZone = self:GetZoneName()
+		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mainZone)
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
-				if itemId == layoutData[PIN_DATA_INDEX_ITEMID] then
+				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
 					return -- item was found, no need to continue
 				end
 			end
 		end
 
 		local x, y = LostTreasure_MyPosition()
-
-		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, subZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, subZone, interactionType, itemId, itemLink)
-
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> - <<2>>", zone, subZone), itemId, self.currentTreasureMapTextureName)
+		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mainZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, mainZone, interactionType, itemId, itemLink)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> (<<2>>)", mainZone, zone), itemId, self.currentTreasureMapTextureName)
 	end
 end
 
@@ -448,7 +434,7 @@ function LostTreasure:CheckZoneData(pinType, key)
 		if zonePins then
 			for _, pinData in ipairs(zonePins) do
 				if markOption ~= LOST_TREASURE_MARK_OPTIONS_ALL then
-					local itemId = pinData[PIN_DATA_INDEX_ITEMID]
+					local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
 					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 						if ZO_IsElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId) then
 							CreateNewPin(pinType, pinData, key)

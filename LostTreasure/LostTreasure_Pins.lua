@@ -21,6 +21,10 @@ function LostTreasure_MyPosition()
 	return LibMapPins:MyPosition()
 end
 
+function LostTreasure_IsMapPinEnabled(pinName)
+	return LibMapPins:IsEnabled(pinName)
+end
+
 function LostTreasure_SetLayoutKey(pinType, key, data)
 	local pinName = LostTreasure_GetPinNameFromPinType(pinType)
 	LibMapPins:SetLayoutKey(pinName, key, data)
@@ -71,11 +75,12 @@ end
 
 function LostTreasure_AddTooltip(text, itemName, color, itemStackCount, iconPath)
 	if IsInGamepadPreferredMode() then
-		local baseSection = ZO_MapLocationTooltip_Gamepad.tooltip
-		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, nil, itemName, { widthPercent = 100, fontFace = "$(GAMEPAD_BOLD_FONT)", fontSize = "$(GP_34)", uppercase = true, fontColor = color })
-		ZO_MapLocationTooltip_Gamepad:LayoutIconStringLine(baseSection, iconPath, text, { fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3 })
+		local InformationTooltip = ZO_MapLocationTooltip_Gamepad
+		local baseSection = InformationTooltip.tooltip
+		InformationTooltip:LayoutIconStringLine(baseSection, nil, itemName, { widthPercent = 100, fontFace = "$(GAMEPAD_BOLD_FONT)", fontSize = "$(GP_34)", uppercase = true, fontColor = color })
+		InformationTooltip:LayoutIconStringLine(baseSection, iconPath, text, { fontSize = 27, fontColorField = GAMEPAD_TOOLTIP_COLOR_GENERAL_COLOR_3 })
 		if itemStackCount > 1 then
-			ZO_MapLocationTooltip_Gamepad:LayoutStringLine(baseSection, string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount))
+			InformationTooltip:LayoutStringLine(baseSection, string.format("%s: %d", GetString(SI_CRAFTING_QUANTITY_HEADER), itemStackCount))
 		end
 	else
 		InformationTooltip:AddLine(itemName, "", color:UnpackRGB())

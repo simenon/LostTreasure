@@ -620,7 +620,12 @@ local LOST_TREASURE_DATA = {
 			{0.2929, 0.2574, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
 		},
 	},
-
+-- Western Skyrim
+	["westernskryim"] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
+		},
+	},
 }
 
 function LostTreasure_GetAllData()
