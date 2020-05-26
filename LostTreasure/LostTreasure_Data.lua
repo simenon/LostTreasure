@@ -626,6 +626,11 @@ local LOST_TREASURE_DATA = {
 			{0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 	},
+	["blackreach"] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.8951, 0.5546, "treasuremap_skyrim_03", 166037 }, -- Blackreach: Greymoor Caverns CE Treasure Map II
+		},
+	},
 }
 
 function LostTreasure_GetAllData()

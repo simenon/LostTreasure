@@ -3,6 +3,7 @@ local message = { }
 table.insert(message, "*** DO NOT CHANGE THIS ***")
 table.insert(message, "Coordinates: %.4f x %.4f")
 table.insert(message, "Zone: %s")
+table.insert(message, "MapId: %d")
 table.insert(message, "ItemId: %s")
 table.insert(message, "TreasureMap: %s\n")
 table.insert(message, "*** YOUR MESSAGE HERE BELOW ***")

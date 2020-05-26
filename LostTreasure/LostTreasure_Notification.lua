@@ -4,8 +4,9 @@ local NOTIFICATION_ICON_PATH = 1
 local NOTIFICATION_X = 2
 local NOTIFICATION_Y = 3
 local NOTIFICATION_ZONE = 4
-local NOTIFICATION_ITEM_ID = 5
-local NOTIFICATION_TREASURE_MAP = 6
+local NOTIFICATION_MAP_ID = 5
+local NOTIFICATION_ITEM_ID = 6
+local NOTIFICATION_TREASURE_MAP = 7
 local NOTIFICATION_MAX_VALUE = NOTIFICATION_TREASURE_MAP
 
 -- BugReport
@@ -148,7 +149,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, itemId, lastOpenedTreasureMap)
+function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, itemId, mapId, lastOpenedTreasureMap)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -169,6 +170,7 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 			[NOTIFICATION_X] = x,
 			[NOTIFICATION_Y] = y,
 			[NOTIFICATION_ZONE] = zone,
+			[NOTIFICATION_MAP_ID] = mapId,
 			[NOTIFICATION_ITEM_ID] = itemId,
 			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap or GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP),
 		}

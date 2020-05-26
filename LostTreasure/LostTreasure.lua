@@ -166,6 +166,7 @@ function LostTreasure:Initialize(control)
 end
 
 function LostTreasure:RegisterEvents()
+	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
 	self.control:RegisterForEvent(EVENT_SHOW_TREASURE_MAP, function(_, ...) self:OnEventShowTreasureMap(...) end)
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
@@ -374,6 +375,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
 		local zone = LostTreasure_GetZoneAndSubzone()
 		local mainZone = self:GetZoneName()
+		local mapId = GetCurrentMapId()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mainZone)
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
@@ -385,7 +387,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 
 		local x, y = LostTreasure_MyPosition()
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mainZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, mainZone, interactionType, itemId, itemLink)
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> (<<2>>)", mainZone, zone), itemId, self.currentTreasureMapTextureName)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> (<<2>>)", mainZone, zone), itemId, mapId, self.currentTreasureMapTextureName)
 	end
 end
 
