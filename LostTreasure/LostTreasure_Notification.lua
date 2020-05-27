@@ -149,7 +149,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, itemId, mapId, lastOpenedTreasureMap)
+function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, lastOpenedTreasureMap)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
