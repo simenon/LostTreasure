@@ -166,7 +166,7 @@ function LostTreasure:Initialize(control)
 end
 
 function LostTreasure:RegisterEvents()
-	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
+	-- self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
 	self.control:RegisterForEvent(EVENT_SHOW_TREASURE_MAP, function(_, ...) self:OnEventShowTreasureMap(...) end)
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
@@ -226,6 +226,20 @@ function LostTreasure:InitializeBagCache()
 	for _, itemInfo in pairs(itemList) do
 		itemId = GetItemId(itemInfo.bag, itemInfo.index)
 		self.bagCache[itemId] = true
+	end
+end
+
+function LostTreasure:AddItemToBagCache(itemId)
+	self.bagCache[itemId] = true
+	self.logger:Debug("item %d added to bag cache", itemId)
+end
+
+function LostTreasure:DeleteItemFromBagCache(itemId)
+	if self.bagCache[itemId] then
+		self.bagCache[itemId] = nil
+		self.logger:Debug("item %d removed from bag cache", itemId)
+	else
+		self.logger:Error("item %d is not in bag cache. can't remove it!", itemId)
 	end
 end
 
@@ -332,7 +346,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 		end
 
 		local itemId = GetItemId(bagId, slotIndex)
-		self.bagCache[itemId] = true
+		self:AddItemToBagCache(itemId)
 
 		self.logger:Debug("Item %d added to your backpack. itemLink: %s", itemId, GetItemLink(bagId, slotIndex))
 	end
@@ -361,7 +375,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 				end
 
 				self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
-				self.bagCache[oldSlotData.itemId] = nil
+				self:DeleteItemFromBagCache(oldSlotData.itemId)
 
 				self.logger:Debug("Item %d removed from backpack. interactionType %d, itemLink: %s", oldSlotData.itemId, interactionType, oldSlotData.itemLink)
 
