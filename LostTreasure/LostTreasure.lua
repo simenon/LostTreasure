@@ -209,13 +209,14 @@ end
 
 function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 	local itemId = LostTreasure_GetBookItemId(bookId)
-	local pinType = GetPinTypeFromString(title)
-	local markOption = self:GetPinTypeSettings(pinType, "markOption")
-	if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-		table.insert(self.listMarkOnUse[pinType], itemId)
-		LostTreasure_RefreshAllPinsFromPinType(pinType)
+	if itemId then
+		local pinType = GetPinTypeFromString(title)
+		local markOption = self:GetPinTypeSettings(pinType, "markOption")
+		if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+			table.insert(self.listMarkOnUse[pinType], itemId)
+			LostTreasure_RefreshAllPinsFromPinType(pinType)
+		end
 	end
-
 	self.logger:Info("Book opened. bookId: %s, title: %s, isCollected: %s", bookId, title, tostring(itemId ~= nil))
 end
 
@@ -401,7 +402,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 
 		local x, y = LostTreasure_MyPosition()
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mainZone: %s, interactionType: %d, itemId: %d, itemLink: %s", x, y, zone, mainZone, interactionType, itemId, itemLink)
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> (<<2>>)", mainZone, zone), itemId, mapId, self.currentTreasureMapTextureName)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zo_strformat("<<1>> (<<2>>)", mainZone, zone), mapId, itemId self.currentTreasureMapTextureName)
 	end
 end
 
