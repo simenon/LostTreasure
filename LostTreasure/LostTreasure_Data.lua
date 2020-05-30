@@ -234,7 +234,7 @@ local LOST_TREASURE_DATA = {
 	-- SubPin: Alten Corimont
 	[544] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{0.7495, 0.5631, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+			{0.1231, 0.6281, "treasuremap_shadowfen_04", 43670 }, -- Shadowfen Treasure Map IV
 		},
 	},
 -- Eastmarch
@@ -307,7 +307,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 	-- SubPin: Stonetooth Fortress
-	[530] = {
+	[649] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2410, 0.3252, "treasuremap_ce_daggerfall_betnikh_01b", 44930 }, -- Betnikh CE Treasure Map
 		},

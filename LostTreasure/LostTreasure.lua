@@ -410,11 +410,6 @@ function LostTreasure:GetItemLinkFromItemId(itemId)
 	return string.format("|H0:item:%s:4:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h", itemId)
 end
 
-function LostTreasure:GetZoneName()
-	local mapTileTexture = GetMapTileTexture()
-	return zo_strmatch(mapTileTexture, "%w+/%w+/%w+/(%w+)_%w+_%d.dds")
-end
-
 function LostTreasure:GetTreasureMapTexturePathName(texturePath)
 	return zo_strmatch(texturePath, ".+/(.+)%.dds")
 end
