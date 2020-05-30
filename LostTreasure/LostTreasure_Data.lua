@@ -1,6 +1,6 @@
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
-	["khenarthisroost"] = {
+	[258] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6119, 0.7579, "treasuremap_khenarthi_01", 43695 }, -- Khenarthi's Roost Treasure Map I
 			{0.2254, 0.3140, "treasuremap_khenarthi_02", 43696 }, -- Khenarthi's Roost Treasure Map II
@@ -11,7 +11,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Auridon
-	["auridon"] = {
+	[143] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4934, 0.8891, "treasuremap_auridon_01", 43625 }, -- Auridon Treasure Map I
 			{0.4850, 0.6411, "treasuremap_auridon_02", 43626 }, -- Auridon Treasure Map II
@@ -31,14 +31,14 @@ local LOST_TREASURE_DATA = {
 			{0.3992, 0.6107, nil, 139422 }, -- Jewelry Crafting Survey: Auridon
 		},
 	},
--- Auridon, Vulkhel Guard
-	["vulkhelguard"] = {
+	-- SubPin: Vulkhel Guard
+	[243] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.8160, 0.729, "treasuremap_ce_aldmeri_auridon_02", 44927 }, -- Auridon CE Treasure Map
 		},
 	},
 -- Grahtwood
-	["grahtwood"] = {
+	[9] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.3951, 0.6750, "treasuremap_grahtwood_01", 43631 }, -- Grahtwood Treasure Map I
 			{0.6496, 0.4778, "treasuremap_grahtwood_02", 43632 }, -- Grahtwood Treasure Map II
@@ -57,13 +57,14 @@ local LOST_TREASURE_DATA = {
 			{0.3903, 0.3928, nil, 139425 }, -- Jewelry Crafting Survey: Grahtwood
 		},
 	},
-	["eldenrootgroundfloor"] = {
+	-- SubPin: Eldenroot
+	[445] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.8820, 0.4106, "treasuremap_grahtwood_02", 43632 }, -- Grahtwood Treasure Map II
 		},
 	},
 -- Greenshade
-	["greenshade"] = {
+	[300] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6543, 0.8344, "treasuremap_greenshade_01", 43637 }, -- Greenshade Treasure Map I
 			{0.7222, 0.7418, "treasuremap_greenshade_02", 43638 }, -- Greenshade Treasure Map II
@@ -83,7 +84,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Malabal Tor
-	["malabaltor"] = {
+	[22] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2028, 0.4993, "treasuremap_malabaltor_01", 43643 }, -- Malabal Tor Treasure Map I
 			{0.0549, 0.4775, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
@@ -103,14 +104,15 @@ local LOST_TREASURE_DATA = {
 			{0.4135, 0.6588, "malabaltor_survey_jewelry", 139430}-- Jewelry Crafting Survey: Malabal Tor
 		},
 	},
-	["velynharbor"] = {
+	-- SubPin: Velynharbor
+	[275] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2089, 0.3581, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
 			{0.5132, 0.5649, "treasuremap_ce_aldmeri_malbator_05", 44940 }, -- Malabal Tor CE Treasure Map
 		},
 	},
 -- Reaper’s March
-	["reapersmarch"] = {
+	[256] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.3781, 0.4313, "treasuremap_reapersmarch_01", 43649 }, -- Reaper's March Treasure Map I
 			{0.3344, 0.1270, "treasuremap_reapersmarch_02", 43650 }, -- Reaper's March Treasure Map II
@@ -130,27 +132,28 @@ local LOST_TREASURE_DATA = {
 			{0.2470, 0.5320, "reapersmarch_survey_jewelry", 139432 }, -- Jewelry Crafting Survey: Reaper's March
 		},
 	},
-	["rawlkha"] = {
+	-- SubPin:  Rawlkha
+	[312] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.0751, 0.4507, "treasuremap_ce_aldmeri_reapersmarch_06", 44941 }, -- Reaper's March CE Treasure Map
 		},
 	},
 -- Bleakrock Isle
-	["bleakrock"] = {
+	[74] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4383, 0.4067, "treasuremap_bleakrock_001", 43699 }, -- Bleakrock Treasure Map I
 			{0.4264, 0.2201, "treasuremap_bleakrock_002", 43700 }, -- Bleakrock Treasure Map II
 			{0.4630, 0.6490, "treasuremap_ce_ebonheart_bleakrock_01a", 44931 }, -- Bleakrock CE Treasure Map
 		},
 	},
--- Bleakrock Isle, Bleackrock Village
-	["bleakrockvillage"] = {
+	-- SubPin: Bleakrock Isle, Bleackrock Village
+	[8] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.5540, 0.6710, "treasuremap_ce_ebonheart_bleakrock_01a", 44931 }, -- Bleakrock CE Treasure Map
 		},
 	},
 -- Bal Foyen
-	["balfoyen"] = {
+	[75] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6007, 0.7090, "treasuremap_balfoyen_001", 43701 }, -- Bal Foyen Treasure Map I
 			{0.2400, 0.5300, "treasuremap_balfoyen_002", 43702 }, -- Bal Foyen Treasure Map II
@@ -158,7 +161,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 --Stonefalls
-	["stonefalls"] = {
+	[7] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.7952, 0.5758, "treasuremap_stonefalls_001", 43655 }, -- Stonefalls Treasure Map I
 			{0.6038, 0.4899, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
@@ -178,13 +181,17 @@ local LOST_TREASURE_DATA = {
 			{0.6840, 0.6401, "stonefalls_survey_jewelry", 139424 }, -- Jewelry Crafting Survey: Stonefalls
 		},
 	},
-	["ebonheart"] = {
+	-- SubPin: Ebonheart
+	[511] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.7495, 0.5631, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{0.5407, 0.0913, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
 		},
 	},
 -- Deshaan
-	["deshaan"] = {
+	[13] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2599, 0.5507, "treasuremap_deshaan_001", 43661 }, -- Deshaan Treasure Map I
 			{0.1840, 0.4724, "treasuremap_deshaan_002", 43662 }, -- Deshaan Treasure Map II
@@ -204,7 +211,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Shadowfen
-	["shadowfen"] = {
+	[26] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.3697, 0.1501, "treasuremap_shadowfen_01", 43667 }, -- Shadowfen Treasure Map I
 			{0.7088, 0.3925, "treasuremap_shadowfen_02", 43668 }, -- Shadowfen Treasure Map II
@@ -224,8 +231,14 @@ local LOST_TREASURE_DATA = {
 			{0.8888, 0.6867, "shadowfen_survey_jewelry", 139428 }, -- Jewelry Crafting Survey: Shadowfen
 		},
 	},
+	-- SubPin: Alten Corimont
+	[544] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.7495, 0.5631, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+		},
+	},
 -- Eastmarch
-	["eastmarch"] = {
+	[61] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4410, 0.3740, "treasuremap_eastmarch_01", 43673 }, -- Eastmarch Treasure Map I
 			{0.3134, 0.4589, "treasuremap_eastmarch_02", 43674 }, -- Eastmarch Treasure Map II
@@ -246,7 +259,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- The Rift
-	["therift"] = {
+	[125] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.7412, 0.3782, "treasuremap_therift_01", 43679 }, -- The Rift Treasure Map I
 			{0.4715, 0.4337, "treasuremap_therift_02", 43680 }, -- The Rift Treasure Map II
@@ -265,29 +278,42 @@ local LOST_TREASURE_DATA = {
 			{0.8035, 0.4203, "therift_survey_jewelry", 139433 }, -- Jewelry Crafting Survey: The Rift
 		},
 	},
-	["nimalten"] = {
+	-- SubPin: Nimalten
+	[543] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4157, 0.3239, "treasuremap_therift_03", 43681 }, -- The Rift Treasure Map III
 		},
 	},
 -- Stros M'Kai
-	["strosmkai"] = {
+	[201] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.5458, 0.6406, "treasuremap_strosmkai_001", 43691 }, -- Stros M'Kai Treasure Map I
 			{0.0989, 0.6127, "treasuremap_strosmkai_002", 43692 }, -- Stros M'Kai Treasure Map II
 			{0.7000, 0.3300, "treasuremap_ce_daggerfall_stros_01a", 44946 }, -- Stros M'Kai CE Treasure Map
 		},
 	},
+	-- SubPin: Port Hunding
+	[530] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.6013, 0.2807, "treasuremap_ce_daggerfall_stros_01a", 44946 }, -- Stros M'Kai CE Treasure Map
+		},
+	},
 -- Betnikh
-	["betnihk"] = {
+	[227] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.1735, 0.3136, "treasuremap_betnikh_001", 43693 }, -- Betnikh Treasure Map I
 			{0.5680, 0.8759, "treasuremap_betnikh_002", 43694 }, -- Betnikh Treasure Map II
 			{0.4551, 0.4360, "treasuremap_ce_daggerfall_betnikh_01b", 44930 }, -- Betnikh CE Treasure Map
 		},
 	},
+	-- SubPin: Stonetooth Fortress
+	[530] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{0.2410, 0.3252, "treasuremap_ce_daggerfall_betnikh_01b", 44930 }, -- Betnikh CE Treasure Map
+		},
+	},
 -- Glenumbra
-	["glenumbra"] = {
+	[1] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.5265, 0.7618, "treasuremap_glenumbra_001", 43507 }, -- Glenumbra Treasure Map I
 			{0.4920, 0.4542, "treasuremap_glenumbra_002", 43525 }, -- Glenumbra Treasure Map II
@@ -308,7 +334,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Stormhaven
-	["stormhaven"] = {
+	[12] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2316, 0.5228, "treasuremap_stormhaven_001", 43601 }, -- Stormhaven Treasure Map I
 			{0.2569, 0.3466, "treasuremap_stormhaven_002", 43602 }, -- Stormhaven Treasure Map II
@@ -328,7 +354,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Rivenspire
-	["rivenspire"] = {
+	[10] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.3285, 0.5091, "treasuremap_rivenspire_01", 43607 }, -- Rivenspire Treasure Map I
 			{0.1774, 0.6288, "treasuremap_rivenspire_02", 43608 }, -- Rivenspire Treasure Map II
@@ -348,14 +374,14 @@ local LOST_TREASURE_DATA = {
 			{0.6750, 0.1182, "rivenspire_survey_jewelry", 139429 }, -- Jewelry Crafting Survey: Rivenspire
 		},
 	},
--- Rivenspire, North Point
-	["northpoint"] = {
+	-- SubPin: Rivenspire, North Point
+	[513] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2763, 0.1772, "treasuremap_ce_daggerfall_rivenspire_04", 44942 }, -- Rivenspire CE Treasure Map
 		},
 	},
 -- Alik’r Desert
-	["alikr"] = {
+	[30] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.3801, 0.6993, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
 			{0.1113, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
@@ -375,18 +401,20 @@ local LOST_TREASURE_DATA = {
 			{0.9007, 0.5329, "alikr_survey_jewelry", 139431 }, -- Jewelry Crafting Survey: Alik'r
 		},
 	},
-	["sentinel"] = {
+	-- SubPin: Sentinel
+	[83] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.7745, 0.0504, "treasuremap_ce_daggerfall_alikr_05", 44926 }, -- Alik'r CE Treasure Map
 		},
 	},
-	["kozanset"] = {
+	-- SubPin: Kozanset
+	[538] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2260, 0.5964, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
 		},
 	},
 -- Bangkorai
-	["bangkorai"] = {
+	[20] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4331, 0.2704, "treasuremap_bankorai_01", 43619 }, -- Bangkorai Treasure Map I
 			{0.6146, 0.2083, "treasuremap_bankorai_02", 43620 }, -- Bangkorai Treasure Map II
@@ -406,13 +434,14 @@ local LOST_TREASURE_DATA = {
 			{0.4674, 0.6938, "bangkorai_survey_jewelry", 139434 }, -- Jewelry Crafting Survey: Bangkorai
 		},
 	},
-	["evermore"] = {
+	-- SubPin: Evermore
+	[84] = {
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{0.1926, 0.6444, "bangkorai_survey_alchemist", 57781 }, -- Alchemist Survey: Bangkorai
 		},
 	},
 -- Coldharbour
-	["coldharbour"] = {
+	[255] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4069, 0.8320, "treasuremap_coldharbour_01", 43685 }, -- Coldharbour Treasure Map I
 			{0.4097, 0.5680, "treasuremap_coldharbour_02", 43686 }, -- Coldharbour Treasure Map II
@@ -438,7 +467,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Cyrodiil
-	["ava"] = {
+	[16] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4076, 0.4906, "treasuremap_cyrodiil_ald_01", 43703 }, -- Cyrodiil Treasure Map I
 			{0.5117, 0.8209, "treasuremap_cyrodiil_ald_02", 43704 }, -- Cyrodiil Treasure Map II
@@ -461,7 +490,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Craglorn
-	["craglorn"] = {
+	[1126] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.2866, 0.6212, "treasuremap_craglorn_01", 43721 }, -- Craglorn Treasure Map I
 			{0.4188, 0.4750, "treasuremap_craglorn_02", 43722 }, -- Craglorn Treasure Map II
@@ -492,7 +521,7 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Wrothgar
-	["wrothgar"] = {
+	[667] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4798, 0.7865, "treasuremap_orsinium_01", 43727 }, -- Orsinium Treasure Map I
 			{0.7647, 0.5651, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
@@ -522,27 +551,28 @@ local LOST_TREASURE_DATA = {
 			{0.1938, 0.6819, "orsinium_survey_jewelry_03", 139443 }, -- Jewelry Crafting Survey: Wrothgar III
 		},
 	},
-	["morkul"] = {
+	-- SubPin: Morkul
+	[954] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{-0.0675, 0.6872, "treasuremap_orsinium_04", 43730 }, -- Orsinium Treasure Map IV
 		},
 	},
 -- Hew's Bane
-	["hewsbane"] = {
+	[994] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4140, 0.8445, "treasuremap_thievesguild_01", 43733 }, -- Hew's Bane Treasure Map I
 			{0.3865, 0.5805, "treasuremap_thievesguild_02", 43734 }, -- Hew's Bane Treasure Map II
 		},
 	},
--- Dark Brotherhood, Gold Coast
-	["goldcoast"] = {
+-- Gold Coast
+	[1006] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6440, 0.3296, "treasuremap_darkbrotherhood_01", 43735 }, -- Gold Coast Treasure Map I
 			{0.4885, 0.3213, "treasuremap_darkbrotherhood_02", 43736 }, -- Gold Coast Treasure Map II
 		},
 	},
 -- Vvardenfell
-	["vvardenfell"] = {
+	[1060] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6627, 0.5285, "treasuremap_vvardenfell_02", 43743 }, -- Vvardenfell CE Treasure Map I
 			{0.6346, 0.7002, "treasuremap_vvardenfell_07", 43744 }, -- Vvardenfell CE Treasure Map II
@@ -564,14 +594,14 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Clockwork City
-	["clockwork"] = {
+	[1313] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.1813, 0.5961, "treasuremap_clockworkcity_01", 43746 }, -- Clockwork City Treasure Map I
 			{0.8030, 0.4237, "treasuremap_clockworkcity_02", 43747 }, -- Clockwork City Treasure Map II
 		},
 	},
--- summerset
-	["summerset"] = {
+-- Summerset
+	[1349] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4870, 0.1970, "treasuremap_summerset_01", 43748 }, -- Summerset Treasure Map I
 			{0.7016, 0.6788, "treasuremap_summerset_03", 43749 }, -- Summerset Treasure Map II
@@ -585,14 +615,14 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Murkmire
-	["murkmire"] = {
+	[1484] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.5464, 0.3790, "treasuremap_murkmire_01", 145510 }, -- Murkmire Treasure Map I
 			{0.4510, 0.4079, "treasuremap_murkmire_02", 145512 }, -- Murkmire Treasure Map II
 		},
 	},
 -- Northern Elsweyr
-	["elsweyr"] = {
+	[1555] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.6116, 0.4083, "treasuremap_elsweyr_01", 151613 }, -- Northern Elsweyr Treasure Map I
 			{0.4213, 0.2241, "treasuremap_elsweyr_02", 151614 }, -- Northern Elsweyr Treasure Map II
@@ -614,19 +644,20 @@ local LOST_TREASURE_DATA = {
 		},
 	},
 -- Southern Elsweyr
-	["southernelsweyr"] = {
+	[1654] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4691, 0.6369, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
 			{0.2929, 0.2574, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
 		},
 	},
 -- Western Skyrim
-	["westernskryim"] = {
+	[1719] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 	},
-	["blackreach"] = {
+	-- SubPin: Blackreach Greymoor Caverns
+	[1747] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{0.8951, 0.5546, "treasuremap_skyrim_03", 166037 }, -- Blackreach: Greymoor Caverns CE Treasure Map II
 		},
@@ -637,16 +668,16 @@ function LostTreasure_GetAllData()
 	return LOST_TREASURE_DATA
 end
 
-function LostTreasure_GetZoneData(zone)
-	local subZoneData = LOST_TREASURE_DATA[zone]
+function LostTreasure_GetZoneData(mapId)
+	local subZoneData = LOST_TREASURE_DATA[mapId]
 	if subZoneData then
 		return subZoneData
 	end
 	return nil
 end
 
-function LostTreasure_GetZonePinTypeData(pinType, zone)
-	local subZoneData = LOST_TREASURE_DATA[zone]
+function LostTreasure_GetZonePinTypeData(pinType, mapId)
+	local subZoneData = LOST_TREASURE_DATA[mapId]
 	if subZoneData then
 		local pinTypeData = subZoneData[pinType]
 		if pinTypeData then
