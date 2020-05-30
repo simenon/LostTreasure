@@ -70,17 +70,6 @@ local function GetPinNameFromPinType(pinType)
 	return LOST_TREASURE_PIN_TYPE_DATA[pinType].pinName
 end
 
-local function GetPinTypeFromString(itemName)
-	itemName = zo_strlower(itemName)
-	for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
-		if zo_strfind(itemName, pinData.compareString) then
-			return pinType
-		end
-	end
-	self.logger:Debug("no pinType found for itemName: %s", itemName)
-	return
-end
-
 local function CreateNewPin(pinType, pinData, key)
 	local pinName = GetPinNameFromPinType(pinType)
 	if key == LOST_TREASURE_PIN_KEY_MAP then
@@ -184,7 +173,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	self.mapControl:SetTexture(texturePath)
 	self:UpdateVisibility(not self.savedVars.miniMap.enabled)
 
-	local pinType = GetPinTypeFromString(name)
+	local pinType = self:GetPinTypeFromString(name)
 	if pinType then
 		local data = LostTreasure_GetAllData()
 		for zone, zonePinType in pairs(data) do
@@ -210,7 +199,7 @@ end
 function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 	local itemId = LostTreasure_GetBookItemId(bookId)
 	if itemId then
-		local pinType = GetPinTypeFromString(title)
+		local pinType = self:GetPinTypeFromString(title)
 		local markOption = self:GetPinTypeSettings(pinType, "markOption")
 		if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 			table.insert(self.listMarkOnUse[pinType], itemId)
@@ -404,6 +393,17 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, interactionType: %d, itemId: %d, itemLink: %s", x, y, zoneName, mapId, interactionType, itemId, itemLink)
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, self.currentTreasureMapTextureName)
 	end
+end
+
+function LostTreasure:GetPinTypeFromString(itemName)
+	itemName = zo_strlower(itemName)
+	for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
+		if zo_strfind(itemName, pinData.compareString) then
+			return pinType
+		end
+	end
+	self.logger:Debug("no pinType found for itemName: %s", itemName)
+	return
 end
 
 function LostTreasure:GetItemLinkFromItemId(itemId)
