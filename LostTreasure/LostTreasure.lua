@@ -150,6 +150,8 @@ function LostTreasure:Initialize(control)
 	HUD_UI_SCENE:AddFragment(LOST_TREASURE_FRAGMENT)
 	TREASURE_MAP_INVENTORY_SCENE:AddFragment(LOST_TREASURE_FRAGMENT)
 	GAMEPAD_TREASURE_MAP_INVENTORY_SCENE:AddFragment(LOST_TREASURE_FRAGMENT)
+	WORLD_MAP_SCENE:AddFragment(LOST_TREASURE_FRAGMENT)
+	GAMEPAD_WORLD_MAP_SCENE:AddFragment(LOST_TREASURE_FRAGMENT)
 
 	self.control:RegisterForEvent(EVENT_ADD_ON_LOADED, OnAddOnLoaded)
 end
@@ -213,24 +215,37 @@ function LostTreasure:InitializeBagCache()
 	ClearTable(self.bagCache)
 	local itemId
 	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTrackedSpecializedItem)
-	for _, itemInfo in pairs(itemList) do
-		itemId = GetItemId(itemInfo.bag, itemInfo.index)
-		self.bagCache[itemId] = true
+	for _, slotData in pairs(itemList) do
+		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
+		local itemId = GetItemId(slotData.bag, slotData.index)
+		local itemLink = GetItemLink(slotData.bag, slotData.index)
+		self:AddItemToBagCache(uniqueId, itemId, itemLink)
 	end
 end
 
-function LostTreasure:AddItemToBagCache(itemId)
-	self.bagCache[itemId] = true
-	self.logger:Debug("item %d added to bag cache", itemId)
+function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink)
+	uniqueId = tostring(uniqueId)
+	rawset(self.bagCache, uniqueId, { itemId = itemId, itemLink = itemLink })
 end
 
-function LostTreasure:DeleteItemFromBagCache(itemId)
-	if self.bagCache[itemId] then
-		self.bagCache[itemId] = nil
-		self.logger:Debug("item %d removed from bag cache", itemId)
-	else
-		self.logger:Error("item %d is not in bag cache. can't remove it!", itemId)
+function LostTreasure:DeleteItemFromBagCache(uniqueId)
+	uniqueId = tostring(uniqueId)
+	if self.bagCache[uniqueId] then
+		local tempData = ZO_ShallowTableCopy(self.bagCache[uniqueId])
+		ClearTable(self.bagCache[uniqueId])
+		return tempData
 	end
+	self.logger:Error("table key %s not found", uniqueId)
+	return nil
+end
+
+function LostTreasure:IsItemInBagCache(itemId)
+	for _, itemData in pairs(self.bagCache) do
+		if itemId == itemData.itemId then
+			return true
+		end
+	end
+	return false
 end
 
 function LostTreasure:InitializePins()
@@ -335,10 +350,11 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			end
 		end
 
+		local uniqueId = GetItemUniqueId(bagId, slotIndex)
 		local itemId = GetItemId(bagId, slotIndex)
-		self:AddItemToBagCache(itemId)
-
-		self.logger:Debug("Item %d added to your backpack. itemLink: %s", itemId, GetItemLink(bagId, slotIndex))
+		local itemLink = GetItemLink(bagId, slotIndex)
+		self.logger:Debug("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
+		self:AddItemToBagCache(uniqueId, itemId, itemLink)
 	end
 end
 
@@ -365,11 +381,12 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 				end
 
 				self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
-				self:DeleteItemFromBagCache(oldSlotData.itemId)
-
-				self.logger:Debug("Item %d removed from backpack. interactionType %d, itemLink: %s", oldSlotData.itemId, interactionType, oldSlotData.itemLink)
-
-				return self:RequestReport(pinType, interactionType, oldSlotData.itemId, oldSlotData.itemLink)
+				local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
+				if itemData then
+					self.logger:Debug("Item %s removed from backpack. interactionType %d, uniqueId: %d", oldSlotData.name, interactionType, oldSlotData.uniqueId)
+					return self:RequestReport(pinType, interactionType, itemData.itemId, itemData.itemLink)
+				end
+				self.logger:Error("bagCache didn't contain item %s, uniqueId %d", oldSlotData.name, oldSlotData.uniqueId)
 			end
 		end
 	end
@@ -452,7 +469,7 @@ function LostTreasure:CheckZoneData(pinType, key)
 							CreateNewPin(pinType, pinData, key)
 						end
 					else
-						if self.bagCache[itemId] then
+						if self:IsItemInBagCache(itemId) then
 							CreateNewPin(pinType, pinData, key)
 						end
 					end

@@ -35,8 +35,8 @@ function LostTreasure_SetMapPinState(pinType, state)
 	LibMapPins:SetEnabled(pinName, state)
 end
 
-function LostTreasure_CreateMapPin(pinName, pinData, x, y, itemName)
-	LibMapPins:CreatePin(pinName, pinData, x, y, itemName)
+function LostTreasure_CreateMapPin(pinName, pinData, x, y)
+	LibMapPins:CreatePin(pinName, pinData, x, y)
 end
 
 function LostTreasure_CreateCompassPin(pinName, pinData, x, y, itemName)
