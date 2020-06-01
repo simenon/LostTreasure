@@ -57,7 +57,7 @@ local function GetAddOnInfos()
 	end
 end
 
-local function IsTrackedSpecializedItem(bagId, slotIndex)
+local function IsTreasureOrSurveyItem(bagId, slotIndex)
 	local specializedItemType = select(2, GetItemType(bagId, slotIndex))
 	return TRACKED_SPECIALIZED_ITEM_TYPES[specializedItemType] == true
 end
@@ -157,7 +157,6 @@ function LostTreasure:Initialize(control)
 end
 
 function LostTreasure:RegisterEvents()
-	-- self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
 	self.control:RegisterForEvent(EVENT_SHOW_TREASURE_MAP, function(_, ...) self:OnEventShowTreasureMap(...) end)
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
@@ -214,7 +213,7 @@ end
 function LostTreasure:InitializeBagCache()
 	ClearTable(self.bagCache)
 	local itemId
-	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTrackedSpecializedItem)
+	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTreasureOrSurveyItem)
 	for _, slotData in pairs(itemList) do
 		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
 		local itemId = GetItemId(slotData.bag, slotData.index)
@@ -255,7 +254,7 @@ function LostTreasure:InitializePins()
 
 	ZO_PreHook(COMPASS, "OnUpdate", function()
 		if GetFrameTimeMilliseconds() > nextLabelUpdateTime + TIME_BETWEEN_LABEL_UPDATES_MS then
-			return false -- use orig callback when we got an update from LibMapPins before
+			return false -- use orig callback when we haven't got an update from LibMapPins lately
 		else
 			return true
 		end
