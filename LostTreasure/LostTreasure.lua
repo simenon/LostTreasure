@@ -511,6 +511,10 @@ function LostTreasure_GetPinNameFromPinType(pinType)
 	return GetPinNameFromPinType(pinType)
 end
 
+function LostTreasure_Hide()
+	LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP)
+end
+
 function LostTreasure_SetMiniMapAnchor()
 	LOST_TREASURE:SetMiniMapAnchor()
 end
