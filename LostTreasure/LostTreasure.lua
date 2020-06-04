@@ -383,7 +383,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 				local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 				if itemData then
 					self.logger:Debug("Item %s removed from backpack. interactionType %d, uniqueId: %d", oldSlotData.name, interactionType, oldSlotData.uniqueId)
-					return self:RequestReport(pinType, interactionType, itemData.itemId, itemData.itemLink)
+					return self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
 				end
 				self.logger:Error("bagCache didn't contain item %s, uniqueId %d", oldSlotData.name, oldSlotData.uniqueId)
 			end
@@ -391,7 +391,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 	end
 end
 
-function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
+function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
 		local mapId = GetCurrentMapId()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
@@ -406,8 +406,8 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemLink)
 		local x, y = LostTreasure_MyPosition()
 		local zone, subZone = LostTreasure_GetZoneAndSubzone()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
-		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, interactionType: %d, itemId: %d, itemLink: %s", x, y, zoneName, mapId, interactionType, itemId, itemLink)
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, self.currentTreasureMapTextureName)
+		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d,, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName)
 	end
 end
 

@@ -6,8 +6,8 @@ local NOTIFICATION_Y = 3
 local NOTIFICATION_ZONE = 4
 local NOTIFICATION_MAP_ID = 5
 local NOTIFICATION_ITEM_ID = 6
-local NOTIFICATION_TREASURE_MAP = 7
-local NOTIFICATION_MAX_VALUE = NOTIFICATION_TREASURE_MAP
+local NOTIFICATION_ITEM_NAME = 7
+local NOTIFICATION_TREASURE_MAP = 8
 
 -- BugReport
 ------------
@@ -41,17 +41,15 @@ function BugReport:ReplaceSpecialCharacters(str)
 end
 
 function BugReport:GenerateURL(data)
--- Check first, if we have the correct amount of data parameters.
--- This is just a little safety, if we forgot to change the input parameters after we added/removed some.
-	if #data == NOTIFICATION_MAX_VALUE then
-		local output = { }
-		table.insert(output, self.url)
-		table.insert(output, self.pattern[URL_PATTERN_TITLE])
-		table.insert(output, GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE))
-		table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
-		table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), select(2, unpack(data)))) -- we have to cut out the iconTexture
-		self.output = self:ReplaceSpecialCharacters(table.concat(output))
-	end
+	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap = select(2, unpack(data)) -- we have to cut out the iconTexture
+
+	local output = { }
+	table.insert(output, self.url)
+	table.insert(output, self.pattern[URL_PATTERN_TITLE])
+	table.insert(output, GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE))
+	table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
+	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
+	self.output = self:ReplaceSpecialCharacters(table.concat(output))
 end
 
 function BugReport:RequestOpenURL()
@@ -149,7 +147,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, lastOpenedTreasureMap)
+function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -172,6 +170,7 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 			[NOTIFICATION_ZONE] = zone,
 			[NOTIFICATION_MAP_ID] = mapId,
 			[NOTIFICATION_ITEM_ID] = itemId,
+			[NOTIFICATION_ITEM_NAME] = itemName,
 			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap or GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP),
 		}
 	}
