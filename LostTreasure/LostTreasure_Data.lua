@@ -654,8 +654,8 @@ local LOST_TREASURE_DATA = {
 	[1719] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.5402, 0.4627, "treasuremap_skyrim_06", 166040 }, -- Western Skyrim Treasure Map I
-			-- { 0.0, 0.0, "treasuremap_skyrim_07", 166041 }, -- Western Skyrim Treasure Map II
-			-- { 0.0, 0.0, "treasuremap_skyrim_08", 166042 }, -- Western Skyrim Treasure Map III
+			{ 0.5368, 0.5909, "treasuremap_skyrim_07", 166041 }, -- Western Skyrim Treasure Map II
+			{ 0.2887, 0.6198, "treasuremap_skyrim_08", 166042 }, -- Western Skyrim Treasure Map III
 			{ 0.2640, 0.5540, "treasuremap_skyrim_09", 166043 }, -- Western Skyrim Treasure Map IV
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
@@ -673,8 +673,8 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.8246, 0.4830, "treasuremap_skyrim_02", 166036 }, -- Blackreach: Greymoor Caverns CE Treasure Map I
 			{ 0.8951, 0.5546, "treasuremap_skyrim_03", 166037 }, -- Blackreach: Greymoor Caverns CE Treasure Map II
-			-- { 0.0, 0.0, "", 166038 }, -- Blackreach: Greymoor Caverns Treasure Map I
-			-- { 0.0, 0.0, "", 166039 }, -- Blackreach: Greymoor Caverns Treasure Map II
+			{ 0.2103, 0.6743, "", 166038 }, -- Blackreach: Greymoor Caverns Treasure Map I
+			{ 0.2240, 0.5868, "", 166039 }, -- Blackreach: Greymoor Caverns Treasure Map II
 		},
 	},
 }
