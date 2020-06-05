@@ -654,18 +654,18 @@ local LOST_TREASURE_DATA = {
 	[1719] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.5402, 0.4627, "treasuremap_skyrim_06", 166040 }, -- Western Skyrim Treasure Map I
-			-- { 0.0, 0.0, "", 166041 }, -- Western Skyrim Treasure Map II
-			-- { 0.0, 0.0, "", 166042 }, -- Western Skyrim Treasure Map III
+			-- { 0.0, 0.0, "treasuremap_skyrim_07", 166041 }, -- Western Skyrim Treasure Map II
+			-- { 0.0, 0.0, "treasuremap_skyrim_08", 166042 }, -- Western Skyrim Treasure Map III
 			{ 0.2640, 0.5540, "treasuremap_skyrim_09", 166043 }, -- Western Skyrim Treasure Map IV
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			-- { 0.0, 0.0, "", 166459 }, -- Alchemist Survey: Western Skyrim
-			-- { 0.0, 0.0, "", 166460 }, -- Blacksmith Survey: Western Skyrim
-			-- { 0.0, 0.0, "", 166461 }, -- Clothier Survey: Western Skyrim
-			-- { 0.0, 0.0, "", 166462 }, -- Enchanter Survey: Western Skyrim
+			-- { 0.0, 0.0, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
+			-- { 0.0, 0.0, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
+			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
+			-- { 0.0, 0.0, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
-			-- { 0.0, 0.0, "", 166465 }, -- Woodworker Survey: Western Skyrim
+			-- { 0.0, 0.0, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
 		},
 	},
 	-- SubPin: Blackreach Greymoor Caverns

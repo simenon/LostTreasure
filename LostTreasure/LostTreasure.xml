@@ -19,9 +19,9 @@
 					</OnMouseUp>
 				</Texture>
 				<Button name="$(parent)Close" inherits="ZO_CloseButton" excludeFromResizeToFitExtents="true">
-					<OnMouseUp>
+					<OnClicked>
 						LostTreasure_Hide()
-					</OnMouseUp>
+					</OnClicked>
 				</Button>
 			</Controls>
 			<OnMoveStop>
