@@ -668,13 +668,13 @@ local LOST_TREASURE_DATA = {
 			-- { 0.0, 0.0, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
 		},
 	},
-	-- SubPin: Blackreach Greymoor Caverns
+-- Blackreach Greymoor Caverns
 	[1747] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.8246, 0.4830, "treasuremap_skyrim_02", 166036 }, -- Blackreach: Greymoor Caverns CE Treasure Map I
 			{ 0.8951, 0.5546, "treasuremap_skyrim_03", 166037 }, -- Blackreach: Greymoor Caverns CE Treasure Map II
-			{ 0.2103, 0.6743, "", 166038 }, -- Blackreach: Greymoor Caverns Treasure Map I
-			{ 0.2240, 0.5868, "", 166039 }, -- Blackreach: Greymoor Caverns Treasure Map II
+			{ 0.2103, 0.6743, "treasuremap_skyrim_04", 166038 }, -- Blackreach: Greymoor Caverns Treasure Map I
+			{ 0.2240, 0.5868, "treasuremap_skyrim_05", 166039 }, -- Blackreach: Greymoor Caverns Treasure Map II
 		},
 	},
 }
