@@ -7,35 +7,5 @@
 * Options to scale and select textures for your map markers
 * Uses Compass Bar when you get close to treasure or survey location.
 
-![screenshot](http://cdn.eso.mmoui.com/preview/pvw1720.png)
+![screenshot](https://cdn-eso.mmoui.com/preview/pvw1692.png)
 
-Known Locations 
-* Aldmeri Dominion:
- * Khenarthi’s Roost
- * Auridion
- * Grahtwood
- * Greenshade
- * Malabal Tor
- * Reaper’s March
-* Daggerfall Covenant:
- * Stros M’kai
- * Betnikh
- * Glenumbra
- * Stormhaven
- * Rivenspire
- * Alik’r Desert
- * Bangkorai
-* Ebonheart Pact:
- * Bleakrock Isle
- * Bal Foyen
- * Stonefalls
- * Deshaan
- * Shadowfen
- * Eastmarch
- * The Rift 
-* Shared:
- * Coldharbour
- * Cyrodiil
- * Craglorn
- * Wrothgar
- * Hew's Bane
