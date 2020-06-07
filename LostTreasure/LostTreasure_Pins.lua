@@ -70,7 +70,7 @@ function LostTreasure_AddNewPins(pinName, pinType, mapCallback, mapLayout, pinTo
 	LibMapPins:AddPinFilter(pinName, mapFilter, nil, settings, settingsKey)
 
 	COMPASS_PINS:AddCustomPin(pinName, compassCallback, compassLayout)
-	RefreshCompassPins(pinName)
+	zo_callLater(function() RefreshCompassPins(pinName) end, 100)
 end
 
 function LostTreasure_AddTooltip(text, itemName, color, itemStackCount, iconPath)
