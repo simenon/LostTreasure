@@ -207,7 +207,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.2389, 0.4811, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
 			{ 0.1484, 0.4960, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 			{ 0.6370, 0.5503, "deshaan_survey_woodworker", 57817 }, -- Woodworker Survey: Deshaan
-			{ 0.4861, 0.6148, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
+			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
 		},
 	},
 -- Shadowfen
@@ -270,7 +270,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.5813, 0.6096, "treasuremap_ce_ebonheart_rift_06", 44947 }, -- The Rift CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.6291, 0.3575, "therift_survey_clothier", 57765 }, -- Clothier Survey: The Rift
+			{ 0.6293, 0.3578, "therift_survey_clothier", 57765 }, -- Clothier Survey: The Rift
 			{ 0.4170, 0.4220, "therift_survey_alchemist", 57782 }, -- Alchemist Survey: The Rift
 			{ 0.7141, 0.5586, "therift_survey_blacksmith", 57794 }, -- Blacksmith Survey: The Rift
 			{ 0.1515, 0.2967, "therift_survey_enchanter", 57809 }, -- Enchanter Survey: The Rift
@@ -660,12 +660,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			-- { 0.0, 0.0, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
+			{ 0.5603, 0.4894, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
 			-- { 0.0, 0.0, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
 			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
-			-- { 0.0, 0.0, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
+			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
-			-- { 0.0, 0.0, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
+			{ 0.7585, 0.5696, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
 		},
 	},
 -- Blackreach Greymoor Caverns
