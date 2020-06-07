@@ -1,6 +1,6 @@
 local function SafeStrings(strings)
-	for ident, str in pairs(strings) do
-		SafeAddString(_G[ident], str, 0)
+	for stringId, stringValue in pairs(strings) do
+		SafeAddString(_G[stringId], stringValue, 0)
 	end
 	ZO_ClearTable(strings)
 end
