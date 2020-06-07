@@ -6,8 +6,8 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: The one and only true treasure map and survey report locator. All others are just copies.
-## Version: 8
-## AddOnVersion: 8
+## Version: 9
+## AddOnVersion: 9
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
 ## APIVersion: 100031 100032
 ## SavedVariables: LostTreasure_Account LostTreasure_Character

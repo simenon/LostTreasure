@@ -85,6 +85,10 @@ local function IsValidMapType()
 	return GetMapType() <= MAPTYPE_ZONE
 end
 
+local function GetUniqueItemIdString(uniqueId)
+	return string.format("%.50f", uniqueId)
+end
+
 local function ClearTable(clearableTable)
 	for key, value in pairs(clearableTable) do
 		if type(value) == "table" then
@@ -215,20 +219,24 @@ function LostTreasure:InitializeBagCache()
 	local itemId
 	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTreasureOrSurveyItem)
 	for _, slotData in pairs(itemList) do
-		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
+		local uniqueId = GetUniqueItemIdString(GetItemUniqueId(slotData.bag, slotData.index))
 		local itemId = GetItemId(slotData.bag, slotData.index)
 		local itemLink = GetItemLink(slotData.bag, slotData.index)
-		self:AddItemToBagCache(uniqueId, itemId, itemLink)
+		self:AddItemToBagCache(uniqueId, itemId, itemLink, slotData.stack)
 	end
 end
 
-function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink)
-	uniqueId = tostring(uniqueId)
-	rawset(self.bagCache, uniqueId, { itemId = itemId, itemLink = itemLink })
+function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink, stack)
+	local data =
+	{
+		itemId = itemId,
+		itemLink = itemLink,
+		stack = stack,
+	}
+	rawset(self.bagCache, uniqueId, data)
 end
 
 function LostTreasure:DeleteItemFromBagCache(uniqueId)
-	uniqueId = tostring(uniqueId)
 	if self.bagCache[uniqueId] then
 		local tempData = ZO_ShallowTableCopy(self.bagCache[uniqueId])
 		ClearTable(self.bagCache[uniqueId])
@@ -363,8 +371,11 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 		local interactionType = GetInteractionType()
 
 		-- Mini Map
+		local uniqueId = GetUniqueItemIdString(oldSlotData.uniqueId)
+		local itemId = self.bagCache[uniqueId].itemId
+
 		local lastOpenedTreasureMapItemId = self.lastOpenedTreasureMapItemId
-		if lastOpenedTreasureMapItemId and lastOpenedTreasureMapItemId == oldSlotData.itemId then
+		if lastOpenedTreasureMapItemId and lastOpenedTreasureMapItemId == itemId then
 			self:ProzessQueue(nil, function() self:UpdateVisibility(HIDE_MINI_MAP, ZO_ONE_SECOND_IN_MILLISECONDS) end, interactionType)
 		end
 
@@ -373,19 +384,21 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 			if pinData.specializedItemType == specializedItemType then
 				local markOption = self:GetPinTypeSettings(pinType, "markOption")
 				if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], oldSlotData.itemId)
+					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
 					if index then
 						table.remove(self.listMarkOnUse[pinType], index)
 					end
 				end
 
 				self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
-				local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
+
+				local itemData = self:DeleteItemFromBagCache(uniqueId)
 				if itemData then
-					self.logger:Debug("Item %s removed from backpack. interactionType %d, uniqueId: %d", oldSlotData.name, interactionType, oldSlotData.uniqueId)
-					return self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
+					self.logger:Debug("Item %s removed from backpack. interactionType %d, uniqueId: %.50f", oldSlotData.name, interactionType, uniqueId)
+					self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
+				else
+					self.logger:Error("bagCache didn't contain item %s, uniqueId %.50f", oldSlotData.name, uniqueId)
 				end
-				self.logger:Error("bagCache didn't contain item %s, uniqueId %d", oldSlotData.name, oldSlotData.uniqueId)
 			end
 		end
 	end
