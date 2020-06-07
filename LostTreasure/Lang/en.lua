@@ -49,7 +49,7 @@ local strings = {
 	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Please share your new amd unknown treasure maps/crafting surveys data by accepting this notification. You need an ESOUI.com account to make this bug report.",
 }
 
-for ident, str in pairs(strings) do
-	ZO_CreateStringId(ident, str)
-	SafeAddVersion(ident, 1)
+for stringId, stringValue in pairs(strings) do
+	ZO_CreateStringId(stringId, stringValue)
+	SafeAddVersion(stringId, 1)
 end
