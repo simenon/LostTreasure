@@ -125,9 +125,6 @@ function LostTreasure:Initialize(control)
 	self.mapControl = control:GetNamedChild("Map")
 	self.closeControl = control:GetNamedChild("Close")
 
-	self.lastOpenedTreasureMapItemId = 0
-	self.currentTreasureMapTextureName = GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP)
-
 	local function OnAddOnLoaded(_, addOnName)
 		if addOnName == ADDON_NAME then
 			self.control:UnregisterForEvent(EVENT_ADD_ON_LOADED)
@@ -139,6 +136,9 @@ function LostTreasure:Initialize(control)
 			self.author, self.version = GetAddOnInfos()
 			self.logger = LibDebugLogger(ADDON_NAME)
 			self.notifications = LostTreasure_Notification:New(ADDON_NAME, ADDON_DISPLAY_NAME, self.savedVars, self.logger, ADDON_FEEDBACK)
+
+			self.lastOpenedTreasureMapItemId = 0
+			self:ResetCurrentTreasureMapTextureName()
 
 			self:InitializeBagCache()
 			self:InitializePins()
@@ -275,6 +275,10 @@ function LostTreasure:GetIndexFromUniqueId(uniqueId)
 		end
 	end
 	return nil
+end
+
+function LostTreasure:ResetCurrentTreasureMapTextureName()
+	self.currentTreasureMapTextureName = GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP)
 end
 
 function LostTreasure:InitializePins()
@@ -434,6 +438,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, 
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
 				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
+					self:ResetCurrentTreasureMapTextureName()
 					return -- item was found, no need to continue
 				end
 			end
