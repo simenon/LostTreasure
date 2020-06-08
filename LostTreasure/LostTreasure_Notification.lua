@@ -8,6 +8,7 @@ local NOTIFICATION_MAP_ID = 5
 local NOTIFICATION_ITEM_ID = 6
 local NOTIFICATION_ITEM_NAME = 7
 local NOTIFICATION_TREASURE_MAP = 8
+local NOTIFICATION_ADDON_VERSION = 9
 
 -- BugReport
 ------------
@@ -43,14 +44,14 @@ function BugReport:ReplaceSpecialCharacters(str)
 end
 
 function BugReport:GenerateURL(data)
-	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap = select(2, unpack(data)) -- we have to cut out the iconTexture
+	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture
 
 	local output = { }
 	table.insert(output, self.url)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
 	table.insert(output, GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE))
 	table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
-	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
+	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), version, zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
 	self.output = self:ReplaceSpecialCharacters(table.concat(output))
 end
 
@@ -151,7 +152,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap)
+function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, addOnVersion)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -176,6 +177,7 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 			[NOTIFICATION_ITEM_ID] = itemId,
 			[NOTIFICATION_ITEM_NAME] = itemName,
 			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap,
+			[NOTIFICATION_ADDON_VERSION] = addOnVersion,
 		}
 	}
 	self:AddNotification(message)

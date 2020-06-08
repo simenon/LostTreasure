@@ -1,6 +1,7 @@
  -- only in english, because we gonna submit the report in english only
 local message = { }
 table.insert(message, "*** DO NOT CHANGE THIS ***")
+table.insert(message, "AddOnVersion: %d")
 table.insert(message, "Zone: %s")
 table.insert(message, "MapId: %d")
 table.insert(message, "{ %.4f, %.4f, %%22%s%%22, %d }, -- %s") -- %22 equals "
