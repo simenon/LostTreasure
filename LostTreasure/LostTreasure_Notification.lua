@@ -22,8 +22,9 @@ local URL_PATTERN =
 
 local BugReport = ZO_Object:Subclass()
 
-function BugReport:New(bugReportURL)
+function BugReport:New(bugReportURL, debugLogger)
 	local object = ZO_Object.New(self)
+	object.logger = debugLogger:Create("BugReport")
 	object.url = bugReportURL
 	object.pattern = URL_PATTERN
 	object:ResetOutput()
@@ -35,8 +36,9 @@ function BugReport:ResetOutput()
 end
 
 function BugReport:ReplaceSpecialCharacters(str)
-	str = str:gsub(" ", "%%20") -- %20 is a space
 	str = str:gsub("\n", "%%0A") -- %0A is a new line
+	str = str:gsub(" ", "%%20") -- %20 is a space
+	str = str:gsub(" ", "%%20") -- this char is a special one. if we don't replace it, the bug report doesn't work
 	return str
 end
 
@@ -55,6 +57,7 @@ end
 function BugReport:RequestOpenURL()
 	local output = self.output
 	if output and output ~= "" then
+		self.logger:Debug(output)
 		RequestOpenUnsafeURL(output)
 		self:ResetOutput()
 	end
@@ -72,13 +75,14 @@ function LostTreasure_Notification:New(...)
 end
 
 function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, savedVars, debugLogger, bugReportURL)
-	-- self.control = control
+	self.debugLogger = debugLogger:Create(IDENTIFIER)
+
 	self.addOnDisplayName = addOnDisplayName
 	self.savedVars = savedVars
 	self.provider = LibNotifications:CreateProvider()
-	self.bugReport = BugReport:New(bugReportURL)
+	self.bugReport = BugReport:New(bugReportURL, debugLogger)
 
-	self.debugLogger = debugLogger:Create(IDENTIFIER)
+	
 
 	local function OnPlayerActivated()
 		self:RestoreAllNotifications()
@@ -171,7 +175,7 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 			[NOTIFICATION_MAP_ID] = mapId,
 			[NOTIFICATION_ITEM_ID] = itemId,
 			[NOTIFICATION_ITEM_NAME] = itemName,
-			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap or GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP),
+			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap,
 		}
 	}
 	self:AddNotification(message)
