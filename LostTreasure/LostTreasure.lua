@@ -448,7 +448,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, 
 		local zone, subZone = LostTreasure_GetZoneAndSubzone()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
-		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName)
+		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, self.version)
 	end
 end
 
