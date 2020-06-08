@@ -46,7 +46,7 @@ local strings = {
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY_TT = "Delay (in seconds) before hiding Mini Map, after you picked up the treasure or survey.",
 
 	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "New unknown data has been found.",
-	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Please share your new amd unknown treasure maps/crafting surveys data by accepting this notification. You need an ESOUI.com account to make this bug report.",
+	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Please share your new and unknown treasure maps/crafting surveys data by accepting this notification. You need an ESOUI.com account to make this bug report.",
 }
 
 for stringId, stringValue in pairs(strings) do
