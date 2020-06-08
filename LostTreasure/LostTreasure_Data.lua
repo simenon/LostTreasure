@@ -226,7 +226,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.7517, 0.4308, "shadowfen_survey_clothier", 57758 }, -- Clothier Survey: Shadowfen
 			{ 0.3584, 0.2655, "shadowfen_survey_alchemist", 57775 }, -- Alchemist Survey: Shadowfen
 			{ 0.7959, 0.8522, "shadowfen_survey_blacksmith", 57789 }, -- Blacksmith Survey: Shadowfen
-			{ 0.4029, 0.6972, "shadowfen_survey_enchanter", 57803 }, -- Enchanter Survey: Shadowfen
+			{ 0.4032, 0.6982, "shadowfen_survey_enchanter", 57803 }, -- Enchanter Survey: Shadowfen
 			{ 0.5804, 0.6794, "shadowfen_survey_woodworker", 57820 }, -- Woodworker Survey: Shadowfen
 			{ 0.8888, 0.6867, "shadowfen_survey_jewelry", 139428 }, -- Jewelry Crafting Survey: Shadowfen
 		},
@@ -329,7 +329,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.4142, 0.5966, "glenumbra_survey_clothier", 57739 }, -- Clothier Survey: Glenumbra
 			{ 0.6467, 0.5039, "glenumbra_survey_woodworker", 57742 }, -- Woodworker Survey: Glenumbra
 			{ 0.3432, 0.4932, "glenumbra_survey_alchemist", 57745 }, -- Alchemist Survey: Glenumbra
-			{ 0.3650, 0.8400, "glenumbra_survey_blacksmith", 57736 }, -- Blacksmith Survey: Glenumbra
+			{ 0.3640, 0.8347, "glenumbra_survey_blacksmith", 57736 }, -- Blacksmith Survey: Glenumbra
 			{ 0.2221, 0.5135, "glenumbra_survey_jewelry", 139423 }, -- Jewelry Crafting Survey: Glenumbra
 		},
 	},
@@ -386,7 +386,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.3801, 0.6993, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
 			{ 0.1113, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
 			{ 0.6261, 0.6306, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
-			{ 0.5839, 0.2561, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
+			{ 0.5863, 0.2559, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
 			{ 0.7865, 0.5256, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
 			{ 0.7176, 0.4692, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
 			{ 0.3246, 0.3679, "treasuremap_ce_daggerfall_alikr_05", 44926 }, -- Alik'r CE Treasure Map
@@ -661,7 +661,7 @@ local LOST_TREASURE_DATA = {
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.5603, 0.4894, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
-			-- { 0.0, 0.0, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
+			{ 0.3347, 0.2929, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
 			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
 			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
