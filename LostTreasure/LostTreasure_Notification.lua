@@ -8,6 +8,7 @@ local NOTIFICATION_MAP_ID = 5
 local NOTIFICATION_ITEM_ID = 6
 local NOTIFICATION_ITEM_NAME = 7
 local NOTIFICATION_TREASURE_MAP = 8
+local NOTIFICATION_ADDON_VERSION = 9
 
 -- BugReport
 ------------
@@ -22,8 +23,9 @@ local URL_PATTERN =
 
 local BugReport = ZO_Object:Subclass()
 
-function BugReport:New(bugReportURL)
+function BugReport:New(bugReportURL, debugLogger)
 	local object = ZO_Object.New(self)
+	object.logger = debugLogger:Create("BugReport")
 	object.url = bugReportURL
 	object.pattern = URL_PATTERN
 	object:ResetOutput()
@@ -35,26 +37,28 @@ function BugReport:ResetOutput()
 end
 
 function BugReport:ReplaceSpecialCharacters(str)
-	str = str:gsub(" ", "%%20") -- %20 is a space
 	str = str:gsub("\n", "%%0A") -- %0A is a new line
+	str = str:gsub(" ", "%%20") -- %20 is a space
+	str = str:gsub(" ", "%%20") -- this char is a special one. if we don't replace it, the bug report doesn't work
 	return str
 end
 
 function BugReport:GenerateURL(data)
-	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap = select(2, unpack(data)) -- we have to cut out the iconTexture
+	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture
 
 	local output = { }
 	table.insert(output, self.url)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
 	table.insert(output, GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE))
 	table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
-	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
+	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), version, zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
 	self.output = self:ReplaceSpecialCharacters(table.concat(output))
 end
 
 function BugReport:RequestOpenURL()
 	local output = self.output
 	if output and output ~= "" then
+		self.logger:Debug(output)
 		RequestOpenUnsafeURL(output)
 		self:ResetOutput()
 	end
@@ -72,13 +76,14 @@ function LostTreasure_Notification:New(...)
 end
 
 function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, savedVars, debugLogger, bugReportURL)
-	-- self.control = control
+	self.debugLogger = debugLogger:Create(IDENTIFIER)
+
 	self.addOnDisplayName = addOnDisplayName
 	self.savedVars = savedVars
 	self.provider = LibNotifications:CreateProvider()
-	self.bugReport = BugReport:New(bugReportURL)
+	self.bugReport = BugReport:New(bugReportURL, debugLogger)
 
-	self.debugLogger = debugLogger:Create(IDENTIFIER)
+	
 
 	local function OnPlayerActivated()
 		self:RestoreAllNotifications()
@@ -147,7 +152,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap)
+function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, addOnVersion)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -171,7 +176,8 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 			[NOTIFICATION_MAP_ID] = mapId,
 			[NOTIFICATION_ITEM_ID] = itemId,
 			[NOTIFICATION_ITEM_NAME] = itemName,
-			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap or GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP),
+			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap,
+			[NOTIFICATION_ADDON_VERSION] = addOnVersion,
 		}
 	}
 	self:AddNotification(message)
