@@ -447,7 +447,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.4097, 0.5680, "treasuremap_coldharbour_02", 43686 }, -- Coldharbour Treasure Map II
 			{ 0.6036, 0.6927, "treasuremap_coldharbour_03", 43687 }, -- Coldharbour Treasure Map III
 			{ 0.7559, 0.7761, "treasuremap_coldharbour_04", 43688 }, -- Coldharbour Treasure Map IV
-			{ 0.4322, 0.4540, "treasuremap_coldharbour_05", 43689 }, -- Coldharbour Treasure Map V
+			{ 0.4326, 0.4551, "treasuremap_coldharbour_05", 43689 }, -- Coldharbour Treasure Map V
 			{ 0.4975, 0.3993, "treasuremap_coldharbour_06", 43690 }, -- Coldharbour Treasure Map VI
 			{ 0.5521, 0.4145, "treasuremap_1_coldharbor", 44932 }, -- Coldharbour CE Treasure Map
 		},
