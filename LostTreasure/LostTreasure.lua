@@ -137,6 +137,9 @@ function LostTreasure:Initialize(control)
 			self.logger = LibDebugLogger(ADDON_NAME)
 			self.notifications = LostTreasure_Notification:New(ADDON_NAME, ADDON_DISPLAY_NAME, self.savedVars, self.logger, ADDON_FEEDBACK)
 
+			self.lastOpenedTreasureMapItemId = 0
+			self:ResetCurrentTreasureMapTextureName()
+
 			self:InitializeBagCache()
 			self:InitializePins()
 
@@ -219,7 +222,7 @@ function LostTreasure:InitializeBagCache()
 	local itemId
 	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTreasureOrSurveyItem)
 	for _, slotData in pairs(itemList) do
-		local uniqueId = GetUniqueItemIdString(GetItemUniqueId(slotData.bag, slotData.index))
+		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
 		local itemId = GetItemId(slotData.bag, slotData.index)
 		local itemLink = GetItemLink(slotData.bag, slotData.index)
 		self:AddItemToBagCache(uniqueId, itemId, itemLink, slotData.stack)
@@ -229,21 +232,22 @@ end
 function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink, stack)
 	local data =
 	{
+		uniqueId = uniqueId,
 		itemId = itemId,
 		itemLink = itemLink,
 		stack = stack,
 	}
-	rawset(self.bagCache, uniqueId, data)
+	table.insert(self.bagCache, data)
 end
 
 function LostTreasure:DeleteItemFromBagCache(uniqueId)
-	if self.bagCache[uniqueId] then
-		local tempData = ZO_ShallowTableCopy(self.bagCache[uniqueId])
-		ClearTable(self.bagCache[uniqueId])
-		return tempData
+	local index = self:GetIndexFromUniqueId(uniqueId)
+	if index then
+		return table.remove(self.bagCache, index)
+	else
+		self.logger:Error("not found uniqueId in table. uniqueId: %.50f", uniqueId)
+		return nil
 	end
-	self.logger:Error("table key %s not found", uniqueId)
-	return nil
 end
 
 function LostTreasure:IsItemInBagCache(itemId)
@@ -253,6 +257,28 @@ function LostTreasure:IsItemInBagCache(itemId)
 		end
 	end
 	return false
+end
+
+function LostTreasure:GetItemIdFromUniqueId(uniqueId)
+	for index, itemData in ipairs(self.bagCache) do
+		if itemData.uniqueId == uniqueId then
+			return itemData.itemId
+		end
+	end
+	return nil
+end
+
+function LostTreasure:GetIndexFromUniqueId(uniqueId)
+	for index, itemData in ipairs(self.bagCache) do
+		if itemData.uniqueId == uniqueId then
+			return index
+		end
+	end
+	return nil
+end
+
+function LostTreasure:ResetCurrentTreasureMapTextureName()
+	self.currentTreasureMapTextureName = GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP)
 end
 
 function LostTreasure:InitializePins()
@@ -370,34 +396,35 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 	if bagId == BAG_BACKPACK and IsTreasureOrSurveyItemType(specializedItemType) then
 		local interactionType = GetInteractionType()
 
-		-- Mini Map
-		local uniqueId = GetUniqueItemIdString(oldSlotData.uniqueId)
-		local itemId = self.bagCache[uniqueId].itemId
+		local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
+		if itemId then
 
-		local lastOpenedTreasureMapItemId = self.lastOpenedTreasureMapItemId
-		if lastOpenedTreasureMapItemId and lastOpenedTreasureMapItemId == itemId then
-			self:ProzessQueue(nil, function() self:UpdateVisibility(HIDE_MINI_MAP, ZO_ONE_SECOND_IN_MILLISECONDS) end, interactionType)
-		end
+			-- Mini Map
+			if self.lastOpenedTreasureMapItemId == itemId then
+				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
+				self:ProzessQueue(nil, function() self:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
+			end
 
-		-- PinTypes
-		for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
-			if pinData.specializedItemType == specializedItemType then
-				local markOption = self:GetPinTypeSettings(pinType, "markOption")
-				if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
-					if index then
-						table.remove(self.listMarkOnUse[pinType], index)
+			-- PinTypes
+			for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
+				if pinData.specializedItemType == specializedItemType then
+					local markOption = self:GetPinTypeSettings(pinType, "markOption")
+					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+						local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
+						if index then
+							table.remove(self.listMarkOnUse[pinType], index)
+						end
 					end
-				end
 
-				self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
+					self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
 
-				local itemData = self:DeleteItemFromBagCache(uniqueId)
-				if itemData then
-					self.logger:Debug("Item %s removed from backpack. interactionType %d, uniqueId: %.50f", oldSlotData.name, interactionType, uniqueId)
-					self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
-				else
-					self.logger:Error("bagCache didn't contain item %s, uniqueId %.50f", oldSlotData.name, uniqueId)
+					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
+					if itemData and itemData.itemLink then
+						self.logger:Debug("Item %s removed from backpack. interactionType %d, itemId: %d", oldSlotData.name, interactionType, itemId)
+						self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
+					else
+						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
+					end
 				end
 			end
 		end
@@ -411,6 +438,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, 
 		if pinTypeData then
 			for _, layoutData in ipairs(pinTypeData) do
 				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
+					self:ResetCurrentTreasureMapTextureName()
 					return -- item was found, no need to continue
 				end
 			end
@@ -419,7 +447,7 @@ function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, 
 		local x, y = LostTreasure_MyPosition()
 		local zone, subZone = LostTreasure_GetZoneAndSubzone()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
-		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d,, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
+		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName)
 	end
 end
@@ -462,7 +490,7 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 	if interactionType == INTERACTION_BANK or delay == 0 then
 		callback()
 	else
-		zo_callLater(callback, delay * 1000)
+		zo_callLater(callback, delay * ZO_ONE_SECOND_IN_MILLISECONDS)
 	end
 end
 
