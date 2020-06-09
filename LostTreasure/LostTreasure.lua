@@ -140,7 +140,7 @@ function LostTreasure:Initialize(control)
 			self.lastOpenedTreasureMapItemId = 0
 			self:ResetCurrentTreasureMapTextureName()
 
-			self:InitializeBagCache()
+			-- self:InitializeBagCache()
 			self:InitializePins()
 
 			self:RegisterEvents()
@@ -164,6 +164,7 @@ function LostTreasure:Initialize(control)
 end
 
 function LostTreasure:RegisterEvents()
+	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
 	self.control:RegisterForEvent(EVENT_SHOW_TREASURE_MAP, function(_, ...) self:OnEventShowTreasureMap(...) end)
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
@@ -219,7 +220,6 @@ end
 
 function LostTreasure:InitializeBagCache()
 	ClearTable(self.bagCache)
-	local itemId
 	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTreasureOrSurveyItem)
 	for _, slotData in pairs(itemList) do
 		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
@@ -386,7 +386,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 		local uniqueId = GetItemUniqueId(bagId, slotIndex)
 		local itemId = GetItemId(bagId, slotIndex)
 		local itemLink = GetItemLink(bagId, slotIndex)
-		self.logger:Debug("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
+		self.logger:Info("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
 		self:AddItemToBagCache(uniqueId, itemId, itemLink)
 	end
 end
@@ -420,7 +420,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
-						self.logger:Debug("Item %s removed from backpack. interactionType %d, itemId: %d", oldSlotData.name, interactionType, itemId)
+						self.logger:Info("Item %s removed from backpack. interactionType %d, itemId: %d", oldSlotData.name, interactionType, itemId)
 						self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
 					else
 						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
