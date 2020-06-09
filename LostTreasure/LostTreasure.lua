@@ -433,21 +433,18 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink)
 	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
-		local data = LostTreasure_GetAllData()
-		for zone, zonePinType in pairs(data) do
-			local zonePins = zonePinType[pinType]
-			if zonePins then
-				for index, pinData in ipairs(zonePins) do
-					if pinData[LOST_TREASURE_DATA_INDEX_ITEMID] == itemId then
-						self:ResetCurrentTreasureMapTextureName()
-						return -- found itemId, no need to continue
-					end
+		local mapId = GetCurrentMapId()
+		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
+		if pinTypeData then
+			for _, layoutData in ipairs(pinTypeData) do
+				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
+					self:ResetCurrentTreasureMapTextureName()
+					return -- item was found, no need to continue
 				end
 			end
 		end
 
 		local x, y = LostTreasure_MyPosition()
-		local mapId = GetCurrentMapId()
 		local zone, subZone = LostTreasure_GetZoneAndSubzone()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
