@@ -1,0 +1,35 @@
+<GuiXml>
+	<Controls>
+		<Texture name="LostTreasureSettingIcon" virtual="true">
+			<Dimensions x="32" y="32"/>
+			<Anchor point="RIGHT" relativeTo="$(parent)" relativePoint="LEFT" offsetX="-10" offsetY="0"/>
+		</Texture>
+
+		<TopLevelControl name="LostTreasure" movable="true" mouseEnabled="true" clampedToScreen="true" hidden="true">
+			<Dimensions x="400" y="400"/>
+			<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="100" offsetY="100"/>
+			<Controls>
+				<Texture name="$(parent)Map">
+					<AnchorFill />
+					<OnMouseDown>
+						self:GetParent():StartMoving()
+					</OnMouseDown>
+					<OnMouseUp>
+						self:GetParent():StopMovingOrResizing()
+					</OnMouseUp>
+				</Texture>
+				<Button name="$(parent)Close" inherits="ZO_CloseButton" excludeFromResizeToFitExtents="true">
+					<OnClicked>
+						LostTreasure_Hide()
+					</OnClicked>
+				</Button>
+			</Controls>
+			<OnMoveStop>
+				LostTreasure_OnMoveStop(self)
+			</OnMoveStop>
+			<OnInitialized>
+				LostTreasure_OnInitialized(self)
+			</OnInitialized>
+		</TopLevelControl>
+	</Controls>
+</GuiXml>
