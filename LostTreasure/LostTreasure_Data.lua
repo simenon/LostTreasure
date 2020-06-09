@@ -691,17 +691,6 @@ function LostTreasure_GetZoneData(mapId)
 	return nil
 end
 
-function LostTreasure_GetZonePinTypeData(pinType, mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		local pinTypeData = subZoneData[pinType]
-		if pinTypeData then
-			return pinTypeData
-		end
-	end
-	return nil
-end
-
 
 -- Books
 local LOST_TREASURE_BOOKID_TO_ITEMID =
