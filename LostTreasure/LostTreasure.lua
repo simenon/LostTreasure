@@ -205,7 +205,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 							table.insert(self.listMarkOnUse[pinType], itemId)
 							LostTreasure_RefreshAllPinsFromPinType(pinType)
 						end
-						return
+						break
 					end
 				end
 			end
@@ -233,17 +233,16 @@ function LostTreasure:InitializeBagCache()
 		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
 		local itemId = GetItemId(slotData.bag, slotData.index)
 		local itemLink = GetItemLink(slotData.bag, slotData.index)
-		self:AddItemToBagCache(uniqueId, itemId, itemLink, slotData.stack)
+		self:AddItemToBagCache(uniqueId, itemId, itemLink)
 	end
 end
 
-function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink, stack)
+function LostTreasure:AddItemToBagCache(uniqueId, itemId, itemLink)
 	local data =
 	{
 		uniqueId = uniqueId,
 		itemId = itemId,
 		itemLink = itemLink,
-		stack = stack,
 	}
 	table.insert(self.bagCache, data)
 end
@@ -273,7 +272,7 @@ function LostTreasure:GetItemIdFromUniqueId(uniqueId)
 			return itemData.itemId
 		end
 	end
-	return nil
+	return
 end
 
 function LostTreasure:GetIndexFromUniqueId(uniqueId)
@@ -282,7 +281,7 @@ function LostTreasure:GetIndexFromUniqueId(uniqueId)
 			return index
 		end
 	end
-	return nil
+	return
 end
 
 function LostTreasure:ResetCurrentTreasureMapTextureName()
@@ -338,7 +337,8 @@ function LostTreasure:InitializePins()
 		end
 	end
 
-	local pinTooltipCreator = {
+	local pinTooltipCreator =
+	{
 		creator = function(pin)
 			local pinTag = select(2, pin:GetPinTypeAndTag())
 			local x, y = pinTag[LOST_TREASURE_DATA_INDEX_X], pinTag[LOST_TREASURE_DATA_INDEX_Y]
@@ -356,13 +356,15 @@ function LostTreasure:InitializePins()
 
 	for pinType, settings in ipairs(self.savedVars.pinTypes) do
 
-		local mapPinLayout = {
+		local mapPinLayout =
+		{
 			level = settings.pinLevel,
 			size = settings.size,
 			texture = settings.texture,
 		}
 
-		local compassPinLayout = {
+		local compassPinLayout =
+		{
 			maxDistance = 0.05,
 			texture = settings.texture,
 			additionalLayout =
@@ -467,7 +469,7 @@ function LostTreasure:GetPinTypeFromString(itemName)
 			return pinType
 		end
 	end
-	self.logger:Info("no pinType found for itemName: %s", itemName)
+	self.logger:Error("no pinType found for itemName: %s", itemName)
 	return
 end
 
