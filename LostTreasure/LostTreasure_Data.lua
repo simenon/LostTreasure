@@ -665,7 +665,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
 			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
-			{ 0.7585, 0.5696, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
+			{ 0.7552, 0.5712, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
 		},
 	},
 -- Blackreach Greymoor Caverns

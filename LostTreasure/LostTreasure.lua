@@ -66,6 +66,15 @@ local function IsTreasureOrSurveyItemType(specializedItemType)
 	return TRACKED_SPECIALIZED_ITEM_TYPES[specializedItemType] == true
 end
 
+local function IsValidInteractionType(specializedItemType, interactionType)
+	if specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP and interactionType == INTERACTION_NONE then
+		return true
+	elseif specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT and interactionType == INTERACTION_HARVEST then
+		return true
+	end
+	return false
+end
+
 local function GetPinNameFromPinType(pinType)
 	return LOST_TREASURE_PIN_TYPE_DATA[pinType].pinName
 end
@@ -140,7 +149,7 @@ function LostTreasure:Initialize(control)
 			self.lastOpenedTreasureMapItemId = 0
 			self:ResetCurrentTreasureMapTextureName()
 
-			-- self:InitializeBagCache()
+			self:InitializeBagCache()
 			self:InitializePins()
 
 			self:RegisterEvents()
@@ -164,7 +173,6 @@ function LostTreasure:Initialize(control)
 end
 
 function LostTreasure:RegisterEvents()
-	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED, function() self:InitializeBagCache() end)
 	self.control:RegisterForEvent(EVENT_SHOW_TREASURE_MAP, function(_, ...) self:OnEventShowTreasureMap(...) end)
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
@@ -421,7 +429,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
 						self.logger:Info("Item %s removed from backpack. interactionType %d, itemId: %d", oldSlotData.name, interactionType, itemId)
-						self:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink)
+						self:RequestReport(pinType, interactionType, specializedItemType, itemData.itemId, oldSlotData.name, itemData.itemLink)
 					else
 						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
 					end
@@ -431,8 +439,8 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 	end
 end
 
-function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink)
-	if interactionType == INTERACTION_HARVEST or interactionType == INTERACTION_NONE then
+function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink)
+	if IsValidInteractionType(specializedItemType, interactionType) then
 		local mapId = GetCurrentMapId()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
 		if pinTypeData then
@@ -459,7 +467,7 @@ function LostTreasure:GetPinTypeFromString(itemName)
 			return pinType
 		end
 	end
-	self.logger:Debug("no pinType found for itemName: %s", itemName)
+	self.logger:Info("no pinType found for itemName: %s", itemName)
 	return
 end
 
