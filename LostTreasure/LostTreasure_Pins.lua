@@ -13,12 +13,13 @@ end
 
 
 -- globals
-function LostTreasure_GetZoneAndSubzone()
-	return LibMapPins:GetZoneAndSubzone()
-end
-
-function LostTreasure_MyPosition()
-	return LibMapPins:MyPosition()
+function LostTreasure_GetPlayerPositionInfo()
+	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
+		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
+	end
+	local x, y = GetMapPlayerPosition("player")
+	local zone, subZone = LibMapPins:GetZoneAndSubzone()
+	return x, y, zone, subZone
 end
 
 function LostTreasure_IsMapPinEnabled(pinName)
