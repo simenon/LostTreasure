@@ -418,12 +418,9 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 			-- PinTypes
 			for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
 				if pinData.specializedItemType == specializedItemType then
-					local markOption = self:GetPinTypeSettings(pinType, "markOption")
-					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-						local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
-						if index then
-							table.remove(self.listMarkOnUse[pinType], index)
-						end
+					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
+					if index then
+						table.remove(self.listMarkOnUse[pinType], index)
 					end
 
 					self:ProzessQueue(pinType, function() LostTreasure_RefreshAllPinsFromPinType(pinType) end, interactionType)
@@ -567,6 +564,10 @@ end
 
 function LostTreasure_SetMiniMapAnchor()
 	LOST_TREASURE:SetMiniMapAnchor()
+end
+
+function LostTreasure_ClearListMarkOnUse()
+	ClearTable(LOST_TREASURE.listMarkOnUse)
 end
 
 function LostTreasure_OnMoveStop(control)

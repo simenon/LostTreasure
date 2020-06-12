@@ -174,6 +174,9 @@ function LostTreasure_Settings:AddSettingsMenu()
 			getFunc = function() return savedVars.pinTypes[pinType].markOption end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].markOption = value
+				if value ~= LOST_TREASURE_MARK_OPTIONS_USING then
+					LostTreasure_ClearListMarkOnUse()
+				end
 				UpdateMarkOptions(pinType, value)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
