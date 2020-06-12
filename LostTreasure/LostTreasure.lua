@@ -500,9 +500,11 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 
 	if interactionType == INTERACTION_BANK or delay == 0 then
 		delay = TIME_BETWEEN_LABEL_UPDATES_MS
+	else
+		delay = delay * ZO_ONE_SECOND_IN_MILLISECONDS
 	end
 
-	zo_callLater(callback, delay * ZO_ONE_SECOND_IN_MILLISECONDS)
+	zo_callLater(callback, delay)
 end
 
 function LostTreasure:CheckZoneData(pinType, key)
