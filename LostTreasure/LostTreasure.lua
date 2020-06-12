@@ -505,13 +505,13 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 end
 
 function LostTreasure:CheckZoneData(pinType, key)
-	local markOption = self:GetPinTypeSettings(pinType, "markOption")
 	local mapId = GetCurrentMapId()
 	local data = LostTreasure_GetZoneData(mapId)
 	if data then
 		local zonePins = data[pinType]
 		if zonePins then
 			for _, pinData in ipairs(zonePins) do
+				local markOption = self:GetPinTypeSettings(pinType, "markOption")
 				if markOption ~= LOST_TREASURE_MARK_OPTIONS_ALL then
 					local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
 					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
