@@ -174,7 +174,7 @@ local LOST_TREASURE_DATA = {
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.6718, 0.5741, "stonefalls_survey_blacksmith", 57737 }, -- Blacksmith Survey: Stonefalls
-			{ 0.3114, 0.4355, "stonefalls_survey_clothier", 57740 }, -- Clothier Survey: Stonefalls
+			{ 0.3143, 0.4365, "stonefalls_survey_clothier", 57740 }, -- Clothier Survey: Stonefalls
 			{ 0.1590, 0.5593, "stonefalls_survey_woodworker", 57743 }, -- Woodworker Survey: Stonefalls
 			{ 0.5591, 0.3908, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
 			{ 0.7502, 0.5841, "stonefalls_survey_enchanter", 57735 }, -- Enchanter Survey: Stonefalls
@@ -370,7 +370,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8065, 0.3297, "rivenspire_survey_alchemist", 57776 }, -- Alchemist Survey: Rivenspire
 			{ 0.6929, 0.6243, "rivenspire_survey_blacksmith", 57790 }, -- Blacksmith Survey: Rivenspire
 			{ 0.6182, 0.4312, "rivenspire_survey_enchanter", 57804 }, -- Enchanter Survey: Rivenspire
-			{ 0.5444, 0.6439, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
+			{ 0.5439, 0.6348, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
 			{ 0.6750, 0.1182, "rivenspire_survey_jewelry", 139429 }, -- Jewelry Crafting Survey: Rivenspire
 		},
 	},

@@ -44,24 +44,14 @@ function LostTreasure_CreateCompassPin(pinName, pinData, x, y, itemName)
 	COMPASS_PINS.pinManager:CreatePin(pinName, pinData, x, y, itemName)
 end
 
-function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, refreshOnlyMapPins)
-	local pinName
+function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, dontUpdateCompass)
 	if type(pinTypeOrPinName) == "number" then
-		pinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
-	elseif type(pinTypeOrPinName) == "string" then
-		for _, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
-			if pinData.pinName == pinTypeOrPinName then
-				pinName = pinTypeOrPinName
-				break
-			end
-		end
+		pinTypeOrPinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
 	end
 
-	assert(pinName, "pinName is not existing")
-
-	RefreshMapPins(pinName)
-	if not refreshOnlyMapPins then
-		RefreshCompassPins(pinName)
+	RefreshMapPins(pinTypeOrPinName)
+	if not dontUpdateCompass then
+		RefreshCompassPins(pinTypeOrPinName)
 	end
 end
 
@@ -80,6 +70,8 @@ function LostTreasure_AddNewPins(pinName, pinType, mapCallback, mapLayout, pinTo
 	LibMapPins:AddPinFilter(pinName, mapFilter, nil, settings, settingsKey)
 
 	COMPASS_PINS:AddCustomPin(pinName, compassCallback, compassLayout)
+
+	-- call the refresh a bit later, otherwise they wouldn't appear after EVENT_PLAYER_ACTIVATED
 	zo_callLater(function() RefreshCompassPins(pinName) end, 100)
 end
 

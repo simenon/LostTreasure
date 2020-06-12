@@ -117,7 +117,7 @@ end
 ------------------
 local HIDE_MINI_MAP = true
 local HOOK_COMPASS_PIN_NAME = true
-
+local SLOT_UPDATED_DELAY = ZO_ONE_SECOND_IN_MILLISECONDS / 5
 
 
 local LostTreasure = ZO_Object:Subclass()
@@ -395,6 +395,12 @@ end
 function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 	local specializedItemType = newSlotData.specializedItemType
 	if bagId == BAG_BACKPACK and IsTreasureOrSurveyItemType(specializedItemType) then
+
+		local uniqueId = GetItemUniqueId(bagId, slotIndex)
+		local itemId = GetItemId(bagId, slotIndex)
+		local itemLink = GetItemLink(bagId, slotIndex)
+		self:AddItemToBagCache(uniqueId, itemId, itemLink)
+
 		for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
 			if pinData.specializedItemType == specializedItemType then
 				local markOption = self:GetPinTypeSettings(pinType, "markOption")
@@ -405,11 +411,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			end
 		end
 
-		local uniqueId = GetItemUniqueId(bagId, slotIndex)
-		local itemId = GetItemId(bagId, slotIndex)
-		local itemLink = GetItemLink(bagId, slotIndex)
 		self.logger:Info("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
-		self:AddItemToBagCache(uniqueId, itemId, itemLink)
 	end
 end
 
@@ -506,7 +508,7 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 	end
 
 	if interactionType == INTERACTION_BANK or delay == 0 then
-		delay = ZO_ONE_SECOND_IN_MILLISECONDS / 5
+		delay = SLOT_UPDATED_DELAY
 	else
 		delay = delay * ZO_ONE_SECOND_IN_MILLISECONDS
 	end
