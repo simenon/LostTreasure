@@ -114,6 +114,8 @@ end
 local HIDE_MINI_MAP = true
 local HOOK_COMPASS_PIN_NAME = true
 
+local TIME_BETWEEN_LABEL_UPDATES_MS = 250
+
 local LostTreasure = ZO_Object:Subclass()
 
 LostTreasure.bagCache = { }
@@ -294,7 +296,6 @@ end
 
 function LostTreasure:InitializePins()
 	-- handle pin names in compass frame
-	local TIME_BETWEEN_LABEL_UPDATES_MS = 250
 	local nextLabelUpdateTime = 0
 
 	ZO_PreHook(COMPASS, "OnUpdate", function()
@@ -498,10 +499,10 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 	end
 
 	if interactionType == INTERACTION_BANK or delay == 0 then
-		callback()
-	else
-		zo_callLater(callback, delay * ZO_ONE_SECOND_IN_MILLISECONDS)
+		delay = TIME_BETWEEN_LABEL_UPDATES_MS
 	end
+
+	zo_callLater(callback, delay * ZO_ONE_SECOND_IN_MILLISECONDS)
 end
 
 function LostTreasure:CheckZoneData(pinType, key)
