@@ -253,7 +253,7 @@ function LostTreasure:DeleteItemFromBagCache(uniqueId)
 		return table.remove(self.bagCache, index)
 	else
 		self.logger:Error("not found uniqueId in table. uniqueId: %.50f", uniqueId)
-		return nil
+		return
 	end
 end
 
@@ -264,6 +264,10 @@ function LostTreasure:IsItemInBagCache(itemId)
 		end
 	end
 	return false
+end
+
+function LostTreasure:IsItemInMarkedOnUse(pinType, itemId)
+	return ZO_IsElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId) == true
 end
 
 function LostTreasure:GetItemIdFromUniqueId(uniqueId)
@@ -511,7 +515,7 @@ function LostTreasure:CheckZoneData(pinType, key)
 				if markOption ~= LOST_TREASURE_MARK_OPTIONS_ALL then
 					local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
 					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-						if ZO_IsElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId) then
+						if self:IsItemInMarkedOnUse(pinType, itemId) then
 							CreateNewPin(pinType, pinData, key)
 						end
 					else
