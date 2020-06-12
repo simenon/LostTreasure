@@ -208,8 +208,10 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 						self.lastOpenedTreasureMapItemId = itemId
 						local markOption = self:GetPinTypeSettings(pinType, "markOption")
 						if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
-							table.insert(self.listMarkOnUse[pinType], itemId)
-							LostTreasure_RefreshAllPinsFromPinType(pinType)
+							if not self:IsItemInMarkedOnUse(pinType, itemId) then
+								table.insert(self.listMarkOnUse[pinType], itemId)
+								LostTreasure_RefreshAllPinsFromPinType(pinType)
+							end
 						end
 						break
 					end

@@ -57,7 +57,7 @@ function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, refreshOnlyMap
 		end
 	end
 
-	assert(pinName, "pinName is nil")
+	assert(pinName, "pinName is not existing")
 
 	RefreshMapPins(pinName)
 	if not refreshOnlyMapPins then
