@@ -45,14 +45,14 @@ function LostTreasure_CreateCompassPin(pinName, pinData, x, y, itemName)
 end
 
 function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, refreshOnlyMapPins)
-	local pinName
+	pinTypeOrPinName = pinTypeOrPinName
 	if type(pinTypeOrPinName) == "number" then
-		pinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
+		pinTypeOrPinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
 	end
 
-	RefreshMapPins(pinName)
+	RefreshMapPins(pinTypeOrPinName)
 	if not refreshOnlyMapPins then
-		RefreshCompassPins(pinName)
+		RefreshCompassPins(pinTypeOrPinName)
 	end
 end
 
