@@ -66,21 +66,16 @@ local function IsTreasureOrSurveyItemType(specializedItemType)
 	return TRACKED_SPECIALIZED_ITEM_TYPES[specializedItemType] == true
 end
 
-local function IsValidInteractionType(specializedItemType, interactionType)
-	if specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP and interactionType == INTERACTION_NONE then
-		return true
-	elseif specializedItemType == SPECIALIZED_ITEMTYPE_TROPHY_SURVEY_REPORT and interactionType == INTERACTION_HARVEST then
+local function IsValidInteractionType(pinType, specializedItemType, interactionType)
+	local pinTypeInteractionType = LOST_TREASURE_PIN_TYPE_DATA[pinType].interactionType
+	if pinTypeInteractionType == interactionType then
 		return true
 	end
 	return false
 end
 
 local function GetPinNameFromPinType(pinType)
-	local pinTypeData = LOST_TREASURE_PIN_TYPE_DATA[pinType]
-	if pinTypeData then
-		return pinTypeData.pinName
-	end
-	return
+	return LOST_TREASURE_PIN_TYPE_DATA[pinType].pinName
 end
 
 local function CreateNewPin(pinType, pinData, key)
@@ -453,7 +448,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 end
 
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink)
-	if IsValidInteractionType(specializedItemType, interactionType) then
+	if IsValidInteractionType(pinType, specializedItemType, interactionType) then
 		local mapId = GetCurrentMapId()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
 		if pinTypeData then
