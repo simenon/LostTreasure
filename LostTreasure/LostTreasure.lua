@@ -93,10 +93,6 @@ local function IsValidMapType()
 	return GetMapType() <= MAPTYPE_ZONE
 end
 
-local function GetUniqueItemIdString(uniqueId)
-	return string.format("%.50f", uniqueId)
-end
-
 local function ClearTable(clearableTable)
 	for key, value in pairs(clearableTable) do
 		if type(value) == "table" then
