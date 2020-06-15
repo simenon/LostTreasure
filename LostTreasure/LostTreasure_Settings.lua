@@ -174,6 +174,9 @@ function LostTreasure_Settings:AddSettingsMenu()
 			getFunc = function() return savedVars.pinTypes[pinType].markOption end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].markOption = value
+				if value ~= LOST_TREASURE_MARK_OPTIONS_USING then
+					LostTreasure_ClearListMarkOnUse()
+				end
 				UpdateMarkOptions(pinType, value)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
@@ -185,11 +188,11 @@ function LostTreasure_Settings:AddSettingsMenu()
 			tooltip = SI_LOST_TREASURE_PIN_LEVEL_TT,
 			min = 0,
 			max = 250,
-			step = 5,
+			step = 1,
 			decimals = 0,
 			getFunc = function() return savedVars.pinTypes[pinType].pinLevel end,
 			setFunc = function(value)
-				value = zo_roundToNearest(value, 5) -- should be same as step
+				value = zo_roundToNearest(value, 1) -- should be same as step
 				savedVars.pinTypes[pinType].pinLevel = value
 				LostTreasure_SetLayoutKey(pinType, "level", value)
 				local ONLY_MAP_PINS = true
