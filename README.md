@@ -9,3 +9,12 @@
 
 ![screenshot](https://cdn-eso.mmoui.com/preview/pvw1692.png)
 
+**Required Libraries:**
+
+[CustomCompassPins](https://www.esoui.com/downloads/info185-CustomCompassPins.html), 
+[LibAddonMenu-2.0](https://www.esoui.com/downloads/info7-LibAddonMenu.html), 
+[LibChatMessage](https://www.esoui.com/downloads/info2382-LibChatMessage.html), 
+[LibDebugLogger](https://www.esoui.com/downloads/info2275-LibDebugLogger.html), 
+[LibMapPins-1.0](https://www.esoui.com/downloads/info563-LibMapPins.html), 
+[LibNotification](https://www.esoui.com/downloads/info1224-CirconiansLibNotifications.html), 
+[LibSavedVars](https://www.esoui.com/downloads/info2161-LibSavedVars.html)
