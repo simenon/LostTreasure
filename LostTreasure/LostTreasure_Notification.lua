@@ -49,7 +49,7 @@ function BugReport:GenerateURL(data)
 	local output = { }
 	table.insert(output, self.url)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
-	table.insert(output, GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE))
+	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE), version, itemId, itemName))
 	table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
 	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), version, zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
 	self.output = self:ReplaceSpecialCharacters(table.concat(output))

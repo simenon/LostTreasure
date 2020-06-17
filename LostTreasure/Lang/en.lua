@@ -9,7 +9,7 @@ table.insert(message, "*** YOUR MESSAGE HERE BELOW ***")
 
 local strings = {
 	SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE = table.concat(message, "\n"),
-	SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE = "Report new item data",
+	SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE = "New map found v%d id%d %s",
 	SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP = "no map opened",
 
 	SI_LOST_TREASURE_TREASURE_MAPS = "Treasure Maps",
