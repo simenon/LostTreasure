@@ -163,12 +163,12 @@ local LOST_TREASURE_DATA = {
 --Stonefalls
 	[7] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.7952, 0.5758, "treasuremap_stonefalls_001", 43655 }, -- Stonefalls Treasure Map I
-			{ 0.6038, 0.4899, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
-			{ 0.4716, 0.5923, "treasuremap_stonefalls_003", 43657 }, -- Stonefalls Treasure Map III
-			{ 0.1779, 0.4517, "treasuremap_stonefalls_004", 43658 }, -- Stonefalls Treasure Map IV
-			{ 0.1937, 0.5504, "treasuremap_stonefalls_005", 43659 }, -- Stonefalls Treasure Map V
-			{ 0.3600, 0.7000, "treasuremap_stonefalls_006", 43660 }, -- Stonefalls Treasure Map VI
+			{ 0.7950, 0.5759, "treasuremap_stonefalls_001", 43655 }, -- Stonefalls Treasure Map I
+			{ 0.6040, 0.4904, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+			{ 0.4715, 0.5922, "treasuremap_stonefalls_003", 43657 }, -- Stonefalls Treasure Map III
+			{ 0.1796, 0.4519, "treasuremap_stonefalls_004", 43658 }, -- Stonefalls Treasure Map IV
+			{ 0.1954, 0.5506, "treasuremap_stonefalls_005", 43659 }, -- Stonefalls Treasure Map V
+			{ 0.3621, 0.7019, "treasuremap_stonefalls_006", 43660 }, -- Stonefalls Treasure Map VI
 			{ 0.5200, 0.6129, "treasuremap_ce_ebonheart_stonefalls_02", 44944 }, -- Stonefalls CE Treasure Map
 			{ 0.8230, 0.4010, "glenmoral_weapon_stonefalls_map", 153648 }, -- Glenmoril Wyrd Treasure Map: Stonefalls
 		},
@@ -178,13 +178,13 @@ local LOST_TREASURE_DATA = {
 			{ 0.1590, 0.5593, "stonefalls_survey_woodworker", 57743 }, -- Woodworker Survey: Stonefalls
 			{ 0.5591, 0.3908, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
 			{ 0.7502, 0.5841, "stonefalls_survey_enchanter", 57735 }, -- Enchanter Survey: Stonefalls
-			{ 0.6840, 0.6401, "stonefalls_survey_jewelry", 139424 }, -- Jewelry Crafting Survey: Stonefalls
+			{ 0.6835, 0.6396, "stonefalls_survey_jewelry", 139424 }, -- Jewelry Crafting Survey: Stonefalls
 		},
 	},
 	-- SubPin: Ebonheart
 	[511] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.7495, 0.5631, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+			{ 0.7497, 0.5630, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.5407, 0.0913, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
