@@ -278,6 +278,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.8035, 0.4203, "therift_survey_jewelry", 139433 }, -- Jewelry Crafting Survey: The Rift
 		},
 	},
+	-- SubPin: Riften
+	[198] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.7639, 0.9867, "therift_survey_blacksmith", 57794 }, -- Blacksmith Survey: The Rift
+		},
+	},
 	-- SubPin: Nimalten
 	[543] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {

@@ -11,12 +11,8 @@ local function RefreshCompassPins(pinName)
 	COMPASS_PINS:RefreshPins(pinName)
 end
 
-
 -- globals
 function LostTreasure_GetPlayerPositionInfo()
-	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
-		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
-	end
 	local x, y = GetMapPlayerPosition("player")
 	local zone, subZone = LibMapPins:GetZoneAndSubzone()
 	return x, y, zone, subZone
