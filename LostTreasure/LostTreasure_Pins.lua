@@ -13,12 +13,13 @@ end
 
 
 -- globals
-function LostTreasure_GetZoneAndSubzone()
-	return LibMapPins:GetZoneAndSubzone()
-end
-
-function LostTreasure_MyPosition()
-	return LibMapPins:MyPosition()
+function LostTreasure_GetPlayerPositionInfo()
+	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
+		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
+	end
+	local x, y = GetMapPlayerPosition("player")
+	local zone, subZone = LibMapPins:GetZoneAndSubzone()
+	return x, y, zone, subZone
 end
 
 function LostTreasure_IsMapPinEnabled(pinName)
@@ -43,15 +44,14 @@ function LostTreasure_CreateCompassPin(pinName, pinData, x, y, itemName)
 	COMPASS_PINS.pinManager:CreatePin(pinName, pinData, x, y, itemName)
 end
 
-function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, refreshOnlyMapPins)
-	local pinName
+function LostTreasure_RefreshAllPinsFromPinType(pinTypeOrPinName, dontUpdateCompass)
 	if type(pinTypeOrPinName) == "number" then
-		pinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
+		pinTypeOrPinName = LostTreasure_GetPinNameFromPinType(pinTypeOrPinName)
 	end
 
-	RefreshMapPins(pinName)
-	if not refreshOnlyMapPins then
-		RefreshCompassPins(pinName)
+	RefreshMapPins(pinTypeOrPinName)
+	if not dontUpdateCompass then
+		RefreshCompassPins(pinTypeOrPinName)
 	end
 end
 
@@ -70,6 +70,8 @@ function LostTreasure_AddNewPins(pinName, pinType, mapCallback, mapLayout, pinTo
 	LibMapPins:AddPinFilter(pinName, mapFilter, nil, settings, settingsKey)
 
 	COMPASS_PINS:AddCustomPin(pinName, compassCallback, compassLayout)
+
+	-- call the refresh a bit later, otherwise they wouldn't appear after EVENT_PLAYER_ACTIVATED
 	zo_callLater(function() RefreshCompassPins(pinName) end, 100)
 end
 
