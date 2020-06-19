@@ -46,7 +46,7 @@ end
 function BugReport:GenerateURL(data)
 	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture, because we have no need for
 
-	-- bugReport stringIds are stored in "en" file only
+	-- bugReport stringIds are defined in "en" file only
 	local output = { }
 	table.insert(output, self.url)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
