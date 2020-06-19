@@ -1,3 +1,14 @@
+--[[
+How to get subZone pins:
+
+Replace *X* and *Y* with the coordinates of the data below from zone.
+/script PingMap(MAP_PIN_TYPE_PLAYER_WAYPOINT, MAP_TYPE_LOCATION_CENTERED, *X*, *Y*)
+
+Then swap to subZone and use this command
+/script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
+]]
+
+
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
@@ -29,6 +40,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.5455, 0.4624, "auridon_survey_woodworker", 57741 }, -- Woodworker Survey: Auridon
 			{ 0.6359, 0.6950, "auridon_survey_blacksmith", 57687 }, -- Blacksmith Survey: Auridon
 			{ 0.3992, 0.6107, nil, 139422 }, -- Jewelry Crafting Survey: Auridon
+		},
+	},
+	-- SubPin: Firsthold
+	[540] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8025, 0.1482, "treasuremap_auridon_06", 43630 }, -- Auridon Treasure Map VI
 		},
 	},
 	-- SubPin: Vulkhel Guard
@@ -555,6 +572,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.8236, 0.5892, "orsinium_survey_jewelry_01", 139441 }, -- Jewelry Crafting Survey: Wrothgar I
 			{ 0.4441, 0.5889, "orsinium_survey_jewelry_02", 139442 }, -- Jewelry Crafting Survey: Wrothgar II
 			{ 0.1938, 0.6819, "orsinium_survey_jewelry_03", 139443 }, -- Jewelry Crafting Survey: Wrothgar III
+		},
+	},
+	-- SubPin: Orsinium
+	[895] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8159, 0.1905, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
 		},
 	},
 	-- SubPin: Morkul
