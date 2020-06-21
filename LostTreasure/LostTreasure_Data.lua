@@ -254,6 +254,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1231, 0.6281, "treasuremap_shadowfen_04", 43670 }, -- Shadowfen Treasure Map IV
 		},
 	},
+	-- SubPin: Stormhold
+	[217] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{-0.1008, 0.4519, "shadowfen_survey_alchemist", 57775 }, -- Alchemist Survey: Shadowfen
+		},
+	},
 -- Eastmarch
 	[61] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -670,6 +676,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.2685, 0.4400, "elsweyr_survey_blacksmith", 151598 }, -- Blacksmith Survey: Northern Elsweyr
 			{ 0.4918, 0.6791, "elsweyr_survey_woodworker", 151600 }, -- Woodworker Survey: Northern Elsweyr
 			{ 0.6131, 0.6433, "elsweyr_survey_jewelry", 151603 }, -- Jewelry Crafting Survey: Northern Elsweyr
+		},
+	},
+	-- SubPin: Predator Mesa
+	[1616] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.3945, 0.7979, "elsweyr_survey_blacksmith", 151598 }, -- Blacksmith Survey: Northern Elsweyr
 		},
 	},
 -- Southern Elsweyr
