@@ -1,3 +1,14 @@
+--[[
+How to get subZone pins:
+
+Replace *X* and *Y* with the coordinates of the data below from zone.
+/script PingMap(MAP_PIN_TYPE_PLAYER_WAYPOINT, MAP_TYPE_LOCATION_CENTERED, *X*, *Y*)
+
+Then swap to subZone and use this command
+/script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
+]]
+
+
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
@@ -29,6 +40,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.5455, 0.4624, "auridon_survey_woodworker", 57741 }, -- Woodworker Survey: Auridon
 			{ 0.6359, 0.6950, "auridon_survey_blacksmith", 57687 }, -- Blacksmith Survey: Auridon
 			{ 0.3992, 0.6107, nil, 139422 }, -- Jewelry Crafting Survey: Auridon
+		},
+	},
+	-- SubPin: Firsthold
+	[540] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8025, 0.1482, "treasuremap_auridon_06", 43630 }, -- Auridon Treasure Map VI
 		},
 	},
 	-- SubPin: Vulkhel Guard
@@ -237,6 +254,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1231, 0.6281, "treasuremap_shadowfen_04", 43670 }, -- Shadowfen Treasure Map IV
 		},
 	},
+	-- SubPin: Stormhold
+	[217] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{-0.1008, 0.4519, "shadowfen_survey_alchemist", 57775 }, -- Alchemist Survey: Shadowfen
+		},
+	},
 -- Eastmarch
 	[61] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -276,6 +299,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1515, 0.2967, "therift_survey_enchanter", 57809 }, -- Enchanter Survey: The Rift
 			{ 0.4975, 0.3367, "therift_survey_woodworker", 57826 }, -- Woodworker Survey: The Rift
 			{ 0.8035, 0.4203, "therift_survey_jewelry", 139433 }, -- Jewelry Crafting Survey: The Rift
+		},
+	},
+	-- SubPin: Riften
+	[198] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.7639, 0.9867, "therift_survey_blacksmith", 57794 }, -- Blacksmith Survey: The Rift
 		},
 	},
 	-- SubPin: Nimalten
@@ -551,6 +580,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1938, 0.6819, "orsinium_survey_jewelry_03", 139443 }, -- Jewelry Crafting Survey: Wrothgar III
 		},
 	},
+	-- SubPin: Orsinium
+	[895] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8159, 0.1905, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
+		},
+	},
 	-- SubPin: Morkul
 	[954] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -641,6 +676,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.2685, 0.4400, "elsweyr_survey_blacksmith", 151598 }, -- Blacksmith Survey: Northern Elsweyr
 			{ 0.4918, 0.6791, "elsweyr_survey_woodworker", 151600 }, -- Woodworker Survey: Northern Elsweyr
 			{ 0.6131, 0.6433, "elsweyr_survey_jewelry", 151603 }, -- Jewelry Crafting Survey: Northern Elsweyr
+		},
+	},
+	-- SubPin: Predator Mesa
+	[1616] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.3945, 0.7979, "elsweyr_survey_blacksmith", 151598 }, -- Blacksmith Survey: Northern Elsweyr
 		},
 	},
 -- Southern Elsweyr

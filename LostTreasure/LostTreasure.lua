@@ -93,6 +93,12 @@ local function IsValidMapType()
 	return GetMapType() <= MAPTYPE_ZONE
 end
 
+local function RequestRefreshMap()
+	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
+		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
+	end
+end
+
 local function ClearTable(clearableTable)
 	for key, value in pairs(clearableTable) do
 		if type(value) == "table" then
@@ -445,6 +451,8 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType) then
+		RequestRefreshMap() -- to properly take the map data, refresh the map first
+
 		local mapId = GetCurrentMapId()
 		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
 		if pinTypeData then
@@ -508,7 +516,10 @@ function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 end
 
 function LostTreasure:CheckZoneData(pinType, key)
+	-- We don't use RequestRefreshMap here, because you can't zoom out the map anymore.
+	-- The refresh happens while opening the map manually anyways.
 	local mapId = GetCurrentMapId()
+
 	local data = LostTreasure_GetZoneData(mapId)
 	if data then
 		local zonePins = data[pinType]
