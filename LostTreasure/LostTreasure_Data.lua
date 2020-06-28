@@ -113,7 +113,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8250, 0.4460, "glenmoral_weapon_malabaltor_map", 153644 }, --Glenmoril Wyrd Treasure Map: Malabal Tor
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.8024, 0.1611, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
+			{ 0.8025, 0.1670, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
 			{ 0.2774, 0.6270, "malabaltor_survey_clothier", 57760 }, -- Clothier Survey: Malabal Tor
 			{ 0.8326, 0.4942, "malabaltor_survey_blacksmith", 57791 }, -- Blacksmith Survey: Malabal Tor
 			{ 0.5845, 0.7977, "malabaltor_survey_enchanter", 57805 }, -- Enchanter Survey: Malabal Tor
