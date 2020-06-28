@@ -227,6 +227,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
 		},
 	},
+	-- SubPin: Narsis
+	[537] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.2314, 0.2097, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
+		},
+	},
 -- Shadowfen
 	[26] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
