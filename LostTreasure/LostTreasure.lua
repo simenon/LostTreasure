@@ -66,10 +66,12 @@ local function IsTreasureOrSurveyItemType(specializedItemType)
 	return TRACKED_SPECIALIZED_ITEM_TYPES[specializedItemType] == true
 end
 
-local function IsValidInteractionType(pinType, specializedItemType, interactionType)
-	local pinTypeInteractionType = LOST_TREASURE_PIN_TYPE_DATA[pinType].interactionType
-	if pinTypeInteractionType == interactionType then
-		return true
+local function IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName)
+	if sceneName == "hud" then
+		local pinTypeInteractionType = LOST_TREASURE_PIN_TYPE_DATA[pinType].interactionType
+		if pinTypeInteractionType == interactionType then
+			return true
+		end
 	end
 	return false
 end
@@ -438,8 +440,9 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
-						self.logger:Info("Item %s removed from backpack. interactionType %d, itemId: %d", oldSlotData.name, interactionType, itemId)
-						self:RequestReport(pinType, interactionType, specializedItemType, itemData.itemId, oldSlotData.name, itemData.itemLink)
+						local sceneName = SCENE_MANAGER:GetCurrentSceneName()
+						self.logger:Info("Item %s removed from backpack. interactionType %d, sceneName: %s, itemId: %d", oldSlotData.name, interactionType, sceneName, itemId)
+						self:RequestReport(pinType, interactionType, specializedItemType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
 					else
 						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
 					end
@@ -449,8 +452,8 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 	end
 end
 
-function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink)
-	if IsValidInteractionType(pinType, specializedItemType, interactionType) then
+function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
+	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
 		RequestRefreshMap() -- to properly take the map data, refresh the map first
 
 		local mapId = GetCurrentMapId()
@@ -466,9 +469,10 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 
 		local x, y, zone, subZone = LostTreasure_GetPlayerPositionInfo()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
-		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, itemLink)
+		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, sceneName, itemLink)
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, self.version)
 	end
+	self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
 end
 
 function LostTreasure:GetPinTypeFromString(itemName)

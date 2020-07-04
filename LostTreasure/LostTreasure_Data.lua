@@ -113,7 +113,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8250, 0.4460, "glenmoral_weapon_malabaltor_map", 153644 }, --Glenmoril Wyrd Treasure Map: Malabal Tor
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.8024, 0.1611, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
+			{ 0.8025, 0.1670, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
 			{ 0.2774, 0.6270, "malabaltor_survey_clothier", 57760 }, -- Clothier Survey: Malabal Tor
 			{ 0.8326, 0.4942, "malabaltor_survey_blacksmith", 57791 }, -- Blacksmith Survey: Malabal Tor
 			{ 0.5845, 0.7977, "malabaltor_survey_enchanter", 57805 }, -- Enchanter Survey: Malabal Tor
@@ -225,6 +225,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1484, 0.4960, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 			{ 0.6370, 0.5503, "deshaan_survey_woodworker", 57817 }, -- Woodworker Survey: Deshaan
 			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
+		},
+	},
+	-- SubPin: Narsis
+	[537] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.2314, 0.2097, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 		},
 	},
 -- Shadowfen
