@@ -646,8 +646,8 @@ local LOST_TREASURE_DATA = {
 -- Southern Elsweyr
 	[1654] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4691, 0.6369, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
-			{ 0.2929, 0.2574, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
+			{ 0.4687, 0.6361, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
+			{ 0.2936, 0.2569, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
 		},
 	},
 -- Western Skyrim
