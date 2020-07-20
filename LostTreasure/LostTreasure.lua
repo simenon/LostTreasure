@@ -454,18 +454,16 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
-		RequestRefreshMap() -- to properly take the map data, refresh the map first
 
-		local mapId = GetCurrentMapId()
-		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
-		if pinTypeData then
-			for _, layoutData in ipairs(pinTypeData) do
-				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
-					self:ResetCurrentTreasureMapTextureName()
-					return -- item was found, no need to continue
-				end
-			end
+		-- Check for exisiting items in LostTreasure_Data.
+		local itemIds = LostTreasure_GetItemIdsByPinType(pinType)
+		if itemIds and itemIds[itemId] then
+			return -- item was found, no need to continue
 		end
+
+		-- If not item has been found, we have to send a notification.
+		RequestRefreshMap() -- to properly take the map data, refresh the map first
+		local mapId = GetCurrentMapId()
 
 		local x, y, zone, subZone = LostTreasure_GetPlayerPositionInfo()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)

@@ -8,7 +8,6 @@ Then swap to subZone and use this command
 /script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
 ]]
 
-
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
@@ -221,7 +220,7 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.4760, 0.4204, "deshaan_survey_blacksmith", 57748 }, -- Blacksmith Survey: Deshaan
 			{ 0.7877, 0.4082, "deshaan_survey_enchanter", 57751 }, -- Enchanter Survey: Deshaan
-			{ 0.2389, 0.4811, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
+			{ 0.2380, 0.4804, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
 			{ 0.1484, 0.4960, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 			{ 0.6370, 0.5503, "deshaan_survey_woodworker", 57817 }, -- Woodworker Survey: Deshaan
 			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
@@ -405,7 +404,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8065, 0.3297, "rivenspire_survey_alchemist", 57776 }, -- Alchemist Survey: Rivenspire
 			{ 0.6929, 0.6243, "rivenspire_survey_blacksmith", 57790 }, -- Blacksmith Survey: Rivenspire
 			{ 0.6182, 0.4312, "rivenspire_survey_enchanter", 57804 }, -- Enchanter Survey: Rivenspire
-			{ 0.5439, 0.6348, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
+			{ 0.5439, 0.6434, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
 			{ 0.6750, 0.1182, "rivenspire_survey_jewelry", 139429 }, -- Jewelry Crafting Survey: Rivenspire
 		},
 	},
@@ -726,8 +725,45 @@ local LOST_TREASURE_DATA = {
 	},
 }
 
+local itemIdCache = { }
+
 function LostTreasure_GetAllData()
 	return LOST_TREASURE_DATA
+end
+
+function LostTreasure_GetItemIdsByPinType(pinType)
+	-- Check if it's a proper pinType
+	if not LOST_TREASURE_PIN_TYPE_DATA[pinType] then
+		return nil
+	end
+
+	-- If items are already in cache, return cache immediately.
+	local pinTypeCache = itemIdCache[pinType]
+	if pinTypeCache then
+		return pinTypeCache
+	else
+		itemIdCache[pinType] = { }
+	end
+
+	-- If items are not in cache, build item list per pinType.
+	local tempIds = { }
+	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
+		for _pinType, pinData in pairs(pinTypeData) do
+			if _pinType == pinType then
+				for _, _pinTypeData in ipairs(pinData) do
+					table.insert(tempIds, _pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID])
+				end
+			end
+		end
+	end
+
+	-- Add boolean true to each key.
+	for itemId in ZO_NumericallyIndexedTableIterator(tempIds) do
+		itemIdCache[pinType][itemId] = true
+		tempIds[tempIds] = nil -- to allow garbage collection
+	end
+
+	return itemIdCache[pinType]
 end
 
 function LostTreasure_GetZoneData(mapId)
