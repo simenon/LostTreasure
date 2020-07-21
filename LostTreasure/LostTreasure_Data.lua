@@ -760,7 +760,7 @@ function LostTreasure_GetItemIdsByPinType(pinType)
 	-- Add boolean true to each key.
 	for itemId in ZO_NumericallyIndexedTableIterator(tempIds) do
 		itemIdCache[pinType][itemId] = true
-		tempIds[tempIds] = nil -- to allow garbage collection
+		tempIds[itemId] = nil -- to allow garbage collection
 	end
 
 	return itemIdCache[pinType]
