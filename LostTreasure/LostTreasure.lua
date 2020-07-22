@@ -461,10 +461,10 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 			return -- item has been found, no need to continue
 		end
 
-		-- If not item has been found, we have to send a notification.
+		-- If no item has been found, we have to send a notification.
 		RequestRefreshMap() -- to properly take the map data, refresh the map first
-		local mapId = GetCurrentMapId()
 
+		local mapId = GetCurrentMapId()
 		local x, y, zone, subZone = LostTreasure_GetPlayerPositionInfo()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
 
