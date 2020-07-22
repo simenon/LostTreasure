@@ -467,7 +467,10 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 
 		local x, y, zone, subZone = LostTreasure_GetPlayerPositionInfo()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
+
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, sceneName, itemLink)
+
+		-- Pop up a new notification.
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, self.version)
 	else
 		self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
