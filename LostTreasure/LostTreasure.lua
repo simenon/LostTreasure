@@ -457,7 +457,8 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 		-- Check for exisiting items in LostTreasure_Data.
 		local itemIds = LostTreasure_GetItemIdsByPinType(pinType)
 		if itemIds and itemIds[itemId] then
-			return -- item was found, no need to continue
+			self.logger:Info("Item %d has been found in database.", itemId)
+			return -- item has been found, no need to continue
 		end
 
 		-- If not item has been found, we have to send a notification.
