@@ -454,7 +454,6 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
-
 		-- Check for exisiting items in LostTreasure_Data.
 		local itemIds = LostTreasure_GetItemIdsByPinType(pinType)
 		if itemIds and itemIds[itemId] then
@@ -469,8 +468,9 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, sceneName, itemLink)
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, self.version)
+	else
+		self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
 	end
-	self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
 end
 
 function LostTreasure:GetPinTypeFromString(itemName)
