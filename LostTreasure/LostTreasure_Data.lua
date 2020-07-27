@@ -417,9 +417,9 @@ local LOST_TREASURE_DATA = {
 -- Alik’r Desert
 	[30] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.3801, 0.6993, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
-			{ 0.1113, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
-			{ 0.6261, 0.6306, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
+			{ 0.3827, 0.6997, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
+			{ 0.1135, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
+			{ 0.6292, 0.6313, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
 			{ 0.5863, 0.2559, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
 			{ 0.7865, 0.5256, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
 			{ 0.7176, 0.4692, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
@@ -758,7 +758,7 @@ function LostTreasure_GetItemIdsByPinType(pinType)
 	end
 
 	-- Add boolean true to each key.
-	for _, itemId in ZO_NumericallyIndexedTableIterator(tempIds) do
+	for _, itemId in ipairs(tempIds) do
 		itemIdCache[pinType][itemId] = true
 		tempIds[itemId] = nil -- to allow garbage collection
 	end
