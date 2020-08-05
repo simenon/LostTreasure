@@ -706,7 +706,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.5603, 0.4894, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
+			{ 0.5638, 0.4892, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
 			{ 0.3326, 0.2961, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
 			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
 			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
