@@ -758,9 +758,9 @@ function LostTreasure_GetItemIdsByPinType(pinType)
 	end
 
 	-- Add boolean true to each key.
-	for _, itemId in ipairs(tempIds) do
+	for i, itemId in ipairs(tempIds) do
 		itemIdCache[pinType][itemId] = true
-		tempIds[itemId] = nil -- to allow garbage collection
+		tempIds[i] = nil -- to allow garbage collection
 	end
 
 	return itemIdCache[pinType]
