@@ -644,15 +644,15 @@ local LOST_TREASURE_DATA = {
 -- Summerset
 	[1349] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4870, 0.1970, "treasuremap_summerset_01", 43748 }, -- Summerset Treasure Map I
-			{ 0.7016, 0.6788, "treasuremap_summerset_03", 43749 }, -- Summerset Treasure Map II
-			{ 0.3670, 0.4005, "treasuremap_summerset_04", 43750 }, -- Summerset Treasure Map III
-			{ 0.3568, 0.5687, "treasuremap_summerset_07", 43751 }, -- Summerset Treasure Map IV
-			{ 0.1693, 0.3203, "treasuremap_summerset_09", 43752 }, -- Summerset Treasure Map V
-			{ 0.6721, 0.7827, "treasuremap_summerset_10_gjadilslegacy", 43753 }, -- Summerset Treasure Map VI
-			{ 0.5980, 0.5600, "treasuremap_summerset_02", 139007 }, -- Summerset CE Treasure Map I
-			{ 0.3350, 0.3240, "treasuremap_summerset_05", 139008 }, -- Summerset CE Treasure Map II
-			{ 0.2040, 0.6260, "treasuremap_summerset_06", 139009 }, -- Summerset CE Treasure Map III
+			{ 0.4869, 0.1972, "treasuremap_summerset_01", 43748 }, -- Summerset Treasure Map I
+			{ 0.7016, 0.6787, "treasuremap_summerset_03", 43749 }, -- Summerset Treasure Map II
+			{ 0.3672, 0.4004, "treasuremap_summerset_04", 43750 }, -- Summerset Treasure Map III
+			{ 0.3567, 0.5688, "treasuremap_summerset_07", 43751 }, -- Summerset Treasure Map IV
+			{ 0.1692, 0.3203, "treasuremap_summerset_09", 43752 }, -- Summerset Treasure Map V
+			{ 0.6722, 0.7828, "treasuremap_summerset_10_gjadilslegacy", 43753 }, -- Summerset Treasure Map VI
+			{ 0.5989, 0.5610, "treasuremap_summerset_02", 139007 }, -- Summerset CE Treasure Map I
+			{ 0.3357, 0.3246, "treasuremap_summerset_05", 139008 }, -- Summerset CE Treasure Map II
+			{ 0.2042, 0.6270, "treasuremap_summerset_06", 139009 }, -- Summerset CE Treasure Map III
 		},
 	},
 -- Murkmire
