@@ -85,10 +85,10 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.6543, 0.8344, "treasuremap_greenshade_01", 43637 }, -- Greenshade Treasure Map I
 			{ 0.7222, 0.7418, "treasuremap_greenshade_02", 43638 }, -- Greenshade Treasure Map II
-			{ 0.3632, 0.5050, "treasuremap_greenshade_03", 43639 }, -- Greenshade Treasure Map III
+			{ 0.3636, 0.5055, "treasuremap_greenshade_03", 43639 }, -- Greenshade Treasure Map III
 			{ 0.3405, 0.3237, "treasuremap_greenshade_04", 43640 }, -- Greenshade Treasure Map IV
-			{ 0.2501, 0.1499, "treasuremap_greenshade_05", 43641 }, -- Greenshade Treasure Map V
-			{ 0.5974, 0.3833, "treasuremap_greenshade_06", 43642 }, -- Greenshade Treasure Map VI
+			{ 0.2502, 0.1494, "treasuremap_greenshade_05", 43641 }, -- Greenshade Treasure Map V
+			{ 0.5970, 0.3832, "treasuremap_greenshade_06", 43642 }, -- Greenshade Treasure Map VI
 			{ 0.5931, 0.8112, "treasuremap_ce_aldmeri_greenshade_04", 44938 }, -- Greenshade CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
