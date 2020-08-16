@@ -27,7 +27,8 @@ local OPTIONS_TEXTURE_PATHS = {
 local function UpdateMarkOptions(pinType, data)
 	for pinTypeShowSetting, _ in ipairs(MARK_OPTIONS_VALUE) do
 		if pinTypeShowSetting == data then
-			return LostTreasure_RefreshAllPinsFromPinType(pinType)
+			LostTreasure_RefreshAllPinsFromPinType(pinType)
+			break
 		end
 	end
 end
@@ -35,6 +36,8 @@ end
 
 
 LostTreasure_Settings = ZO_Object:Subclass()
+
+local ONLY_MAP_PINS = true
 
 function LostTreasure_Settings:New(...)
 	local object = ZO_Object.New(self)
@@ -174,7 +177,6 @@ function LostTreasure_Settings:AddSettingsMenu()
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].pinLevel = value
 				LostTreasure_SetLayoutKey(pinType, "level", value)
-				local ONLY_MAP_PINS = true
 				LostTreasure_RefreshAllPinsFromPinType(pinType, ONLY_MAP_PINS)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap end,

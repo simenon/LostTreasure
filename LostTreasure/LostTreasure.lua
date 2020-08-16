@@ -49,8 +49,9 @@ local TRACKED_SPECIALIZED_ITEM_TYPES =
 ------------------
 local function GetAddOnInfos()
 	local addOnManager = GetAddOnManager()
+	local name, author
 	for i = 1, addOnManager:GetNumAddOns() do
-		local name, _, author = addOnManager:GetAddOnInfo(i)
+		name, _, author = addOnManager:GetAddOnInfo(i)
 		if name == ADDON_NAME then
 			return author, addOnManager:GetAddOnVersion(i)
 		end
@@ -99,6 +100,10 @@ local function RequestRefreshMap()
 	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
 		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
 	end
+end
+
+local function RunCallbackAsync(callback, delay)
+	zo_callLater(callback, delay)
 end
 
 local function ClearTable(clearableTable)
@@ -225,7 +230,7 @@ function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 	if itemId then
 		local pinType = self:GetPinTypeFromString(title)
 		local markOption = self:GetPinTypeSettings(pinType, "markOption")
-		if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+		if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 			table.insert(self.listMarkOnUse[pinType], itemId)
 			LostTreasure_RefreshAllPinsFromPinType(pinType)
 		end
@@ -258,10 +263,9 @@ function LostTreasure:DeleteItemFromBagCache(uniqueId)
 	local index = self:GetIndexFromUniqueId(uniqueId)
 	if index then
 		return table.remove(self.bagCache, index)
-	else
-		self.logger:Error("not found uniqueId in table. uniqueId: %.50f", uniqueId)
-		return
 	end
+	self.logger:Error("uniqueId not found - %.50f", uniqueId)
+	return
 end
 
 function LostTreasure:IsItemInBagCache(itemId)
@@ -410,7 +414,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			end
 		end
 
-		self.logger:Info("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
+		self.logger:Info("%s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
 	end
 end
 
@@ -441,10 +445,8 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
 						local sceneName = SCENE_MANAGER:GetCurrentSceneName()
-						self.logger:Info("Item %s removed from backpack. interactionType %d, sceneName: %s, itemId: %d", oldSlotData.name, interactionType, sceneName, itemId)
+						self.logger:Info("%s removed from backpack. interactionType %d, sceneName: %s, itemId: %d", oldSlotData.name, interactionType, sceneName, itemId)
 						self:RequestReport(pinType, interactionType, specializedItemType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
-					else
-						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
 					end
 				end
 			end
@@ -500,25 +502,17 @@ function LostTreasure:GetPinTypeSettings(pinType, key)
 	return self.savedVars.pinTypes[pinType][key]
 end
 
+function LostTreasure:GetDeletionDelay(pinType)
+	return pinType and self.savedVars.pinTypes[pinType].deletionDelay or self.savedVars.miniMap.deletionDelay
+end
+
 function LostTreasure:UpdateVisibility(hidden, fadeTime)
 	LOST_TREASURE_FRAGMENT:SetHiddenForReason("hasMapOpened", hidden, fadeTime, fadeTime)
 end
 
 function LostTreasure:ProzessQueue(pinType, callback, interactionType)
-	local delay
-	if pinType then
-		delay = self.savedVars.pinTypes[pinType].deletionDelay
-	else
-		delay = self.savedVars.miniMap.deletionDelay
-	end
-
-	if interactionType == INTERACTION_BANK or delay == 0 then
-		delay = SLOT_UPDATED_DELAY
-	else
-		delay = delay * ZO_ONE_SECOND_IN_MILLISECONDS
-	end
-
-	zo_callLater(callback, delay)
+	local delay = self:GetDeletionDelay(pinType)
+	RunCallbackAsync(callback, (interactionType == INTERACTION_BANK or delay == 0) and SLOT_UPDATED_DELAY or delay * ZO_ONE_SECOND_IN_MILLISECONDS)
 end
 
 function LostTreasure:CheckZoneData(pinType, key)

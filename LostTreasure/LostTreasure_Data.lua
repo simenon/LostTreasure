@@ -725,57 +725,6 @@ local LOST_TREASURE_DATA = {
 	},
 }
 
-local itemIdCache = { }
-
-function LostTreasure_GetAllData()
-	return LOST_TREASURE_DATA
-end
-
-function LostTreasure_GetItemIdsByPinType(pinType)
-	-- Check if it's a proper pinType
-	if not LOST_TREASURE_PIN_TYPE_DATA[pinType] then
-		return nil
-	end
-
-	-- If items are already in cache, return cache immediately.
-	local pinTypeCache = itemIdCache[pinType]
-	if pinTypeCache then
-		return pinTypeCache
-	else
-		itemIdCache[pinType] = { }
-	end
-
-	-- If items are not in cache, build item list per pinType.
-	local tempIds = { }
-	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
-		for _pinType, pinData in pairs(pinTypeData) do
-			if _pinType == pinType then
-				for _, _pinTypeData in ipairs(pinData) do
-					table.insert(tempIds, _pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID])
-				end
-			end
-		end
-	end
-
-	-- Add boolean true to each key.
-	for i, itemId in ipairs(tempIds) do
-		itemIdCache[pinType][itemId] = true
-		tempIds[i] = nil -- to allow garbage collection
-	end
-
-	return itemIdCache[pinType]
-end
-
-function LostTreasure_GetZoneData(mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		return subZoneData
-	end
-	return nil
-end
-
-
--- Books
 local LOST_TREASURE_BOOKID_TO_ITEMID =
 {
 	[5116] = 139408, -- Jewelry Crafting Survey: Stormhaven
@@ -804,10 +753,51 @@ local LOST_TREASURE_BOOKID_TO_ITEMID =
 	[5156] = 139444, -- Jewelry Crafting Survey: Vvardenfell
 }
 
-function LostTreasure_GetBookItemId(bookId)
-	local itemId = LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
-	if itemId then
-		return itemId
+local itemIdCache = { }
+
+local function CreatePinTypeItemIdCache(pinType)
+	itemIdCache[pinType] = { }
+
+	local tempIds = { }
+	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
+		for _pinType, pinData in pairs(pinTypeData) do
+			if _pinType == pinType then
+				for _, _pinTypeData in ipairs(pinData) do
+					table.insert(tempIds, _pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID])
+				end
+			end
+		end
 	end
-	return nil
+
+	-- Add boolean true to each key and clear temp table properly.
+	for i, itemId in ipairs(tempIds) do
+		itemIdCache[pinType][itemId] = true
+		tempIds[i] = nil -- to allow garbage collection
+	end
+end
+
+local function GetPinTypeItemIdCache(pinType)
+	if not itemIdCache[pinType] then
+		CreatePinTypeItemIdCache(pinType)
+	end
+	return itemIdCache[pinType]
+end
+
+
+-- API
+------
+function LostTreasure_GetAllData()
+	return LOST_TREASURE_DATA
+end
+
+function LostTreasure_GetItemIdsByPinType(pinType)
+	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetPinTypeItemIdCache(pinType) or nil
+end
+
+function LostTreasure_GetZoneData(mapId)
+	return LOST_TREASURE_DATA[mapId]
+end
+
+function LostTreasure_GetBookItemId(bookId)
+	return LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
 end
