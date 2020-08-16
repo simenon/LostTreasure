@@ -106,6 +106,14 @@ local function RunCallbackAsync(callback, delay)
 	zo_callLater(callback, delay)
 end
 
+local function IsInteractionDelayed(interactionType, delayInSeconds)
+	return interactionType == INTERACTION_BANK or delayInSeconds == 0
+end
+
+local function SecondsToMilliseconds(second)
+	return second * ZO_ONE_SECOND_IN_MILLISECONDS
+end
+
 local function ClearTable(clearableTable)
 	for key, value in pairs(clearableTable) do
 		if type(value) == "table" then
@@ -511,8 +519,8 @@ function LostTreasure:UpdateVisibility(hidden, fadeTime)
 end
 
 function LostTreasure:ProzessQueue(pinType, callback, interactionType)
-	local delay = self:GetDeletionDelay(pinType)
-	RunCallbackAsync(callback, (interactionType == INTERACTION_BANK or delay == 0) and SLOT_UPDATED_DELAY or delay * ZO_ONE_SECOND_IN_MILLISECONDS)
+	local delayInSeconds = self:GetDeletionDelay(pinType)
+	RunCallbackAsync(callback, IsInteractionDelayed(interactionType, delayInSeconds) and SLOT_UPDATED_DELAY or SecondsToMilliseconds(delayInSeconds))
 end
 
 function LostTreasure:CheckZoneData(pinType, key)
