@@ -6,12 +6,12 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: The one and only true treasure map and survey report locator. All others are just copies.
-## Version: 13
-## AddOnVersion: 13
+## Version: 14
+## AddOnVersion: 14
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
 ## APIVersion: 100031 100032
 ## SavedVariables: LostTreasure_Account LostTreasure_Character
-## DependsOn: LibAddonMenu-2.0>=31 LibMapPins-1.0>=10027 CustomCompassPins>=31 LibChatMessage>=100 LibDebugLogger>=196 LibSavedVars>=60000 LibNotification>=9
+## DependsOn: LibAddonMenu-2.0>=31 LibMapPins-1.0>=10029 CustomCompassPins>=31 LibChatMessage>=100 LibDebugLogger>=196 LibSavedVars>=60001 LibNotification>=9
 
 Lang\en.lua
 Lang\$(language).lua

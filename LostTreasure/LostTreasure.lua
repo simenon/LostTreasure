@@ -49,8 +49,9 @@ local TRACKED_SPECIALIZED_ITEM_TYPES =
 ------------------
 local function GetAddOnInfos()
 	local addOnManager = GetAddOnManager()
+	local name, author
 	for i = 1, addOnManager:GetNumAddOns() do
-		local name, _, author = addOnManager:GetAddOnInfo(i)
+		name, _, author = addOnManager:GetAddOnInfo(i)
 		if name == ADDON_NAME then
 			return author, addOnManager:GetAddOnVersion(i)
 		end
@@ -99,6 +100,18 @@ local function RequestRefreshMap()
 	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
 		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
 	end
+end
+
+local function RunCallbackAsync(callback, delay)
+	zo_callLater(callback, delay)
+end
+
+local function IsInteractionDelayed(interactionType, delayInSeconds)
+	return interactionType == INTERACTION_BANK or delayInSeconds == 0
+end
+
+local function SecondsToMilliseconds(second)
+	return second * ZO_ONE_SECOND_IN_MILLISECONDS
 end
 
 local function ClearTable(clearableTable)
@@ -225,7 +238,7 @@ function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 	if itemId then
 		local pinType = self:GetPinTypeFromString(title)
 		local markOption = self:GetPinTypeSettings(pinType, "markOption")
-		if itemId and markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+		if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
 			table.insert(self.listMarkOnUse[pinType], itemId)
 			LostTreasure_RefreshAllPinsFromPinType(pinType)
 		end
@@ -258,10 +271,9 @@ function LostTreasure:DeleteItemFromBagCache(uniqueId)
 	local index = self:GetIndexFromUniqueId(uniqueId)
 	if index then
 		return table.remove(self.bagCache, index)
-	else
-		self.logger:Error("not found uniqueId in table. uniqueId: %.50f", uniqueId)
-		return
 	end
+	self.logger:Error("uniqueId not found - %.50f", uniqueId)
+	return
 end
 
 function LostTreasure:IsItemInBagCache(itemId)
@@ -410,7 +422,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			end
 		end
 
-		self.logger:Info("Item %s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
+		self.logger:Info("%s added to your backpack. itemLink: %s", newSlotData.name, itemLink)
 	end
 end
 
@@ -441,10 +453,8 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 					local itemData = self:DeleteItemFromBagCache(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
 						local sceneName = SCENE_MANAGER:GetCurrentSceneName()
-						self.logger:Info("Item %s removed from backpack. interactionType %d, sceneName: %s, itemId: %d", oldSlotData.name, interactionType, sceneName, itemId)
+						self.logger:Info("%s removed from backpack. interactionType %d, sceneName: %s, itemId: %d", oldSlotData.name, interactionType, sceneName, itemId)
 						self:RequestReport(pinType, interactionType, specializedItemType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
-					else
-						self.logger:Error("bagCache didn't contain item %s, itemId %d", oldSlotData.name, itemId)
 					end
 				end
 			end
@@ -454,25 +464,27 @@ end
 
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
+		-- Check for exisiting items in LostTreasure_Data.
+		local itemIds = LostTreasure_GetItemIdsByPinType(pinType)
+		if itemIds and itemIds[itemId] then
+			self.logger:Info("Item %d has been found in database.", itemId)
+			return -- item has been found, no need to continue
+		end
+
+		-- If no item has been found, we have to send a notification.
 		RequestRefreshMap() -- to properly take the map data, refresh the map first
 
 		local mapId = GetCurrentMapId()
-		local pinTypeData = LostTreasure_GetZonePinTypeData(pinType, mapId)
-		if pinTypeData then
-			for _, layoutData in ipairs(pinTypeData) do
-				if itemId == layoutData[LOST_TREASURE_DATA_INDEX_ITEMID] then
-					self:ResetCurrentTreasureMapTextureName()
-					return -- item was found, no need to continue
-				end
-			end
-		end
-
 		local x, y, zone, subZone = LostTreasure_GetPlayerPositionInfo()
 		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
+
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, sceneName, itemLink)
+
+		-- Pop up a new notification.
 		self.notifications:NewNotification(self:GetPinTypeSettings(pinType, "texture"), x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, self.version)
+	else
+		self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
 	end
-	self.logger:Info("Invalid interaction. pinType %d, specializedItemType %d, interactionType %d, sceneName %s", pinType, specializedItemType, interactionType, sceneName)
 end
 
 function LostTreasure:GetPinTypeFromString(itemName)
@@ -498,25 +510,17 @@ function LostTreasure:GetPinTypeSettings(pinType, key)
 	return self.savedVars.pinTypes[pinType][key]
 end
 
+function LostTreasure:GetDeletionDelay(pinType)
+	return pinType and self.savedVars.pinTypes[pinType].deletionDelay or self.savedVars.miniMap.deletionDelay
+end
+
 function LostTreasure:UpdateVisibility(hidden, fadeTime)
 	LOST_TREASURE_FRAGMENT:SetHiddenForReason("hasMapOpened", hidden, fadeTime, fadeTime)
 end
 
 function LostTreasure:ProzessQueue(pinType, callback, interactionType)
-	local delay
-	if pinType then
-		delay = self.savedVars.pinTypes[pinType].deletionDelay
-	else
-		delay = self.savedVars.miniMap.deletionDelay
-	end
-
-	if interactionType == INTERACTION_BANK or delay == 0 then
-		delay = SLOT_UPDATED_DELAY
-	else
-		delay = delay * ZO_ONE_SECOND_IN_MILLISECONDS
-	end
-
-	zo_callLater(callback, delay)
+	local delayInSeconds = self:GetDeletionDelay(pinType)
+	RunCallbackAsync(callback, IsInteractionDelayed(interactionType, delayInSeconds) and SLOT_UPDATED_DELAY or SecondsToMilliseconds(delayInSeconds))
 end
 
 function LostTreasure:CheckZoneData(pinType, key)

@@ -8,7 +8,6 @@ Then swap to subZone and use this command
 /script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
 ]]
 
-
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
@@ -221,7 +220,7 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.4760, 0.4204, "deshaan_survey_blacksmith", 57748 }, -- Blacksmith Survey: Deshaan
 			{ 0.7877, 0.4082, "deshaan_survey_enchanter", 57751 }, -- Enchanter Survey: Deshaan
-			{ 0.2389, 0.4811, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
+			{ 0.2380, 0.4804, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
 			{ 0.1484, 0.4960, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 			{ 0.6370, 0.5503, "deshaan_survey_woodworker", 57817 }, -- Woodworker Survey: Deshaan
 			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
@@ -405,7 +404,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8065, 0.3297, "rivenspire_survey_alchemist", 57776 }, -- Alchemist Survey: Rivenspire
 			{ 0.6929, 0.6243, "rivenspire_survey_blacksmith", 57790 }, -- Blacksmith Survey: Rivenspire
 			{ 0.6182, 0.4312, "rivenspire_survey_enchanter", 57804 }, -- Enchanter Survey: Rivenspire
-			{ 0.5439, 0.6348, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
+			{ 0.5439, 0.6434, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
 			{ 0.6750, 0.1182, "rivenspire_survey_jewelry", 139429 }, -- Jewelry Crafting Survey: Rivenspire
 		},
 	},
@@ -418,9 +417,9 @@ local LOST_TREASURE_DATA = {
 -- Alik’r Desert
 	[30] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.3801, 0.6993, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
-			{ 0.1113, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
-			{ 0.6261, 0.6306, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
+			{ 0.3827, 0.6997, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
+			{ 0.1135, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
+			{ 0.6292, 0.6313, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
 			{ 0.5863, 0.2559, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
 			{ 0.7865, 0.5256, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
 			{ 0.7176, 0.4692, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
@@ -707,9 +706,9 @@ local LOST_TREASURE_DATA = {
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.5603, 0.4894, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
-			{ 0.3347, 0.2929, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
-			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
+			{ 0.5638, 0.4892, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
+			{ 0.3326, 0.2961, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
+			{ 0.5731, 0.6822, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
 			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
 			{ 0.7552, 0.5712, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
@@ -726,31 +725,6 @@ local LOST_TREASURE_DATA = {
 	},
 }
 
-function LostTreasure_GetAllData()
-	return LOST_TREASURE_DATA
-end
-
-function LostTreasure_GetZoneData(mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		return subZoneData
-	end
-	return nil
-end
-
-function LostTreasure_GetZonePinTypeData(pinType, mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		local pinTypeData = subZoneData[pinType]
-		if pinTypeData then
-			return pinTypeData
-		end
-	end
-	return nil
-end
-
-
--- Books
 local LOST_TREASURE_BOOKID_TO_ITEMID =
 {
 	[5116] = 139408, -- Jewelry Crafting Survey: Stormhaven
@@ -779,10 +753,51 @@ local LOST_TREASURE_BOOKID_TO_ITEMID =
 	[5156] = 139444, -- Jewelry Crafting Survey: Vvardenfell
 }
 
-function LostTreasure_GetBookItemId(bookId)
-	local itemId = LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
-	if itemId then
-		return itemId
+local itemIdCache = { }
+
+local function CreatePinTypeItemIdCache(pinType)
+	itemIdCache[pinType] = { }
+
+	local tempIds = { }
+	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
+		for _pinType, pinData in pairs(pinTypeData) do
+			if _pinType == pinType then
+				for _, _pinTypeData in ipairs(pinData) do
+					table.insert(tempIds, _pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID])
+				end
+			end
+		end
 	end
-	return nil
+
+	-- Add boolean true to each key and clear temp table properly.
+	for i, itemId in ipairs(tempIds) do
+		itemIdCache[pinType][itemId] = true
+		tempIds[i] = nil -- to allow garbage collection
+	end
+end
+
+local function GetPinTypeItemIdCache(pinType)
+	if not itemIdCache[pinType] then
+		CreatePinTypeItemIdCache(pinType)
+	end
+	return itemIdCache[pinType]
+end
+
+
+-- API
+------
+function LostTreasure_GetAllData()
+	return LOST_TREASURE_DATA
+end
+
+function LostTreasure_GetItemIdsByPinType(pinType)
+	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetPinTypeItemIdCache(pinType) or nil
+end
+
+function LostTreasure_GetZoneData(mapId)
+	return LOST_TREASURE_DATA[mapId]
+end
+
+function LostTreasure_GetBookItemId(bookId)
+	return LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
 end
