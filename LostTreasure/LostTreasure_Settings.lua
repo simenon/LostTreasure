@@ -6,25 +6,6 @@ local MARK_OPTIONS_VALUE = {
 	LOST_TREASURE_MARK_OPTIONS_ALL,
 }
 
-local OPTIONS_TEXTURE_NAMES = {
-	"X red",
-	"X black",
-	"Map black",
-	"Map white",
-	"Hammerstrike",
-	"Justice Stolen Map",
-	"Quest Scroll",
-	"Normal Scroll",
-	"Puzzle Cube",
-	"Delivery Box",
-	"Small Chest",
-	"Essence Box",
-	"Almandin",
-	"Saphir",
-	"Memento",
-	-- The iconpicker is currently bugged, because LAM try to show choicesTooltips even if they are empty.
-}
-
 local OPTIONS_TEXTURE_PATHS = {
 	"LostTreasure/Icons/x_red.dds",
 	"LostTreasure/Icons/x_black.dds",
@@ -41,13 +22,13 @@ local OPTIONS_TEXTURE_PATHS = {
 	"EsoUI/Art/Icons/crafting_accessory_sp_names_002.dds",
 	"EsoUI/Art/Icons/crafting_accessory_sp_names_001.dds",
 	"EsoUI/Art/Icons/collectable_memento_dawnshard.dds",
-	-- this table must have the same size like OPTIONS_TEXTURE_NAMES to match values.
 }
 
 local function UpdateMarkOptions(pinType, data)
 	for pinTypeShowSetting, _ in ipairs(MARK_OPTIONS_VALUE) do
 		if pinTypeShowSetting == data then
-			return LostTreasure_RefreshAllPinsFromPinType(pinType)
+			LostTreasure_RefreshAllPinsFromPinType(pinType)
+			break
 		end
 	end
 end
@@ -55,6 +36,8 @@ end
 
 
 LostTreasure_Settings = ZO_Object:Subclass()
+
+local ONLY_MAP_PINS = true
 
 function LostTreasure_Settings:New(...)
 	local object = ZO_Object.New(self)
@@ -134,7 +117,6 @@ function LostTreasure_Settings:AddSettingsMenu()
 			name = SI_LOST_TREASURE_PIN_ICON,
 			tooltip = SI_LOST_TREASURE_PIN_ICON_TT,
 			choices = OPTIONS_TEXTURE_PATHS,
-			choicesTooltips = OPTIONS_TEXTURE_NAMES,
 			getFunc = function() return savedVars.pinTypes[pinType].texture end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].texture = value
@@ -154,9 +136,9 @@ function LostTreasure_Settings:AddSettingsMenu()
 			step = 2,
 			decimals = 0,
 			clampInput = true,
+			readOnly = true,
 			getFunc = function() return savedVars.pinTypes[pinType].size end,
 			setFunc = function(value)
-				value = zo_roundToNearest(value, 2) -- should be same as step
 				savedVars.pinTypes[pinType].size = value
 				LostTreasure_SetLayoutKey(pinType, "size", value)
 				LostTreasure_RefreshAllPinsFromPinType(pinType)
@@ -190,12 +172,11 @@ function LostTreasure_Settings:AddSettingsMenu()
 			max = 250,
 			step = 1,
 			decimals = 0,
+			readOnly = true,
 			getFunc = function() return savedVars.pinTypes[pinType].pinLevel end,
 			setFunc = function(value)
-				value = zo_roundToNearest(value, 1) -- should be same as step
 				savedVars.pinTypes[pinType].pinLevel = value
 				LostTreasure_SetLayoutKey(pinType, "level", value)
-				local ONLY_MAP_PINS = true
 				LostTreasure_RefreshAllPinsFromPinType(pinType, ONLY_MAP_PINS)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap end,
@@ -209,9 +190,9 @@ function LostTreasure_Settings:AddSettingsMenu()
 			max = 60,
 			step = 1,
 			decimals = 0,
+			readOnly = true,
 			getFunc = function() return savedVars.pinTypes[pinType].deletionDelay end,
 			setFunc = function(value)
-				value = zo_roundToNearest(value, 1) -- should be same as step
 				savedVars.pinTypes[pinType].deletionDelay = value
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
@@ -252,9 +233,9 @@ function LostTreasure_Settings:AddSettingsMenu()
 		max = 60,
 		step = 1,
 		decimals = 0,
+		readOnly = true,
 		getFunc = function() return savedVars.miniMap.deletionDelay end,
 		setFunc = function(value)
-			value = zo_roundToNearest(value, 1) -- should be same as step
 			savedVars.miniMap.deletionDelay = value
 		end,
 		default = defaults.miniMap.deletionDelay,
