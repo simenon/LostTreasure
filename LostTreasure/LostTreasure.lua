@@ -115,24 +115,6 @@ local function SecondsToMilliseconds(second)
 	return second * ZO_ONE_SECOND_IN_MILLISECONDS
 end
 
-local function RequestRefreshMap()
-	if SetMapToPlayerLocation() == SET_MAP_RESULT_MAP_CHANGED then
-		CALLBACK_MANAGER:FireCallbacks("OnWorldMapChanged")
-	end
-end
-
-local function RunCallbackAsync(callback, delay)
-	zo_callLater(callback, delay)
-end
-
-local function IsInteractionDelayed(interactionType, delayInSeconds)
-	return interactionType == INTERACTION_BANK or delayInSeconds == 0
-end
-
-local function SecondsToMilliseconds(second)
-	return second * ZO_ONE_SECOND_IN_MILLISECONDS
-end
-
 local function ClearTable(clearableTable)
 	for key, value in pairs(clearableTable) do
 		if type(value) == "table" then
