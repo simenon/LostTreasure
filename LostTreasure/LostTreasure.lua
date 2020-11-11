@@ -92,8 +92,9 @@ local function CreateNewPin(pinType, pinData, key)
 	end
 end
 
+local ShouldMapShowQuestsInList = ZO_WorldMapQuestsData_Singleton.ShouldMapShowQuestsInList
 local function IsValidMapType()
-	return GetMapType() <= MAPTYPE_ZONE
+	return ShouldMapShowQuestsInList()
 end
 
 local function RequestRefreshMap()
