@@ -37,15 +37,16 @@ function BugReport:ResetOutput()
 end
 
 function BugReport:ReplaceSpecialCharacters(str)
-	str = str:gsub("\n", "%%0A") -- %0A is a new line
-	str = str:gsub(" ", "%%20") -- %20 is a space
-	str = str:gsub(" ", "%%20") -- this char is a special one. if we don't replace it, the bug report doesn't work
-	return str
+	-- 1. replace "\n" with "%%0A" (%0A is a new line)
+	-- 2. replace " " with "%%20" (%20 is a space)
+	-- 3. replace " " with "%%20" (" " this is a special character. if we don't replace it, the bug report doesn't work properly)
+	return str:gsub("\n", "%%0A"):gsub(" ", "%%20"):gsub(" ", "%%20")
 end
 
 function BugReport:GenerateURL(data)
-	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture
+	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture, because we have no need for
 
+	-- bugReport stringIds are defined in "en" file only
 	local output = { }
 	table.insert(output, self.url)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
@@ -82,8 +83,6 @@ function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, saved
 	self.savedVars = savedVars
 	self.provider = LibNotifications:CreateProvider()
 	self.bugReport = BugReport:New(bugReportURL, debugLogger)
-
-	
 
 	local function OnPlayerActivated()
 		self:RestoreAllNotifications()

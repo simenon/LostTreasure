@@ -1,11 +1,11 @@
-﻿Lost Treasure is an Elder Scrolls Online addon that shows treasure map and survey locations on your World Map. It includes every known treasure map and survey location.
+﻿Lost Treasure is an Elder Scrolls Online addon that shows Treasure Map and Survey Report locations on your World Map. It includes every known Treasure Map and Survey Report location.
 
-* Filter out treasure map or survey icons on map. Make sure the filter is checked if you want to see treasure map icons. By default enabled.
-* Show ALL treasure maps and ALL survey locations for ALL zones
-* Build in minimap that you can keep on your screen for locating treasure or surveys easier.
-* Full support for english, french and german clients. Partial support for russian clients.
-* Options to scale and select textures for your map markers
-* Uses Compass Bar when you get close to treasure or survey location.
+* Filters for Treasure Maps or Survey Report locations. Make sure the filter is checked to enable icons. Enabled by default.
+* Show Treasure Maps and Survey Report locations for all zones.
+* Built in minimap for locating Treasure Maps or Surveys Reports locations easier.
+* Support for English, French, German, Russian and Japanese clients.
+* Options to scale and select textures for map markers.
+* Compass pins drawn when you are close to Treasure Map or Survey Report locations.
 
 ![screenshot](https://cdn-eso.mmoui.com/preview/pvw1692.png)
 

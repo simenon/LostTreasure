@@ -1,3 +1,13 @@
+--[[
+How to get subZone pins:
+
+Replace *X* and *Y* with the coordinates of the data below from zone.
+/script PingMap(MAP_PIN_TYPE_PLAYER_WAYPOINT, MAP_TYPE_LOCATION_CENTERED, *X*, *Y*)
+
+Then swap to subZone and use this command
+/script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
+]]
+
 local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
@@ -29,6 +39,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.5455, 0.4624, "auridon_survey_woodworker", 57741 }, -- Woodworker Survey: Auridon
 			{ 0.6359, 0.6950, "auridon_survey_blacksmith", 57687 }, -- Blacksmith Survey: Auridon
 			{ 0.3992, 0.6107, nil, 139422 }, -- Jewelry Crafting Survey: Auridon
+		},
+	},
+	-- SubPin: Firsthold
+	[540] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8025, 0.1482, "treasuremap_auridon_06", 43630 }, -- Auridon Treasure Map VI
 		},
 	},
 	-- SubPin: Vulkhel Guard
@@ -96,7 +112,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8250, 0.4460, "glenmoral_weapon_malabaltor_map", 153644 }, --Glenmoril Wyrd Treasure Map: Malabal Tor
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.8024, 0.1611, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
+			{ 0.8025, 0.1670, "malabaltor_survey_alchemist", 57777 }, -- Alchemist Survey: Malabal Tor
 			{ 0.2774, 0.6270, "malabaltor_survey_clothier", 57760 }, -- Clothier Survey: Malabal Tor
 			{ 0.8326, 0.4942, "malabaltor_survey_blacksmith", 57791 }, -- Blacksmith Survey: Malabal Tor
 			{ 0.5845, 0.7977, "malabaltor_survey_enchanter", 57805 }, -- Enchanter Survey: Malabal Tor
@@ -163,12 +179,12 @@ local LOST_TREASURE_DATA = {
 --Stonefalls
 	[7] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.7952, 0.5758, "treasuremap_stonefalls_001", 43655 }, -- Stonefalls Treasure Map I
-			{ 0.6038, 0.4899, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
-			{ 0.4716, 0.5923, "treasuremap_stonefalls_003", 43657 }, -- Stonefalls Treasure Map III
-			{ 0.1779, 0.4517, "treasuremap_stonefalls_004", 43658 }, -- Stonefalls Treasure Map IV
-			{ 0.1937, 0.5504, "treasuremap_stonefalls_005", 43659 }, -- Stonefalls Treasure Map V
-			{ 0.3600, 0.7000, "treasuremap_stonefalls_006", 43660 }, -- Stonefalls Treasure Map VI
+			{ 0.7950, 0.5759, "treasuremap_stonefalls_001", 43655 }, -- Stonefalls Treasure Map I
+			{ 0.6040, 0.4904, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+			{ 0.4715, 0.5922, "treasuremap_stonefalls_003", 43657 }, -- Stonefalls Treasure Map III
+			{ 0.1796, 0.4519, "treasuremap_stonefalls_004", 43658 }, -- Stonefalls Treasure Map IV
+			{ 0.1954, 0.5506, "treasuremap_stonefalls_005", 43659 }, -- Stonefalls Treasure Map V
+			{ 0.3621, 0.7019, "treasuremap_stonefalls_006", 43660 }, -- Stonefalls Treasure Map VI
 			{ 0.5200, 0.6129, "treasuremap_ce_ebonheart_stonefalls_02", 44944 }, -- Stonefalls CE Treasure Map
 			{ 0.8230, 0.4010, "glenmoral_weapon_stonefalls_map", 153648 }, -- Glenmoril Wyrd Treasure Map: Stonefalls
 		},
@@ -178,13 +194,13 @@ local LOST_TREASURE_DATA = {
 			{ 0.1590, 0.5593, "stonefalls_survey_woodworker", 57743 }, -- Woodworker Survey: Stonefalls
 			{ 0.5591, 0.3908, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
 			{ 0.7502, 0.5841, "stonefalls_survey_enchanter", 57735 }, -- Enchanter Survey: Stonefalls
-			{ 0.6840, 0.6401, "stonefalls_survey_jewelry", 139424 }, -- Jewelry Crafting Survey: Stonefalls
+			{ 0.6835, 0.6396, "stonefalls_survey_jewelry", 139424 }, -- Jewelry Crafting Survey: Stonefalls
 		},
 	},
 	-- SubPin: Ebonheart
 	[511] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.7495, 0.5631, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
+			{ 0.7497, 0.5630, "treasuremap_stonefalls_002", 43656 }, -- Stonefalls Treasure Map II
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.5407, 0.0913, "stonefalls_survey_alchemist", 57746 }, -- Alchemist Survey: Stonefalls
@@ -204,10 +220,16 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.4760, 0.4204, "deshaan_survey_blacksmith", 57748 }, -- Blacksmith Survey: Deshaan
 			{ 0.7877, 0.4082, "deshaan_survey_enchanter", 57751 }, -- Enchanter Survey: Deshaan
-			{ 0.2389, 0.4811, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
+			{ 0.2380, 0.4804, "deshaan_survey_clothier", 57755 }, -- Clothier Survey: Deshaan
 			{ 0.1484, 0.4960, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 			{ 0.6370, 0.5503, "deshaan_survey_woodworker", 57817 }, -- Woodworker Survey: Deshaan
 			{ 0.4856, 0.6163, "deshaan_survey_jewelry", 139426 }, -- Jewelry Crafting Survey: Deshaan
+		},
+	},
+	-- SubPin: Narsis
+	[537] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.2314, 0.2097, "deshaan_survey_alchemist", 57772 }, -- Alchemist Survey: Deshaan
 		},
 	},
 -- Shadowfen
@@ -235,6 +257,12 @@ local LOST_TREASURE_DATA = {
 	[544] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.1231, 0.6281, "treasuremap_shadowfen_04", 43670 }, -- Shadowfen Treasure Map IV
+		},
+	},
+	-- SubPin: Stormhold
+	[217] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{-0.1008, 0.4519, "shadowfen_survey_alchemist", 57775 }, -- Alchemist Survey: Shadowfen
 		},
 	},
 -- Eastmarch
@@ -276,6 +304,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1515, 0.2967, "therift_survey_enchanter", 57809 }, -- Enchanter Survey: The Rift
 			{ 0.4975, 0.3367, "therift_survey_woodworker", 57826 }, -- Woodworker Survey: The Rift
 			{ 0.8035, 0.4203, "therift_survey_jewelry", 139433 }, -- Jewelry Crafting Survey: The Rift
+		},
+	},
+	-- SubPin: Riften
+	[198] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.7639, 0.9867, "therift_survey_blacksmith", 57794 }, -- Blacksmith Survey: The Rift
 		},
 	},
 	-- SubPin: Nimalten
@@ -370,7 +404,7 @@ local LOST_TREASURE_DATA = {
 			{ 0.8065, 0.3297, "rivenspire_survey_alchemist", 57776 }, -- Alchemist Survey: Rivenspire
 			{ 0.6929, 0.6243, "rivenspire_survey_blacksmith", 57790 }, -- Blacksmith Survey: Rivenspire
 			{ 0.6182, 0.4312, "rivenspire_survey_enchanter", 57804 }, -- Enchanter Survey: Rivenspire
-			{ 0.5439, 0.6348, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
+			{ 0.5439, 0.6434, "rivenspire_survey_woodworker", 57821 }, -- Woodworker Survey: Rivenspire
 			{ 0.6750, 0.1182, "rivenspire_survey_jewelry", 139429 }, -- Jewelry Crafting Survey: Rivenspire
 		},
 	},
@@ -383,9 +417,9 @@ local LOST_TREASURE_DATA = {
 -- Alik’r Desert
 	[30] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.3801, 0.6993, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
-			{ 0.1113, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
-			{ 0.6261, 0.6306, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
+			{ 0.3827, 0.6997, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
+			{ 0.1135, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
+			{ 0.6292, 0.6313, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
 			{ 0.5863, 0.2559, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
 			{ 0.7865, 0.5256, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
 			{ 0.7176, 0.4692, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
@@ -551,6 +585,12 @@ local LOST_TREASURE_DATA = {
 			{ 0.1938, 0.6819, "orsinium_survey_jewelry_03", 139443 }, -- Jewelry Crafting Survey: Wrothgar III
 		},
 	},
+	-- SubPin: Orsinium
+	[895] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.8159, 0.1905, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
+		},
+	},
 	-- SubPin: Morkul
 	[954] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -643,11 +683,17 @@ local LOST_TREASURE_DATA = {
 			{ 0.6131, 0.6433, "elsweyr_survey_jewelry", 151603 }, -- Jewelry Crafting Survey: Northern Elsweyr
 		},
 	},
+	-- SubPin: Predator Mesa
+	[1616] = {
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.3945, 0.7979, "elsweyr_survey_blacksmith", 151598 }, -- Blacksmith Survey: Northern Elsweyr
+		},
+	},
 -- Southern Elsweyr
 	[1654] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4691, 0.6369, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
-			{ 0.2929, 0.2574, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
+			{ 0.4687, 0.6361, "treasuremap_elsweyr_08", 156716 }, -- Southern Elsweyr Treasure Map I
+			{ 0.2936, 0.2569, "treasuremap_elsweyr_07", 156715 }, -- Southern Elsweyr Treasure Map II
 		},
 	},
 -- Western Skyrim
@@ -660,9 +706,9 @@ local LOST_TREASURE_DATA = {
 			{ 0.4079, 0.5109, "treasuremap_skyrim_01", 166035 }, -- Western Skyrim CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.5603, 0.4894, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
-			{ 0.3347, 0.2929, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
-			{ 0.5680, 0.6855, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
+			{ 0.5638, 0.4892, "skyrim_survey_alchemist", 166459 }, -- Alchemist Survey: Western Skyrim
+			{ 0.3326, 0.2961, "skyrim_survey_blacksmith", 166460 }, -- Blacksmith Survey: Western Skyrim
+			{ 0.5731, 0.6822, "skyrim_survey_clothier", 166461 }, -- Clothier Survey: Western Skyrim
 			{ 0.1957, 0.4281, "skyrim_survey_enchanter", 166462 }, -- Enchanter Survey: Western Skyrim
 			{ 0.4394, 0.5822, "skyrim_survey_jewelrycrafting", 166464 }, -- Jewelry Crafting Survey: Western Skyrim
 			{ 0.7552, 0.5712, "skyrim_survey_woodworker", 166465 }, -- Woodworker Survey: Western Skyrim
@@ -677,33 +723,20 @@ local LOST_TREASURE_DATA = {
 			{ 0.2240, 0.5868, "treasuremap_skyrim_05", 166039 }, -- Blackreach: Greymoor Caverns Treasure Map II
 		},
 	},
+-- Blackreach: Arkthzand Cavern
+	[1850] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.1572, 0.7236, "treasuremap_markarth_02", 171475 }, -- Blackreach: Arkthzand Cavern Treasure Map
+		},
+	},
+-- The Reach
+	[1814] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.3866, 0.6818, "treasuremap_markarth_01", 171474 }, -- The Reach Treasure Map
+		},
+	},
 }
 
-function LostTreasure_GetAllData()
-	return LOST_TREASURE_DATA
-end
-
-function LostTreasure_GetZoneData(mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		return subZoneData
-	end
-	return nil
-end
-
-function LostTreasure_GetZonePinTypeData(pinType, mapId)
-	local subZoneData = LOST_TREASURE_DATA[mapId]
-	if subZoneData then
-		local pinTypeData = subZoneData[pinType]
-		if pinTypeData then
-			return pinTypeData
-		end
-	end
-	return nil
-end
-
-
--- Books
 local LOST_TREASURE_BOOKID_TO_ITEMID =
 {
 	[5116] = 139408, -- Jewelry Crafting Survey: Stormhaven
@@ -732,10 +765,46 @@ local LOST_TREASURE_BOOKID_TO_ITEMID =
 	[5156] = 139444, -- Jewelry Crafting Survey: Vvardenfell
 }
 
-function LostTreasure_GetBookItemId(bookId)
-	local itemId = LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
-	if itemId then
-		return itemId
+
+local itemIdCache = { }
+setmetatable(itemIdCache,{ __mode = "kv" })
+
+local function GetItemIdsByPinType(pinType)
+	local itemIds = itemIdCache[pinType]
+	if itemIds then
+		return itemIds
 	end
-	return nil
+
+	itemIdCache[pinType] = { }
+
+	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
+		for _pinType, _pinData in pairs(pinTypeData) do
+			if _pinType == pinType then
+				for _, _pinTypeData in ipairs(_pinData) do
+					itemIdCache[pinType][_pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID]] = true
+				end
+			end
+		end
+	end
+
+	return itemIdCache[pinType]
+end
+
+
+-- API
+------
+function LostTreasure_GetAllData()
+	return LOST_TREASURE_DATA
+end
+
+function LostTreasure_GetItemIdsByPinType(pinType)
+	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetItemIdsByPinType(pinType) or nil
+end
+
+function LostTreasure_GetZoneData(mapId)
+	return LOST_TREASURE_DATA[mapId]
+end
+
+function LostTreasure_GetBookItemId(bookId)
+	return LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
 end
