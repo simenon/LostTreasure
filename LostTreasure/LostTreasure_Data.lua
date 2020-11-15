@@ -84,10 +84,10 @@ local LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.6543, 0.8344, "treasuremap_greenshade_01", 43637 }, -- Greenshade Treasure Map I
 			{ 0.7222, 0.7418, "treasuremap_greenshade_02", 43638 }, -- Greenshade Treasure Map II
-			{ 0.3632, 0.5050, "treasuremap_greenshade_03", 43639 }, -- Greenshade Treasure Map III
+			{ 0.3636, 0.5055, "treasuremap_greenshade_03", 43639 }, -- Greenshade Treasure Map III
 			{ 0.3405, 0.3237, "treasuremap_greenshade_04", 43640 }, -- Greenshade Treasure Map IV
-			{ 0.2501, 0.1499, "treasuremap_greenshade_05", 43641 }, -- Greenshade Treasure Map V
-			{ 0.5974, 0.3833, "treasuremap_greenshade_06", 43642 }, -- Greenshade Treasure Map VI
+			{ 0.2502, 0.1494, "treasuremap_greenshade_05", 43641 }, -- Greenshade Treasure Map V
+			{ 0.5970, 0.3832, "treasuremap_greenshade_06", 43642 }, -- Greenshade Treasure Map VI
 			{ 0.5931, 0.8112, "treasuremap_ce_aldmeri_greenshade_04", 44938 }, -- Greenshade CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
@@ -477,11 +477,11 @@ local LOST_TREASURE_DATA = {
 -- Coldharbour
 	[255] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4069, 0.8320, "treasuremap_coldharbour_01", 43685 }, -- Coldharbour Treasure Map I
-			{ 0.4097, 0.5680, "treasuremap_coldharbour_02", 43686 }, -- Coldharbour Treasure Map II
-			{ 0.6036, 0.6927, "treasuremap_coldharbour_03", 43687 }, -- Coldharbour Treasure Map III
-			{ 0.7559, 0.7761, "treasuremap_coldharbour_04", 43688 }, -- Coldharbour Treasure Map IV
-			{ 0.4326, 0.4551, "treasuremap_coldharbour_05", 43689 }, -- Coldharbour Treasure Map V
+			{ 0.4072, 0.8319, "treasuremap_coldharbour_01", 43685 }, -- Coldharbour Treasure Map I
+			{ 0.4102, 0.5680, "treasuremap_coldharbour_02", 43686 }, -- Coldharbour Treasure Map II
+			{ 0.6037, 0.6923, "treasuremap_coldharbour_03", 43687 }, -- Coldharbour Treasure Map III
+			{ 0.7559, 0.7763, "treasuremap_coldharbour_04", 43688 }, -- Coldharbour Treasure Map IV
+			{ 0.4327, 0.4552, "treasuremap_coldharbour_05", 43689 }, -- Coldharbour Treasure Map V
 			{ 0.4975, 0.3993, "treasuremap_coldharbour_06", 43690 }, -- Coldharbour Treasure Map VI
 			{ 0.5521, 0.4145, "treasuremap_1_coldharbor", 44932 }, -- Coldharbour CE Treasure Map
 		},
@@ -643,15 +643,15 @@ local LOST_TREASURE_DATA = {
 -- Summerset
 	[1349] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4870, 0.1970, "treasuremap_summerset_01", 43748 }, -- Summerset Treasure Map I
-			{ 0.7016, 0.6788, "treasuremap_summerset_03", 43749 }, -- Summerset Treasure Map II
-			{ 0.3670, 0.4005, "treasuremap_summerset_04", 43750 }, -- Summerset Treasure Map III
-			{ 0.3568, 0.5687, "treasuremap_summerset_07", 43751 }, -- Summerset Treasure Map IV
-			{ 0.1693, 0.3203, "treasuremap_summerset_09", 43752 }, -- Summerset Treasure Map V
-			{ 0.6721, 0.7827, "treasuremap_summerset_10_gjadilslegacy", 43753 }, -- Summerset Treasure Map VI
-			{ 0.5980, 0.5600, "treasuremap_summerset_02", 139007 }, -- Summerset CE Treasure Map I
-			{ 0.3350, 0.3240, "treasuremap_summerset_05", 139008 }, -- Summerset CE Treasure Map II
-			{ 0.2040, 0.6260, "treasuremap_summerset_06", 139009 }, -- Summerset CE Treasure Map III
+			{ 0.4869, 0.1972, "treasuremap_summerset_01", 43748 }, -- Summerset Treasure Map I
+			{ 0.7016, 0.6787, "treasuremap_summerset_03", 43749 }, -- Summerset Treasure Map II
+			{ 0.3672, 0.4004, "treasuremap_summerset_04", 43750 }, -- Summerset Treasure Map III
+			{ 0.3567, 0.5688, "treasuremap_summerset_07", 43751 }, -- Summerset Treasure Map IV
+			{ 0.1692, 0.3203, "treasuremap_summerset_09", 43752 }, -- Summerset Treasure Map V
+			{ 0.6722, 0.7828, "treasuremap_summerset_10_gjadilslegacy", 43753 }, -- Summerset Treasure Map VI
+			{ 0.5989, 0.5610, "treasuremap_summerset_02", 139007 }, -- Summerset CE Treasure Map I
+			{ 0.3357, 0.3246, "treasuremap_summerset_05", 139008 }, -- Summerset CE Treasure Map II
+			{ 0.2042, 0.6270, "treasuremap_summerset_06", 139009 }, -- Summerset CE Treasure Map III
 		},
 	},
 -- Murkmire
