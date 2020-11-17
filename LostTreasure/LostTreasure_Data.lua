@@ -130,12 +130,12 @@ local LOST_TREASURE_DATA = {
 -- Reaper’s March
 	[256] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.3781, 0.4313, "treasuremap_reapersmarch_01", 43649 }, -- Reaper's March Treasure Map I
-			{ 0.3344, 0.1270, "treasuremap_reapersmarch_02", 43650 }, -- Reaper's March Treasure Map II
+			{ 0.3786, 0.4317, "treasuremap_reapersmarch_01", 43649 }, -- Reaper's March Treasure Map I
+			{ 0.3343, 0.1275, "treasuremap_reapersmarch_02", 43650 }, -- Reaper's March Treasure Map II
 			{ 0.2705, 0.6514, "treasuremap_reapersmarch_03", 43651 }, -- Reaper's March Treasure Map III
-			{ 0.4414, 0.6923, "treasuremap_reapersmarch_04", 43652 }, -- Reaper's March Treasure Map IV
-			{ 0.5510, 0.4160, "treasuremap_reapersmarch_05", 43653 }, -- Reaper's March Treasure Map V
-			{ 0.6687, 0.2401, "treasuremap_reapersmarch_06", 43654 }, -- Reaper's March Treasure Map VI
+			{ 0.4413, 0.6922, "treasuremap_reapersmarch_04", 43652 }, -- Reaper's March Treasure Map IV
+			{ 0.5507, 0.4163, "treasuremap_reapersmarch_05", 43653 }, -- Reaper's March Treasure Map V
+			{ 0.6686, 0.2402, "treasuremap_reapersmarch_06", 43654 }, -- Reaper's March Treasure Map VI
 			{ 0.4087, 0.5434, "treasuremap_ce_aldmeri_reapersmarch_06", 44941 }, -- Reaper's March CE Treasure Map
 			{ 0.2980, 0.1540, "glenmoral_weapon_reapersmarch_map", 153645 }, -- Glenmoril Wyrd Treasure Map: Reaper's March
 		},
