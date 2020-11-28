@@ -600,8 +600,8 @@ local LOST_TREASURE_DATA = {
 -- Hew's Bane
 	[994] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4140, 0.8445, "treasuremap_thievesguild_01", 43733 }, -- Hew's Bane Treasure Map I
-			{ 0.3865, 0.5805, "treasuremap_thievesguild_02", 43734 }, -- Hew's Bane Treasure Map II
+			{ 0.4142, 0.8445, "treasuremap_thievesguild_01", 43733 }, -- Hew's Bane Treasure Map I
+			{ 0.3840, 0.5771, "treasuremap_thievesguild_02", 43734 }, -- Hew's Bane Treasure Map II
 		},
 	},
 -- Gold Coast
