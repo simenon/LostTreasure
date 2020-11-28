@@ -157,8 +157,8 @@ local LOST_TREASURE_DATA = {
 -- Bleakrock Isle
 	[74] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4383, 0.4067, "treasuremap_bleakrock_001", 43699 }, -- Bleakrock Treasure Map I
-			{ 0.4264, 0.2201, "treasuremap_bleakrock_002", 43700 }, -- Bleakrock Treasure Map II
+			{ 0.4389, 0.4077, "treasuremap_bleakrock_001", 43699 }, -- Bleakrock Treasure Map I
+			{ 0.4264, 0.2203, "treasuremap_bleakrock_002", 43700 }, -- Bleakrock Treasure Map II
 			{ 0.4630, 0.6490, "treasuremap_ce_ebonheart_bleakrock_01a", 44931 }, -- Bleakrock CE Treasure Map
 		},
 	},
