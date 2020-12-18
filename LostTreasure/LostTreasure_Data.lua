@@ -102,12 +102,12 @@ local LOST_TREASURE_DATA = {
 -- Malabal Tor
 	[22] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2028, 0.4993, "treasuremap_malabaltor_01", 43643 }, -- Malabal Tor Treasure Map I
-			{ 0.0549, 0.4775, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
-			{ 0.5015, 0.6819, "treasuremap_malabaltor_03", 43645 }, -- Malabal Tor Treasure Map III
+			{ 0.2029, 0.4994, "treasuremap_malabaltor_01", 43643 }, -- Malabal Tor Treasure Map I
+			{ 0.0537, 0.4782, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
+			{ 0.5015, 0.6817, "treasuremap_malabaltor_03", 43645 }, -- Malabal Tor Treasure Map III
 			{ 0.6534, 0.7034, "treasuremap_malabaltor_04", 43646 }, -- Malabal Tor Treasure Map IV
-			{ 0.8000, 0.2860, "treasuremap_malabaltor_05", 43647 }, -- Malabal Tor Treasure Map V
-			{ 0.6627, 0.2306, "treasuremap_malabaltor_06", 43648 }, -- Malabal Tor Treasure Map VI
+			{ 0.7995, 0.2861, "treasuremap_malabaltor_05", 43647 }, -- Malabal Tor Treasure Map V
+			{ 0.6623, 0.2307, "treasuremap_malabaltor_06", 43648 }, -- Malabal Tor Treasure Map VI
 			{ 0.1238, 0.5252, "treasuremap_ce_aldmeri_malbator_05", 44940 }, -- Malabal Tor CE Treasure Map
 			{ 0.8250, 0.4460, "glenmoral_weapon_malabaltor_map", 153644 }, --Glenmoril Wyrd Treasure Map: Malabal Tor
 		},
@@ -123,7 +123,7 @@ local LOST_TREASURE_DATA = {
 	-- SubPin: Velynharbor
 	[275] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2089, 0.3581, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
+			{ 0.2078, 0.3602, "treasuremap_malabaltor_02", 43644 }, -- Malabal Tor Treasure Map II
 			{ 0.5132, 0.5649, "treasuremap_ce_aldmeri_malbator_05", 44940 }, -- Malabal Tor CE Treasure Map
 		},
 	},
