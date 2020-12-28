@@ -322,7 +322,7 @@ local LOST_TREASURE_DATA = {
 	[201] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.5458, 0.6406, "treasuremap_strosmkai_001", 43691 }, -- Stros M'Kai Treasure Map I
-			{ 0.0989, 0.6127, "treasuremap_strosmkai_002", 43692 }, -- Stros M'Kai Treasure Map II
+			{ 0.0980, 0.6130, "treasuremap_strosmkai_002", 43692 }, -- Stros M'Kai Treasure Map II
 			{ 0.7000, 0.3300, "treasuremap_ce_daggerfall_stros_01a", 44946 }, -- Stros M'Kai CE Treasure Map
 		},
 	},
