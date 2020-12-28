@@ -526,12 +526,12 @@ local LOST_TREASURE_DATA = {
 -- Craglorn
 	[1126] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2866, 0.6212, "treasuremap_craglorn_01", 43721 }, -- Craglorn Treasure Map I
-			{ 0.4188, 0.4750, "treasuremap_craglorn_02", 43722 }, -- Craglorn Treasure Map II
-			{ 0.7054, 0.5591, "treasuremap_craglorn_03", 43723 }, -- Craglorn Treasure Map III
-			{ 0.6555, 0.6712, "treasuremap_craglorn_04", 43724 }, -- Craglorn Treasure Map IV
+			{ 0.2862, 0.6207, "treasuremap_craglorn_01", 43721 }, -- Craglorn Treasure Map I
+			{ 0.4184, 0.4744, "treasuremap_craglorn_02", 43722 }, -- Craglorn Treasure Map II
+			{ 0.7046, 0.5591, "treasuremap_craglorn_03", 43723 }, -- Craglorn Treasure Map III
+			{ 0.6554, 0.6708, "treasuremap_craglorn_04", 43724 }, -- Craglorn Treasure Map IV
 			{ 0.5964, 0.3684, "treasuremap_craglorn_05", 43725 }, -- Craglorn Treasure Map V
-			{ 0.3605, 0.4486, "treasuremap_craglorn_06", 43726 }, -- Craglorn Treasure Map VI
+			{ 0.3603, 0.4482, "treasuremap_craglorn_06", 43726 }, -- Craglorn Treasure Map VI
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.6801, 0.3753, "craglorn1_survey_blacksmith", 57798 }, -- Blacksmith Survey: Craglorn I
