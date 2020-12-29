@@ -370,12 +370,12 @@ local LOST_TREASURE_DATA = {
 -- Stormhaven
 	[12] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2316, 0.5228, "treasuremap_stormhaven_001", 43601 }, -- Stormhaven Treasure Map I
+			{ 0.2313, 0.5227, "treasuremap_stormhaven_001", 43601 }, -- Stormhaven Treasure Map I
 			{ 0.2569, 0.3466, "treasuremap_stormhaven_002", 43602 }, -- Stormhaven Treasure Map II
-			{ 0.4027, 0.4735, "treasuremap_stormhaven_003", 43603 }, -- Stormhaven Treasure Map III
+			{ 0.4029, 0.4737, "treasuremap_stormhaven_003", 43603 }, -- Stormhaven Treasure Map III
 			{ 0.4194, 0.5927, "treasuremap_stormhaven_004", 43604 }, -- Stormhaven Treasure Map IV
-			{ 0.6903, 0.5011, "treasuremap_stormhaven_005", 43605 }, -- Stormhaven Treasure Map V
-			{ 0.7986, 0.5194, "treasuremap_stormhaven_006", 43606 }, -- Stormhaven Treasure Map VI
+			{ 0.6905, 0.5019, "treasuremap_stormhaven_005", 43605 }, -- Stormhaven Treasure Map V
+			{ 0.7986, 0.5197, "treasuremap_stormhaven_006", 43606 }, -- Stormhaven Treasure Map VI
 			{ 0.4750, 0.4470, "treasuremap_ce_daggerfall_stormhaven_03", 44945 }, -- Stormhaven CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
