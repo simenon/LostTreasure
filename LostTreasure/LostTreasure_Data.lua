@@ -268,11 +268,11 @@ local LOST_TREASURE_DATA = {
 -- Eastmarch
 	[61] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4410, 0.3740, "treasuremap_eastmarch_01", 43673 }, -- Eastmarch Treasure Map I
-			{ 0.3134, 0.4589, "treasuremap_eastmarch_02", 43674 }, -- Eastmarch Treasure Map II
+			{ 0.4413, 0.3742, "treasuremap_eastmarch_01", 43673 }, -- Eastmarch Treasure Map I
+			{ 0.3134, 0.4590, "treasuremap_eastmarch_02", 43674 }, -- Eastmarch Treasure Map II
 			{ 0.4300, 0.5918, "treasuremap_eastmarch_03", 43675 }, -- Eastmarch Treasure Map III
-			{ 0.3666, 0.5989, "treasuremap_eastmarch_04", 43676 }, -- Eastmarch Treasure Map IV
-			{ 0.7369, 0.6603, "treasuremap_eastmarch_05", 43677 }, -- Eastmarch Treasure Map V
+			{ 0.3667, 0.5990, "treasuremap_eastmarch_04", 43676 }, -- Eastmarch Treasure Map IV
+			{ 0.7375, 0.6607, "treasuremap_eastmarch_05", 43677 }, -- Eastmarch Treasure Map V
 			{ 0.6059, 0.5391, "treasuremap_eastmarch_06", 43678 }, -- Eastmarch Treasure Map VI
 			{ 0.7136, 0.5833, "treasuremap_ce_ebonheart_eastmarch_05", 44935 }, -- Eastmarch CE Treasure Map
 			{ 0.4310, 0.5870, "glenmoral_weapon_eastmarch_map", 153643 }, -- Glenmoril Wyrd Treasure Map: Eastmarch
