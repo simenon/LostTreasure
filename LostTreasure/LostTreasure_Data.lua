@@ -1,3 +1,5 @@
+local LostTreasure = LostTreasure
+
 --[[
 How to get subZone pins:
 
@@ -8,7 +10,7 @@ Then swap to subZone and use this command
 /script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
 ]]
 
-local LOST_TREASURE_DATA = {
+LostTreasure.LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -268,11 +270,11 @@ local LOST_TREASURE_DATA = {
 -- Eastmarch
 	[61] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4410, 0.3740, "treasuremap_eastmarch_01", 43673 }, -- Eastmarch Treasure Map I
-			{ 0.3134, 0.4589, "treasuremap_eastmarch_02", 43674 }, -- Eastmarch Treasure Map II
+			{ 0.4413, 0.3742, "treasuremap_eastmarch_01", 43673 }, -- Eastmarch Treasure Map I
+			{ 0.3134, 0.4590, "treasuremap_eastmarch_02", 43674 }, -- Eastmarch Treasure Map II
 			{ 0.4300, 0.5918, "treasuremap_eastmarch_03", 43675 }, -- Eastmarch Treasure Map III
-			{ 0.3666, 0.5989, "treasuremap_eastmarch_04", 43676 }, -- Eastmarch Treasure Map IV
-			{ 0.7369, 0.6603, "treasuremap_eastmarch_05", 43677 }, -- Eastmarch Treasure Map V
+			{ 0.3667, 0.5990, "treasuremap_eastmarch_04", 43676 }, -- Eastmarch Treasure Map IV
+			{ 0.7375, 0.6607, "treasuremap_eastmarch_05", 43677 }, -- Eastmarch Treasure Map V
 			{ 0.6059, 0.5391, "treasuremap_eastmarch_06", 43678 }, -- Eastmarch Treasure Map VI
 			{ 0.7136, 0.5833, "treasuremap_ce_ebonheart_eastmarch_05", 44935 }, -- Eastmarch CE Treasure Map
 			{ 0.4310, 0.5870, "glenmoral_weapon_eastmarch_map", 153643 }, -- Glenmoril Wyrd Treasure Map: Eastmarch
@@ -322,7 +324,7 @@ local LOST_TREASURE_DATA = {
 	[201] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.5458, 0.6406, "treasuremap_strosmkai_001", 43691 }, -- Stros M'Kai Treasure Map I
-			{ 0.0989, 0.6127, "treasuremap_strosmkai_002", 43692 }, -- Stros M'Kai Treasure Map II
+			{ 0.0980, 0.6130, "treasuremap_strosmkai_002", 43692 }, -- Stros M'Kai Treasure Map II
 			{ 0.7000, 0.3300, "treasuremap_ce_daggerfall_stros_01a", 44946 }, -- Stros M'Kai CE Treasure Map
 		},
 	},
@@ -370,12 +372,12 @@ local LOST_TREASURE_DATA = {
 -- Stormhaven
 	[12] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2316, 0.5228, "treasuremap_stormhaven_001", 43601 }, -- Stormhaven Treasure Map I
+			{ 0.2313, 0.5227, "treasuremap_stormhaven_001", 43601 }, -- Stormhaven Treasure Map I
 			{ 0.2569, 0.3466, "treasuremap_stormhaven_002", 43602 }, -- Stormhaven Treasure Map II
-			{ 0.4027, 0.4735, "treasuremap_stormhaven_003", 43603 }, -- Stormhaven Treasure Map III
+			{ 0.4029, 0.4737, "treasuremap_stormhaven_003", 43603 }, -- Stormhaven Treasure Map III
 			{ 0.4194, 0.5927, "treasuremap_stormhaven_004", 43604 }, -- Stormhaven Treasure Map IV
-			{ 0.6903, 0.5011, "treasuremap_stormhaven_005", 43605 }, -- Stormhaven Treasure Map V
-			{ 0.7986, 0.5194, "treasuremap_stormhaven_006", 43606 }, -- Stormhaven Treasure Map VI
+			{ 0.6905, 0.5019, "treasuremap_stormhaven_005", 43605 }, -- Stormhaven Treasure Map V
+			{ 0.7986, 0.5197, "treasuremap_stormhaven_006", 43606 }, -- Stormhaven Treasure Map VI
 			{ 0.4750, 0.4470, "treasuremap_ce_daggerfall_stormhaven_03", 44945 }, -- Stormhaven CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
@@ -526,12 +528,12 @@ local LOST_TREASURE_DATA = {
 -- Craglorn
 	[1126] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2866, 0.6212, "treasuremap_craglorn_01", 43721 }, -- Craglorn Treasure Map I
-			{ 0.4188, 0.4750, "treasuremap_craglorn_02", 43722 }, -- Craglorn Treasure Map II
-			{ 0.7054, 0.5591, "treasuremap_craglorn_03", 43723 }, -- Craglorn Treasure Map III
-			{ 0.6555, 0.6712, "treasuremap_craglorn_04", 43724 }, -- Craglorn Treasure Map IV
+			{ 0.2862, 0.6207, "treasuremap_craglorn_01", 43721 }, -- Craglorn Treasure Map I
+			{ 0.4184, 0.4744, "treasuremap_craglorn_02", 43722 }, -- Craglorn Treasure Map II
+			{ 0.7046, 0.5591, "treasuremap_craglorn_03", 43723 }, -- Craglorn Treasure Map III
+			{ 0.6554, 0.6708, "treasuremap_craglorn_04", 43724 }, -- Craglorn Treasure Map IV
 			{ 0.5964, 0.3684, "treasuremap_craglorn_05", 43725 }, -- Craglorn Treasure Map V
-			{ 0.3605, 0.4486, "treasuremap_craglorn_06", 43726 }, -- Craglorn Treasure Map VI
+			{ 0.3603, 0.4482, "treasuremap_craglorn_06", 43726 }, -- Craglorn Treasure Map VI
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.6801, 0.3753, "craglorn1_survey_blacksmith", 57798 }, -- Blacksmith Survey: Craglorn I
@@ -737,7 +739,7 @@ local LOST_TREASURE_DATA = {
 	},
 }
 
-local LOST_TREASURE_BOOKID_TO_ITEMID =
+LostTreasure.LOST_TREASURE_BOOKID_TO_ITEMID =
 {
 	[5116] = 139408, -- Jewelry Crafting Survey: Stormhaven
 	[5124] = 139422, -- Jewelry Crafting Survey: Auridon
@@ -777,7 +779,7 @@ local function GetItemIdsByPinType(pinType)
 
 	itemIdCache[pinType] = { }
 
-	for subZoneData, pinTypeData in pairs(LOST_TREASURE_DATA) do
+	for subZoneData, pinTypeData in pairs(LostTreasure.LOST_TREASURE_DATA) do
 		for _pinType, _pinData in pairs(pinTypeData) do
 			if _pinType == pinType then
 				for _, _pinTypeData in ipairs(_pinData) do
@@ -790,21 +792,18 @@ local function GetItemIdsByPinType(pinType)
 	return itemIdCache[pinType]
 end
 
-
--- API
-------
-function LostTreasure_GetAllData()
-	return LOST_TREASURE_DATA
+function LostTreasure:GetAllData()
+	return self.LOST_TREASURE_DATA
 end
 
-function LostTreasure_GetItemIdsByPinType(pinType)
+function LostTreasure:GetItemIdsByPinType(pinType)
 	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetItemIdsByPinType(pinType) or nil
 end
 
-function LostTreasure_GetZoneData(mapId)
-	return LOST_TREASURE_DATA[mapId]
+function LostTreasure:GetZoneData(mapId)
+	return self.LOST_TREASURE_DATA[mapId]
 end
 
-function LostTreasure_GetBookItemId(bookId)
-	return LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
+function LostTreasure:GetBookItemId(bookId)
+	return self.LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
 end

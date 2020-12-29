@@ -1,4 +1,13 @@
+local LostTreasure = LostTreasure
+LostTreasure.settings = { }
+
 local LibAddonMenu = LibAddonMenu2
+
+local function AddSetting(data)
+	table.insert(LostTreasure.settings, data)
+end
+
+local ONLY_MAP_PINS = true
 
 local MARK_OPTIONS_VALUE = {
 	LOST_TREASURE_MARK_OPTIONS_USING,
@@ -6,7 +15,7 @@ local MARK_OPTIONS_VALUE = {
 	LOST_TREASURE_MARK_OPTIONS_ALL,
 }
 
-local OPTIONS_TEXTURE_PATHS = {
+LostTreasure.OPTIONS_TEXTURE_PATHS = {
 	"LostTreasure/Icons/x_red.dds",
 	"LostTreasure/Icons/x_black.dds",
 	"LostTreasure/Icons/map_black.dds",
@@ -27,50 +36,21 @@ local OPTIONS_TEXTURE_PATHS = {
 local function UpdateMarkOptions(pinType, data)
 	for pinTypeShowSetting, _ in ipairs(MARK_OPTIONS_VALUE) do
 		if pinTypeShowSetting == data then
-			LostTreasure_RefreshAllPinsFromPinType(pinType)
+			LostTreasure:RefreshAllPinsFromPinType(pinType)
 			break
 		end
 	end
 end
 
+function LostTreasure:InitializeSettingsMenu()
 
-
-LostTreasure_Settings = ZO_Object:Subclass()
-
-local ONLY_MAP_PINS = true
-
-function LostTreasure_Settings:New(...)
-	local object = ZO_Object.New(self)
-	object:Initialize(...)
-	return object
-end
-
-function LostTreasure_Settings:Initialize(name, displayName, version, author, website, feedback)
-	self.name = name
-	self.displayName = displayName
-	self.version = version
-	self.author = author
-	self.website = website
-	self.feedback = feedback
-
-	self.settings = { }
-	self:AddSettingsMenu()
-end
-
-
-function LostTreasure_Settings:AddSetting(data)
-	table.insert(self.settings, data)
-end
-
-function LostTreasure_Settings:AddSettingsMenu()
-
-	local savedVars = LostTreasure_GetSavedVarsSettings()
-	local defaults = LostTreasure_GetDefaultSettings()
+	local savedVars = self.savedVars
+	local defaults = self.DEFAULTS
 
 	local panelData = {
 		type = "panel",
-		name = self.name,
-		displayName = self.displayName,
+		name = self.addOnName,
+		displayName = self.addOnDisplayName,
 		author = self.author,
 		version = tostring(self.version),
 		website = self.website,
@@ -79,14 +59,14 @@ function LostTreasure_Settings:AddSettingsMenu()
 		registerForDefaults = true,
 	}
 
-	self:AddSetting(savedVars:GetLibAddonMenuAccountCheckbox())
+	AddSetting(savedVars:GetLibAddonMenuAccountCheckbox())
 
 	for pinType, settings in ipairs(savedVars.pinTypes) do
-		self:AddSetting {
+		AddSetting {
 			type = "header",
 			name = LOST_TREASURE_PIN_TYPE_DATA[pinType].name,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "checkbox",
 			name = SI_LOST_TREASURE_SHOW_ON_MAP,
 			tooltip = SI_LOST_TREASURE_SHOW_ON_MAP_TT,
@@ -95,11 +75,11 @@ function LostTreasure_Settings:AddSettingsMenu()
 			end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].showOnMap = value
-				LostTreasure_SetMapPinState(pinType, value)
+				self:SetMapPinState(pinType, value)
 			end,
 			default = defaults.pinTypes[pinType].showOnMap,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "checkbox",
 			name = SI_LOST_TREASURE_SHOW_ON_COMPASS,
 			tooltip = SI_LOST_TREASURE_SHOW_ON_COMPASS_TT,
@@ -108,26 +88,26 @@ function LostTreasure_Settings:AddSettingsMenu()
 			end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].showOnCompass = value
-				LostTreasure_RefreshCompassPinsFromPinType(pinType)
+				self:RefreshCompassPinsFromPinType(pinType)
 			end,
 			default = defaults.pinTypes[pinType].showOnCompass,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "iconpicker",
 			name = SI_LOST_TREASURE_PIN_ICON,
 			tooltip = SI_LOST_TREASURE_PIN_ICON_TT,
-			choices = OPTIONS_TEXTURE_PATHS,
+			choices = self.OPTIONS_TEXTURE_PATHS,
 			getFunc = function() return savedVars.pinTypes[pinType].texture end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].texture = value
-				LostTreasure_SetLayoutKey(pinType, "texture", value)
-				LostTreasure_SetCompassPinTypeTexture(pinType, value)
-				LostTreasure_RefreshAllPinsFromPinType(pinType)
+				self:SetLayoutKey(pinType, "texture", value)
+				self:SetCompassPinTypeTexture(pinType, value)
+				self:RefreshAllPinsFromPinType(pinType)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
 			default = defaults.pinTypes[pinType].texture,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "slider",
 			name = SI_LOST_TREASURE_PIN_SIZE,
 			tooltip = SI_LOST_TREASURE_PIN_SIZE_TT,
@@ -140,13 +120,13 @@ function LostTreasure_Settings:AddSettingsMenu()
 			getFunc = function() return savedVars.pinTypes[pinType].size end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].size = value
-				LostTreasure_SetLayoutKey(pinType, "size", value)
-				LostTreasure_RefreshAllPinsFromPinType(pinType)
+				self:SetLayoutKey(pinType, "size", value)
+				LostTreasure:RefreshAllPinsFromPinType(pinType)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap end,
 			default = defaults.pinTypes[pinType].size,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "dropdown",
 			name = SI_LOST_TREASURE_MARK_OPTION,
 			tooltip = SI_LOST_TREASURE_MARK_OPTION_TT,
@@ -164,7 +144,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap and not savedVars.pinTypes[pinType].showOnCompass end,
 			default = defaults.pinTypes[pinType].markOption,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "slider",
 			name = SI_LOST_TREASURE_PIN_LEVEL,
 			tooltip = SI_LOST_TREASURE_PIN_LEVEL_TT,
@@ -176,13 +156,13 @@ function LostTreasure_Settings:AddSettingsMenu()
 			getFunc = function() return savedVars.pinTypes[pinType].pinLevel end,
 			setFunc = function(value)
 				savedVars.pinTypes[pinType].pinLevel = value
-				LostTreasure_SetLayoutKey(pinType, "level", value)
-				LostTreasure_RefreshAllPinsFromPinType(pinType, ONLY_MAP_PINS)
+				self:SetLayoutKey(pinType, "level", value)
+				self:RefreshAllPinsFromPinType(pinType, ONLY_MAP_PINS)
 			end,
 			disabled = function() return not savedVars.pinTypes[pinType].showOnMap end,
 			default = defaults.pinTypes[pinType].pinLevel,
 		}
-		self:AddSetting {
+		AddSetting {
 			type = "slider",
 			name = SI_LOST_TREASURE_MARKER_DELAY,
 			tooltip = SI_LOST_TREASURE_MARKER_DELAY_TT,
@@ -200,11 +180,11 @@ function LostTreasure_Settings:AddSettingsMenu()
 		}
 	end
 
-	self:AddSetting {
+	AddSetting {
 		type = "header",
 		name = SI_LOST_TREASURE_SHOW_MINIMAP_HEADER,
 	}
-	self:AddSetting {
+	AddSetting {
 		type = "checkbox",
 		name = SI_LOST_TREASURE_SHOW_MINIMAP,
 		tooltip = SI_LOST_TREASURE_SHOW_MINIMAP_TT,
@@ -212,7 +192,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 		setFunc = function(value) savedVars.miniMap.enabled = value end,
 		default = defaults.miniMap.enabled,
 	}
-	self:AddSetting {
+	AddSetting {
 		type = "dropdown",
 		name = SI_LOST_TREASURE_SHOW_MINIMAP_SIZE,
 		choices = { GetString(SI_GUILDSIZEATTRIBUTEVALUE1), GetString(SI_GUILDSIZEATTRIBUTEVALUE2), GetString(SI_GUILDSIZEATTRIBUTEVALUE3), GetString(SI_GUILDSIZEATTRIBUTEVALUE4) },
@@ -225,7 +205,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 		disabled = function() return not savedVars.miniMap.enabled end,
 		default = defaults.miniMap.size,
 	}
-	self:AddSetting {
+	AddSetting {
 		type = "slider",
 		name = SI_LOST_TREASURE_SHOW_MINIMAP_DELAY,
 		tooltip = SI_LOST_TREASURE_SHOW_MINIMAP_DELAY_TT,
@@ -241,7 +221,7 @@ function LostTreasure_Settings:AddSettingsMenu()
 		default = defaults.miniMap.deletionDelay,
 	}
 
-	local globalPanelName = self.name .. "LAMSettings"
+	local globalPanelName = self.addOnName .. "LAMSettings"
 	LibAddonMenu:RegisterAddonPanel(globalPanelName, panelData)
-	LibAddonMenu:RegisterOptionControls(globalPanelName, self.settings)
+	LibAddonMenu:RegisterOptionControls(globalPanelName, LostTreasure.settings)
 end

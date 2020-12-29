@@ -1,15 +1,5 @@
 local IDENTIFIER = "Notifications"
 
-local NOTIFICATION_ICON_PATH = 1
-local NOTIFICATION_X = 2
-local NOTIFICATION_Y = 3
-local NOTIFICATION_ZONE = 4
-local NOTIFICATION_MAP_ID = 5
-local NOTIFICATION_ITEM_ID = 6
-local NOTIFICATION_ITEM_NAME = 7
-local NOTIFICATION_TREASURE_MAP = 8
-local NOTIFICATION_ADDON_VERSION = 9
-
 -- BugReport
 ------------
 local URL_PATTERN_TITLE = 1
@@ -23,9 +13,9 @@ local URL_PATTERN =
 
 local BugReport = ZO_Object:Subclass()
 
-function BugReport:New(bugReportURL, debugLogger)
+function BugReport:New(bugReportURL, logger)
 	local object = ZO_Object.New(self)
-	object.logger = debugLogger:Create("BugReport")
+	object.logger = logger:Create("BugReport")
 	object.url = bugReportURL
 	object.pattern = URL_PATTERN
 	object:ResetOutput()
@@ -44,7 +34,9 @@ function BugReport:ReplaceSpecialCharacters(str)
 end
 
 function BugReport:GenerateURL(data)
-	local x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, version = select(2, unpack(data)) -- we have to cut out the iconTexture, because we have no need for
+	local itemId = data.itemId
+	local itemName = data.itemName
+	local version = data.addOnVersion
 
 	-- bugReport stringIds are defined in "en" file only
 	local output = { }
@@ -52,7 +44,7 @@ function BugReport:GenerateURL(data)
 	table.insert(output, self.pattern[URL_PATTERN_TITLE])
 	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE), version, itemId, itemName))
 	table.insert(output, self.pattern[URL_PATTERN_MESSAGE])
-	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), version, zone, mapId, x, y, lastOpenedTreasureMap, itemId, itemName))
+	table.insert(output, string.format(GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE), version, version, data.zone, data.mapId, data.x, data.y, data.lastOpenedTreasureMap, itemId, itemName))
 	self.output = self:ReplaceSpecialCharacters(table.concat(output))
 end
 
@@ -68,21 +60,15 @@ end
 
 -- LostTreasure_Notification
 ----------------------------
-LostTreasure_Notification = ZO_Object:Subclass()
+LostTreasure_Notification = ZO_InitializingObject:Subclass()
 
-function LostTreasure_Notification:New(...)
-	local object = ZO_Object.New(self)
-	object:Initialize(...)
-	return object
-end
-
-function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, savedVars, debugLogger, bugReportURL)
-	self.debugLogger = debugLogger:Create(IDENTIFIER)
+function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, savedVars, logger, bugReportURL)
+	self.logger = logger:Create(IDENTIFIER)
 
 	self.addOnDisplayName = addOnDisplayName
 	self.savedVars = savedVars
 	self.provider = LibNotifications:CreateProvider()
-	self.bugReport = BugReport:New(bugReportURL, debugLogger)
+	self.bugReport = BugReport:New(bugReportURL, logger)
 
 	local function OnPlayerActivated()
 		self:RestoreAllNotifications()
@@ -100,7 +86,7 @@ function LostTreasure_Notification:SaveAllNotifications()
 	local provider = self.provider
 	ZO_ClearTable(savedVars.notifications)
 	for _, layoutData in ipairs(provider.notifications) do
-		table.insert(savedVars.notifications, layoutData)
+		table.insert(savedVars.notifications, layoutData.data)
 	end
 	ZO_ClearTable(provider.notifications)
 end
@@ -108,7 +94,7 @@ end
 function LostTreasure_Notification:RestoreAllNotifications()
 	local savedVars = self.savedVars
 	for _, layoutData in ipairs(savedVars.notifications) do
-		self:NewNotification(unpack(layoutData.data))
+		self:NewNotification(layoutData)
 	end
 	ZO_ClearTable(savedVars.notifications)
 end
@@ -131,13 +117,13 @@ function LostTreasure_Notification:AddNotification(message)
 				break
 			end
 		end
-		self.debugLogger:Debug("Notification itemId already exist.")
+		self.logger:Debug("Notification itemId already exist.")
 	end
 
 	if addNotification then
 		table.insert(providerNotifications, message)
 		provider:UpdateNotifications()
-		self.debugLogger:Debug("Added new notification: %s", table.concat(message.data, ", "))
+		self.logger:Debug("Added new notification: %s", table.concat(message.data, ", "))
 	end
 end
 
@@ -151,7 +137,7 @@ function LostTreasure_Notification:Decline(data)
 	self:RemoveNotification(data)
 end
 
-function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, zone, mapId, itemId, itemName, lastOpenedTreasureMap, addOnVersion)
+function LostTreasure_Notification:NewNotification(notificationData)
 	local message =
 	{
 		dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -159,25 +145,14 @@ function LostTreasure_Notification:NewNotification(notificationIconPath, x, y, z
 		note = GetString(SI_LOST_TREASURE_NOTIFICATION_NOTE),
 		message = GetString(SI_LOST_TREASURE_NOTIFICATION_MESSAGE),
 		heading = self.addOnDisplayName,
-		texture = notificationIconPath,
+		texture = notificationData.icon,
 		shortDisplayText = self.addOnDisplayName,
 		controlsOwnSounds = false,
 		keyboardAcceptCallback = function(data) self:Accept(data) end,
 		keyboardDeclineCallback = function(data) self:Decline(data) end,
 		gamepadAcceptCallback = function(data) self:Accept(data) end,
 		gamepadDeclineCallback = function(data) self:Decline(data) end,
-		data =
-		{
-			[NOTIFICATION_ICON_PATH] = notificationIconPath,
-			[NOTIFICATION_X] = x,
-			[NOTIFICATION_Y] = y,
-			[NOTIFICATION_ZONE] = zone,
-			[NOTIFICATION_MAP_ID] = mapId,
-			[NOTIFICATION_ITEM_ID] = itemId,
-			[NOTIFICATION_ITEM_NAME] = itemName,
-			[NOTIFICATION_TREASURE_MAP] = lastOpenedTreasureMap,
-			[NOTIFICATION_ADDON_VERSION] = addOnVersion,
-		}
+		data = notificationData
 	}
 	self:AddNotification(message)
 end

@@ -1,5 +1,6 @@
  -- only in english, because we gonna submit the report in english only
 local message = { }
+table.insert(message, "ARE YOU USING THE LATEST UPDATE OF LOST TREASURE?\nYour local version is %d, please compare it with the version number at ESOUI/Minion first before you submit the report!\n")
 table.insert(message, "*** DO NOT CHANGE THIS ***")
 table.insert(message, "AddOnVersion: %d")
 table.insert(message, "Zone: %s")
