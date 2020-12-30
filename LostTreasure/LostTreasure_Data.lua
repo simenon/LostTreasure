@@ -769,9 +769,9 @@ LostTreasure.LOST_TREASURE_BOOKID_TO_ITEMID =
 
 
 local itemIdCache = { }
-setmetatable(itemIdCache,{ __mode = "kv" })
+setmetatable(itemIdCache,{ __mode = "k" })
 
-local function GetItemIdsByPinType(pinType)
+local function GetPinTypeItemIds(pinType)
 	local itemIds = itemIdCache[pinType]
 	if itemIds then
 		return itemIds
@@ -796,11 +796,11 @@ function LostTreasure:GetAllData()
 	return self.LOST_TREASURE_DATA
 end
 
-function LostTreasure:GetItemIdsByPinType(pinType)
-	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetItemIdsByPinType(pinType) or nil
+function LostTreasure:GetPinTypeItemIds(pinType)
+	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetPinTypeItemIds(pinType) or nil
 end
 
-function LostTreasure:GetZoneData(mapId)
+function LostTreasure:GetMapIdData(mapId)
 	return self.LOST_TREASURE_DATA[mapId]
 end
 

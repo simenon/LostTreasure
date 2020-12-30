@@ -215,7 +215,7 @@ end
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
 		-- Check for exisiting items in LostTreasure_Data.
-		local itemIds = self:GetItemIdsByPinType(pinType)
+		local itemIds = self:GetPinTypeItemIds(pinType)
 		if itemIds and itemIds[itemId] then
 			self.logger:Info("Item %d has been found in database.", itemId)
 			return -- item has been found, no need to continue
@@ -285,7 +285,7 @@ function LostTreasure:CheckZoneData(pinType, key)
 	-- The refresh happens while opening the map manually anyways.
 	local mapId = GetCurrentMapId()
 
-	local data = LostTreasure:GetZoneData(mapId)
+	local data = LostTreasure:GetMapIdData(mapId)
 	if data then
 		local zonePins = data[pinType]
 		if zonePins then
