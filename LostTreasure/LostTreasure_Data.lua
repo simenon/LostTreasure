@@ -422,11 +422,11 @@ LostTreasure.LOST_TREASURE_DATA = {
 			{ 0.3827, 0.6997, "treasuremap_alikr_001", 43613 }, -- Alik'r Treasure Map I
 			{ 0.1135, 0.5218, "treasuremap_alikr_002", 43614 }, -- Alik'r Treasure Map II
 			{ 0.6292, 0.6313, "treasuremap_alikr_003", 43615 }, -- Alik'r Treasure Map III
-			{ 0.5863, 0.2559, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
-			{ 0.7865, 0.5256, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
-			{ 0.7176, 0.4692, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
+			{ 0.5867, 0.2562, "treasuremap_alikr_004", 43616 }, -- Alik'r Treasure Map IV
+			{ 0.7881, 0.5260, "treasuremap_alikr_005", 43617 }, -- Alik'r Treasure Map V
+			{ 0.7205, 0.4691, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
 			{ 0.3246, 0.3679, "treasuremap_ce_daggerfall_alikr_05", 44926 }, -- Alik'r CE Treasure Map
-			{ 0.8540, 0.5560, "glenmoral_weapon_alikr_map", 153639 }, -- Glenmoril Wyrd Treasure Map: Alik'r
+			{ 0.8541, 0.5570, "glenmoral_weapon_alikr_map", 153639 }, -- Glenmoril Wyrd Treasure Map: Alik'r
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.6176, 0.6096, "alikr_survey_clothier", 57762 }, -- Clothier Survey: Alik'r
@@ -446,7 +446,7 @@ LostTreasure.LOST_TREASURE_DATA = {
 	-- SubPin: Kozanset
 	[538] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.2260, 0.5964, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
+			{ 0.2252, 0.5950, "treasuremap_alikr_06", 43618 }, -- Alik'r Treasure Map VI
 		},
 	},
 -- Bangkorai
