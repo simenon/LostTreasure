@@ -25,14 +25,14 @@ LostTreasure.LOST_TREASURE_DATA = {
 -- Auridon
 	[143] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4934, 0.8891, "treasuremap_auridon_01", 43625 }, -- Auridon Treasure Map I
-			{ 0.4850, 0.6411, "treasuremap_auridon_02", 43626 }, -- Auridon Treasure Map II
-			{ 0.4419, 0.5074, "treasuremap_auridon_03", 43627 }, -- Auridon Treasure Map III
+			{ 0.4931, 0.8888, "treasuremap_auridon_01", 43625 }, -- Auridon Treasure Map I
+			{ 0.4822, 0.6403, "treasuremap_auridon_02", 43626 }, -- Auridon Treasure Map II
+			{ 0.4392, 0.5035, "treasuremap_auridon_03", 43627 }, -- Auridon Treasure Map III
 			{ 0.6641, 0.4114, "treasuremap_auridon_04", 43628 }, -- Auridon Treasure Map IV
-			{ 0.5000, 0.2525, "treasuremap_auridon_05", 43629 }, -- Auridon Treasure Map V
+			{ 0.5002, 0.2530, "treasuremap_auridon_05", 43629 }, -- Auridon Treasure Map V
 			{ 0.3360, 0.1280, "treasuremap_auridon_06", 43630 }, -- Auridon Treasure Map VI
 			{ 0.6881, 0.9678, "treasuremap_ce_aldmeri_auridon_02", 44927 }, -- Auridon CE Treasure Map
-			{ 0.2000, 0.2180, "glenmoral_weapon_auridon_map", 153640 }, -- Glenmoril Wyrd Treasure Map: Auridon
+			{ 0.2003, 0.2180, "glenmoral_weapon_auridon_map", 153640 }, -- Glenmoril Wyrd Treasure Map: Auridon
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.4085, 0.7007, "auridon_survey_clothier", 57738 }, -- Clothier Survey: Auridon
