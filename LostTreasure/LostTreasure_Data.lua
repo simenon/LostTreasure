@@ -293,10 +293,10 @@ LostTreasure.LOST_TREASURE_DATA = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.7412, 0.3782, "treasuremap_therift_01", 43679 }, -- The Rift Treasure Map I
 			{ 0.4715, 0.4337, "treasuremap_therift_02", 43680 }, -- The Rift Treasure Map II
-			{ 0.2271, 0.3629, "treasuremap_therift_03", 43681 }, -- The Rift Treasure Map III
-			{ 0.4794, 0.5562, "treasuremap_therift_04", 43682 }, -- The Rift Treasure Map IV
-			{ 0.8386, 0.5718, "treasuremap_therift_05", 43683 }, -- The Rift Treasure Map V
-			{ 0.7511, 0.6392, "treasuremap_therift_06", 43684 }, -- The Rift Treasure Map VI
+			{ 0.2274, 0.3631, "treasuremap_therift_03", 43681 }, -- The Rift Treasure Map III
+			{ 0.4791, 0.5563, "treasuremap_therift_04", 43682 }, -- The Rift Treasure Map IV
+			{ 0.8385, 0.5716, "treasuremap_therift_05", 43683 }, -- The Rift Treasure Map V
+			{ 0.7514, 0.6394, "treasuremap_therift_06", 43684 }, -- The Rift Treasure Map VI
 			{ 0.5813, 0.6096, "treasuremap_ce_ebonheart_rift_06", 44947 }, -- The Rift CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
@@ -317,7 +317,7 @@ LostTreasure.LOST_TREASURE_DATA = {
 	-- SubPin: Nimalten
 	[543] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.4157, 0.3239, "treasuremap_therift_03", 43681 }, -- The Rift Treasure Map III
+			{ 0.4156, 0.3237, "treasuremap_therift_03", 43681 }, -- The Rift Treasure Map III
 		},
 	},
 -- Stros M'Kai
