@@ -7,10 +7,11 @@
 * Options to scale and select textures for map markers.
 * Compass pins drawn when you are close to Treasure Map or Survey Report locations.
 
-![screenshot](https://cdn-eso.mmoui.com/preview/pvw1692.png)
+![screenshot](https://cdn-eso.mmoui.com/preview/pvw9389.png)
 
 **Required Libraries:**
 
+Please install and activate all libraries as followed:
 [CustomCompassPins](https://www.esoui.com/downloads/info185-CustomCompassPins.html), 
 [LibAddonMenu-2.0](https://www.esoui.com/downloads/info7-LibAddonMenu.html), 
 [LibChatMessage](https://www.esoui.com/downloads/info2382-LibChatMessage.html), 
