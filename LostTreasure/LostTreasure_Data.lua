@@ -352,13 +352,13 @@ LostTreasure.LOST_TREASURE_DATA = {
 	[1] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.5265, 0.7618, "treasuremap_glenumbra_001", 43507 }, -- Glenumbra Treasure Map I
-			{ 0.4920, 0.4542, "treasuremap_glenumbra_002", 43525 }, -- Glenumbra Treasure Map II
+			{ 0.4922, 0.4541, "treasuremap_glenumbra_002", 43525 }, -- Glenumbra Treasure Map II
 			{ 0.6595, 0.2617, "treasuremap_glenumbra_003", 43527 }, -- Glenumbra Treasure Map III
 			{ 0.7337, 0.5285, "treasuremap_glenumbra_004", 43600 }, -- Glenumbra Treasure Map IV
-			{ 0.2752, 0.5285, "treasuremap_glenumbra_005", 43509 }, -- Glenumbra Treasure Map V
-			{ 0.5157, 0.2545, "treasuremap_glenumbra_006", 43526 }, -- Glenumbra Treasure Map VI
+			{ 0.2766, 0.5282, "treasuremap_glenumbra_005", 43509 }, -- Glenumbra Treasure Map V
+			{ 0.5154, 0.2558, "treasuremap_glenumbra_006", 43526 }, -- Glenumbra Treasure Map VI
 			{ 0.7030, 0.4668, "treasuremap_ce_daggerfall_glenumbra_02", 44936 }, -- Glenumbra CE Treasure Map
-			{ 0.6060, 0.2040, "glenmoral_weapon_daggerfall_map", 153642 }, --Glenmoril Wyrd Treasure Map: Daggerfall
+			{ 0.6070, 0.2047, "glenmoral_weapon_daggerfall_map", 153642 }, --Glenmoril Wyrd Treasure Map: Daggerfall
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.7158, 0.3056, "glenumbra_survey_enchanter", 57734 }, -- Enchanter Survey: Glenumbra
