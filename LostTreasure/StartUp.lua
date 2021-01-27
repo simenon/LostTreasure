@@ -39,6 +39,11 @@ LostTreasure.DEFAULTS =
 		deletionDelay = 4,
 	},
 	notifications = { },
+	mining =
+	{
+		APIVersion = 0,
+		APITimeStamp = 0,
+	},
 }
 
 local function GetAddOnInfos()

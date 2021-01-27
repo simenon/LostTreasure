@@ -1,5 +1,36 @@
 local IDENTIFIER = "Notifications"
 
+-- Mining
+------------
+local Mining = ZO_InitializingObject:Subclass()
+
+function Mining:Initialize(savedVars, logger)
+	self.logger = logger:Create("Mining")
+
+	local miningAPIVersion = savedVars.mining.APIVersion
+	local miningTimeStamp = savedVars.mining.APITimeStamp
+	local currentVersion = GetAPIVersion()
+	local currentTimeStamp = GetTimeStamp()
+	local differenceTimeStamp = GetDiffBetweenTimeStamps(currentTimeStamp, miningTimeStamp)
+	local isLessThanHalfAMonth = differenceTimeStamp < ZO_ONE_MONTH_IN_SECONDS / 2
+
+	self.isActive = false
+	if currentVersion > miningAPIVersion then
+		savedVars.mining.APIVersion = currentVersion
+		savedVars.mining.APITimeStamp = currentTimeStamp
+		self.isActive = true
+	elseif currentVersion == miningAPIVersion and isLessThanHalfAMonth then
+		self.isActive = true
+	end
+
+	self.logger:Info("Active: %s, isLessThanHalfAMonth: %s, differenceTimeStamp: %d, ", tostring(self.isActive), tostring(isLessThanHalfAMonth), differenceTimeStamp)
+end
+
+function Mining:IsActive()
+	return self.isActive
+end
+
+
 -- BugReport
 ------------
 local URL_PATTERN_TITLE = 1
@@ -68,7 +99,8 @@ function LostTreasure_Notification:Initialize(addOnName, addOnDisplayName, saved
 	self.addOnDisplayName = addOnDisplayName
 	self.savedVars = savedVars
 	self.provider = LibNotifications:CreateProvider()
-	self.bugReport = BugReport:New(bugReportURL, logger)
+	self.bugReport = BugReport:New(bugReportURL, self.logger)
+	self.mining = Mining:New(savedVars, self.logger)
 
 	local function OnPlayerActivated()
 		self:RestoreAllNotifications()
@@ -138,21 +170,23 @@ function LostTreasure_Notification:Decline(data)
 end
 
 function LostTreasure_Notification:NewNotification(notificationData)
-	local message =
-	{
-		dataType = NOTIFICATIONS_REQUEST_DATA,
-		secsSinceRequest = ZO_NormalizeSecondsSince(0),
-		note = GetString(SI_LOST_TREASURE_NOTIFICATION_NOTE),
-		message = GetString(SI_LOST_TREASURE_NOTIFICATION_MESSAGE),
-		heading = self.addOnDisplayName,
-		texture = notificationData.icon,
-		shortDisplayText = self.addOnDisplayName,
-		controlsOwnSounds = false,
-		keyboardAcceptCallback = function(data) self:Accept(data) end,
-		keyboardDeclineCallback = function(data) self:Decline(data) end,
-		gamepadAcceptCallback = function(data) self:Accept(data) end,
-		gamepadDeclineCallback = function(data) self:Decline(data) end,
-		data = notificationData
-	}
-	self:AddNotification(message)
+	if self.mining:IsActive() then
+		local message =
+		{
+			dataType = NOTIFICATIONS_REQUEST_DATA,
+			secsSinceRequest = ZO_NormalizeSecondsSince(0),
+			note = GetString(SI_LOST_TREASURE_NOTIFICATION_NOTE),
+			message = GetString(SI_LOST_TREASURE_NOTIFICATION_MESSAGE),
+			heading = self.addOnDisplayName,
+			texture = notificationData.icon,
+			shortDisplayText = self.addOnDisplayName,
+			controlsOwnSounds = false,
+			keyboardAcceptCallback = function(data) self:Accept(data) end,
+			keyboardDeclineCallback = function(data) self:Decline(data) end,
+			gamepadAcceptCallback = function(data) self:Accept(data) end,
+			gamepadDeclineCallback = function(data) self:Decline(data) end,
+			data = notificationData
+		}
+		self:AddNotification(message)
+	end
 end

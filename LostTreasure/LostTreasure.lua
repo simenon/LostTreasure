@@ -224,9 +224,8 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 		-- If no item has been found, we have to send a notification.
 		RequestRefreshMap() -- to properly take the map data, refresh the map first
 
-		local mapId = GetCurrentMapId()
-		local x, y, zone, subZone = self:GetPlayerPositionInfo()
-		local zoneName = zo_strformat("<<1>> (<<2>>)", zone, subZone)
+		local x, y, zone, subZone, mapId = self:GetPlayerPositionInfo()
+		local zoneName = zo_strformat(SI_ITEM_FORMAT_STR_TEXT1_TEXT2, zone, subZone)
 
 		self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.currentTreasureMapTextureName, interactionType, sceneName, itemLink)
 

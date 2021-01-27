@@ -25,7 +25,7 @@ end
 function LostTreasure:GetPlayerPositionInfo()
 	local x, y = GetMapPlayerPosition("player")
 	local zone, subZone = LibMapPins:GetZoneAndSubzone()
-	return x, y, zone, subZone
+	return x, y, zone, subZone, GetCurrentMapId()
 end
 
 function LostTreasure:IsMapPinEnabled(pinName)
