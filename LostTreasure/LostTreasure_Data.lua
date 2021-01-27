@@ -58,12 +58,12 @@ LostTreasure.LOST_TREASURE_DATA = {
 -- Grahtwood
 	[9] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.3951, 0.6750, "treasuremap_grahtwood_01", 43631 }, -- Grahtwood Treasure Map I
+			{ 0.3951, 0.6749, "treasuremap_grahtwood_01", 43631 }, -- Grahtwood Treasure Map I
 			{ 0.6496, 0.4778, "treasuremap_grahtwood_02", 43632 }, -- Grahtwood Treasure Map II
-			{ 0.6290, 0.3810, "treasuremap_grahtwood_03", 43633 }, -- Grahtwood Treasure Map III
-			{ 0.4735, 0.3407, "treasuremap_grahtwood_04", 43634 }, -- Grahtwood Treasure Map IV
+			{ 0.6292, 0.3811, "treasuremap_grahtwood_03", 43633 }, -- Grahtwood Treasure Map III
+			{ 0.4734, 0.3406, "treasuremap_grahtwood_04", 43634 }, -- Grahtwood Treasure Map IV
 			{ 0.3550, 0.3562, "treasuremap_grahtwood_05", 43635 }, -- Grahtwood Treasure Map V
-			{ 0.4696, 0.4718, "treasuremap_grahtwood_06", 43636 }, -- Grahtwood Treasure Map VI
+			{ 0.4699, 0.4724, "treasuremap_grahtwood_06", 43636 }, -- Grahtwood Treasure Map VI
 			{ 0.3128, 0.6006, "treasuremap_ce_aldmeri_grahtwood_03", 44937 }, -- Grahtwood CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
@@ -78,7 +78,7 @@ LostTreasure.LOST_TREASURE_DATA = {
 	-- SubPin: Eldenroot
 	[445] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.8820, 0.4106, "treasuremap_grahtwood_02", 43632 }, -- Grahtwood Treasure Map II
+			{ 0.8862, 0.4054, "treasuremap_grahtwood_02", 43632 }, -- Grahtwood Treasure Map II
 		},
 	},
 -- Greenshade
