@@ -560,11 +560,11 @@ LostTreasure.LOST_TREASURE_DATA = {
 	[667] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.4798, 0.7865, "treasuremap_orsinium_01", 43727 }, -- Orsinium Treasure Map I
-			{ 0.7647, 0.5651, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
-			{ 0.2724, 0.6782, "treasuremap_orsinium_03", 43729 }, -- Orsinium Treasure Map III
-			{ 0.4441, 0.4851, "treasuremap_orsinium_04", 43730 }, -- Orsinium Treasure Map IV
-			{ 0.7303, 0.3188, "treasuremap_orsinium_05", 43731 }, -- Orsinium Treasure Map V
-			{ 0.1850, 0.7600, "treasuremap_orsinium_06", 43732 }, -- Orsinium Treasure Map VI
+			{ 0.7650, 0.5648, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
+			{ 0.2727, 0.6781, "treasuremap_orsinium_03", 43729 }, -- Orsinium Treasure Map III
+			{ 0.4453, 0.4853, "treasuremap_orsinium_04", 43730 }, -- Orsinium Treasure Map IV
+			{ 0.7305, 0.3187, "treasuremap_orsinium_05", 43731 }, -- Orsinium Treasure Map V
+			{ 0.1852, 0.7586, "treasuremap_orsinium_06", 43732 }, -- Orsinium Treasure Map VI
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
 			{ 0.4616, 0.5894, "orsinium_survey_blacksmith_01", 71065 }, -- Blacksmith Survey: Wrothgar I
@@ -590,13 +590,13 @@ LostTreasure.LOST_TREASURE_DATA = {
 	-- SubPin: Orsinium
 	[895] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{ 0.8159, 0.1905, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
+			{ 0.8174, 0.1888, "treasuremap_orsinium_02", 43728 }, -- Orsinium Treasure Map II
 		},
 	},
 	-- SubPin: Morkul
 	[954] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
-			{-0.0675, 0.6872, "treasuremap_orsinium_04", 43730 }, -- Orsinium Treasure Map IV
+			{-0.0689, 0.6870, "treasuremap_orsinium_04", 43730 }, -- Orsinium Treasure Map IV
 		},
 	},
 -- Hew's Bane
