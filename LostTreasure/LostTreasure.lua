@@ -101,7 +101,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	local mapTextureName = self:GetTreasureMapTexturePathName(texturePath)
 	self.currentTreasureMapTextureName = mapTextureName
 
-	self.logger:Info("Treasure map opened. name: %s, texturePath: %s, mapTextureName: %s", name, texturePath, mapTextureName)
+	self.logger:Info("Treasure map opened. name: %s, texturePath: %s, mapTextureName: %s, treasureMapIndex: %d", name, texturePath, mapTextureName, treasureMapIndex)
 
 	self.mapControl:SetTexture(texturePath)
 	self:UpdateVisibility(not self.savedVars.miniMap.enabled)
@@ -124,6 +124,28 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 							end
 						end
 						break
+					end
+				end
+			end
+
+			-- Create pins from mined data
+			local minedZoneData = self.savedVars.mining.data[zone]
+			if minedZoneData then
+				local minedZonePins = minedZoneData[pinType]
+				if minedZonePins then
+					for index, pinData in ipairs(minedZonePins) do
+						if pinData[LOST_TREASURE_DATA_INDEX_TEXTURE] == mapTextureName then
+							local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
+							self.lastOpenedTreasureMapItemId = itemId
+							local markOption = self:GetPinTypeSettings(pinType, "markOption")
+							if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+								if not self:IsItemInMarkedOnUse(pinType, itemId) then
+									table.insert(self.listMarkOnUse[pinType], itemId)
+									LostTreasure:RefreshAllPinsFromPinType(pinType)
+								end
+							end
+							break
+						end
 					end
 				end
 			end
@@ -165,7 +187,7 @@ function LostTreasure:SlotAdded(bagId, slotIndex, newSlotData)
 			if pinData.specializedItemType == specializedItemType then
 				local markOption = self:GetPinTypeSettings(pinType, "markOption")
 				if markOption == LOST_TREASURE_MARK_OPTIONS_INVENTORY then
-					LostTreasure:RefreshAllPinsFromPinType(pinType)
+					self:RefreshAllPinsFromPinType(pinType)
 				end
 				break
 			end
@@ -211,7 +233,7 @@ function LostTreasure:SlotRemoved(bagId, slotIndex, oldSlotData)
 	end
 end
 
--- /script LOST_TREASURE:RequestReport(1, INTERACTION_NONE, SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP, 696969, "itemName", "itemLink", "hud")
+-- /script LOST_TREASURE:RequestReport(1, INTERACTION_NONE, SPECIALIZED_ITEMTYPE_TROPHY_TREASURE_MAP, 57764, "itemName", "itemLink", "hud")
 function LostTreasure:RequestReport(pinType, interactionType, specializedItemType, itemId, itemName, itemLink, sceneName)
 	if IsValidInteractionType(pinType, specializedItemType, interactionType, sceneName) then
 		-- Check for exisiting items in LostTreasure_Data.
@@ -241,6 +263,7 @@ function LostTreasure:RequestReport(pinType, interactionType, specializedItemTyp
 			itemName = itemName,
 			lastOpenedTreasureMap = self.currentTreasureMapTextureName,
 			addOnVersion = self.version,
+			pinType = pinType,
 		}
 		self.notifications:NewNotification(notificationData)
 	else
@@ -285,6 +308,36 @@ function LostTreasure:CheckZoneData(pinType, key)
 	local mapId = GetCurrentMapId()
 
 	local data = LostTreasure:GetMapIdData(mapId)
+	if data then
+		local zonePins = data[pinType]
+		if zonePins then
+			for _, pinData in ipairs(zonePins) do
+				local markOption = self:GetPinTypeSettings(pinType, "markOption")
+				if markOption ~= LOST_TREASURE_MARK_OPTIONS_ALL then
+					local itemId = pinData[LOST_TREASURE_DATA_INDEX_ITEMID]
+					if markOption == LOST_TREASURE_MARK_OPTIONS_USING then
+						if self:IsItemInMarkedOnUse(pinType, itemId) then
+							self:CreateNewPin(pinType, pinData, key)
+						end
+					else
+						if self.bagCache:IsItemInBagCache(itemId) then
+							self:CreateNewPin(pinType, pinData, key)
+						end
+					end
+				else
+					self:CreateNewPin(pinType, pinData, key)
+				end
+			end
+		end
+	end
+end
+
+function LostTreasure:CheckMinedData(pinType, key)
+	-- We don't use RequestRefreshMap here, because you can't zoom out the map anymore.
+	-- The refresh happens while opening the map manually anyways.
+	local mapId = GetCurrentMapId()
+
+	local data = self.savedVars.mining.data[mapId]
 	if data then
 		local zonePins = data[pinType]
 		if zonePins then

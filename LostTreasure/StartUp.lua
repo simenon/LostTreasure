@@ -43,6 +43,7 @@ LostTreasure.DEFAULTS =
 	{
 		APIVersion = 0,
 		APITimeStamp = 0,
+		data = { },
 	},
 }
 

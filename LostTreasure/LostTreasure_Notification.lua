@@ -5,29 +5,61 @@ local IDENTIFIER = "Notifications"
 local Mining = ZO_InitializingObject:Subclass()
 
 function Mining:Initialize(savedVars, logger)
+	self.savedVars = savedVars
 	self.logger = logger:Create("Mining")
 
-	local miningAPIVersion = savedVars.mining.APIVersion
-	local miningTimeStamp = savedVars.mining.APITimeStamp
 	local currentVersion = GetAPIVersion()
 	local currentTimeStamp = GetTimeStamp()
-	local differenceTimeStamp = GetDiffBetweenTimeStamps(currentTimeStamp, miningTimeStamp)
+	local differenceTimeStamp = GetDiffBetweenTimeStamps(currentTimeStamp, savedVars.mining.APITimeStamp)
 	local isLessThanHalfAMonth = differenceTimeStamp < ZO_ONE_MONTH_IN_SECONDS / 2
+	local savedAPIVersion = savedVars.mining.APIVersion
 
 	self.isActive = false
-	if currentVersion > miningAPIVersion then
-		savedVars.mining.APIVersion = currentVersion
-		savedVars.mining.APITimeStamp = currentTimeStamp
+	if currentVersion > savedAPIVersion then
+		self.savedVars.mining.APIVersion = currentVersion
+		self.savedVars.mining.APITimeStamp = currentTimeStamp
+		ZO_ClearTable(self.savedVars.mining.data)
 		self.isActive = true
-	elseif currentVersion == miningAPIVersion and isLessThanHalfAMonth then
+	elseif currentVersion == savedAPIVersion and isLessThanHalfAMonth then
 		self.isActive = true
 	end
 
-	self.logger:Info("Active: %s, isLessThanHalfAMonth: %s, differenceTimeStamp: %d, ", tostring(self.isActive), tostring(isLessThanHalfAMonth), differenceTimeStamp)
+	self.logger:Info("Mining is %s, isLessThanHalfAMonth: %s, differenceTimeStamp: %d, ", tostring(self.isActive) and "active" or "disabled", tostring(isLessThanHalfAMonth), differenceTimeStamp)
 end
 
 function Mining:IsActive()
 	return self.isActive
+end
+
+function Mining:StoreItem(newData)
+	local mapId = newData.mapId
+	local pinType = newData.pinType
+
+	self.savedVars.mining.data[mapId] = self.savedVars.mining.data[mapId] or { }
+	self.savedVars.mining.data[mapId][pinType] = self.savedVars.mining.data[mapId][pinType] or { }
+
+	table.insert(self.savedVars.mining.data[mapId][pinType], { newData.x, newData.y, newData.lastOpenedTreasureMap, newData.itemId })
+
+	self.logger:Debug("Item %s stored", newData.itemId)
+end
+
+function Mining:IsItemStored(newData)
+	local mapId = self.savedVars.mining.data[newData.mapId]
+	if mapId then
+		local pinTypeData = self.savedVars.mining.data[newData.mapId][newData.pinType]
+		if pinTypeData then
+			for _, data in ipairs(pinTypeData) do
+				local storedItemId = data[LOST_TREASURE_DATA_INDEX_ITEMID]
+				local newItemId = newData.itemId
+				if storedItemId == newItemId then
+					self.logger:Debug("Item %d is stored already", newItemId)
+					return true
+				end
+			end
+		end
+	end
+	self.logger:Debug("Item %d is new", newData.itemId)
+	return false
 end
 
 
@@ -144,7 +176,7 @@ function LostTreasure_Notification:AddNotification(message)
 	local addNotification = true
 	if next(providerNotifications) then
 		for index, layoutData in ipairs(providerNotifications) do
-			if layoutData.data[NOTIFICATION_ITEM_ID] == message.data[NOTIFICATION_ITEM_ID] then
+			if layoutData.data.itemId == message.data.itemId then
 				addNotification = false
 				break
 			end
@@ -170,7 +202,7 @@ function LostTreasure_Notification:Decline(data)
 end
 
 function LostTreasure_Notification:NewNotification(notificationData)
-	if self.mining:IsActive() then
+	if self.mining:IsActive() and not self.mining:IsItemStored(notificationData) then
 		local message =
 		{
 			dataType = NOTIFICATIONS_REQUEST_DATA,
@@ -188,5 +220,8 @@ function LostTreasure_Notification:NewNotification(notificationData)
 			data = notificationData
 		}
 		self:AddNotification(message)
+
+		-- Save item data to prevent reporting an item multiple times
+		self.mining:StoreItem(notificationData)
 	end
 end

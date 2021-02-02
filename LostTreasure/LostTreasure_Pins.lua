@@ -155,12 +155,14 @@ function LostTreasure:InitializePins()
 	local function PinTypeAddCallback(pinType, pinName)
 		if IsValidMapType() and LostTreasure:IsMapPinEnabled(pinName) then
 			self:CheckZoneData(pinType, LOST_TREASURE_PIN_KEY_MAP)
+			self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_MAP)
 		end
 	end
 
 	local function PinCallback(pinType)
 		if IsValidMapType() and self:GetPinTypeSettings(pinType, "showOnCompass") then
 			self:CheckZoneData(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
+			self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
 		end
 	end
 
