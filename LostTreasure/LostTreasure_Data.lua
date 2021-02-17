@@ -212,11 +212,11 @@ LostTreasure.LOST_TREASURE_DATA = {
 	[13] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
 			{ 0.2599, 0.5507, "treasuremap_deshaan_001", 43661 }, -- Deshaan Treasure Map I
-			{ 0.1840, 0.4724, "treasuremap_deshaan_002", 43662 }, -- Deshaan Treasure Map II
+			{ 0.1845, 0.4724, "treasuremap_deshaan_002", 43662 }, -- Deshaan Treasure Map II
 			{ 0.4631, 0.4056, "treasuremap_deshaan_003", 43663 }, -- Deshaan Treasure Map III
-			{ 0.7589, 0.5615, "treasuremap_deshaan_004", 43664 }, -- Deshaan Treasure Map IV
+			{ 0.7592, 0.5618, "treasuremap_deshaan_004", 43664 }, -- Deshaan Treasure Map IV
 			{ 0.8996, 0.5498, "treasuremap_deshaan_005", 43665 }, -- Deshaan Treasure Map V
-			{ 0.7929, 0.5094, "treasuremap_deshaan_006", 43666 }, -- Deshaan Treasure Map VI
+			{ 0.7932, 0.5098, "treasuremap_deshaan_006", 43666 }, -- Deshaan Treasure Map VI
 			{ 0.3529, 0.6400, "treasuremap_ce_ebonheart_deshaan_03", 44934 }, -- Deshaan CE Treasure Map
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
