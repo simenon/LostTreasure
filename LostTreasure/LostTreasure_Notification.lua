@@ -14,17 +14,24 @@ function Mining:Initialize(savedVars, logger)
 	local isLessThanHalfAMonth = differenceTimeStamp < ZO_ONE_MONTH_IN_SECONDS / 2
 	local savedAPIVersion = savedVars.mining.APIVersion
 
+	local currentAddOnVersion = LOST_TREASURE.version
+	if savedVars.mining.AddOnVersion == nil then
+		savedVars.mining.AddOnVersion = currentAddOnVersion
+	end
+	local savedAddOnVersion = savedVars.mining.AddOnVersion
+
 	self.isActive = false
-	if currentVersion > savedAPIVersion then
+	if currentVersion > savedAPIVersion or currentAddOnVersion > savedAddOnVersion then
 		self.savedVars.mining.APIVersion = currentVersion
 		self.savedVars.mining.APITimeStamp = currentTimeStamp
+		savedVars.mining.AddOnVersion = currentAddOnVersion
 		ZO_ClearTable(self.savedVars.mining.data)
 		self.isActive = true
 	elseif currentVersion == savedAPIVersion and isLessThanHalfAMonth then
 		self.isActive = true
 	end
 
-	self.logger:Info("Mining is %s, isLessThanHalfAMonth: %s, differenceTimeStamp: %d, ", tostring(self.isActive) and "active" or "disabled", tostring(isLessThanHalfAMonth), differenceTimeStamp)
+	self.logger:Info("Mining is %s, isLessThanHalfAMonth: %s, differenceTimeStamp: %d, currentAddOnVersion: %d, savedAddOnVersion: %d", tostring(self.isActive) and "active" or "disabled", tostring(isLessThanHalfAMonth), differenceTimeStamp, currentAddOnVersion, savedAddOnVersion)
 end
 
 function Mining:IsActive()

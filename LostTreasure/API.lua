@@ -1,4 +1,4 @@
-local LostTreasure = LostTreasure
+local LostTreasure = LOST_TREASURE
 
 ----------------------------------------------
 -- Please feel free to ask for more functions,
