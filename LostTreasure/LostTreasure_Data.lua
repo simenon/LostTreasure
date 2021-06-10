@@ -737,6 +737,28 @@ LostTreasure.LOST_TREASURE_DATA = {
 			{ 0.3866, 0.6818, "treasuremap_markarth_01", 171474 }, -- The Reach Treasure Map
 		},
 	},
+-- Blackwood
+	[1887] = {
+		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
+			{ 0.7649, 0.8541, "treasuremap_blackwood_08", 175544 }, -- Blackwood CE Treasure Map I
+			{ 0.6518, 0.4278, "treasuremap_blackwood_09", 175545 }, -- Blackwood CE Treasure Map II
+			{ 0.3182, 0.3547, "treasuremap_blackwood_08", 175546 }, -- Blackwood CE Treasure Map III
+			{ 0.3111, 0.6475, "treasuremap_blackwood_02", 175547 }, -- Blackwood Treasure Map I
+			{ 0.1493, 0.4411, "treasuremap_blackwood_03", 175548 }, -- Blackwood Treasure Map II
+			{ 0.8225, 0.7669, "treasuremap_blackwood_04", 175549 }, -- Blackwood Treasure Map III
+			{ 0.5549, 0.1495, "treasuremap_blackwood_05", 175550 }, -- Blackwood Treasure Map IV
+			{ 0.5276, 0.7004, "treasuremap_blackwood_06", 175551 }, -- Blackwood Treasure Map V
+			{ 0.3893, 0.1024, "treasuremap_blackwood_07", 175552 }, -- Blackwood Treasure Map VI
+		},
+		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
+			{ 0.5174, 0.6547, "blackwood_survey_blacksmith", 178464 }, -- Blacksmith Survey: Blackwood
+			{ 0.3716, 0.1853, "blackwood_survey_woodworker", 178465 }, -- Woodworker Survey: Blackwood
+			{ 0.7330, 0.5589, "blackwood_survey_jewelrycrafting", 178466 }, -- Jewelry Crafting Survey: Blackwood
+			{ 0.4515, 0.4494, "blackwood_survey_clothier", 178467 }, -- Clothier Survey: Blackwood
+			{ 0.5686, 0.1545, "blackwood_survey_enchanter", 178468 }, -- Enchanter Survey: Blackwood
+			{ 0.7333, 0.8096, "blackwood_survey_alchemist", 178469 }, -- Alchemist Survey: Blackwood
+		},
+	},
 }
 
 LostTreasure.LOST_TREASURE_BOOKID_TO_ITEMID =
