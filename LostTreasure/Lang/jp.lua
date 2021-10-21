@@ -41,8 +41,8 @@ local strings = {
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY = "非表示までの待機時間",
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY_TT = "宝の地図や調査報告でアイテムを獲得した後、ミニ宝地図を非表示にするまでの待機時間［秒］",
 
-	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "新しい未知のデータが見つかりました。",
-	SI_LOST_TREASURE_NOTIFICATION_NOTE = "この通知を受け入れて、新しい未知の宝の地図／クラフトの調査報告のデータを共有してください。 このバグレポートを作成するには、ESOUI.com のアカウントが必要です。",
+	-- SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "新しい未知のデータが見つかりました。", -- not supported
+	-- SI_LOST_TREASURE_NOTIFICATION_NOTE = "", -- not supported
 }
 
 SafeStrings(strings)

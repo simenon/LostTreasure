@@ -6,24 +6,29 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: The one and only true treasure map and survey report locator. All others are just copies.
-## Version: 17
-## AddOnVersion: 17
+## Version: 20
+## AddOnVersion: 20
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
-## APIVersion: 100033 100034
-## SavedVariables: LostTreasure_Account LostTreasure_Character
-## DependsOn: LibAddonMenu-2.0>=31 LibMapPins-1.0>=10029 CustomCompassPins>=31 LibChatMessage>=100 LibDebugLogger>=196 LibSavedVars>=60004 LibNotification>=10
+## APIVersion: 101031 101032
+## SavedVariables: LostTreasure_Account LostTreasure_Character LostTreasure_GlobalCoordinates
+## DependsOn: LibAddonMenu-2.0>=32 LibMapPins-1.0>=10034 CustomCompassPins>=32 LibChatMessage>=105 LibDebugLogger>=217 LibSavedVars>=60006 LibNotification>=10
+## OptionalDependsOn: LibGPS
 
-Lang\en.lua
-Lang\$(language).lua
+lang\en.lua
+lang\$(language).lua
 
 StartUp.lua
+internal\Utilities.lua
+internal\Data.lua
+internal\BugReport.lua
+internal\SavedVars.lua
+internal\MarkOnUsing.lua
+internal\Settings.lua
+internal\ItemCache.lua
+internal\Pins.lua
+internal\Notifications.lua
+internal\Mining.lua
 
-LostTreasure_Data.lua
-LostTreasure_BagCache.lua
-LostTreasure_Settings.lua
-LostTreasure_Notification.lua
-LostTreasure_Pins.lua
 LostTreasure.lua
 LostTreasure.xml
-
 API.lua

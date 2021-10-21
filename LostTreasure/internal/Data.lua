@@ -1,4 +1,10 @@
-local LostTreasure = LostTreasure
+local LostTreasure = LOST_TREASURE
+
+local internal = LostTreasure.internal
+local logger = LostTreasure.logger:Create("data")
+
+local data = { }
+internal.data = data
 
 --[[
 How to get subZone pins:
@@ -10,7 +16,12 @@ Then swap to subZone and use this command
 /script d(string.format("mapId %d, mapName %s, X %.4f, Y %.4f", GetCurrentMapId(), GetMapName(), GetMapPlayerWaypoint()))
 ]]
 
-LostTreasure.LOST_TREASURE_DATA = {
+local LOST_TREASURE_DATA_INDEX_X = 1
+local LOST_TREASURE_DATA_INDEX_Y = 2
+local LOST_TREASURE_DATA_INDEX_TEXTURE = 3
+local LOST_TREASURE_DATA_INDEX_ITEMID = 4
+
+local LOST_TREASURE_DATA = {
 -- Khenarthi's Roost
 	[258] = {
 		[LOST_TREASURE_PIN_TYPE_TREASURE] = {
@@ -40,7 +51,7 @@ LostTreasure.LOST_TREASURE_DATA = {
 			{ 0.4449, 0.2856, "auridon_survey_enchanter", 57733 }, -- Enchanter Survey: Auridon
 			{ 0.5455, 0.4624, "auridon_survey_woodworker", 57741 }, -- Woodworker Survey: Auridon
 			{ 0.6359, 0.6950, "auridon_survey_blacksmith", 57687 }, -- Blacksmith Survey: Auridon
-			{ 0.3992, 0.6107, nil, 139422 }, -- Jewelry Crafting Survey: Auridon
+			{ 0.3992, 0.6107, "auridon_survey_jewelry", 139422 }, -- Jewelry Crafting Survey: Auridon
 		},
 	},
 	-- SubPin: Firsthold
@@ -72,7 +83,7 @@ LostTreasure.LOST_TREASURE_DATA = {
 			{ 0.4578, 0.7874, "grahtwood_survey_clothier", 57754 }, -- Clothier Survey: Grahtwood
 			{ 0.6120, 0.3808, "grahtwood_survey_alchemist", 57771 }, -- Alchemist Survey: Grahtwood
 			{ 0.4258, 0.2649, "grahtwood_survey_woodworker", 57816 }, -- Woodworker Survey: Grahtwood
-			{ 0.3903, 0.3928, nil, 139425 }, -- Jewelry Crafting Survey: Grahtwood
+			{ 0.3903, 0.3928, "grahtwood_survey_jewelry", 139425 }, -- Jewelry Crafting Survey: Grahtwood
 		},
 	},
 	-- SubPin: Eldenroot
@@ -751,17 +762,54 @@ LostTreasure.LOST_TREASURE_DATA = {
 			{ 0.3893, 0.1024, "treasuremap_blackwood_07", 175552 }, -- Blackwood Treasure Map VI
 		},
 		[LOST_TREASURE_PIN_TYPE_SURVEYS] = {
-			{ 0.5174, 0.6547, "blackwood_survey_blacksmith", 178464 }, -- Blacksmith Survey: Blackwood
-			{ 0.3716, 0.1853, "blackwood_survey_woodworker", 178465 }, -- Woodworker Survey: Blackwood
-			{ 0.7330, 0.5589, "blackwood_survey_jewelrycrafting", 178466 }, -- Jewelry Crafting Survey: Blackwood
-			{ 0.4515, 0.4494, "blackwood_survey_clothier", 178467 }, -- Clothier Survey: Blackwood
-			{ 0.5686, 0.1545, "blackwood_survey_enchanter", 178468 }, -- Enchanter Survey: Blackwood
-			{ 0.7333, 0.8096, "blackwood_survey_alchemist", 178469 }, -- Alchemist Survey: Blackwood
+			{ 0.5192, 0.6523, "blackwood_survey_blacksmith", 178464 }, -- Blacksmith Survey: Blackwood
+			{ 0.3669, 0.1897, "blackwood_survey_woodworker", 178465 }, -- Woodworker Survey: Blackwood
+			{ 0.7320, 0.5577, "blackwood_survey_jewelrycrafting", 178466 }, -- Jewelry Crafting Survey: Blackwood
+			{ 0.4647, 0.4508, "blackwood_survey_clothier", 178467 }, -- Clothier Survey: Blackwood
+			{ 0.5645, 0.1463, "blackwood_survey_enchanter", 178468 }, -- Enchanter Survey: Blackwood
+			{ 0.7473, 0.8035, "blackwood_survey_alchemist", 178469 }, -- Alchemist Survey: Blackwood
 		},
 	},
 }
 
-LostTreasure.LOST_TREASURE_BOOKID_TO_ITEMID =
+do
+	local itemsData = { }
+	local mapIdData = { }
+	local textureData = { }
+
+	for mapId, pinTypeData in pairs(LOST_TREASURE_DATA) do
+		mapIdData[mapId] = { }
+		for pinDataType, pinData in pairs(pinTypeData) do
+			for _, pinLayout in ipairs(pinData) do
+				local itemId = pinLayout[LOST_TREASURE_DATA_INDEX_ITEMID]
+				local texture = pinLayout[LOST_TREASURE_DATA_INDEX_TEXTURE]
+				local newPin =
+				{
+					itemId = itemId,
+					mapId = mapId,
+					pinType = pinDataType,
+					x = pinLayout[LOST_TREASURE_DATA_INDEX_X],
+					y = pinLayout[LOST_TREASURE_DATA_INDEX_Y],
+					texture = texture,
+				}
+				-- itemsData
+				itemsData[itemId] = newPin
+				-- mapIdData
+				local currentMapIdData = mapIdData[mapId]
+				currentMapIdData[#currentMapIdData + 1] = newPin
+				-- textureData
+				textureData[texture] = newPin
+			end
+		end
+	end
+	data.ITEMS_DATA = itemsData
+	data.MAP_ID_DATA = mapIdData
+	data.TEXTURE_NAME_DATA = textureData
+
+	logger:Debug("database created")
+end
+
+data.LOST_TREASURE_BOOKID =
 {
 	[5116] = 139408, -- Jewelry Crafting Survey: Stormhaven
 	[5124] = 139422, -- Jewelry Crafting Survey: Auridon
@@ -789,43 +837,18 @@ LostTreasure.LOST_TREASURE_BOOKID_TO_ITEMID =
 	[5156] = 139444, -- Jewelry Crafting Survey: Vvardenfell
 }
 
-
-local itemIdCache = { }
-setmetatable(itemIdCache,{ __mode = "k" })
-
-local function GetPinTypeItemIds(pinType)
-	local itemIds = itemIdCache[pinType]
-	if itemIds then
-		return itemIds
-	end
-
-	itemIdCache[pinType] = { }
-
-	for subZoneData, pinTypeData in pairs(LostTreasure.LOST_TREASURE_DATA) do
-		for _pinType, _pinData in pairs(pinTypeData) do
-			if _pinType == pinType then
-				for _, _pinTypeData in ipairs(_pinData) do
-					itemIdCache[pinType][_pinTypeData[LOST_TREASURE_DATA_INDEX_ITEMID]] = true
-				end
-			end
-		end
-	end
-
-	return itemIdCache[pinType]
+function data:GetItemIdData()
+	return self.ITEMS_DATA
 end
 
-function LostTreasure:GetAllData()
-	return self.LOST_TREASURE_DATA
+function data:GetMapIdData(mapId)
+	return self.MAP_ID_DATA[mapId]
 end
 
-function LostTreasure:GetPinTypeItemIds(pinType)
-	return LOST_TREASURE_PIN_TYPE_DATA[pinType] and GetPinTypeItemIds(pinType) or nil
+function data:GetTexturesData()
+	return self.TEXTURE_NAME_DATA
 end
 
-function LostTreasure:GetMapIdData(mapId)
-	return self.LOST_TREASURE_DATA[mapId]
-end
-
-function LostTreasure:GetBookItemId(bookId)
-	return self.LOST_TREASURE_BOOKID_TO_ITEMID[bookId]
+function data:GetBookIdItemId(bookId)
+	return self.LOST_TREASURE_BOOKID[bookId]
 end

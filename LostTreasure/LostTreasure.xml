@@ -5,7 +5,7 @@
 			<Anchor point="RIGHT" relativeTo="$(parent)" relativePoint="LEFT" offsetX="-10" offsetY="0"/>
 		</Texture>
 
-		<TopLevelControl name="LostTreasure" movable="true" mouseEnabled="true" clampedToScreen="true" hidden="true">
+		<TopLevelControl name="Lost_Treasure" movable="true" mouseEnabled="true" clampedToScreen="true" hidden="true">
 			<Dimensions x="400" y="400"/>
 			<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="100" offsetY="100"/>
 			<Controls>

@@ -1,16 +1,15 @@
  -- only in english, because we gonna submit the report in english only
 local message = { }
-table.insert(message, "ARE YOU USING THE LATEST UPDATE OF LOST TREASURE?\nYour local version is %d, please compare it with the version number at ESOUI/Minion first before you submit the report!\n")
+table.insert(message, "ARE YOU USING THE LATEST UPDATE OF LOST TREASURE?\nYour local version is %d; please compare your version with the ESOUI/Minion version first before submitting the report!")
 table.insert(message, "*** DO NOT CHANGE THIS ***")
-table.insert(message, "AddOnVersion: %d")
 table.insert(message, "Zone: %s")
 table.insert(message, "MapId: %d")
-table.insert(message, "{ %.4f, %.4f, %%22%s%%22, %d }, -- %s") -- %22 equals "
+table.insert(message, "{ %.4f, %.4f, %%22%s%%22, %d }, -- %s") -- %22 = "
 table.insert(message, "*** YOUR MESSAGE HERE BELOW ***")
 
 local strings = {
 	SI_LOST_TREASURE_BUGREPORT_PICKUP_MESSAGE = table.concat(message, "\n"),
-	SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE = "New map found v%d id%d %s",
+	SI_LOST_TREASURE_BUGREPORT_PICKUP_TITLE = "v%d new pin: [%d] %s",
 	SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP = "no map opened",
 
 	SI_LOST_TREASURE_TREASURE_MAPS = "Treasure Maps",
@@ -18,6 +17,8 @@ local strings = {
 
 	SI_LOST_TREASURE_COMPARE_TREASURE = "treasure map",
 	SI_LOST_TREASURE_COMPARE_SURVEY = "survey:",
+
+	SI_LOST_TREASURE_MAP_FILTER_CHECKBOX_NAME = "<<C:1>> (<<C:2>>)",
 
 	SI_LOST_TREASURE_SHOW_ON_MAP = "Show on map",
 	SI_LOST_TREASURE_SHOW_ON_MAP_TT = "Show pins on player map.",
@@ -48,7 +49,7 @@ local strings = {
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY_TT = "Delay (in seconds) before hiding Mini Map, after you picked up the treasure or survey.",
 
 	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "New unknown data has been found.",
-	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Please share your new and unknown treasure maps/crafting surveys data by accepting this notification. You need an ESOUI.com account to make this bug report.",
+	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Let us know your new data. You must have an ESOUI.com account to submit a report. Make sure you are logged in first before you click accept!",
 }
 
 for stringId, stringValue in pairs(strings) do

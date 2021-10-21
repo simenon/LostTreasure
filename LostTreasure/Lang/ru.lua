@@ -41,8 +41,8 @@ local strings = {
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY = "Задержка",
 	SI_LOST_TREASURE_SHOW_MINIMAP_DELAY_TT = "Задержка (в секундах) перед тем, как спрятать мини-карту после того, как вы собрали сокровище или исследование.",
 
-	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "Новые неизвестные данные были найдены.",
-	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Пожалуйста, поделитесь своими новыми и неизвестными картами сокровищ/ремесленных отчетов об исследованиях, принимая это уведомление. Вам нужен аккаунт на ESOUI.com, чтобы сделать отчет об ошибке.",
+	-- SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "Новые неизвестные данные были найдены.", -- not supported
+	-- SI_LOST_TREASURE_NOTIFICATION_NOTE = "", -- not supported
 }
 
 SafeStrings(strings)

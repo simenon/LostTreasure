@@ -1,18 +1,16 @@
--- Constants
-LOST_TREASURE_DATA_INDEX_X = 1
-LOST_TREASURE_DATA_INDEX_Y = 2
-LOST_TREASURE_DATA_INDEX_TEXTURE = 3
-LOST_TREASURE_DATA_INDEX_ITEMID = 4
+local LostTreasure = ZO_InitializingObject:Subclass()
 
-LOST_TREASURE_MARK_OPTIONS_USING = 1
-LOST_TREASURE_MARK_OPTIONS_INVENTORY = 2
-LOST_TREASURE_MARK_OPTIONS_ALL = 3
+LOST_TREASURE_MARK_OPTIONS_USING = "using"
+LOST_TREASURE_MARK_OPTIONS_INVENTORY = "inventory"
+LOST_TREASURE_MARK_OPTIONS_ALL = "all"
 
-LOST_TREASURE_PIN_KEY_MAP = 1
-LOST_TREASURE_PIN_KEY_COMPASS = 2
+LOST_TREASURE_PIN_KEY_MAP = "worldmap"
+LOST_TREASURE_PIN_KEY_COMPASS = "compass"
 
-LOST_TREASURE_PIN_TYPE_TREASURE = 1
-LOST_TREASURE_PIN_TYPE_SURVEYS = 2
+LOST_TREASURE_PIN_TYPE_TREASURE = "treasure"
+LOST_TREASURE_PIN_TYPE_SURVEYS = "survey"
+
+LOST_TREASURE_MAP_NOT_OPENED = GetString(SI_LOST_TREASURE_BUGREPORT_PICKUP_NO_MAP)
 
 LOST_TREASURE_PIN_TYPE_DATA =
 {
@@ -34,57 +32,12 @@ LOST_TREASURE_PIN_TYPE_DATA =
 	},
 }
 
-
--- Lost Treasure
-LostTreasure = ZO_InitializingObject:Subclass()
-
 LostTreasure.addOnName = "LostTreasure"
 LostTreasure.addOnDisplayName = "Lost Treasure"
-
-LostTreasure.website = "http://www.esoui.com/downloads/info561-LostTreasure.html"
-LostTreasure.feedback = "https://www.esoui.com/portal.php?id=121&a=bugreport&addonid=561"
-
-LostTreasure.DEFAULTS =
-{
-	pinTypes =
-	{
-		[LOST_TREASURE_PIN_TYPE_TREASURE] =
-		{
-			showOnMap = true,
-			showOnCompass = true,
-			texture = "LostTreasure/Icons/x_red.dds",
-			size = 32,
-			markOption = LOST_TREASURE_MARK_OPTIONS_INVENTORY,
-			pinLevel = 45,
-			deletionDelay = 10,
-		},
-		[LOST_TREASURE_PIN_TYPE_SURVEYS] =
-		{
-			showOnMap = true,
-			showOnCompass = true,
-			texture = "LostTreasure/Icons/x_red.dds",
-			size = 32,
-			markOption = LOST_TREASURE_MARK_OPTIONS_INVENTORY,
-			pinLevel = 45,
-			deletionDelay = 10,
-		},
-	},
-	miniMap =
-	{
-		enabled = true,
-		anchor = ZO_Anchor:New(TOPLEFT, nil, TOPLEFT, 100, 100),
-		size = 400,
-		deletionDelay = 4,
-	},
-	notifications = { },
-	mining =
-	{
-		APIVersion = 0,
-		APITimeStamp = 0,
-		AddOnVersion = nil,
-		data = { },
-	},
-}
+LostTreasure.APIVersion = GetAPIVersion()
+LostTreasure.logger = LibDebugLogger(LostTreasure.addOnName)
+LostTreasure.task = LibAsync:Create(LostTreasure.addOnName)
+LostTreasure.internal = { }
 
 local function GetAddOnInfos()
 	local addOnManager = GetAddOnManager()
@@ -95,7 +48,12 @@ local function GetAddOnInfos()
 			return author, addOnManager:GetAddOnVersion(i)
 		end
 	end
+	LostTreasure.task:Error("Something went wrong. No Author and Version have been captured.")
 end
 LostTreasure.author, LostTreasure.version = GetAddOnInfos()
 
-LostTreasure.logger = LibDebugLogger(LostTreasure.addOnName)
+-- The flag will only be changed after API.lua is loaded
+LostTreasure.isInitialized = false
+
+-- GLOBAL
+LOST_TREASURE = LostTreasure
