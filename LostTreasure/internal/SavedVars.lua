@@ -6,6 +6,7 @@ local logger = LostTreasure.logger:Create("savedVars")
 local savedVars = { }
 internal.savedVars = savedVars
 
+local BLANK_SAVED_VARS = LOST_TREASURE_BLANK_SAVED_VARS
 
 local function GetTexturePath(index)
 	local utilities = internal.utilities
@@ -55,9 +56,8 @@ savedVars.DEFAULTS =
 	notifications = { },
 	mining =
 	{
-		APIVersion = 0,
-		APITimeStamp = 0,
-		AddOnVersion = 0,
+		APIVersion = BLANK_SAVED_VARS,
+		APITimeStamp = BLANK_SAVED_VARS,
 		data = { },
 	},
 }

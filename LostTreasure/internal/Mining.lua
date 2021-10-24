@@ -9,15 +9,34 @@ internal.mining = mining
 local notifications = internal.notifications
 local savedVars = internal.savedVars
 
-
 local MINING_ACTIVE_TIME = ZO_ONE_DAY_IN_SECONDS * 7
-local BLANK_SAVED_VARS = 0
 
--- DO NOT initalize before the db are created!
---[[
-/script LostTreasure_Account["EU Megaserver"]["@LoadingScreen"]["$AccountWide"]["mining"]["APITimeStamp"] = 1
-]]
+local function HasBlankSavedVars(miningTimeStamp, miningAPIVersion)
+	local BLANK_SAVED_VARS = LOST_TREASURE_BLANK_SAVED_VARS
+	return miningTimeStamp == BLANK_SAVED_VARS or miningAPIVersion == BLANK_SAVED_VARS
+end
+
+local function IsWithinMiningActiveTime(now, miningTimeStamp)
+	return GetDiffBetweenTimeStamps(now, miningTimeStamp) < MINING_ACTIVE_TIME
+end
+
+-- DO NOT initialize before the db are created!
 function mining:Initialize()
+	--[[
+		only for testing:
+		
+		1.
+		/script LostTreasure_Account["EU Megaserver"]["@LoadingScreen"]["$AccountWide"]["mining"]["APITimeStamp"] = GetCurrentTimeStamp()
+		=> Result: ACTIVE
+
+		2.
+		/script LostTreasure_Account["EU Megaserver"]["@LoadingScreen"]["$AccountWide"]["mining"]["APITimeStamp"] = 1
+		=> Result: NOT active
+		
+		3.
+		/script LostTreasure_Account["EU Megaserver"]["@LoadingScreen"]["$AccountWide"]["mining"]["APIVersion"] = GetAPIVersion() - 1
+		=> Result: ACTIVE
+	]]
 	self.isActive = false
 
 	local db = savedVars.db
@@ -26,27 +45,28 @@ function mining:Initialize()
 
 	local miningTimeStamp = miningData.APITimeStamp
 	local miningAPIVersion = miningData.APIVersion
-	local miningAddOnVersion = miningData.AddOnVersion
 
+	local hasNewAPIVersion = currentAPIVersion > miningAPIVersion
 	local now = GetTimeStamp()
 
-	local hasBlankSavedVars = miningTimeStamp ~= BLANK_SAVED_VARS or miningAPIVersion ~= BLANK_SAVED_VARS
-	local hasNewAPIVersion = currentAPIVersion > miningAPIVersion
-
-	if hasBlankSavedVars or hasNewAPIVersion then
+	local additionalText = ": AN ISSUE HAS BEEN ENCOUNTERED"
+	if HasBlankSavedVars(miningTimeStamp, miningAPIVersion) or hasNewAPIVersion then
 		db.mining.APIVersion = currentAPIVersion
 		db.mining.APITimeStamp = now
-		db.mining.AddOnVersion = LostTreasure.version
 		if hasNewAPIVersion then
 			ZO_ClearTable(db.mining.data)
+			additionalText = "due to a new game API Version."
+		else
+			additionalText = "due to blank SavedVars."
 		end
 		self.isActive = true
-	elseif GetDiffBetweenTimeStamps(now, miningTimeStamp) < MINING_ACTIVE_TIME then
+	elseif IsWithinMiningActiveTime(now, miningTimeStamp) then
+		additionalText = "within active mining time."
 		self.isActive = true
 	end
 
 	if self.isActive then
-		logger:Info("initialized: Mining is ACTIVE")
+		logger:Info("initialized: Mining is ACTIVE " .. additionalText)
 	else
 		notifications:DeleteAllNotifications()
 		logger:Info("initialized: Mining is NOT active")
