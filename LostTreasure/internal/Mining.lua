@@ -11,6 +11,7 @@ local savedVars = internal.savedVars
 
 
 local MINING_ACTIVE_TIME = ZO_ONE_DAY_IN_SECONDS * 7
+local BLANK_SAVED_VARS = 0
 
 -- DO NOT initalize before the db are created!
 function mining:Initialize()
@@ -31,7 +32,7 @@ function mining:Initialize()
 	local currentAPIVersion = LostTreasure.APIVersion
 	local savedAddOnVersion = miningData.AddOnVersion
 	local addOnVersion = LostTreasure.version
-	if currentAPIVersion <= miningData.APIVersion or addOnVersion <= savedAddOnVersion then
+	if miningData.APIVersion ~= BLANK_SAVED_VARS and (currentAPIVersion <= miningData.APIVersion or addOnVersion <= savedAddOnVersion) then
 		logger:Info("No version change since last login. Mining not active")
 		notifications:DeleteAllNotifications()
 		return
@@ -79,8 +80,6 @@ function mining:Store(newPin)
 	currentMapIdData[#currentMapIdData + 1] = newPin
 
 	logger:Debug("new item %d %s has been stored", newPin.itemId, newPin.itemName)
-
-	notifications:Add(newPin)
 end
 
 function mining:Add(newPin)

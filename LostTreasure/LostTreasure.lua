@@ -158,8 +158,8 @@ do
 
 			self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.lastOpenedTreasureMap, interactionType, sceneName, itemLink)
 
-			-- Pop up a new notification.
-			local notificationData =
+			-- Pop up a new notification by handing over pinData.
+			local pinData =
 			{
 				itemId = itemId,
 				mapId = mapId,
@@ -171,7 +171,7 @@ do
 				itemName = itemName,
 				lastOpenedTreasureMap = self.lastOpenedTreasureMap,
 			}
-			notifications:Add(notificationData)
+			notifications:Add(pinData)
 		else
 			self.logger:Info("Invalid interaction. pinType %s, interactionType %d, sceneName %s", pinType, interactionType, sceneName)
 		end

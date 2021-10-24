@@ -99,7 +99,7 @@ function notifications:AddNotification(notification)
 	end
 end
 
-function notifications:Add(pin)
+function notifications:Add(pinData)
 	if not IsLanguageSupported() then
 		logger:Debug("Tried to add pin, but the language \"%s\" is not supported", language)
 		return
@@ -107,13 +107,13 @@ function notifications:Add(pin)
 
 	local notification =
 	{
-		data = pin,
+		data = pinData,
 		dataType = NOTIFICATIONS_REQUEST_DATA,
 		secsSinceRequest = ZO_NormalizeSecondsSince(0),
 		note = GetString(SI_LOST_TREASURE_NOTIFICATION_NOTE),
 		message = GetString(SI_LOST_TREASURE_NOTIFICATION_MESSAGE),
 		heading = ADDON_NAME,
-		texture = pin.texture,
+		texture = pinData.texture,
 		shortDisplayText = ADDON_NAME,
 		controlsOwnSounds = false,
 		keyboardAcceptCallback = function(data) Accept(self, data) end,

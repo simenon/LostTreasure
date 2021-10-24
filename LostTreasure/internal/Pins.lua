@@ -94,6 +94,7 @@ function pins:CreateNewPin(pinType, pinData, key)
 		local itemName = zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemLinkName(itemLink))
 		LibCompassPins.pinManager:CreatePin(pinName, pinData, pinData.x, pinData.y, itemName)
 	end
+	logger:Verbose("Add pin to map - pinType: %s, pinName: %s, itemId: %s", pinType, pinName, pinData.itemId)
 end
 
 function pins:CreateMarkOptionMapPin(pinType, key, pinData, markOption)
@@ -178,7 +179,6 @@ function pins:Initialize()
 		if utilities:IsValidMapType() and self:IsEnabled(pinName) then
 			self:GetAndCreateMapPins(pinType, LOST_TREASURE_PIN_KEY_MAP)
 			-- self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_MAP)
-			logger:Debug("Add map pin - pinType: %s, pinName: %s", pinType, pinName)
 		end
 	end
 
@@ -186,7 +186,6 @@ function pins:Initialize()
 		if utilities:IsValidMapType() and settings:GetSettingsFromPinType(pinType, "showOnCompass") then
 			self:GetAndCreateMapPins(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
 			-- self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
-			logger:Debug("Add compass pin - pinType: %s", pinType)
 		end
 	end
 
