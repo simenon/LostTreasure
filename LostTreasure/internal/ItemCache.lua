@@ -111,7 +111,7 @@ function itemCache:SlotAdded(bagId, slotIndex, newSlotData)
 
 		logger:Info("%s added to your backpack cache. itemLink: %s", newSlotData.name, itemLink)
 	else
-		logger:Debug("%s added to your backpack", newSlotData.name)
+		logger:Verbose("%s added to your backpack", newSlotData.name)
 	end
 end
 
@@ -168,6 +168,6 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			end
 		end
 	else
-		logger:Debug("%s removed from your backpack", oldSlotData.name)
+		logger:Verbose("%s removed from your backpack", oldSlotData.name)
 	end
 end

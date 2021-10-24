@@ -84,7 +84,6 @@ function pins:AddNewPins(pinName, pinType, mapCallback, mapLayout, pinTooltip, m
 	RefreshCompassPins(pinName)
 end
 
-
 function pins:CreateNewPin(pinType, pinData, key)
 	local pinName = GetPinNameFromPinType(pinType)
 	if key == LOST_TREASURE_PIN_KEY_MAP then
@@ -131,8 +130,16 @@ function pins:GetAndCreateMapPins(pinType, key)
 	end
 end
 
-function pins:CheckMinedData(pinType, key)
-
+function pins:GetAndCreateMinedMapPins(pinType, key)
+	-- local db = savedVars.db
+	-- local mapId = GetCurrentMapId()
+	-- local currentMapIdData = db.mining.data[mapId]
+	-- local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
+	-- for _, pinData in ipairs(currentMapIdData) do
+		-- if pinData.pinType == pinType then
+			-- self:CreateMarkOptionMapPin(pinType, key, pinData, markOption)
+		-- end
+	-- end
 end
 
 function pins:UpdatePinName(pin, _, normalizedAngle, normalizedDistance)
@@ -178,14 +185,14 @@ function pins:Initialize()
 	local function PinTypeAddCallback(pinType, pinName)
 		if utilities:IsValidMapType() and self:IsEnabled(pinName) then
 			self:GetAndCreateMapPins(pinType, LOST_TREASURE_PIN_KEY_MAP)
-			-- self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_MAP)
+			self:GetAndCreateMinedMapPins(pinType, LOST_TREASURE_PIN_KEY_MAP)
 		end
 	end
 
 	local function PinCallback(pinType)
 		if utilities:IsValidMapType() and settings:GetSettingsFromPinType(pinType, "showOnCompass") then
 			self:GetAndCreateMapPins(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
-			-- self:CheckMinedData(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
+			self:GetAndCreateMinedMapPins(pinType, LOST_TREASURE_PIN_KEY_COMPASS)
 		end
 	end
 
