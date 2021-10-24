@@ -93,7 +93,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 end
 
 function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
-	local itemId = GetBookIdItemId(bookId)
+	local itemId = data:GetBookIdItemId(bookId)
 	if itemId then
 		local pinType = utilities:GetPinTypeFromString(title)
 		local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
