@@ -14,52 +14,57 @@ local MINING_ACTIVE_TIME = ZO_ONE_DAY_IN_SECONDS * 7
 local BLANK_SAVED_VARS = 0
 
 -- DO NOT initalize before the db are created!
+--[[
+/script LostTreasure_Account["EU Megaserver"]["@LoadingScreen"]["$AccountWide"]["mining"]["APITimeStamp"] = 1
+]]
 function mining:Initialize()
 	self.isActive = false
 
 	local db = savedVars.db
 	local miningData = db.mining
+	local currentAPIVersion = LostTreasure.APIVersion
+
+	local miningTimeStamp = miningData.APITimeStamp
+	local miningAPIVersion = miningData.APIVersion
+	local miningAddOnVersion = miningData.AddOnVersion
 
 	local now = GetTimeStamp()
-	local miningTimeStamp = miningData.APITimeStamp
-	local diffInSeconds = GetDiffBetweenTimeStamps(now, miningTimeStamp)
-	if diffInSeconds > MINING_ACTIVE_TIME and miningTimeStamp ~= 0 then
-		logger:Info("The time for mining has expired. Mining not active")
-		notifications:DeleteAllNotifications()
-		return
+
+	local hasBlankSavedVars = miningTimeStamp ~= BLANK_SAVED_VARS or miningAPIVersion ~= BLANK_SAVED_VARS
+	local hasNewAPIVersion = currentAPIVersion > miningAPIVersion
+
+	if hasBlankSavedVars or hasNewAPIVersion then
+		db.mining.APIVersion = currentAPIVersion
+		db.mining.APITimeStamp = now
+		db.mining.AddOnVersion = LostTreasure.version
+		if hasNewAPIVersion then
+			ZO_ClearTable(db.mining.data)
+		end
+		self.isActive = true
+	elseif GetDiffBetweenTimeStamps(now, miningTimeStamp) < MINING_ACTIVE_TIME then
+		self.isActive = true
 	end
 
-	local currentAPIVersion = LostTreasure.APIVersion
-	local savedAddOnVersion = miningData.AddOnVersion
-	local addOnVersion = LostTreasure.version
-	if miningData.APIVersion ~= BLANK_SAVED_VARS and (currentAPIVersion <= miningData.APIVersion or addOnVersion <= savedAddOnVersion) then
-		logger:Info("No version change since last login. Mining not active")
+	if self.isActive then
+		logger:Info("initialized: Mining is ACTIVE")
+	else
 		notifications:DeleteAllNotifications()
-		return
+		logger:Info("initialized: Mining is NOT active")
 	end
-
-	-- Let's activate mining
-	db.mining.APIVersion = currentAPIVersion
-	db.mining.APITimeStamp = now
-	db.mining.AddOnVersion = addOnVersion
-	ZO_ClearTable(db.mining.data)
-	self.isActive = true
-
-	logger:Debug("initialized and activated")
 end
 
-local function IsStored(newPin)
+local function IsStored(pinData)
 	local db = savedVars.db
-	local mapIdData = db.mining.data[newPin.mapId]
+	local mapIdData = db.mining.data[pinData.mapId]
 	if mapIdData then
-		for _, pinData in ipairs(mapIdData) do
-			if pinData.itemId == newPin.itemId then
-				logger:Debug("%d has been found", newPin.itemId)
+		for _, pinLayoutData in ipairs(mapIdData) do
+			if pinLayoutData.itemId == pinData.itemId then
+				logger:Debug("%d has been found", pinData.itemId)
 				return true
 			end
 		end
 	end
-	logger:Debug("%d has not been found", newPin.itemId)
+	logger:Debug("%d has not been found", pinData.itemId)
 	return false
 end
 
@@ -67,28 +72,31 @@ function mining:IsActive()
 	return self.isActive
 end
 
-function mining:Store(newPin)
+function mining:Store(pinData)
 	-- Only report new pins when the treasure map has been opened.
-	if newPin.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED then
+	if pinData.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED then
 		logger:Debug("no treasure map has been opened before")
 		return
 	end
 
 	-- Store in db
 	local db = savedVars.db
-	local currentMapIdData = db.mining.data[newPin.mapId]
-	currentMapIdData[#currentMapIdData + 1] = newPin
+	local currentMapIdData = db.mining.data[pinData.mapId]
+	currentMapIdData[#currentMapIdData + 1] = pinData
 
-	logger:Debug("new item %d %s has been stored", newPin.itemId, newPin.itemName)
+	logger:Debug("new item %d %s has been stored", pinData.itemId, pinData.itemName)
+
+	-- send a new notification
+	notifications:Add(pinData)
 end
 
-function mining:Add(newPin)
+function mining:Add(pinData)
 	if not self:IsActive() then
-		logger:Info("Mining not active! Tried to add %s", newPin.itemId)
+		logger:Info("Mining not active! Tried to add %s", pinData.itemId)
 		return
 	end
 
-	if not IsStored() then
-		self:Store(newPin)
+	if not IsStored(pinData) then
+		self:Store(pinData)
 	end
 end

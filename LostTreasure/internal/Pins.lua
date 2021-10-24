@@ -131,15 +131,17 @@ function pins:GetAndCreateMapPins(pinType, key)
 end
 
 function pins:GetAndCreateMinedMapPins(pinType, key)
-	-- local db = savedVars.db
-	-- local mapId = GetCurrentMapId()
-	-- local currentMapIdData = db.mining.data[mapId]
-	-- local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
-	-- for _, pinData in ipairs(currentMapIdData) do
-		-- if pinData.pinType == pinType then
-			-- self:CreateMarkOptionMapPin(pinType, key, pinData, markOption)
-		-- end
-	-- end
+	local db = savedVars.db
+	local mapId = GetCurrentMapId()
+	local currentMapIdData = db.mining.data[mapId]
+	if currentMapIdData then
+		local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
+		for _, pinData in ipairs(currentMapIdData) do
+			if pinData.pinType == pinType then
+				self:CreateMarkOptionMapPin(pinType, key, pinData, markOption)
+			end
+		end
+	end
 end
 
 function pins:UpdatePinName(pin, _, normalizedAngle, normalizedDistance)

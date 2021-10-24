@@ -171,7 +171,7 @@ do
 				itemName = itemName,
 				lastOpenedTreasureMap = self.lastOpenedTreasureMap,
 			}
-			notifications:Add(pinData)
+			mining:Add(pinData)
 		else
 			self.logger:Info("Invalid interaction. pinType %s, interactionType %d, sceneName %s", pinType, interactionType, sceneName)
 		end
