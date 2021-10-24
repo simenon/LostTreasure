@@ -10,7 +10,7 @@
 ## AddOnVersion: 20
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
 ## APIVersion: 101031 101032
-## SavedVariables: LostTreasure_Account LostTreasure_Character LostTreasure_GlobalCoordinates
+## SavedVariables: LostTreasure_Account LostTreasure_Character
 ## DependsOn: LibAddonMenu-2.0>=32 LibMapPins-1.0>=10034 CustomCompassPins>=32 LibChatMessage>=105 LibDebugLogger>=217 LibSavedVars>=60006 LibNotification>=10
 ## OptionalDependsOn: LibGPS
 

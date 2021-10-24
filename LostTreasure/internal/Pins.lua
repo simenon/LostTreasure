@@ -81,10 +81,7 @@ function pins:AddNewPins(pinName, pinType, mapCallback, mapLayout, pinTooltip, m
 
 	LibCompassPins:AddCustomPin(pinName, compassCallback, compassLayout)
 
-	-- call the refresh a bit later, otherwise they wouldn't appear after EVENT_PLAYER_ACTIVATED
-	-- utilities:RunCallbackAsync(function()
-		RefreshCompassPins(pinName)
-	-- end, 100)
+	RefreshCompassPins(pinName)
 end
 
 
@@ -244,10 +241,6 @@ function pins:Initialize()
 			compassPinLayout,
 			settingsLayout,
 			"showOnMap")
-
-		-- utilities:RunCallbackAsync(function()
-			-- RefreshCompassPins(pinName)
-		-- end, 500)
 	end
 
 	logger:Debug("initialized")

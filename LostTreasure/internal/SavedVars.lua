@@ -66,7 +66,10 @@ function savedVars:Initialize()
 	self.db = LibSavedVars
 		:NewAccountWide("LostTreasure_Account", self.DEFAULTS)
 		:AddCharacterSettingsToggle("LostTreasure_Character")
-		:RemoveSettings(10, "*")
+		:Version(20, function(savedVarsTable)
+			ZO_ClearTable(savedVarsTable)
+		end)
+		-- :RemoveSettings(10, "*")
 
 	logger:Debug("initialized")
 end
