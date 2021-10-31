@@ -173,8 +173,8 @@ do
 	end
 end
 
-function LostTreasure:GetLastOpenedTreasureMapItemId()
-	return self.lastOpenedTreasureMapItemId
+function LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
+	return self.lastOpenedTreasureMapItemId == itemId
 end
 
 function LostTreasure:SetLastOpenedTreasureMapItemId(itemId)

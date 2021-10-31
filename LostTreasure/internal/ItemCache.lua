@@ -138,7 +138,7 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 		if itemId then
 
 			-- Mini Map
-			if LostTreasure:GetLastOpenedTreasureMapItemId() == itemId then
+			if LostTreasure:IsLastOpenedTreasureMapItemId(itemId) then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
 				logger:Debug("update Mini Map - fadeDuration %d", fadeDuration)
 				LostTreasure:ProzessQueue(nil, function() LostTreasure:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
