@@ -37,7 +37,6 @@ LOST_TREASURE_PIN_TYPE_DATA =
 LostTreasure.addOnName = "LostTreasure"
 LostTreasure.addOnDisplayName = "Lost Treasure"
 LostTreasure.APIVersion = GetAPIVersion()
-LostTreasure.logger = LibDebugLogger(LostTreasure.addOnName)
 LostTreasure.task = LibAsync:Create(LostTreasure.addOnName)
 LostTreasure.internal = { }
 

@@ -1,7 +1,7 @@
 local LostTreasure = LOST_TREASURE
 
 local internal = LostTreasure.internal
-local logger = LostTreasure.logger:Create("markOnUsing")
+local logger = internal.LogManager:New("markOnUsing")
 
 local markOnUsing =
 {

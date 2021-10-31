@@ -1,7 +1,7 @@
 local LostTreasure = LOST_TREASURE
 
 local internal = LostTreasure.internal
-local logger = LostTreasure.logger:Create("pins")
+local logger = internal.LogManager:New("pins")
 
 local pins = { }
 internal.pins = pins

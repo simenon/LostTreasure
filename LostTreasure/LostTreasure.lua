@@ -1,6 +1,8 @@
 local LostTreasure = LOST_TREASURE
 
 local internal = LostTreasure.internal
+local logger = internal.LogManager
+
 local utilities = internal.utilities
 local savedVars = internal.savedVars
 local itemCache = internal.itemCache
@@ -13,15 +15,7 @@ local debug = internal.debug
 local settings = internal.settings
 
 
-
-
-
-
-
--- LOST TREASURE
-------------------
 local HIDE_MINI_MAP = true
-
 
 function LostTreasure:Initialize(control)
 	self.control = control
@@ -40,11 +34,7 @@ function LostTreasure:Initialize(control)
 			notifications:Initialize()
 			mining:Initialize()
 			pins:Initialize()
-			
-			
 			debug:Initialize()
-			
-			
 			settings:Initialize()
 
 			self:RegisterEvents()
@@ -79,7 +69,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	local mapTextureName = utilities:GetTreasureMapTexturePathName(texturePath)
 	self.lastOpenedTreasureMap = mapTextureName
 
-	self.logger:Info("Treasure map opened. name: %s, texturePath: %s, mapTextureName: %s, treasureMapIndex: %d", name, texturePath, mapTextureName, treasureMapIndex)
+	logger:Info("Treasure map opened. name: %s, texturePath: %s, mapTextureName: %s, treasureMapIndex: %d", name, texturePath, mapTextureName, treasureMapIndex)
 
 	self.mapControl:SetTexture(texturePath)
 
@@ -107,7 +97,7 @@ function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
 			self:AddMarkOnUsingPin(pinType, itemId)
 		end
 	end
-	self.logger:Info("Book opened. bookId: %s, title: %s, isCollected: %s", bookId, title, tostring(itemId ~= nil))
+	logger:Info("Book opened. bookId: %s, title: %s, isCollected: %s", bookId, title, tostring(itemId ~= nil))
 end
 
 function LostTreasure:OnPlayerActivated()
@@ -152,7 +142,7 @@ do
 		if IsValidInteractionType(pinType, interactionType, sceneName) then
 			-- Check for exisiting items in LostTreasure_Data.
 			if LostTreasure_GetItemIdData(itemId) then
-				self.logger:Info("Item %d has been found in database.", itemId)
+				logger:Info("Item %d has been found in database.", itemId)
 				return -- item has been found, no need to continue
 			end
 
@@ -162,7 +152,7 @@ do
 			local x, y, zone, subZone, mapId = utilities:GetPlayerPositionInfo()
 			local zoneName = zo_strformat(SI_ITEM_FORMAT_STR_TEXT1_TEXT2, zone, subZone)
 
-			self.logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.lastOpenedTreasureMap, interactionType, sceneName, itemLink)
+			logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.lastOpenedTreasureMap, interactionType, sceneName, itemLink)
 
 			-- Pop up a new notification by handing over pinData.
 			local pinData =
@@ -179,7 +169,7 @@ do
 			}
 			mining:Add(pinData)
 		else
-			self.logger:Info("Invalid interaction. pinType %s, interactionType %d, sceneName %s", pinType, interactionType, sceneName)
+			logger:Info("Invalid interaction. pinType %s, interactionType %d, sceneName %s", pinType, interactionType, sceneName)
 		end
 	end
 end

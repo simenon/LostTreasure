@@ -11,13 +11,14 @@
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
 ## APIVersion: 101031 101032
 ## SavedVariables: LostTreasure_Account LostTreasure_Character
-## DependsOn: LibAddonMenu-2.0>=32 LibMapPins-1.0>=10034 CustomCompassPins>=32 LibChatMessage>=105 LibDebugLogger>=217 LibSavedVars>=60007 LibNotification>=10
+## DependsOn: LibAddonMenu-2.0>=32 LibMapPins-1.0>=10034 CustomCompassPins>=32 LibChatMessage>=105 LibDebugLogger>=219 LibSavedVars>=60007 LibNotification>=10
 ## OptionalDependsOn: LibGPS
 
 lang\en.lua
 lang\$(language).lua
 
 StartUp.lua
+internal\LogManager.lua
 internal\Utilities.lua
 internal\Data.lua
 internal\BugReport.lua
