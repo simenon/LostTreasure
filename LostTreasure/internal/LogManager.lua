@@ -6,16 +6,19 @@ local internal = LostTreasure.internal
 local LogManager = { }
 internal.LogManager = LogManager
 
+local LibDebugLogger = LibDebugLogger
+local logger = LibDebugLogger(LostTreasure.addOnName)
 
 function LogManager:Initialize()
 	self.tags = { }
-	
-	local LibDebugLogger = LibDebugLogger
-	self.mainLogger = LibDebugLogger(LostTreasure.addOnName)
+
+	self.mainLogger = logger
 	self.LOG_LEVEL_DEBUG = LibDebugLogger.LOG_LEVEL_DEBUG
 	self.LOG_LEVEL_INFO = LibDebugLogger.LOG_LEVEL_INFO
 
 	self:SetMinLogLevelToAllTags(LibDebugLogger:GetMinLogLevel())
+
+	self:Debug("initialized")
 end
 
 function LogManager:GetTags()
@@ -28,13 +31,13 @@ function LogManager:SetTagMinLogLevel(namespace, level)
 	if logger then
 		logger:SetMinLevelOverride(level)
 	else
-		self:Error("failed SetTagMinLogLevel: %s", namespace or "nil")
+		logger:Error("failed SetTagMinLogLevel: %s", namespace or "nil")
 	end
 end
 
 function LogManager:SetMinLogLevelToAllTags(level)
 	level = level or self.LOG_LEVEL_INFO
-	self.mainLogger:SetMinLevelOverride(level)
+	logger:SetMinLevelOverride(level)
 
 	local tags = self:GetTags()
 	for namespace, _ in pairs(tags) do
@@ -45,7 +48,7 @@ end
 function LogManager:New(namespace)
 	local tags = self.tags
 	if not tags[namespace] then
-		tags[namespace] = self.mainLogger:Create(namespace)
+		tags[namespace] = logger:Create(namespace)
 		return tags[namespace]
 	else
 		self:Error("failed creating a new logger for: %s", namespace or "nil")
@@ -53,15 +56,19 @@ function LogManager:New(namespace)
 end
 
 function LogManager:Verbose(...)
-	self.mainLogger:Verbose(...)
+	logger:Verbose(...)
 end
 
 function LogManager:Debug(...)
-	self.mainLogger:Debug(...)
+	logger:Debug(...)
 end
 
 function LogManager:Info(...)
-	self.mainLogger:Info(...)
+	logger:Info(...)
+end
+
+function LogManager:Error(...)
+	logger:Error(...)
 end
 
 
