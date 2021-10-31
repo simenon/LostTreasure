@@ -10,20 +10,6 @@ local internal = LostTreasure.internal
 local LogManager = { }
 internal.LogManager = LogManager
 
-local str_cant_send_message = "Logger can't send a message. "
-local str_no_instance = "No tag instance has been found. "
-
-local function RaiseError(self, customMsg)
-	local logger = self.tags[namespace]
-	if logger.Error then
-		logger:Error(str_cant_send_message)
-	elseif customMsg then
-		self.mainLogger:Error(str_no_instance .. customMsg)
-	else
-		self.mainLogger:Error(str_no_instance .. str_cant_send_message)
-	end
-end
-
 function LogManager:Initialize()
 	self.tags = { }
 	
@@ -45,7 +31,7 @@ function LogManager:SetTagMinLogLevel(namespace, level)
 	if logger then
 		logger:SetMinLevelOverride(level)
 	else
-		RaiseError(self, "SetTagMinLogLevel has not been applied.")
+		self:Error("failed SetTagMinLogLevel: %s", namespace or "nil")
 	end
 end
 
@@ -65,7 +51,7 @@ function LogManager:New(namespace)
 		tags[namespace] = self.mainLogger:Create(namespace)
 		return tags[namespace]
 	else
-		self.mainLogger:Error("failed creating a new logger for: %s", namespace or "nil")
+		self:Error("failed creating a new logger for: %s", namespace or "nil")
 	end
 end
 

@@ -6,7 +6,7 @@
 
 ## Title: |cFFFFBELost Treasure|r
 ## Description: The one and only true treasure map and survey report locator. All others are just copies.
-## Version: 20
+## Version: 20beta
 ## AddOnVersion: 20
 ## Author: |cFFA500CrazyDutchGuy|r, Scootworks
 ## APIVersion: 101031 101032
