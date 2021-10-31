@@ -20,7 +20,6 @@ local HIDE_MINI_MAP = true
 function LostTreasure:Initialize(control)
 	self.control = control
 	self.mapControl = control:GetNamedChild("Map")
-	self.closeControl = control:GetNamedChild("Close")
 
 	self:SetLastOpenedTreasureMapItemId(0)
 	self.lastOpenedTreasureMap = LOST_TREASURE_MAP_NOT_OPENED
