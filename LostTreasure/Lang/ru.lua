@@ -1,4 +1,4 @@
--- Lost Treasure : Russian Localization by KL1SK
+-- Russian Localization by KL1SK
 
 local function SafeStrings(strings)
 	for stringId, stringValue in pairs(strings) do

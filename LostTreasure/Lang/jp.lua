@@ -1,4 +1,4 @@
--- Lost Treasure : Japanese Localization by Calamath
+-- Japanese Localization by Calamath
 
 local function SafeStrings(strings)
 	for stringId, stringValue in pairs(strings) do

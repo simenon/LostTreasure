@@ -1,4 +1,4 @@
- -- only in english, because we gonna submit the report in english only
+ -- Reports will be submitted in English only
 local message = { }
 table.insert(message, "ARE YOU USING THE LATEST UPDATE OF LOST TREASURE?\nYour local version is %d; please compare your version with the ESOUI/Minion version first before submitting the report!")
 table.insert(message, "*** DO NOT CHANGE THIS ***")
@@ -50,6 +50,9 @@ local strings = {
 
 	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "New unknown data has been found.",
 	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Let us know your new data. You must have an ESOUI.com account to submit a report. Make sure you are logged in first before you click accept!",
+
+	SI_LOST_TREASURE_DEBUG = "Enable Debug",
+	SI_LOST_TREASURE_DEBUG_TT = "Enables the debug function to help find potential issues. This option will reset after a Logout.",
 }
 
 for stringId, stringValue in pairs(strings) do

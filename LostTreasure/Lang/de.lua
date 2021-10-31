@@ -41,6 +41,9 @@ local strings = {
 
 	SI_LOST_TREASURE_NOTIFICATION_MESSAGE = "Es wurden neue unbekannte Daten gefunden.",
 	SI_LOST_TREASURE_NOTIFICATION_NOTE = "Teilt Eure Daten mit uns. Um einen Bericht einzureichen benötigt Ihr ein ESOUI.com-Konto. Ihr müsst Euch zuerst einloggen, bevor Ihr auf Akzeptieren klickt!",
+
+	SI_LOST_TREASURE_DEBUG = "Debug aktivieren",
+	SI_LOST_TREASURE_DEBUG_TT = "Aktiviert die Debug-Funktion, um potenzielle Probleme von dieser Erweiterung zu finden. Diese Einstellung wird nach dem Ausloggen zurückgesetzt.",
 }
 
 SafeStrings(strings)
