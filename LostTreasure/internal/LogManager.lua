@@ -1,14 +1,11 @@
 local LostTreasure = LOST_TREASURE
 
-if LostTreasure == nil then
-	zo_callLater(function() d("Global is nil") end, 2000)
-end
-
 local internal = LostTreasure.internal
 
 
 local LogManager = { }
 internal.LogManager = LogManager
+
 
 function LogManager:Initialize()
 	self.tags = { }
