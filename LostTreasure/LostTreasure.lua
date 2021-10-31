@@ -9,6 +9,7 @@ local notifications = internal.notifications
 local mining = internal.mining
 local markOnUsing = internal.markOnUsing
 local data = internal.data
+local debug = internal.debug
 local settings = internal.settings
 
 
@@ -39,6 +40,11 @@ function LostTreasure:Initialize(control)
 			notifications:Initialize()
 			mining:Initialize()
 			pins:Initialize()
+			
+			
+			debug:Initialize()
+			
+			
 			settings:Initialize()
 
 			self:RegisterEvents()

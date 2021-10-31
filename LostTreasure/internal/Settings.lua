@@ -7,6 +7,8 @@ local settings = { }
 internal.settings = settings
 
 
+local debug = internal.debug
+
 local ADDON_NAME = LostTreasure.addOnName
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info561-LostTreasure.html"
 
@@ -29,7 +31,7 @@ local MARK_OPTIONS =
 		GetString(SI_LOST_TREASURE_MARK_OPTION1_TT),
 		GetString(SI_LOST_TREASURE_MARK_OPTION2_TT),
 		GetString(SI_LOST_TREASURE_MARK_OPTION3_TT),
-	}
+	},
 }
 
 local MINIMAP_SIZES =
@@ -48,8 +50,9 @@ local MINIMAP_SIZES =
 		300,
 		400,
 		500,
-	}
+	},
 }
+
 
 local savedVars = internal.savedVars
 local LibAddonMenu = LibAddonMenu2
@@ -81,6 +84,23 @@ function settings:Initialize()
 	end
 
 	AddSetting(db:GetLibAddonMenuAccountCheckbox())
+
+	AddSetting {
+		type = "checkbox",
+		name = SI_LOST_TREASURE_DEBUG,
+		tooltip = SI_LOST_TREASURE_DEBUG_TT,
+		getFunc = function()
+			return debug:GetState()
+		end,
+		setFunc = function(value)
+			if value then
+				debug:Enable()
+			else
+				debug:Disable()
+			end
+		end,
+		default = false,
+	}
 
 	for pinType, settings in pairs(db.pinTypes) do
 		AddSetting {
