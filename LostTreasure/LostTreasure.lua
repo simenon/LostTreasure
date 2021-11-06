@@ -187,6 +187,7 @@ end
 
 function LostTreasure:SetLastOpenedTreasureMapItemId(itemId)
 	self.lastOpenedTreasureMapItemId = itemId
+	logger:Debug("new lastOpenedTreasureMapItemId: %d", self.lastOpenedTreasureMapItemId)
 end
 
 do
