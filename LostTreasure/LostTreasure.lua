@@ -180,9 +180,8 @@ do
 end
 
 function LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
-	local lastOpenedTreasureMapItemId = self.lastOpenedTreasureMapItemId
-	logger:Debug("lastOpenedTreasureMapItemId: %d == %d", lastOpenedTreasureMapItemId, itemId)
-	return lastOpenedTreasureMapItemId == itemId
+	logger:Debug("lastOpenedTreasureMapItemId: %s == %s, type: %s == %s", self.lastOpenedTreasureMapItemId, itemId, type(self.lastOpenedTreasureMapItemId), type(itemId))
+	return self.lastOpenedTreasureMapItemId == itemId
 end
 
 function LostTreasure:SetLastOpenedTreasureMapItemId(itemId)
