@@ -139,9 +139,12 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			local interactionType = GetInteractionType()
 
 			-- Mini Map
-			local isLastOpenedTreasureMap = LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
-			logger:Debug("isLastOpenedTreasureMap: %s", tostring(isLastOpenedTreasureMap))
-			if isLastOpenedTreasureMap then
+			-- local isLastOpenedTreasureMap = LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
+			-- logger:Debug("isLastOpenedTreasureMap: %s", tostring(isLastOpenedTreasureMap))
+			-- if isLastOpenedTreasureMap then
+			local lastOpenedItemId = LostTreasure:IsLastOpenedItemId(itemId)
+			logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
+			if lastOpenedItemId then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
 				logger:Debug("update Mini Map - fadeDuration %d", fadeDuration)
 				local HIDE_MINI_MAP = true
