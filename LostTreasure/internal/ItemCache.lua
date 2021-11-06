@@ -139,16 +139,13 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			local interactionType = GetInteractionType()
 
 			-- Mini Map
-			-- local isLastOpenedTreasureMap = LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
-			-- logger:Debug("isLastOpenedTreasureMap: %s", tostring(isLastOpenedTreasureMap))
-			-- if isLastOpenedTreasureMap then
 			local lastOpenedItemId = LOST_TREASURE:IsLastOpenedItemId(itemId)
 			logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
 			if lastOpenedItemId then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
 				logger:Debug("update Mini Map - fadeDuration %d", fadeDuration)
 				local HIDE_MINI_MAP = true
-				LostTreasure:ProzessQueue(nil, function() LostTreasure:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
+				LOST_TREASURE:ProzessQueue(nil, function() LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
 			end
 
 			-- PinTypes
@@ -160,13 +157,13 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 					local itemData = self:Remove(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
-						LostTreasure:ProzessQueue(pinType, function() LostTreasure:RefreshPinTypePins(pinType) end, interactionType)
+						LOST_TREASURE:ProzessQueue(pinType, function() LOST_TREASURE:RefreshPinTypePins(pinType) end, interactionType)
 
 						if mining:IsActive() then
 							local sceneName = SCENE_MANAGER:GetCurrentSceneName()
 							logger:Info("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
 
-							LostTreasure:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
+							LOST_TREASURE:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
 						else
 							logger:Debug("mining is not active, no report will be requested")
 						end

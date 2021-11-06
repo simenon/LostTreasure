@@ -21,9 +21,8 @@ function LostTreasure:Initialize(control)
 	self.control = control
 	self.mapControl = control:GetNamedChild("Map")
 
-	-- self:SetLastOpenedTreasureMapItemId(0)
 	self.lastOpenedTreasureMap = LOST_TREASURE_MAP_NOT_OPENED
-	self.lastOpenedItemId = 0
+	self:SetLastOpenedItemId(0)
 
 	local function OnAddOnLoaded(_, addOnName)
 		if addOnName == self.addOnName then
@@ -81,7 +80,6 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	local pin = LibTreasure_GetTextureData(mapTextureName)
 	logger:Debug("GetTextureData itemId: %d", pin.itemId or "nil")
 	if pin then
-		-- self:SetLastOpenedTreasureMapItemId(pin.itemId)
 		self:SetLastOpenedItemId(pin.itemId)
 		local pinType = utilities:GetPinTypeFromString(name)
 		local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
@@ -137,13 +135,13 @@ do
 	end
 
 	--[[
-	
+
 	This has to pass without action:
 	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 57764, "itemName", "itemLink", "hud")
 	
 	This has to pop a request:
 	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 99999, "itemName", "itemLink", "hud")
-	
+
 	]]
 	function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink, sceneName)
 		if IsValidInteractionType(pinType, interactionType, sceneName) then
@@ -181,36 +179,15 @@ do
 	end
 end
 
-function LostTreasure:IsLastOpenedItemId(...)
-	d(...)
-	local t = { ... }
-	local itemId = t[1]
+function LostTreasure:IsLastOpenedItemId(itemId)
 	logger:Debug("lastOpenedItemId: %s, itemId: %s", tostring(self.lastOpenedItemId) or "nil", itemId)
 	return self.lastOpenedItemId == itemId
 end
-
--- function LostTreasure:IsLastOpenedItemId(itemId)
-	-- logger:Debug("lastOpenedItemId: %s, itemId: %s", tostring(self.lastOpenedItemId) or "nil", itemId)
-	-- return self.lastOpenedItemId == itemId
--- end
 
 function LostTreasure:SetLastOpenedItemId(itemId)
 	self.lastOpenedItemId = itemId
 	logger:Debug("set lastOpenedItemId: %s, itemId: %s", tostring(self.lastOpenedItemId) or "nil", itemId)
 end
-
--- function LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
-	-- logger:Debug("lastOpenedTreasureMapItemId: %s == %s", self.lastOpenedTreasureMapItemId, itemId)
-	-- return self.lastOpenedTreasureMapItemId == itemId
--- end
-
--- function LostTreasure:SetLastOpenedTreasureMapItemId(itemId)
-	-- if not itemId then
-		-- logger:Error("this is not a proper itemId")
-	-- end
-	-- self.lastOpenedTreasureMapItemId = itemId
-	-- logger:Debug("new lastOpenedTreasureMapItemId: %d", self.lastOpenedTreasureMapItemId)
--- end
 
 do
 	local SLOT_UPDATED_DELAY = ZO_ONE_SECOND_IN_MILLISECONDS / 5
