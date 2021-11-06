@@ -114,8 +114,12 @@ end
 function LostTreasure:AddMarkOnUsingPin(pinType, itemId)
 	if not markOnUsing:DoesExist(pinType, itemId) then
 		markOnUsing:Add(pinType, itemId)
-		pins:RefreshAllPinsFromPinType(pinType)
+		self:RefreshPinTypePins(pinType)
 	end
+end
+
+function LostTreasure:RefreshPinTypePins(pinType)
+	pins:RefreshAllPinsFromPinType(pinType)
 end
 
 do

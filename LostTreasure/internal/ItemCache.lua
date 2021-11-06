@@ -10,7 +10,6 @@ internal.itemCache = itemCache
 
 local utilities = internal.utilities
 local settings = internal.settings
-local pins = internal.pins
 local markOnUsing = internal.markOnUsing
 
 local function IsTreasureOrSurveyItem(bagId, slotIndex)
@@ -134,10 +133,10 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 	local specializedItemType = oldSlotData.specializedItemType
 	if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
-		local interactionType = GetInteractionType()
-
 		local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
 		if itemId then
+			local interactionType = GetInteractionType()
+
 			-- Mini Map
 			if LostTreasure:IsLastOpenedTreasureMapItemId(itemId) then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
@@ -154,7 +153,7 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 					local itemData = self:Remove(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
-						LostTreasure:ProzessQueue(pinType, function() pins:RefreshAllPinsFromPinType(pinType) end, interactionType)
+						LostTreasure:ProzessQueue(pinType, function() LostTreasure:RefreshPinTypePins(pinType) end, interactionType)
 
 						if mining:IsActive() then
 							local sceneName = SCENE_MANAGER:GetCurrentSceneName()
