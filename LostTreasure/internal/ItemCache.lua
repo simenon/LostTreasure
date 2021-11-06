@@ -128,7 +128,6 @@ end
 
 function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 	if bagId ~= BAG_BACKPACK then
-		logger:Debug("this bagId is not tracked")
 		return
 	end
 
