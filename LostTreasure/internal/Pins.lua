@@ -8,7 +8,7 @@ internal.pins = pins
 
 
 local TIME_BETWEEN_LABEL_UPDATES_MS = 250
-local DEFAULT_GAMEPAD_TOOLTIP_TEXTURE = "LostTreasure/Icons/map_white.dds"
+local DEFAULT_GAMEPAD_TOOLTIP_TEXTURE = LibTreasure_GetIcons()[4]
 
 local LibMapPins = LibMapPins
 local LibCompassPins = COMPASS_PINS

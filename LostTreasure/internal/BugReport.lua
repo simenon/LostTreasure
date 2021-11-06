@@ -37,8 +37,5 @@ local function GetReportURL(data)
 end
 
 function bugReport:RequestOpenURL(data)
-	d("*********")
-	d(data.itemName)
-	d("*********")
 	RequestOpenUnsafeURL(GetReportURL(data))
 end
