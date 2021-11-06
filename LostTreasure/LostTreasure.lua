@@ -181,10 +181,18 @@ do
 	end
 end
 
-function LostTreasure:IsLastOpenedItemId(itemId)
+function LostTreasure:IsLastOpenedItemId(...)
+	d(...)
+	local t = { ... }
+	local itemId = t[1]
 	logger:Debug("lastOpenedItemId: %s, itemId: %s", tostring(self.lastOpenedItemId) or "nil", itemId)
 	return self.lastOpenedItemId == itemId
 end
+
+-- function LostTreasure:IsLastOpenedItemId(itemId)
+	-- logger:Debug("lastOpenedItemId: %s, itemId: %s", tostring(self.lastOpenedItemId) or "nil", itemId)
+	-- return self.lastOpenedItemId == itemId
+-- end
 
 function LostTreasure:SetLastOpenedItemId(itemId)
 	self.lastOpenedItemId = itemId
