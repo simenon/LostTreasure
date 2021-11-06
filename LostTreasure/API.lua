@@ -42,12 +42,6 @@ function LostTreasure_GetItemLinkFromItemId(itemId)
 	return utilities:GetItemLinkFromItemId(itemId)
 end
 
--- Add more icons to the icon picker setting windows
--- @param *string* path
-function LostTreasure_AddIcon(path)
-	table.insert(utilities.OPTIONS_TEXTURE_PATHS, path)
-end
-
 
 -- to make sure the AddOn is finally initialized including the API, we will set a flag:
 LostTreasure.isInitialized = true

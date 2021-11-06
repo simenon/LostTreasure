@@ -9,8 +9,7 @@ internal.savedVars = savedVars
 local BLANK_SAVED_VARS = LOST_TREASURE_BLANK_SAVED_VARS
 
 local function GetTexturePath(index)
-	local utilities = internal.utilities
-	local textures = utilities.OPTIONS_TEXTURE_PATHS
+	local textures = LibTreasure_GetIcons()
 	local numTextures = #textures
 	if index == nil or index < 1 or index > numTextures then
 		index = 1
