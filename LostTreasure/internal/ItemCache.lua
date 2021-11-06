@@ -12,6 +12,7 @@ local utilities = internal.utilities
 local settings = internal.settings
 local markOnUsing = internal.markOnUsing
 
+
 local function IsTreasureOrSurveyItem(bagId, slotIndex)
 	local specializedItemType = select(2, GetItemType(bagId, slotIndex))
 	return utilities:IsTreasureOrSurveyItemType(specializedItemType)
@@ -143,6 +144,7 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			if isLastOpenedTreasureMap then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
 				logger:Debug("update Mini Map - fadeDuration %d", fadeDuration)
+				local HIDE_MINI_MAP = true
 				LostTreasure:ProzessQueue(nil, function() LostTreasure:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
 			end
 
