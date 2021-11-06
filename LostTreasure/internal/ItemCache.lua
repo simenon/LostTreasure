@@ -11,6 +11,7 @@ internal.itemCache = itemCache
 local utilities = internal.utilities
 local settings = internal.settings
 local pins = internal.pins
+local markOnUsing = internal.markOnUsing
 
 local function IsTreasureOrSurveyItem(bagId, slotIndex)
 	local specializedItemType = select(2, GetItemType(bagId, slotIndex))
@@ -147,14 +148,12 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			-- PinTypes
 			for pinType, pinData in pairs(LOST_TREASURE_PIN_TYPE_DATA) do
 				if pinData.specializedItemType == specializedItemType then
-					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
-					if index then
-						table.remove(self.listMarkOnUse[pinType], index)
+					if markOnUsing:DoesExist(pinType, itemId) then
+						markOnUsing:Remove(pinType, itemId)
 					end
 
 					local itemData = self:Remove(oldSlotData.uniqueId)
 					if itemData and itemData.itemLink then
-						logger:Debug("update PinTypes - index %d, itemLink %s", index, itemLink)
 						LostTreasure:ProzessQueue(pinType, function() pins:RefreshAllPinsFromPinType(pinType) end, interactionType)
 
 						if mining:IsActive() then
