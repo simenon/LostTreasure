@@ -9,26 +9,6 @@ local data = internal.data
 -- if it helps to improve your addon/plugin.
 ----------------------------------------------
 
--- Get the data from all saved items data
--- @return *table* itemsData
-function LostTreasure_GetAllItemsData()
-	return data.ITEMS_DATA
-end
-
--- Get the data of an item in the database
--- @param *number* itemId
--- @return *table:nilable* itemData
-function LostTreasure_GetItemIdData(itemId)
-	return data.ITEMS_DATA[itemId]
-end
-
--- Get the data from a specific mapId
--- @param *number* mapId
--- @return *table:nilable* mapIdData
-function LostTreasure_GetMapIdData(mapId)
-	return data.MAP_ID_DATA[mapId]
-end
-
 -- Get the player position data
 -- @return *number* x, *number* y, *string* zone, *string* subZone
 function LostTreasure_GetPlayerPositionInfo()

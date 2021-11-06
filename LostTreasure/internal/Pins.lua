@@ -119,7 +119,7 @@ function pins:GetAndCreateMapPins(pinType, key)
 	-- We don't use RequestRefreshMap here, because you can't zoom out the map anymore.
 	-- The refresh happens while opening the map manually anyways.
 	local mapId = GetCurrentMapId()
-	local mapIdData = data:GetMapIdData(mapId)
+	local mapIdData = LibTreasure_GetMapIdData(mapId)
 	if mapIdData then
 		local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
 		for _, pinData in ipairs(mapIdData) do

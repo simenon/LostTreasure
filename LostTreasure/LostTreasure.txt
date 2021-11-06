@@ -20,7 +20,6 @@ lang\$(language).lua
 StartUp.lua
 internal\LogManager.lua
 internal\Utilities.lua
-internal\Data.lua
 internal\BugReport.lua
 internal\SavedVars.lua
 internal\MarkOnUsing.lua

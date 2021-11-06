@@ -75,8 +75,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	local isMinimapEnabled = savedVars.db.miniMap.enabled
 	self:UpdateVisibility(not isMinimapEnabled)
 
-	local textureData = data:GetTexturesData()
-	local pin = textureData[mapTextureName]
+	local pin = LibTreasure_GetTextureData(mapTextureName)
 	if pin then
 		self:SetLastOpenedTreasureMapItemId(pin.itemId)
 		local pinType = utilities:GetPinTypeFromString(name)
@@ -88,7 +87,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 end
 
 function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
-	local itemId = data:GetBookIdItemId(bookId)
+	local itemId = LibTreasure_GetBookIdItemId(bookId)
 	if itemId then
 		local pinType = utilities:GetPinTypeFromString(title)
 		local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
@@ -140,7 +139,7 @@ do
 	function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink, sceneName)
 		if IsValidInteractionType(pinType, interactionType, sceneName) then
 			-- Check for exisiting items in LostTreasure_Data.
-			if LostTreasure_GetItemIdData(itemId) then
+			if LibTreasure_GetItemIdData(itemId) then
 				logger:Info("Item %d has been found in database.", itemId)
 				return -- item has been found, no need to continue
 			end
