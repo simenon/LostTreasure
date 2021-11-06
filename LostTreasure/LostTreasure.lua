@@ -186,6 +186,9 @@ function LostTreasure:IsLastOpenedTreasureMapItemId(itemId)
 end
 
 function LostTreasure:SetLastOpenedTreasureMapItemId(itemId)
+	if not itemId then
+		logger:Error("this is not a proper itemId")
+	end
 	self.lastOpenedTreasureMapItemId = itemId
 	logger:Debug("new lastOpenedTreasureMapItemId: %d", self.lastOpenedTreasureMapItemId)
 end
