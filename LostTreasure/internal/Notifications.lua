@@ -63,7 +63,7 @@ end
 
 function notifications:DeleteAllNotificationsInDatabase()
 	local db = savedVars.db
-	if db and db.notifications then
+	if db and db.notifications and next(db.notifications) then
 		ZO_ClearTable(db.notifications)
 		logger:Debug("All notifications have been removed")
 	end
