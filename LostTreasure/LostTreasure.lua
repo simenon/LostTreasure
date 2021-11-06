@@ -59,7 +59,9 @@ function LostTreasure:RegisterEvents()
 	self.control:RegisterForEvent(EVENT_SHOW_BOOK, function(_, ...) self:OnEventShowBook(...) end)
 
 	-- We have to refresh the compass pins, otherwise they are not always visible from the beginning
-	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED , function() self:OnPlayerActivated() end)
+	self.control:RegisterForEvent(EVENT_PLAYER_ACTIVATED , function()
+		self:OnPlayerActivated()
+	end)
 end
 
 

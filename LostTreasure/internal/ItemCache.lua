@@ -127,6 +127,7 @@ end
 
 function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 	if bagId ~= BAG_BACKPACK then
+		logger:Debug("this bagId is not tracked")
 		return
 	end
 
@@ -136,7 +137,6 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 		local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
 		if itemId then
-
 			-- Mini Map
 			if LostTreasure:IsLastOpenedTreasureMapItemId(itemId) then
 				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
@@ -145,7 +145,7 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 			end
 
 			-- PinTypes
-			for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
+			for pinType, pinData in pairs(LOST_TREASURE_PIN_TYPE_DATA) do
 				if pinData.specializedItemType == specializedItemType then
 					local index = ZO_IndexOfElementInNumericallyIndexedTable(self.listMarkOnUse[pinType], itemId)
 					if index then
@@ -162,12 +162,12 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 							logger:Info("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
 
 							LostTreasure:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
+						else
+							logger:Debug("mining is not active, no report will be requested")
 						end
 					end
 				end
 			end
 		end
-	else
-		logger:Verbose("%s removed from your backpack", oldSlotData.name)
 	end
 end
