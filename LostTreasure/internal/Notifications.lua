@@ -50,7 +50,7 @@ function notifications:SaveAllNotifications()
 	for _, layoutData in ipairs(provider.notifications) do
 		tinsert(db.notifications, layoutData.data)
 	end
-	self:DeleteAllNotifications()
+	self:DeleteAllNotificationsInDatabase()
 end
 
 function notifications:RestoreAllNotifications()
@@ -58,10 +58,10 @@ function notifications:RestoreAllNotifications()
 	for _, layoutData in ipairs(db.notifications) do
 		self:Add(layoutData)
 	end
-	self:DeleteAllNotifications()
+	self:DeleteAllNotificationsInDatabase()
 end
 
-function notifications:DeleteAllNotifications()
+function notifications:DeleteAllNotificationsInDatabase()
 	local db = savedVars.db
 	if db and db.notifications then
 		ZO_ClearTable(db.notifications)
