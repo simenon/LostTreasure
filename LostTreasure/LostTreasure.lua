@@ -205,7 +205,7 @@ do
 	function LostTreasure:ProzessQueue(pinType, callback, interactionType)
 		local delayInSeconds = settings:GetSettingDeletionDelay(pinType)
 		local delayInMilliseconds = GetDelayInMilliseconds(delayInSeconds)
-		logger:Debug("ProzessQueue - delayInSeconds: %s, delayInMilliseconds: %s", delayInSeconds, delayInMilliseconds)
+		logger:Debug("ProzessQueue - delayInSeconds: %s, delayInMilliseconds: %s, interactionType: %d", delayInSeconds, delayInMilliseconds, interactionType)
 		utilities:RunCallbackAsync(callback, delayInMilliseconds)
 	end
 end

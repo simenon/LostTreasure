@@ -12,7 +12,6 @@ local ZO_ONE_SECOND_IN_MILLISECONDS = ZO_ONE_SECOND_IN_MILLISECONDS
 
 local zo_strlower, zo_strfind, zo_strmatch = zo_strlower, zo_strfind, zo_strmatch
 local sformat = string.format
-local task = LostTreasure.task
 
 local GetMapPlayerPosition, GetCurrentMapId = GetMapPlayerPosition, GetCurrentMapId
 local ShouldMapShowQuestsInList = ZO_WorldMapQuestsData_Singleton.ShouldMapShowQuestsInList
@@ -34,7 +33,10 @@ function utilities:GetTreasureMapTexturePathName(texturePath)
 end
 
 function utilities:RunCallbackAsync(callback, delay)
-	task:Delay(delay, callback)
+	zo_callLater(function()
+		callback()
+		logger:Debug("async callback run successfully with a delay of %d ms", delay)
+	end, delay)
 end
 
 -- Tooltips

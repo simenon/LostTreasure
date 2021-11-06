@@ -37,7 +37,6 @@ LOST_TREASURE_PIN_TYPE_DATA =
 LostTreasure.addOnName = "LostTreasure"
 LostTreasure.addOnDisplayName = "Lost Treasure"
 LostTreasure.APIVersion = GetAPIVersion()
-LostTreasure.task = LibAsync:Create(LostTreasure.addOnName)
 LostTreasure.internal = { }
 
 local function GetAddOnInfos()
@@ -49,7 +48,6 @@ local function GetAddOnInfos()
 			return author, addOnManager:GetAddOnVersion(i)
 		end
 	end
-	LostTreasure.task:Error("Something went wrong. No Author and Version have been captured.")
 end
 LostTreasure.author, LostTreasure.version = GetAddOnInfos()
 
