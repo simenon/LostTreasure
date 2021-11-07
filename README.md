@@ -3,7 +3,7 @@
 * Filters for Treasure Maps or Survey Report locations. Make sure the filter is checked to enable icons. Enabled by default.
 * Show Treasure Maps and Survey Report locations for all zones.
 * Built in minimap for locating Treasure Maps or Surveys Reports locations easier.
-* Support for English, French, German, Russian and Japanese clients.
+* Support for many languages.
 * Options to scale and select textures for map markers.
 * Compass pins drawn when you are close to Treasure Map or Survey Report locations.
 
@@ -18,4 +18,5 @@ Please install and activate all libraries as followed:
 [LibDebugLogger](https://www.esoui.com/downloads/info2275-LibDebugLogger.html), 
 [LibMapPins-1.0](https://www.esoui.com/downloads/info563-LibMapPins.html), 
 [LibNotification](https://www.esoui.com/downloads/info1224-CirconiansLibNotifications.html), 
-[LibSavedVars](https://www.esoui.com/downloads/info2161-LibSavedVars.html)
+[LibSavedVars](https://www.esoui.com/downloads/info2161-LibSavedVars.html),
+[LibTreasure](https://www.esoui.com/downloads/info3227-LibTreasure.html)
