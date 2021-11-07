@@ -56,7 +56,7 @@ function itemCache:GetUniqueEntry(uniqueId)
 	local uniqueEntry = self.uniqueIdList[uniqueId64String]
 	if uniqueEntry then
 		logger:Debug("uniqueId64String %s has been found", uniqueId64String)
-		return uniqueEntry
+		return uniqueEntry, uniqueId64String
 	end
 	logger:Debug("uniqueId64String %s has not been found", uniqueId64String)
 	return
@@ -161,7 +161,7 @@ do
 	end
 
 	function itemCache:Remove(uniqueId)
-		local uniqueEntry = self:GetUniqueEntry(uniqueId)
+		local uniqueEntry, uniqueId64String = self:GetUniqueEntry(uniqueId)
 		if uniqueEntry then
 			local itemId = uniqueEntry.itemId
 			self.itemIdList[itemId] = nil
