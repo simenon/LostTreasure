@@ -105,6 +105,9 @@ do
 						pins:RefreshAllPinsFromPinType(pinType)
 					end
 					break
+					-- this break is not really needed. it does only break the second
+					-- pinType, if the specialized item was called in the first key.
+					-- It's still helps not to iterate further.
 				end
 			end
 
