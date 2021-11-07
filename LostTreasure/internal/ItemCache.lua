@@ -51,14 +51,14 @@ function itemCache:IsItemInBagCache(itemId)
 	return self.itemIdList[itemId]
 end
 
-function itemCache:GetItemIdFromUniqueId(uniqueId)
+function itemCache:GetUniqueEntry(uniqueId)
 	local uniqueId64String = Id64ToString(uniqueId)
 	local uniqueEntry = self.uniqueIdList[uniqueId64String]
 	if uniqueEntry then
-		logger:Debug("itemId %d has been found from uniqueId64String %s", itemId, uniqueId64String)
-		return uniqueEntry.itemId
+		logger:Debug("uniqueId64String %s has been found", uniqueId64String)
+		return uniqueEntry
 	end
-	logger:Debug("Can't return itemId, because uniqueId64String %s has not been found", uniqueId64String)
+	logger:Debug("uniqueId64String %s has not been found", uniqueId64String)
 	return
 end
 
@@ -150,8 +150,7 @@ do
 	end
 
 	function itemCache:Remove(uniqueId)
-		local uniqueId64String = Id64ToString(uniqueId)
-		local uniqueEntry = self.uniqueIdList[uniqueId64String]
+		local uniqueEntry = self:GetUniqueEntry(uniqueId)
 		if uniqueEntry then
 			local itemId = uniqueEntry.itemId
 			self.itemIdList[itemId] = nil
@@ -175,7 +174,8 @@ do
 
 		local specializedItemType = oldSlotData.specializedItemType
 		if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
-			local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
+			local uniqueEntry = self:GetUniqueEntry(oldSlotData.uniqueId)
+			local itemId = uniqueEntry.itemId
 			if itemId then
 				local interactionType = GetInteractionType()
 				RequestHidingMiniMap(itemId, interactionType)
