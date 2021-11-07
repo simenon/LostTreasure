@@ -62,115 +62,124 @@ function itemCache:GetItemIdFromUniqueId(uniqueId)
 	return
 end
 
-function itemCache:Add(itemId, uniqueId, itemLink)
-	if not self.itemIdList[itemId] then
-		self.itemIdList[itemId] = true
-	end
-
-	local uniqueId64String = Id64ToString(uniqueId)
-	if not self.uniqueIdList[uniqueId64String] then
-		local data =
-		{
-			uniqueIdString = uniqueId64String,
-			itemId = itemId,
-			itemLink = itemLink,
-		}
-		self.uniqueIdList[uniqueId64String] = data
-	end
-
-	logger:Verbose("%d (%s) has been added", itemId, GetItemLinkName(itemLink))
-end
-
-function itemCache:SlotAdded(bagId, slotIndex, newSlotData)
-	if bagId ~= BAG_BACKPACK then
-		return
-	end
-
-	local specializedItemType = newSlotData.specializedItemType
-	if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
-
-		local itemId = GetItemId(bagId, slotIndex)
-		local uniqueId = GetItemUniqueId(bagId, slotIndex)
-		local itemLink = GetItemLink(bagId, slotIndex)
-		self:Add(itemId, uniqueId, itemLink)
-
-		for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
-			if pinData.specializedItemType == specializedItemType then
-				local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
-				if markOption == LOST_TREASURE_MARK_OPTIONS_INVENTORY then
-					self:RefreshAllPinsFromPinType(pinType)
-				end
-				break
-			end
+do
+	function itemCache:Add(itemId, uniqueId, itemLink)
+		if not self.itemIdList[itemId] then
+			self.itemIdList[itemId] = true
 		end
 
-		logger:Debug("%s added to your backpack cache. itemLink: %s", newSlotData.name, itemLink)
-	else
-		logger:Verbose("%s added to your backpack", newSlotData.name)
-	end
-end
+		local uniqueId64String = Id64ToString(uniqueId)
+		if not self.uniqueIdList[uniqueId64String] then
+			local data =
+			{
+				uniqueIdString = uniqueId64String,
+				itemId = itemId,
+				itemLink = itemLink,
+			}
+			self.uniqueIdList[uniqueId64String] = data
+		end
 
-function itemCache:Remove(uniqueId)
-	local uniqueId64String = Id64ToString(uniqueId)
-	local uniqueEntry = self.uniqueIdList[uniqueId64String]
-	if uniqueEntry then
-		local itemId = uniqueEntry.itemId
-		self.itemIdList[itemId] = nil
-		logger:Debug("%d has been deleted from itemIdList", itemId)
-
-		self.uniqueIdList[uniqueId64String] = nil
-		logger:Debug("%d (%s) has been removed from cache", uniqueEntry.itemId, GetItemLinkName(uniqueEntry.itemLink))
-		return uniqueEntry
-	else
-		logger:Error("uniqueId has not been found")
-	end
-end
-
--- Important Note:
--- Make sure to use LOST_TREASURE instead of LostTreasure in this function, because this file is loaded before.
--- Otherwise you will have issues by calling all those functions on LostTreasure.lua
-function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
-	if bagId ~= BAG_BACKPACK then
-		return
+		logger:Verbose("%d (%s) has been added", itemId, GetItemLinkName(itemLink))
 	end
 
-	local specializedItemType = oldSlotData.specializedItemType
-	if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
-		local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
-		if itemId then
-			local interactionType = GetInteractionType()
+	function itemCache:SlotAdded(bagId, slotIndex, newSlotData)
+		if bagId ~= BAG_BACKPACK then
+			return
+		end
 
-			-- Mini Map
-			local lastOpenedItemId = LOST_TREASURE:IsLastOpenedItemId(itemId)
-			logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
-			if lastOpenedItemId then
-				local fadeDuration = ZO_ONE_SECOND_IN_MILLISECONDS
-				logger:Debug("update Mini Map - fadeDuration %d", fadeDuration)
-				local HIDE_MINI_MAP = true
-				LOST_TREASURE:ProzessQueue(nil, function() LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP, fadeDuration) end, interactionType)
-			end
+		local specializedItemType = newSlotData.specializedItemType
+		if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
 
-			-- PinTypes
+			local itemId = GetItemId(bagId, slotIndex)
+			local uniqueId = GetItemUniqueId(bagId, slotIndex)
+			local itemLink = GetItemLink(bagId, slotIndex)
+			self:Add(itemId, uniqueId, itemLink)
+
 			for pinType, pinData in pairs(LOST_TREASURE_PIN_TYPE_DATA) do
 				if pinData.specializedItemType == specializedItemType then
-					if markOnUsing:DoesExist(pinType, itemId) then
-						markOnUsing:Remove(pinType, itemId)
+					local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
+					if markOption == LOST_TREASURE_MARK_OPTIONS_INVENTORY then
+						self:RefreshAllPinsFromPinType(pinType)
 					end
+					break
+				end
+			end
 
-					local itemData = self:Remove(oldSlotData.uniqueId)
-					if itemData and itemData.itemLink then
-						LOST_TREASURE:ProzessQueue(pinType, function() LOST_TREASURE:RefreshPinTypePins(pinType) end, interactionType)
+			logger:Debug("%s added to your backpack cache. itemLink: %s", newSlotData.name, itemLink)
+		else
+			logger:Verbose("%s added to your backpack", newSlotData.name)
+		end
+	end
+end
 
-						if mining:IsActive() then
-							local sceneName = SCENE_MANAGER:GetCurrentSceneName()
-							logger:Debug("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
+do
+	local MINIMAP_FADE_DURATION = ZO_ONE_SECOND_IN_MILLISECONDS
+	local HIDE_MINI_MAP = true
 
-							LOST_TREASURE:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
-						else
-							logger:Debug("mining is not active, no report will be requested")
-						end
+	local function RequestHidingMiniMap(itemId, interactionType)
+		local lastOpenedItemId = LOST_TREASURE:IsLastOpenedItemId(itemId)
+		logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
+		if lastOpenedItemId then
+
+			LOST_TREASURE:ProzessQueue(nil, function() LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP, MINIMAP_FADE_DURATION) end, interactionType)
+		end
+	end
+
+	local function RequestHidingPins(specializedItemType, itemId, interactionType, oldSlotData)
+		for pinType, pinData in pairs(LOST_TREASURE_PIN_TYPE_DATA) do
+			if pinData.specializedItemType == specializedItemType then
+				if markOnUsing:DoesExist(pinType, itemId) then
+					markOnUsing:Remove(pinType, itemId)
+				end
+
+				local itemData = self:Remove(oldSlotData.uniqueId)
+				if itemData and itemData.itemLink then
+					LOST_TREASURE:ProzessQueue(pinType, function() LOST_TREASURE:RefreshPinTypePins(pinType) end, interactionType)
+
+					if mining:IsActive() then
+						local sceneName = SCENE_MANAGER:GetCurrentSceneName()
+						logger:Debug("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
+
+						LOST_TREASURE:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
+					else
+						logger:Debug("mining is not active, no report will be requested")
 					end
 				end
+			end
+		end
+	end
+
+	function itemCache:Remove(uniqueId)
+		local uniqueId64String = Id64ToString(uniqueId)
+		local uniqueEntry = self.uniqueIdList[uniqueId64String]
+		if uniqueEntry then
+			local itemId = uniqueEntry.itemId
+			self.itemIdList[itemId] = nil
+			logger:Debug("%d has been deleted from itemIdList", itemId)
+
+			self.uniqueIdList[uniqueId64String] = nil
+			logger:Debug("%d (%s) has been removed from cache", uniqueEntry.itemId, GetItemLinkName(uniqueEntry.itemLink))
+			return uniqueEntry
+		else
+			logger:Error("uniqueId has not been found")
+		end
+	end
+
+	-- Important Note:
+	-- Make sure to use LOST_TREASURE instead of LostTreasure in this function, because this file is loaded before.
+	-- Otherwise you will have issues by calling all those functions on LostTreasure.lua
+	function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
+		if bagId ~= BAG_BACKPACK then
+			return
+		end
+
+		local specializedItemType = oldSlotData.specializedItemType
+		if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
+			local itemId = self:GetItemIdFromUniqueId(oldSlotData.uniqueId)
+			if itemId then
+				local interactionType = GetInteractionType()
+				RequestHidingMiniMap(itemId, interactionType)
+				RequestHidingPins(specializedItemType, itemId, interactionType, oldSlotData)
 			end
 		end
 	end
