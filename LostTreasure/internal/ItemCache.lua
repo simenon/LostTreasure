@@ -2,7 +2,6 @@ local LostTreasure = LOST_TREASURE
 
 local internal = LostTreasure.internal
 local logger = internal.LogManager:New("itemCache")
-local mining = internal.mining
 
 local itemCache = { }
 internal.itemCache = itemCache
@@ -11,6 +10,7 @@ internal.itemCache = itemCache
 local utilities = internal.utilities
 local settings = internal.settings
 local markOnUsing = internal.markOnUsing
+local mining = internal.mining
 
 local Id64ToString, ZO_ClearTable = Id64ToString, ZO_ClearTable
 local GetItemId, GetItemUniqueId, GetItemLink = GetItemId, GetItemUniqueId, GetItemLink
@@ -122,10 +122,11 @@ do
 	local HIDE_MINI_MAP = true
 
 	local function RequestHidingMiniMap(itemId, interactionType)
-		local lastOpenedItemId = LOST_TREASURE:IsLastOpenedItemId(itemId)
+		local LostTreasure = LOST_TREASURE
+		local lastOpenedItemId = LostTreasure:IsLastOpenedItemId(itemId)
 		logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
 		if lastOpenedItemId then
-			LOST_TREASURE:ProzessQueue(nil, function() LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP, MINIMAP_FADE_DURATION) end, interactionType)
+			LostTreasure:ProzessQueue(nil, function() LostTreasure:UpdateVisibility(HIDE_MINI_MAP, MINIMAP_FADE_DURATION) end, interactionType)
 		end
 	end
 
@@ -138,13 +139,14 @@ do
 
 				local itemData = self:Remove(oldSlotData.uniqueId)
 				if itemData and itemData.itemLink then
-					LOST_TREASURE:ProzessQueue(pinType, function() LOST_TREASURE:RefreshPinTypePins(pinType) end, interactionType)
+					local LostTreasure = LOST_TREASURE
+					LostTreasure:ProzessQueue(pinType, function() LostTreasure:RefreshPinTypePins(pinType) end, interactionType)
 
 					if mining:IsActive() then
 						local sceneName = SCENE_MANAGER:GetCurrentSceneName()
 						logger:Debug("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
 
-						LOST_TREASURE:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
+						LostTreasure:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
 					else
 						logger:Debug("mining is not active, no report will be requested")
 					end
