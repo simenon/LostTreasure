@@ -22,6 +22,7 @@ function LostTreasure:Initialize(control)
 	self.mapControl = control:GetNamedChild("Map")
 
 	self.lastOpenedTreasureMap = LOST_TREASURE_MAP_NOT_OPENED
+	self.lastOpenedBookId = LOST_TREASURE_BOOK_NOT_OPENED
 	self:SetLastOpenedItemId(0)
 
 	local function OnAddOnLoaded(_, addOnName)
@@ -90,6 +91,8 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 end
 
 function LostTreasure:OnEventShowBook(title, body, medium, showTitle, bookId)
+	self.lastOpenedBookId = bookId
+
 	local itemId = LibTreasure_GetBookIdItemId(bookId)
 	if itemId then
 		local pinType = utilities:GetPinTypeFromString(title)
@@ -159,7 +162,7 @@ do
 			local x, y, zone, subZone, mapId = utilities:GetPlayerPositionInfo()
 			local zoneName = zo_strformat(SI_ITEM_FORMAT_STR_TEXT1_TEXT2, zone, subZone)
 
-			logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s", x, y, zoneName, mapId, itemId, itemName, self.lastOpenedTreasureMap, interactionType, sceneName, itemLink)
+			logger:Info("new pin location at %.4f x %.4f, zone: %s, mapId: %d, itemId: %d, itemName: %s, treasureMapTexture: %s, interactionType: %d, sceneName: %s, itemLink: %s, bookId: %d", x, y, zoneName, mapId, itemId, itemName, self.lastOpenedTreasureMap, interactionType, sceneName, itemLink, self.lastOpenedBookId)
 
 			-- Pop up a new notification by handing over pinData.
 			local pinData =
@@ -173,6 +176,7 @@ do
 				zone = zoneName,
 				itemName = itemName,
 				lastOpenedTreasureMap = self.lastOpenedTreasureMap,
+				lastOpenedBookId = self.lastOpenedBookId,
 			}
 			mining:Add(pinData)
 		else

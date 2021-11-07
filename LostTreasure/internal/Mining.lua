@@ -17,7 +17,10 @@ local function HasBlankSavedVars(miningTimeStamp, miningAPIVersion)
 end
 
 local function IsWithinMiningActiveTime(now, miningTimeStamp)
-	return GetDiffBetweenTimeStamps(now, miningTimeStamp) < MINING_ACTIVE_TIME
+	local timeDiff = GetDiffBetweenTimeStamps(now, miningTimeStamp)
+	local isWithinMiningActiveTime = timeDiff < MINING_ACTIVE_TIME
+	logger:Debug("timeDiff %d/%d, isWithinMiningActiveTime %s", timeDiff, MINING_ACTIVE_TIME, tostring(isWithinMiningActiveTime))
+	return isWithinMiningActiveTime
 end
 
 -- DO NOT initialize before the db are created!
@@ -94,8 +97,10 @@ end
 
 function mining:Store(pinData)
 	-- Only report new pins when the treasure map has been opened.
-	if pinData.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED then
-		logger:Debug("no treasure map has been opened before")
+	local hasNotMapOpened = pinData.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED
+	local hasNotBookOpened = pinData.lastOpenedBookId == LOST_TREASURE_BOOK_NOT_OPENED
+	if hasNotMapOpened and hasNotBookOpened then
+		logger:Debug("no book and treasure map has been opened before")
 		return
 	end
 
@@ -104,7 +109,7 @@ function mining:Store(pinData)
 	local currentMapIdData = db.mining.data[pinData.mapId]
 	currentMapIdData[#currentMapIdData + 1] = pinData
 
-	logger:Debug("new item %d %s has been stored", pinData.itemId, pinData.itemName)
+	logger:Debug("new item %d %s has been stored. hasNotMapOpened: %s, hasNotBookOpened: %s", pinData.itemId, pinData.itemName, tostring(hasNotMapOpened), tostring(hasNotBookOpened))
 
 	-- send a new notification
 	notifications:Add(pinData)

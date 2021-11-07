@@ -120,7 +120,6 @@ do
 		local lastOpenedItemId = LOST_TREASURE:IsLastOpenedItemId(itemId)
 		logger:Debug("isLastOpenedTreasureMap: %s", tostring(lastOpenedItemId))
 		if lastOpenedItemId then
-
 			LOST_TREASURE:ProzessQueue(nil, function() LOST_TREASURE:UpdateVisibility(HIDE_MINI_MAP, MINIMAP_FADE_DURATION) end, interactionType)
 		end
 	end
