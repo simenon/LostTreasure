@@ -175,8 +175,8 @@ do
 		local specializedItemType = oldSlotData.specializedItemType
 		if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
 			local uniqueEntry = self:GetUniqueEntry(oldSlotData.uniqueId)
-			local itemId = uniqueEntry.itemId
-			if itemId then
+			if uniqueEntry then
+				local itemId = uniqueEntry.itemId
 				local interactionType = GetInteractionType()
 				RequestHidingMiniMap(itemId, interactionType)
 				RequestHidingPins(specializedItemType, itemId, interactionType, oldSlotData)
