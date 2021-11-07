@@ -114,6 +114,10 @@ do
 end
 
 do
+	-- Important Note:
+	-- Make sure to use LOST_TREASURE instead of LostTreasure in this function, because this file is loaded before.
+	-- Otherwise you will have issues by calling all those functions on LostTreasure.lua
+
 	local MINIMAP_FADE_DURATION = ZO_ONE_SECOND_IN_MILLISECONDS
 	local HIDE_MINI_MAP = true
 
@@ -164,9 +168,6 @@ do
 		end
 	end
 
-	-- Important Note:
-	-- Make sure to use LOST_TREASURE instead of LostTreasure in this function, because this file is loaded before.
-	-- Otherwise you will have issues by calling all those functions on LostTreasure.lua
 	function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 		if bagId ~= BAG_BACKPACK then
 			return
