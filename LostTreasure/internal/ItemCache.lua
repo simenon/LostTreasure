@@ -135,7 +135,7 @@ do
 		end
 	end
 
-	local function RequestHidingPins(specializedItemType, itemId, interactionType, oldSlotData)
+	local function RequestHidingPins(self, specializedItemType, itemId, interactionType, oldSlotData)
 		for pinType, pinData in pairs(LOST_TREASURE_PIN_TYPE_DATA) do
 			if pinData.specializedItemType == specializedItemType then
 				if markOnUsing:DoesExist(pinType, itemId) then
@@ -187,7 +187,7 @@ do
 				local itemId = uniqueEntry.itemId
 				local interactionType = GetInteractionType()
 				RequestHidingMiniMap(itemId, interactionType)
-				RequestHidingPins(specializedItemType, itemId, interactionType, oldSlotData)
+				RequestHidingPins(self, specializedItemType, itemId, interactionType, oldSlotData)
 			end
 		end
 	end
