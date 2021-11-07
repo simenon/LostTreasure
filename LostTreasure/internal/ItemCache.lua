@@ -43,7 +43,7 @@ function itemCache:BuildMasterList()
 end
 
 function itemCache:IsItemInBagCache(itemId)
-	for _, itemData in pairs(self.masterList) do
+	for _, itemData in ipairs(self.masterList) do
 		if itemId == itemData.itemId then
 			return true
 		end
@@ -126,6 +126,9 @@ function itemCache:Remove(uniqueId)
 	return
 end
 
+-- Important Note:
+-- Make sure to use LOST_TREASURE instead of LostTreasure in this function, because this file is loaded before.
+-- Otherwise you will have issues by calling all those functions on LostTreasure.lua
 function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 	if bagId ~= BAG_BACKPACK then
 		return
@@ -160,7 +163,7 @@ function itemCache:SlotRemoved(bagId, slotIndex, oldSlotData)
 
 						if mining:IsActive() then
 							local sceneName = SCENE_MANAGER:GetCurrentSceneName()
-							logger:Info("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
+							logger:Debug("%s removed from backpack. interactionType %d, sceneName: %s, specializedItemType: %d, itemId: %d", oldSlotData.name, interactionType, sceneName, specializedItemType, itemId)
 
 							LOST_TREASURE:RequestReport(pinType, interactionType, itemData.itemId, oldSlotData.name, itemData.itemLink, sceneName)
 						else
