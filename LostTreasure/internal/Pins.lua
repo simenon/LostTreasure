@@ -18,7 +18,6 @@ local settings = internal.settings
 local itemCache = internal.itemCache
 local savedVars = internal.savedVars
 local markOnUsing = internal.markOnUsing
-local data = internal.data
 
 local function GetMapFilterCheckboxName(pinType)
 	local addOnDisplayName = LostTreasure.addOnDisplayName

@@ -99,7 +99,8 @@ do
 				if pinData.specializedItemType == specializedItemType then
 					local markOption = settings:GetSettingsFromPinType(pinType, "markOption")
 					if markOption == LOST_TREASURE_MARK_OPTIONS_INVENTORY then
-						self:RefreshAllPinsFromPinType(pinType)
+						local pins = internal.pins
+						pins:RefreshAllPinsFromPinType(pinType)
 					end
 					break
 				end
