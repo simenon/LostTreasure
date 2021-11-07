@@ -12,6 +12,9 @@ local utilities = internal.utilities
 local settings = internal.settings
 local markOnUsing = internal.markOnUsing
 
+local Id64ToString, ZO_ClearTable = Id64ToString, ZO_ClearTable
+local GetItemId, GetItemUniqueId, GetItemLink = GetItemId, GetItemUniqueId, GetItemLink
+
 
 local function IsTreasureOrSurveyItem(bagId, slotIndex)
 	local specializedItemType = select(2, GetItemType(bagId, slotIndex))
@@ -19,8 +22,9 @@ local function IsTreasureOrSurveyItem(bagId, slotIndex)
 end
 
 function itemCache:Initialize()
-	self.masterList = { }
-	self:BuildMasterList()
+	self.uniqueIdList = { }
+	self.itemIdList = { }
+	self:BuildMasterLists()
 
 	SHARED_INVENTORY:RegisterCallback("SlotAdded", function(...) self:SlotAdded(...) end)
 	SHARED_INVENTORY:RegisterCallback("SlotRemoved", function(...) self:SlotRemoved(...) end)
@@ -28,62 +32,52 @@ function itemCache:Initialize()
 	logger:Debug("initialized")
 end
 
-function itemCache:BuildMasterList()
-	ZO_ClearTable(self.masterList)
+function itemCache:BuildMasterLists()
+	ZO_ClearTable(self.uniqueIdList)
+	ZO_ClearTable(self.itemIdList)
 
 	local itemList = PLAYER_INVENTORY:GenerateListOfVirtualStackedItems(BAG_BACKPACK, IsTreasureOrSurveyItem)
 	for _, slotData in pairs(itemList) do
-		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
 		local itemId = GetItemId(slotData.bag, slotData.index)
+		local uniqueId = GetItemUniqueId(slotData.bag, slotData.index)
 		local itemLink = GetItemLink(slotData.bag, slotData.index)
-		self:Add(uniqueId, itemId, itemLink)
+		self:Add(itemId, uniqueId, itemLink)
 	end
 
 	logger:Debug("masterList updated")
 end
 
 function itemCache:IsItemInBagCache(itemId)
-	for _, itemData in ipairs(self.masterList) do
-		if itemId == itemData.itemId then
-			return true
-		end
-	end
-	return false
-end
-
-function itemCache:GetIndexFromUniqueId(uniqueId)
-	local uniqueIdString = Id64ToString(uniqueId)
-	for index, itemData in ipairs(self.masterList) do
-		if itemData.uniqueIdString == uniqueIdString then
-			logger:Debug("index %d has been found from uniqueIdString %s", index, uniqueIdString)
-			return index, itemData, uniqueIdString
-		end
-	end
-	logger:Debug("index has not been found: uniqueIdString %s", uniqueIdString)
-	return
+	return self.itemIdList[itemId]
 end
 
 function itemCache:GetItemIdFromUniqueId(uniqueId)
-	local uniqueIdString = Id64ToString(uniqueId)
-	for index, itemData in ipairs(self.masterList) do
-		if itemData.uniqueIdString == uniqueIdString then
-			local itemId = itemData.itemId
-			logger:Debug("itemId %d has been found from uniqueIdString %s", itemId, uniqueIdString)
-			return itemId
-		end
+	local uniqueId64String = Id64ToString(uniqueId)
+	local uniqueEntry = self.uniqueIdList[uniqueId64String]
+	if uniqueEntry then
+		logger:Debug("itemId %d has been found from uniqueId64String %s", itemId, uniqueId64String)
+		return uniqueEntry.itemId
 	end
-	logger:Debug("uniqueId has not been found: uniqueIdString %s", uniqueIdString)
+	logger:Debug("Can't return itemId, because uniqueId64String %s has not been found", uniqueId64String)
 	return
 end
 
-function itemCache:Add(uniqueId, itemId, itemLink)
-	local data =
-	{
-		uniqueIdString = Id64ToString(uniqueId),
-		itemId = itemId,
-		itemLink = itemLink,
-	}
-	table.insert(self.masterList, data)
+function itemCache:Add(itemId, uniqueId, itemLink)
+	if not self.itemIdList[itemId] then
+		self.itemIdList[itemId] = true
+	end
+
+	local uniqueId64String = Id64ToString(uniqueId)
+	if not self.uniqueIdList[uniqueId64String] then
+		local data =
+		{
+			uniqueIdString = uniqueId64String,
+			itemId = itemId,
+			itemLink = itemLink,
+		}
+		self.uniqueIdList[uniqueId64String] = data
+	end
+
 	logger:Verbose("%d (%s) has been added", itemId, GetItemLinkName(itemLink))
 end
 
@@ -95,10 +89,10 @@ function itemCache:SlotAdded(bagId, slotIndex, newSlotData)
 	local specializedItemType = newSlotData.specializedItemType
 	if utilities:IsTreasureOrSurveyItemType(specializedItemType) then
 
-		local uniqueId = GetItemUniqueId(bagId, slotIndex)
 		local itemId = GetItemId(bagId, slotIndex)
+		local uniqueId = GetItemUniqueId(bagId, slotIndex)
 		local itemLink = GetItemLink(bagId, slotIndex)
-		self:Add(uniqueId, itemId, itemLink)
+		self:Add(itemId, uniqueId, itemLink)
 
 		for pinType, pinData in ipairs(LOST_TREASURE_PIN_TYPE_DATA) do
 			if pinData.specializedItemType == specializedItemType then
@@ -110,20 +104,26 @@ function itemCache:SlotAdded(bagId, slotIndex, newSlotData)
 			end
 		end
 
-		logger:Info("%s added to your backpack cache. itemLink: %s", newSlotData.name, itemLink)
+		logger:Debug("%s added to your backpack cache. itemLink: %s", newSlotData.name, itemLink)
 	else
 		logger:Verbose("%s added to your backpack", newSlotData.name)
 	end
 end
 
 function itemCache:Remove(uniqueId)
-	local index, itemData, uniqueIdString = self:GetIndexFromUniqueId(uniqueId)
-	if index then
-		logger:Info("%d (%s) has been removed from cache", itemData.itemId, GetItemLinkName(itemData.itemLink))
-		return table.remove(self.masterList, index)
+	local uniqueId64String = Id64ToString(uniqueId)
+	local uniqueEntry = self.uniqueIdList[uniqueId64String]
+	if uniqueEntry then
+		local itemId = uniqueEntry.itemId
+		self.itemIdList[itemId] = nil
+		logger:Debug("%d has been deleted from itemIdList", itemId)
+
+		self.uniqueIdList[uniqueId64String] = nil
+		logger:Debug("%d (%s) has been removed from cache", uniqueEntry.itemId, GetItemLinkName(uniqueEntry.itemLink))
+		return uniqueEntry
+	else
+		logger:Error("uniqueId has not been found")
 	end
-	logger:Error("uniqueId has not been found")
-	return
 end
 
 -- Important Note:
