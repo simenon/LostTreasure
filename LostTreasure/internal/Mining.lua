@@ -71,7 +71,7 @@ function mining:Initialize()
 		logger:Info("initialized: Mining is ACTIVE " .. additionalText)
 	else
 		local notifications = internal.notifications
-		notifications:DeleteAllNotifications()
+		notifications:DeleteAllNotificationsInDatabase()
 		logger:Info("initialized: Mining is NOT active")
 	end
 end
