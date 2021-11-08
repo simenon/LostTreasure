@@ -25,10 +25,10 @@ internal\SavedVars.lua
 internal\MarkOnUsing.lua
 internal\Debug.lua
 internal\Settings.lua
+internal\Notifications.lua
 internal\Mining.lua
 internal\ItemCache.lua
 internal\Pins.lua
-internal\Notifications.lua
 
 LostTreasure.lua
 LostTreasure.xml
