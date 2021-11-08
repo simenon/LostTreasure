@@ -6,8 +6,8 @@
 
 ## Title: Lost Treasure
 ## Description: The one and only true treasure map and survey report locator. All others are just copies.
-## Version: 20
-## AddOnVersion: 20
+## Version: 21
+## AddOnVersion: 21
 ## Author: CrazyDutchGuy, Scootworks
 ## APIVersion: 101032 101033
 ## SavedVariables: LostTreasure_Account LostTreasure_Character
