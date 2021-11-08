@@ -12,11 +12,10 @@
 **Required Libraries:**
 
 Please install and activate all libraries as followed:
-[CustomCompassPins](https://www.esoui.com/downloads/info185-CustomCompassPins.html), 
-[LibAddonMenu-2.0](https://www.esoui.com/downloads/info7-LibAddonMenu.html), 
-[LibChatMessage](https://www.esoui.com/downloads/info2382-LibChatMessage.html), 
-[LibDebugLogger](https://www.esoui.com/downloads/info2275-LibDebugLogger.html), 
-[LibMapPins-1.0](https://www.esoui.com/downloads/info563-LibMapPins.html), 
-[LibNotification](https://www.esoui.com/downloads/info1224-CirconiansLibNotifications.html), 
+[CustomCompassPins](https://www.esoui.com/downloads/info185-CustomCompassPins.html),
+[LibAddonMenu-2.0](https://www.esoui.com/downloads/info7-LibAddonMenu.html),
+[LibDebugLogger](https://www.esoui.com/downloads/info2275-LibDebugLogger.html),
+[LibMapPins-1.0](https://www.esoui.com/downloads/info563-LibMapPins.html),
+[LibNotification](https://www.esoui.com/downloads/info1224-CirconiansLibNotifications.html),
 [LibSavedVars](https://www.esoui.com/downloads/info2161-LibSavedVars.html),
 [LibTreasure](https://www.esoui.com/downloads/info3227-LibTreasure.html)
