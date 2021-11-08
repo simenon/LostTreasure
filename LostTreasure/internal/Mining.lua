@@ -6,6 +6,10 @@ local logger = internal.LogManager:New("mining")
 local mining = { }
 internal.mining = mining
 
+local savedVars = internal.savedVars
+local notifications = internal.notifications
+
+
 local MINING_ACTIVE_TIME = ZO_ONE_DAY_IN_SECONDS * 7
 
 
@@ -40,7 +44,6 @@ function mining:Initialize()
 	]]
 	self.isActive = false
 
-	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local miningData = db.mining
 	local currentAPIVersion = LostTreasure.APIVersion
@@ -70,14 +73,12 @@ function mining:Initialize()
 	if self.isActive then
 		logger:Info("initialized: Mining is ACTIVE " .. additionalText)
 	else
-		local notifications = internal.notifications
 		notifications:DeleteAllNotificationsInDatabase()
 		logger:Info("initialized: Mining is NOT active")
 	end
 end
 
 local function IsStored(pinData)
-	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local mapIdData = db.mining.data[pinData.mapId]
 	if mapIdData then
@@ -106,7 +107,6 @@ function mining:Store(pinData)
 	end
 
 	-- Store in db
-	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local currentMapIdData = db.mining.data[pinData.mapId]
 	currentMapIdData[#currentMapIdData + 1] = pinData
@@ -114,7 +114,6 @@ function mining:Store(pinData)
 	logger:Debug("new item %d %s has been stored. hasNotMapOpened: %s, hasNotBookOpened: %s", pinData.itemId, pinData.itemName, tostring(hasNotMapOpened), tostring(hasNotBookOpened))
 
 	-- send a new notification
-	local notifications = internal.notifications
 	notifications:Add(pinData)
 end
 
