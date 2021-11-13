@@ -79,7 +79,7 @@ function LostTreasure:OnEventShowTreasureMap(treasureMapIndex)
 	self:UpdateVisibility(not isMinimapEnabled)
 
 	local pin = LibTreasure_GetTextureData(mapTextureName)
-	logger:Debug("GetTextureData itemId: %d", pin.itemId or "nil")
+	logger:Debug("GetTextureData itemId: %d", pin and pin.itemId or "no - pin has not been found")
 	if pin then
 		self:SetLastOpenedItemId(pin.itemId)
 		local pinType = utilities:GetPinTypeFromString(name)
