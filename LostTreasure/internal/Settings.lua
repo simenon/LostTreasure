@@ -66,6 +66,8 @@ function settings:Initialize()
 	local pins = internal.pins
 	local markOnUsing = internal.markOnUsing
 
+	local icons = LibTreasure_GetIcons()
+
 	local panelData = {
 		type = "panel",
 		name = ADDON_NAME,
@@ -137,7 +139,7 @@ function settings:Initialize()
 			type = "iconpicker",
 			name = SI_LOST_TREASURE_PIN_ICON,
 			tooltip = SI_LOST_TREASURE_PIN_ICON_TT,
-			choices = LibTreasure_GetIcons(),
+			choices = icons,
 			getFunc = function() return db.pinTypes[pinType].texture end,
 			setFunc = function(value)
 				db.pinTypes[pinType].texture = value
