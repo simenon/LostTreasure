@@ -146,13 +146,13 @@ do
 	--[[
 
 	This has to pass without action:
-	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 57764, "itemName", "itemLink", "hud")
+	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 57764, "itemName", "itemLink", "hud", true)
 	
 	This has to pop a request:
-	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 99999, "itemName", "itemLink", "hud")
+	/script LOST_TREASURE:RequestReport("treasure", INTERACTION_NONE, 99999, "itemName", "itemLink", "hud", true)
 
 	]]
-	function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink, sceneName)
+	function LostTreasure:RequestReport(pinType, interactionType, itemId, itemName, itemLink, sceneName, overwriteMiningState)
 		if IsValidInteractionType(pinType, interactionType, sceneName) then
 			-- Check for exisiting items in LostTreasure_Data.
 			if LibTreasure_GetItemIdData(itemId) then
@@ -183,7 +183,7 @@ do
 				lastOpenedTreasureMap = self.lastOpenedTreasureMap,
 				lastOpenedBookId = self.lastOpenedBookId,
 			}
-			mining:Add(pinData)
+			mining:Add(pinData, overwriteMiningState)
 		else
 			logger:Info("Invalid interaction. pinType %s, interactionType %d, sceneName %s", pinType, interactionType, sceneName)
 		end

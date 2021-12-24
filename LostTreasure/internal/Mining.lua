@@ -6,7 +6,6 @@ local logger = internal.LogManager:New("mining")
 local mining = { }
 internal.mining = mining
 
-local savedVars = internal.savedVars
 local notifications = internal.notifications
 
 
@@ -44,6 +43,7 @@ function mining:Initialize()
 	]]
 	self.isActive = false
 
+	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local miningData = db.mining
 	local currentAPIVersion = LostTreasure.APIVersion
@@ -79,6 +79,7 @@ function mining:Initialize()
 end
 
 local function IsStored(pinData)
+	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local mapIdData = db.mining.data[pinData.mapId]
 	if mapIdData then
@@ -97,19 +98,22 @@ function mining:IsActive()
 	return self.isActive
 end
 
-function mining:Store(pinData)
+function mining:Store(pinData, overwriteMiningState)
 	-- Only report new pins when the treasure map has been opened.
-	local hasNotMapOpened = pinData.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED
-	local hasNotBookOpened = pinData.lastOpenedBookId == LOST_TREASURE_BOOK_NOT_OPENED
-	if hasNotMapOpened and hasNotBookOpened then
-		logger:Debug("no book and treasure map has been opened before")
-		return
+	if overwriteMiningState == nil or overwriteMiningState == false then
+		local hasNotMapOpened = pinData.lastOpenedTreasureMap == LOST_TREASURE_MAP_NOT_OPENED
+		local hasNotBookOpened = pinData.lastOpenedBookId == LOST_TREASURE_BOOK_NOT_OPENED
+		if hasNotMapOpened and hasNotBookOpened then
+			logger:Debug("no book and treasure map has been opened before")
+			return
+		end
 	end
 
 	-- Store in db
+	local savedVars = internal.savedVars
 	local db = savedVars.db
-	local currentMapIdData = db.mining.data[pinData.mapId]
-	currentMapIdData[#currentMapIdData + 1] = pinData
+	db.mining.data[pinData.mapId] = db.mining.data[pinData.mapId] or { }
+	table.insert(db.mining.data[pinData.mapId], pinData)
 
 	logger:Debug("new item %d %s has been stored. hasNotMapOpened: %s, hasNotBookOpened: %s", pinData.itemId, pinData.itemName, tostring(hasNotMapOpened), tostring(hasNotBookOpened))
 
@@ -117,13 +121,14 @@ function mining:Store(pinData)
 	notifications:Add(pinData)
 end
 
-function mining:Add(pinData)
-	if not self:IsActive() then
+function mining:Add(pinData, overwriteMiningState)
+	if self:IsActive() or overwriteMiningState == true then
+		if not IsStored(pinData) then
+			self:Store(pinData, overwriteMiningState)
+		else
+			logger:Info("Item %s is stored already.", pinData.itemId)
+		end
+	else
 		logger:Info("Mining not active! Tried to add %s", pinData.itemId)
-		return
-	end
-
-	if not IsStored(pinData) then
-		self:Store(pinData)
 	end
 end
