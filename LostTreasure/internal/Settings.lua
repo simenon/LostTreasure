@@ -54,11 +54,11 @@ local MINIMAP_SIZES =
 }
 
 
-local savedVars = internal.savedVars
 local LibAddonMenu = LibAddonMenu2
 
 
 function settings:Initialize()
+	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	local defaults = savedVars:GetDefaults()
 
@@ -270,11 +270,13 @@ function settings:Initialize()
 end
 
 function settings:GetSettingsFromPinType(pinType, key)
+	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	return db.pinTypes[pinType][key]
 end
 
 function settings:GetSettingDeletionDelay(pinType)
+	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	local deletionDelay
 

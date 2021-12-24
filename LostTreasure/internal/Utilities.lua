@@ -74,7 +74,7 @@ function utilities:AddTooltip(text, itemName, itemQualityColor, itemStackCount, 
 end
 
 -- Map / Pins
-local NO_PIN_TYPE = "nil"
+local NO_PIN_TYPE = LOST_TREASURE_NO_PIN_TYPE
 local GetZoneAndSubzone = LibMapPins.GetZoneAndSubzone
 local itemNameCache = { }
 
@@ -106,7 +106,7 @@ function utilities:GetPinTypeFromString(itemName)
 	if itemNameCached then
 		if itemNameCached == NO_PIN_TYPE then
 			LoggerMessage(itemName)
-			return
+			return NO_PIN_TYPE
 		end
 		return itemNameCached
 	end
@@ -124,5 +124,5 @@ function utilities:GetPinTypeFromString(itemName)
 	-- If we didn't find any matching pinType, let's store the value as "nil" (NO_PIN_TYPE)
 	itemNameCache[itemName] = NO_PIN_TYPE
 	LoggerMessage(itemName)
-	return
+	return NO_PIN_TYPE
 end
