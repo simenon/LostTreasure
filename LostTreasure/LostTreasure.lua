@@ -117,7 +117,7 @@ end
 
 function LostTreasure:UpdateVisibility(hidden, fadeTime)
 	local isHidden = tostring(LOST_TREASURE_FRAGMENT:IsHidden())
-	logger:Debug("set hidden: %s, isHidden: %s, fadeTime: %d", tostring(hidden), isHidden, fadeTime)
+	logger:Debug("set hidden: %s, isHidden: %s, fadeTime: %s", tostring(hidden), isHidden, fadeTime or "nil")
 	LOST_TREASURE_FRAGMENT:SetHiddenForReason("hasMapOpened", hidden, fadeTime, fadeTime)
 end
 
