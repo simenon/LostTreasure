@@ -56,13 +56,41 @@ local MINIMAP_SIZES =
 
 local LibAddonMenu = LibAddonMenu2
 
+local function HasUpdatedPath(path)
+	local pathLower = path:lower()
+	return path:find("EsoUI") ~= nil or path:find("LibTreasure") ~= nil
+end
+
+local function GetNewTexturePath(path, pinType, icons, defaults)
+	if path then -- check if path is existing in our savedVars
+		if HasUpdatedPath(path) then -- check if the path refers to LibTreasure already
+			logger:Debug("Use existing iconPath, path: %s", path)
+			return path
+		else -- if the path still refers to LostTreasure, update to the new path
+			logger:Debug("Existing path is not existing. Try to catch the new one.")
+			local utilities = internal.utilities
+			local fileName = utilities:GetFileNameFromPath(path)
+			
+			for i, value in ipairs(icons) do
+				if utilities:DoesPathContainsFileName(value, fileName) then
+					local iconPath = icons[i]
+					logger:Debug("Use new iconPath, path: %s", iconPath)
+					return iconPath
+				end
+			end
+		end
+	end
+	-- return default value
+	local iconPath = defaults.pinTypes[pinType].texture
+	logger:Debug("Use default iconPath, path: %s", iconPath)
+	return iconPath
+end
 
 function settings:Initialize()
 	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	local defaults = savedVars:GetDefaults()
 
-	local utilities = internal.utilities
 	local pins = internal.pins
 	local markOnUsing = internal.markOnUsing
 
@@ -140,7 +168,9 @@ function settings:Initialize()
 			name = SI_LOST_TREASURE_PIN_ICON,
 			tooltip = SI_LOST_TREASURE_PIN_ICON_TT,
 			choices = icons,
-			getFunc = function() return db.pinTypes[pinType].texture end,
+			getFunc = function()
+				return GetNewTexturePath(db.pinTypes[pinType].texture, pinType, icons, defaults)
+			end,
 			setFunc = function(value)
 				db.pinTypes[pinType].texture = value
 				pins:SetLayoutKey(pinType, "texture", value)
