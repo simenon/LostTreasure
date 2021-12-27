@@ -126,3 +126,13 @@ function utilities:GetPinTypeFromString(itemName)
 	LoggerMessage(itemName)
 	return NO_PIN_TYPE
 end
+
+function utilities:GetFileNameFromPath(path)
+	return path:match("[^/]+$")
+end
+
+function utilities:DoesPathContainsFileName(path, fileName)
+	path = path:lower()
+	fileName = fileName:lower()
+	return path:find(fileName) ~= nil
+end
