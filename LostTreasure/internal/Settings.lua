@@ -70,11 +70,15 @@ local function GetNewTexturePath(path, pinType, icons, defaults)
 			logger:Debug("Existing path is not existing. Try to catch the new one.")
 			local utilities = internal.utilities
 			local fileName = utilities:GetFileNameFromPath(path)
-			
 			for i, value in ipairs(icons) do
 				if utilities:DoesPathContainsFileName(value, fileName) then
 					local iconPath = icons[i]
 					logger:Debug("Use new iconPath, path: %s", iconPath)
+					-- save the icon into savedVars
+					local savedVars = internal.savedVars
+					local db = savedVars:GetSavedVars()
+					db.pinTypes[pinType].texture = iconPath
+
 					return iconPath
 				end
 			end
