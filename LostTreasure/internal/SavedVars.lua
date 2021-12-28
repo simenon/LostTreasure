@@ -97,7 +97,7 @@ function savedVars:GetNewTexturePath(path, pinType)
 			logger:Debug("Use existing iconPath, path: %s", path)
 			return path
 		else -- if the path still refers to LostTreasure, update to the new path
-			logger:Debug("Existing path is not existing. Try to catch the new one.")
+			logger:Debug("Saved path does not exist. Try to catch the new one.")
 			local textures = LibTreasure_GetIcons()
 			local utilities = internal.utilities
 			local fileName = utilities:GetFileNameFromPath(path)
