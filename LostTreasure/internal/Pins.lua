@@ -68,6 +68,7 @@ function pins:SetCompassPinTypeTexture(pinType, texturePath)
 end
 
 function pins:RefreshAllPins()
+	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	for pinType, _ in pairs(db.pinTypes) do
 		pins:RefreshAllPinsFromPinType(pinType)
@@ -130,6 +131,7 @@ function pins:GetAndCreateMapPins(pinType, key)
 end
 
 function pins:GetAndCreateMinedMapPins(pinType, key)
+	local savedVars = internal.savedVars
 	local db = savedVars.db
 	local mapId = GetCurrentMapId()
 	local currentMapIdData = db.mining.data[mapId]
@@ -214,6 +216,7 @@ function pins:Initialize()
 		end,
 	}
 
+	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
 	for pinType, settingsLayout in pairs(db.pinTypes) do
 
