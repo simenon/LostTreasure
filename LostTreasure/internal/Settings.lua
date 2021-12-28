@@ -53,9 +53,6 @@ local MINIMAP_SIZES =
 	},
 }
 
-local LibAddonMenu = LibAddonMenu2
-
-
 function settings:Initialize()
 	local savedVars = internal.savedVars
 	local db = savedVars:GetSavedVars()
@@ -261,6 +258,7 @@ function settings:Initialize()
 	}
 
 	local globalPanelName = ADDON_NAME .. "LAMSettings"
+	local LibAddonMenu = LibAddonMenu2
 	LibAddonMenu:RegisterAddonPanel(globalPanelName, panelData)
 	LibAddonMenu:RegisterOptionControls(globalPanelName, menu)
 
