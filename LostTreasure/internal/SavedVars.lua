@@ -63,6 +63,10 @@ savedVars.DEFAULTS =
 		APITimeStamp = BLANK_SAVED_VARS,
 		data = { },
 	},
+	misc =
+	{
+		hasNewIconPath = false,
+	},
 }
 
 function savedVars:Initialize()
@@ -74,9 +78,16 @@ function savedVars:Initialize()
 		end)
 
 	-- update icons
-	for pinType, settings in pairs(self.db.pinTypes) do
-		local texture = self:GetNewTexturePath(settings.texture, pinType)
-		self.db.pinTypes[pinType].texture = texture
+	-- This can be removed few versions later
+	if self.db.misc.hasNewIconPath == false then
+		logger:Debug("The addon has to update the old icon path to the new one. Update initializing...")
+		for pinType, settings in pairs(self.db.pinTypes) do
+			local texture = self:GetNewTexturePath(settings.texture, pinType)
+			self.db.pinTypes[pinType].texture = texture
+		end
+		self.db.misc.hasNewIconPath = true
+	else
+		logger:Debug("The addon refers to LibTreasure already")
 	end
 
 	-- debug
@@ -92,28 +103,21 @@ function savedVars:GetDefaults()
 end
 
 function savedVars:GetNewTexturePath(path, pinType)
-	if path then -- check if path is existing in our savedVars
-		if HasUpdatedPath(path) then -- check if the path refers to LibTreasure already
-			logger:Debug("Use existing iconPath, path: %s", path)
-			return path
-		else -- if the path still refers to LostTreasure, update to the new path
-			logger:Debug("Saved path does not exist. Try to catch the new one.")
-			local textures = LibTreasure_GetIcons()
-			local utilities = internal.utilities
-			local fileName = utilities:GetFileNameFromPath(path)
-			for i, value in ipairs(textures) do
-				if utilities:DoesPathContainsFileName(value, fileName) then
-					local iconPath = textures[i]
-					logger:Debug("Use new iconPath, path: %s", iconPath)
-					-- save the icon into savedVars
-					local db = self:GetSavedVars()
-					db.pinTypes[pinType].texture = iconPath
-					return iconPath
-				end
-			end
+	local textures = LibTreasure_GetIcons()
+	local utilities = internal.utilities
+	local fileName = utilities:GetFileNameFromPath(path)
+	for i, value in ipairs(textures) do
+		if utilities:DoesPathContainsFileName(value, fileName) then
+			local iconPath = textures[i]
+			logger:Debug("Use new iconPath, path: %s", iconPath)
+			-- save the icon into savedVars
+			local db = self:GetSavedVars()
+			db.pinTypes[pinType].texture = iconPath
+			return iconPath
 		end
 	end
-	-- return default value
+
+	-- return default value as a fallback
 	local defaults = self:GetDefaults()
 	local iconPath = defaults.pinTypes[pinType].texture
 	logger:Debug("Use default iconPath, path: %s", iconPath)
